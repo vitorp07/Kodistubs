@@ -588,13 +588,6 @@ class Monitor(object):
         """
         pass
 
-    def waitForAbort(self):
-        """
-        waitForAbort() -- onAbortRequested method.
-        Will be called when XBMC requests Abort
-        """
-        pass
-
     def onDatabaseUpdated(self, database):
         """
         Deprecated!
