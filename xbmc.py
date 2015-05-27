@@ -2,6 +2,9 @@
 #  Various classes and functions to interact with XBMC.
 #
 
+import time as time_
+
+
 CAPTURE_FLAG_CONTINUOUS = 1
 CAPTURE_FLAG_IMMEDIATELY = 2
 CAPTURE_STATE_DONE = 3
@@ -41,9 +44,7 @@ __credits__ = 'Team XBMC'
 __date__ = 'Sun Aug 18 16:43:16 CEST 2013'
 __platform__ = 'ALL'
 __version__ = '2.0'
-abortRequested = False
 
-#noinspection PyUnusedLocal
 class Keyboard(object):
     def __init__(self, default=None, heading=None, hidden=False):
         """Creates a new Keyboard object with default text heading and hidden input flag if supplied.
@@ -119,10 +120,9 @@ class Keyboard(object):
         """Returns False if the user cancelled the input.
         example:
         - if (kb.isConfirmed()):"""
-        return bool
+        return True
 
 
-#noinspection PyUnusedLocal
 class Player(object):
     def __init__(self, core=None):
         """Creates a new Player with as default the xbmc music playlist.
@@ -241,15 +241,15 @@ class Player(object):
 
     def isPlaying(self):
         """Returns True is xbmc is playing a file."""
-        return bool
+        return True
 
     def isPlayingAudio(self):
         """Returns True is xbmc is playing an audio file."""
-        return bool
+        return True
 
     def isPlayingVideo(self):
         """Returns True if xbmc is playing a video."""
-        return bool
+        return True
 
     def getPlayingFile(self):
         """Returns the current playing file as a string.
@@ -257,7 +257,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file.
         """
-        return str
+        return 'koditests: fake_file.mp4'
 
     def getVideoInfoTag(self):
         """Returns the VideoInfoTag of the current playing Movie.
@@ -268,7 +268,7 @@ class Player(object):
         Note:
             This doesn't work yet, it's not tested.
         """
-        return object
+        return InfoTagVideo()
 
     def getMusicInfoTag(self):
         """Returns the MusicInfoTag of the current playing 'Song'.
@@ -276,7 +276,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file or current file is not a music file.
         """
-        return object
+        return InfoTagMusic()
 
     def getTotalTime(self):
         """Returns the total time of the current playing media in seconds.
@@ -286,7 +286,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file.
         """
-        return float
+        return 3600.0
 
     def getTime(self):
         """Returns the current time of the current playing media as fractional seconds.
@@ -294,7 +294,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file.
         """
-        return float
+        return 60.0
 
     def seekTime(self, pTime):
         """Seeks the specified amount of time as fractional seconds.
@@ -318,7 +318,7 @@ class Player(object):
 
     def getSubtitles(self):
         """Get subtitle stream name."""
-        return str
+        return 'koditests: fake_subtitles.srt'
 
     def disableSubtitles(self):
         """Disable subtitles."""
@@ -326,12 +326,13 @@ class Player(object):
 
     def getAvailableAudioStreams(self):
         """Get audio stream names."""
-        return list
+        return ['koditests: fake audiostream1', 'koditests: fake audiostream2']
+
     def getAvailableSubtitleStreams(self):
         """
         getAvailableSubtitleStreams() -- get Subtitle stream names
         """
-        return list
+        return ['koditests: fake substream1', 'koditests: fake substream2']
 
     def setAudioStream(self, stream):
         """Set audio stream.
@@ -341,7 +342,6 @@ class Player(object):
         pass
 
 
-#noinspection PyUnusedLocal
 class PlayList(object):
     def __init__(self, playlist):
         """Retrieve a reference from a valid xbmc playlist
@@ -358,7 +358,7 @@ class PlayList(object):
         return None
 
     def __len__(self):
-        return 0
+        return 1
 
     def add(self, url, listitem=None, index=-1):
         """Adds a new file to the playlist.
@@ -383,7 +383,7 @@ class PlayList(object):
 
         Returns False if unable to load playlist, True otherwise.
         """
-        return bool
+        return True
 
     def remove(self, filename):
         """Remove an item with this filename from the playlist."""
@@ -407,179 +407,175 @@ class PlayList(object):
 
     def getposition(self):
         """Returns the position of the current song in this playlist."""
-        return int
+        return 1
 
 
-#noinspection PyUnusedLocal
 class PlayListItem(object):
     """Creates a new PlaylistItem which can be added to a PlayList."""
 
     def getdescription(self):
         """Returns the description of this PlayListItem."""
-        return str
+        return 'koditests: fake PlayListItem description'
 
     def getduration(self):
         """Returns the duration of this PlayListItem."""
-        return long
+        return 60
 
     def getfilename(self):
         """Returns the filename of this PlayListItem."""
-        return str
+        return '/koditests/fake_file.mp4'
 
 
-#noinspection PyUnusedLocal
 class InfoTagMusic(object):
     def getURL(self):
         """Returns a string."""
-        return str
+        return 'http://koditests.fake.url'
 
     def getTitle(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake title'
 
     def getArtist(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake artist'
 
     def getAlbumArtist(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake album artist'
 
     def getAlbum(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake album'
 
     def getGenre(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake genre'
 
     def getDuration(self):
         """Returns an integer."""
-        return int
+        return 60
 
     def getTrack(self):
         """Returns an integer."""
-        return int
+        return 3
 
     def getDisc(self):
         """Returns an integer."""
-        return int
+        return 1
 
     def getTrackAndDisc(self):
         """Returns an integer."""
-        return int
+        return 12
 
     def getReleaseDate(self):
         """Returns a string."""
-        return str
+        return '1900-01-01'
 
     def getListeners(self):
         """Returns an integer."""
-        return int
+        return 60
 
     def getPlayCount(self):
         """Returns an integer."""
-        return int
+        return 5
 
     def getLastPlayed(self):
         """Returns a string."""
-        return str
+        return '2015-01-01 4:00pm'
 
     def getComment(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake comment'
 
     def getLyrics(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake lyrics'
 
 
-#noinspection PyUnusedLocal
 class InfoTagVideo(object):
     def getDirector(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake director'
 
     def getWritingCredits(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake writing credits'
 
     def getGenre(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake genre'
 
     def getTagLine(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake tagline'
 
     def getPlotOutline(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake plotoutline'
 
     def getPlot(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake plot'
 
     def getPictureURL(self):
         """Returns a string."""
-        return str
+        return 'http://fake/picture.jpg'
 
     def getTitle(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake title'
 
     def getOriginalTitle(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake original title'
 
     def getVotes(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake votes'
 
     def getCast(self):
         """Returns a string."""
-        return str
+        return 'koditests: Fake cast'
 
     def getFile(self):
         """Returns a string."""
-        return str
+        return 'fake_file.mp4'
 
     def getPath(self):
         """Returns a string."""
-        return str
+        return '/some/path/to/file.mp4'
 
     def getIMDBNumber(self):
         """Returns a string."""
-        return str
+        return '12345'
 
     def getYear(self):
         """Returns an integer."""
-        return int
+        return 1900
 
     def getPremiered(self):
         """Returns a string."""
-        return str
+        return '1900-01-01'
 
     def getFirstAired(self):
         """Returns a string."""
-        return str
+        return '1900-01-01'
 
     def getRating(self):
         """Returns a float."""
-        return float
+        return 7.5
 
     def getPlayCount(self):
         """Returns an integer."""
-        return int
+        return 5
 
     def getLastPlayed(self):
         """Returns a string."""
-        return str
+        return '1900-01-01 4:00pm'
 
-#noinspection PyUnusedLocal
 class Monitor(object):
     """
-   	Monitor class.
+    Monitor class.
     Monitor() -- Creates a new Monitor to notify addon about changes.
     """
     def onAbortRequested(self):
@@ -702,10 +698,9 @@ class Monitor(object):
         :param timeout: float - (optional) timeout in seconds. Default: no timeout.
         :return: bool
         """
-        return bool
+        return False
 
 
-#noinspection PyUnusedLocal
 class RenderCapture(object):
 
     def capture(self, width, height, flags=None):
@@ -724,7 +719,7 @@ class RenderCapture(object):
         """
         getAspectRatio() --returns aspect ratio of currently displayed video as a float number.
         """
-        return float
+        return 1.78
 
     def getCaptureState(self):
         """
@@ -734,32 +729,32 @@ class RenderCapture(object):
          - xbmc.CAPTURE_STATE_DONE : Capture request done. The image could be retrieved withgetImage()
          - xbmc.CAPTURE_STATE_FAILED : Capture request failed.
         """
-        return int
+        return CAPTURE_STATE_DONE
 
     def getHeight(self):
         """
         getHeight() --returns height of captured image.
         """
-        return int
+        return 1080
 
     def getImage(self):
         """
         getImage() --returns captured image as a bytearray.
         The size of the image isgetWidth() *getHeight() * 4
         """
-        return bytearray
+        return bytearray()
 
     def getImageFormat(self):
         """
         getImageFormat() --returns format of captured image: 'BGRA' or 'RGBA'.
         """
-        return str
+        return 'RGBA'
 
     def getWidth(self):
         """
         getWidth() --returns width of captured image.
         """
-        return int
+        return 1920
 
     def waitForCaptureStateChangeEvent(self, msec):
         """
@@ -767,10 +762,9 @@ class RenderCapture(object):
         msecs : Milliseconds to wait. Waits forever if not specified.
         The method will return 1 if the Event was triggered. Otherwise it will return 0.
         """
-        return int
+        return 1
 
 
-#noinspection PyUnusedLocal
 def audioResume():
     """
     audioResume()--Resume Audio engine.
@@ -820,7 +814,7 @@ def executeJSONRPC(jsonrpccommand):
     example:
     - response = xbmc.executeJSONRPC('{ "jsonrpc": "2.0", "method": "JSONRPC.Introspect", "id": 1 }')
     """
-    return str
+    return '{"id":"1","jsonrpc":"2.0","result":"pong"}'
 
 def executebuiltin(function):
     """
@@ -850,9 +844,9 @@ def getCacheThumbName(path):
     example:
     - thumb = xbmc.getCacheThumbName('f:\videos\movie.avi')
     """
-    return str
+    return '/somepath/image.jpg'
 
-def getCleanMovieTitle(path, usefoldername):
+def getCleanMovieTitle(path, usefoldername=False):
     """
     getCleanMovieTitle(path[, usefoldername])--Returns a clean movie title and year string if available.
 
@@ -862,7 +856,7 @@ def getCleanMovieTitle(path, usefoldername):
     example:
     - title, year = xbmc.getCleanMovieTitle('/path/to/moviefolder/test.avi', True)
     """
-    return str
+    return 'Fake Movie Title', '1900'
 
 def getCondVisibility(condition):
     """
@@ -878,7 +872,7 @@ def getCondVisibility(condition):
     example:
     - visible = xbmc.getCondVisibility('[Control.IsVisible(41) + !Control.IsVisible(12)]')
     """
-    return bool
+    return True
 
 def getDVDState():
     """
@@ -892,7 +886,7 @@ def getDVDState():
     example:
      - dvdstate = xbmc.getDVDState()
      """
-    return int
+    return 96
 
 def getFreeMem():
     """
@@ -901,7 +895,7 @@ def getFreeMem():
     example:
      - freemem = xbmc.getFreeMem()
      """
-    return int
+    return 1024
 
 def getGlobalIdleTime():
     """
@@ -910,7 +904,7 @@ def getGlobalIdleTime():
     example:
     - t = xbmc.getGlobalIdleTime()
     """
-    return int
+    return 1200
 
 def getIPAddress():
     """
@@ -919,7 +913,7 @@ def getIPAddress():
     example:
     - ip = xbmc.getIPAddress()
     """
-    return str
+    return '192.168.1.100'
 
 def getInfoImage(infotag):
     """
@@ -932,7 +926,7 @@ def getInfoImage(infotag):
     example:
     - filename = xbmc.getInfoImage('Weather.Conditions')
     """
-    return str
+    return '/path/to/someimage.png'
 
 def getInfoLabel(infotag):
     """
@@ -945,9 +939,9 @@ def getInfoLabel(infotag):
     example:
     - label = xbmc.getInfoLabel('Weather.Conditions')
     """
-    return str
+    return 'Fake InfoLabel'
 
-def getLanguage(format_, region):
+def getLanguage(format_=None, region=None):
     """
     getLanguage([format], [region])--Returns the active language as a string.
 
@@ -962,7 +956,7 @@ def getLanguage(format_, region):
     example:
     - language = xbmc.getLanguage(xbmc.ENGLISH_NAME)
     """
-    return str
+    return 'German'
 
 def getLocalizedString(id_):
     """
@@ -976,7 +970,7 @@ def getLocalizedString(id_):
     example:
     - locstr = xbmc.getLocalizedString(6)
     """
-    return unicode
+    return 'Fake UI string'
 
 def getRegion(id_):
     """
@@ -984,12 +978,13 @@ def getRegion(id_):
 
     id : string - id of setting to return
 
-    *Note, choices are (dateshort, datelong, time, meridiem, tempunit, speedunit)You can use the above as keywords for arguments.
+    *Note, choices are (dateshort, datelong, time, meridiem, tempunit, speedunit)
+    You can use the above as keywords for arguments.
 
     example:
     - date_long_format = xbmc.getRegion('datelong')
     """
-    return str
+    return 'YYYY-MM-DD'
 
 def getSkinDir():
     """
@@ -1000,7 +995,7 @@ def getSkinDir():
     example:
     - skindir = xbmc.getSkinDir()
     """
-    return str
+    return 'skin.confluence'
 
 def getSupportedMedia(media):
     """
@@ -1008,14 +1003,15 @@ def getSupportedMedia(media):
 
     media : string - media type
 
-    *Note, media type can be (video, music, picture).The return value is a pipe separated string of filetypes (eg. '.mov|.avi').
+    *Note, media type can be (video, music, picture).
+    The return value is a pipe separated string of filetypes (eg. '.mov|.avi').
 
     You can use the above as keywords for arguments.
 
     example:
     - mTypes = xbmc.getSupportedMedia('video')
     """
-    return str
+    return '.avi|.mkv|.mp4'
 
 def log(msg, level=LOGNOTICE):
     """
@@ -1034,9 +1030,9 @@ def log(msg, level=LOGNOTICE):
     example:
     - xbmc.output(msg='This is a test string.', level=xbmc.LOGDEBUG));
     """
-    pass
+    print 'koditests: ' + msg
 
-def makeLegalFilename(filename, fatX):
+def makeLegalFilename(filename, fatX=True):
     """
     makeLegalFilename(filename[, fatX])--Returns a legal filename or path as a string.
 
@@ -1052,7 +1048,7 @@ def makeLegalFilename(filename, fatX):
     example:
     - filename = xbmc.makeLegalFilename('F: Age: The Meltdown.avi')
     """
-    return str
+    return '/some/fake/path'
 
 def playSFX(filename, useCached=False):
     """
@@ -1104,7 +1100,7 @@ def skinHasImage(image):
     example:
     - exists = xbmc.skinHasImage('ButtonFocusedTexture.png')
     """
-    return bool
+    return True
 
 def sleep(time):
     """
@@ -1121,9 +1117,9 @@ def sleep(time):
     example:
     - xbmc.sleep(2000) # sleeps for 2 seconds
     """
-    pass
+    time_.sleep(1000.0 * time)
 
-def startServer(typ, bStart, bWait):
+def startServer(typ, bStart, bWait=False):
     """
     startServer(typ, bStart, bWait)--start or stop a server.
 
@@ -1132,11 +1128,10 @@ def startServer(typ, bStart, bWait):
     bWait : [opt] bool - wait on stop before returning (not supported by all servers)
     returnValue : bool - True or False
 
-
     example:
     - xbmc.startServer(xbmc.SERVER_AIRPLAYSERVER, False)
     """
-    pass
+    return True
 
 def translatePath(path):
     """
@@ -1150,7 +1145,7 @@ def translatePath(path):
     example:
     - fpath = xbmc.translatePath('special://masterprofile/script_data')
     """
-    return unicode
+    return '/some/fake/path'
 
 def validatePath(path):
     """
@@ -1164,5 +1159,4 @@ def validatePath(path):
     example:
     - fpath = xbmc.validatePath(somepath)
     """
-    return unicode
-
+    return 'C:\\fakedir'

@@ -2,9 +2,9 @@
 #  A class to access addon properties.
 #
 
-#noinspection PyUnusedLocal
+
 class Addon(object):
-    def __init__(self, id = None):
+    def __init__(self, id='koditests.test.addon'):
         """Creates a new Addon class.
 
         id: string - id of the addon (autodetected in XBMC Eden)
@@ -12,7 +12,8 @@ class Addon(object):
         Example:
             self.Addon = xbmcaddon.Addon(id='script.recentlyadded')
         """
-        pass
+        self._id = id
+        self._settings = {}
 
     def getLocalizedString(self, id):
         """Returns an addon's localized 'unicode string'.
@@ -22,7 +23,7 @@ class Addon(object):
         Example:
             locstr = self.Addon.getLocalizedString(id=6)
         """
-        return unicode
+        return 'Fake UI string'
 
     def getSetting(self, id):
         """Returns the value of a setting as a unicode string.
@@ -32,7 +33,11 @@ class Addon(object):
         Example:
         apikey = self.Addon.getSetting('apikey')
         """
-        return unicode
+        try:
+            setting = self._settings[id]
+        except KeyError:
+            setting = ''
+        return setting
 
     def setSetting(self, id, value):
         """Sets a script setting.
@@ -43,7 +48,7 @@ class Addon(object):
         Example:
             self.Settings.setSetting(id='username', value='teamxbmc')
         """
-        pass
+        self._settings[id] = value
 
     def openSettings(self):
         """Opens this scripts settings dialog."""
@@ -61,4 +66,8 @@ class Addon(object):
         Example:
             version = self.Addon.getAddonInfo('version')
         """
-        return str
+        if id == 'id':
+            return self._id
+        elif id == 'path':
+            return '/some/fake/path'
+        return 'Fake addon info'

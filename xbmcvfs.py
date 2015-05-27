@@ -2,14 +2,20 @@
 #  Classes and functions to work with files and folders.
 #
 
+import os
+import shutil
+
 class File(object):
-    def __init__(self, filename, type = None):
+    def __init__(self, filename, mode=None):
         """
         'w' - opt open for write
         example:
          f = xbmcvfs.File(file, ['w'])
         """
-        pass
+        if mode == 'w':
+            self._file = open(filename, mode='wb')
+        else:
+            self._file = open(filename, mode='rb')
 
     def close(self):
         """
@@ -17,9 +23,9 @@ class File(object):
          f = xbmcvfs.File(file)
          f.close()
         """
-        pass
+        self._file.close()
 
-    def read(self, bytes = None):
+    def read(self, bytes=0):
         """
         bytes : how many bytes to read [opt]- if not set it will read the whole file
         example:
@@ -27,9 +33,11 @@ class File(object):
         b = f.read()
         f.close()
         """
-        pass
+        if not bytes:
+            bytes = -1
+        return self._file.read(bytes)
 
-    def readBytes(self, numbytes):
+    def readBytes(self, numbytes=0):
         """
         readBytes(numbytes)
 
@@ -42,9 +50,9 @@ class File(object):
         b = f.read()
         f.close()
         """
-        return bytearray
+        return bytearray(self.read(numbytes))
 
-    def seek(self):
+    def seek(self, seekBytes, iWhence):
         """
         FilePosition : position in the file
         Whence : where in a file to seek from[0 begining, 1 current , 2 end possition]
@@ -53,7 +61,7 @@ class File(object):
          result = f.seek(8129, 0)
          f.close()
         """
-        pass
+        self._file.seek(seekBytes, iWhence)
 
     def size(self):
         """
@@ -62,7 +70,11 @@ class File(object):
          s = f.size()
          f.close()
         """
-        return int
+        old_file_position = self._file.tell()
+        self._file.seek(0, os.SEEK_END)
+        size = self._file.tell()
+        self._file.seek(old_file_position, os.SEEK_SET)
+        return size
 
     def write(self, buffer):
         """
@@ -72,9 +84,9 @@ class File(object):
          result = f.write(buffer)
          f.close()
         """
-        pass
+        self._file.write(buffer)
 
-#noinspection PyUnusedLocal
+
 def copy(source, destination):
     """Copy file to destination, returns true/false.
 
@@ -83,9 +95,13 @@ def copy(source, destination):
 
     Example:
         success = xbmcvfs.copy(source, destination)"""
-    return bool
+    try:
+        shutil.copy(source, destination)
+        return True
+    except IOError:
+        return False
 
-#noinspection PyUnusedLocal
+
 def delete(file):
     """Deletes a file.
 
@@ -93,9 +109,13 @@ def delete(file):
 
     Example:
         xbmcvfs.delete(file)"""
-    pass
+    try:
+        os.remove(file)
+        return True
+    except IOError:
+        return False
 
-#noinspection PyUnusedLocal
+
 def rename(file, newFileName):
     """Renames a file, returns true/false.
 
@@ -104,9 +124,13 @@ def rename(file, newFileName):
 
     Example:
         success = xbmcvfs.rename(file,newFileName)"""
-    return bool
+    try:
+        os.rename(file, newFileName)
+        return True
+    except (OSError, IOError):
+        return False
 
-#noinspection PyUnusedLocal
+
 def mkdir(path):
     """Create a folder.
 
@@ -115,9 +139,13 @@ def mkdir(path):
     Example:
         success = xbmcfvs.mkdir(path)
     """
-    return bool
+    try:
+        os.mkdir(path)
+        return True
+    except OSError:
+        return False
 
-#noinspection PyUnusedLocal
+
 def mkdirs(path):
     """
     mkdirs(path)--Create folder(s) - it will create all folders in the path.
@@ -128,9 +156,13 @@ def mkdirs(path):
 
     - success = xbmcvfs.mkdirs(path)
     """
-    return bool
+    try:
+        os.makedirs(path)
+        return True
+    except OSError:
+        return False
 
-#noinspection PyUnusedLocal
+
 def rmdir(path):
     """Remove a folder.
 
@@ -139,9 +171,13 @@ def rmdir(path):
     Example:
         success = xbmcfvs.rmdir(path)
     """
-    return bool
+    try:
+        os.rmdir(path)
+        return True
+    except OSError:
+        return False
 
-#noinspection PyUnusedLocal
+
 def exists(path):
     """Checks for a file or folder existance, mimics Pythons os.path.exists()
 
@@ -149,7 +185,8 @@ def exists(path):
 
     Example:
         success = xbmcvfs.exists(path)"""
-    return bool
+    return os.path.exists(path)
+
 
 def listdir(path):
     """
@@ -160,17 +197,15 @@ def listdir(path):
     example:
      - dirs, files = xbmcvfs.listdir(path)
     """
-    pass
+    dirs = []
+    files = []
+    for item in os.listdir(path):
+        if os.path.isdir(item):
+            dirs.append(item)
+        else:
+            files.append(item)
+    return dirs, files
 
-def mkdirs(path):
-    """Create folder(s) - it will create all folders in the path.
-
-    path: folder
-
-    Example:
-        success = xbmcfvs.mkdirs(path)
-    """
-    return bool
 
 class Stat(object):
     def __init__(self, path):

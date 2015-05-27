@@ -44,7 +44,7 @@ SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE = 25
 SORT_METHOD_VIDEO_TITLE = 23
 SORT_METHOD_VIDEO_YEAR = 17
 
-#noinspection PyUnusedLocal
+
 def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
     """Callback function to pass directory contents back to XBMC.
 
@@ -60,16 +60,16 @@ def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
         if not xbmcplugin.addDirectoryItem(int(sys.argv[1]), 'F:\\Trailers\\300.mov', listitem, totalItems=50):
             break
     """
-    return bool
+    return True
 
-#noinspection PyUnusedLocal
+
 def addDirectoryItems(handle, items, totalItems=0):
     """Callback function to pass directory contents back to XBMC as a list.
 
     Returns a bool for successful completion.
 
     handle: integer - handle the plugin was started with.
-    items: List - list of (url, listitem[, isFolder]) as a tuple to add.
+    items: List - list of (url, listitem[, isFolder]) tuples to add.
     totalItems: integer - total number of items that will be passed. (used for progressbar)
 
     Note:
@@ -80,9 +80,9 @@ def addDirectoryItems(handle, items, totalItems=0):
         if not xbmcplugin.addDirectoryItems(int(sys.argv[1]), [(url, listitem, False,)]:
             raise
     """
-    return bool
+    return True
 
-#noinspection PyUnusedLocal
+
 def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True):
     """Callback function to tell XBMC that the end of the directory listing in a virtualPythonFolder module is reached.
 
@@ -96,7 +96,7 @@ def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setResolvedUrl(handle, succeeded, listitem):
     """Callback function to tell XBMC that the file plugin has been resolved to a url
 
@@ -109,7 +109,7 @@ def setResolvedUrl(handle, succeeded, listitem):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def addSortMethod(handle, sortMethod, label2="%D"):
     """Adds a sorting method for the media list.
 
@@ -126,7 +126,7 @@ def addSortMethod(handle, sortMethod, label2="%D"):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def getSetting(handle, id):
     """Returns the value of a setting as a string.
 
@@ -136,9 +136,9 @@ def getSetting(handle, id):
     Example:
         apikey = xbmcplugin.getSetting(int(sys.argv[1]), 'apikey')
     """
-    return str
+    return 'fake_setting'
 
-#noinspection PyUnusedLocal
+
 def setSetting(handle, id, value):
     """Sets a plugin setting for the current running plugin.
 
@@ -151,7 +151,7 @@ def setSetting(handle, id, value):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setContent(handle, content):
     """Sets the plugins content.
 
@@ -166,7 +166,7 @@ def setContent(handle, content):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setPluginCategory(handle, category):
     """Sets the plugins name for skins to display.
 
@@ -178,7 +178,7 @@ def setPluginCategory(handle, category):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
     """Sets the plugins fanart and color for skins to display.
 
@@ -193,7 +193,7 @@ def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setProperty(handle, key, value):
     """Sets a container property for this plugin.
 

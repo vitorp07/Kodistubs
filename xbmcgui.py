@@ -2,12 +2,12 @@
 #  Classes and functions to work with XBMC GUI.
 #
 
-#noinspection PyUnusedLocal
+
 class Window(object):
 
     """Create a new Window to draw on."""
 
-    def __init__(self, windowId=-1):
+    def __init__(self, existingWindowId=-1):
         """
         Create a new Window to draw on.
 
@@ -20,7 +20,7 @@ class Window(object):
         Deleting this window will activate the old window that was active
         and resets (not delete) all controls that are associated with this window.
         """
-        pass
+        self._properties = {}
 
     def show(self):
         """Show this window.
@@ -51,7 +51,7 @@ class Window(object):
         """
         pass
 
-    def onClick(self, control):
+    def onClick(self, controlId):
         """onClick method.
 
         This method will recieve all click events that the main program will send to this window.
@@ -87,7 +87,7 @@ class Window(object):
         """Display this window until close() is called."""
         pass
 
-    def addControl(self, control):
+    def addControl(self, pControl):
         """Add a Control to this window.
 
         Raises:
@@ -133,9 +133,9 @@ class Window(object):
             Not python controls are not completely usable yet.
             You can only use the Control functions.
         """
-        return object
+        return Control()
 
-    def setFocus(self, Control):
+    def setFocus(self, pControl):
         """Give the supplied control focus.
 
         Raises:
@@ -145,7 +145,7 @@ class Window(object):
         """
         pass
 
-    def setFocusId(self, int):
+    def setFocusId(self, iControlId):
         """Gives the control with the supplied focus.
 
         Raises:
@@ -161,7 +161,7 @@ class Window(object):
             SystemError: On Internal error.
             RuntimeError: If no control has focus.
         """
-        return object
+        return Control()
 
     def getFocusId(self):
         """Returns the id of the control which is focused.
@@ -170,7 +170,7 @@ class Window(object):
             SystemError: On Internal error.
             RuntimeError: If no control has focus.
         """
-        return long
+        return 1
 
     def removeControl(self, control):
         """Removes the control from this window.
@@ -188,11 +188,11 @@ class Window(object):
 
     def getHeight(self):
         """Returns the height of this screen."""
-        return long
+        return 1080
 
     def getWidth(self):
         """Returns the width of this screen."""
-        return long
+        return 1920
 
     def getResolution(self):
         """Returns the resolution of the screen.
@@ -210,7 +210,7 @@ class Window(object):
             9 - PAL60 16:9 (720x480)
         Note: this info is outdated. XBMC 12+ returns different vaulues.
         """
-        return long
+        return 0
 
     def setCoordinateResolution(self, resolution):
         """Sets the resolution that the coordinates of all controls are defined in.
@@ -249,7 +249,7 @@ class Window(object):
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
             win.setProperty('Category', 'Newest')
         """
-        pass
+        self._properties[key] = value
 
     def getProperty(self, key):
         """Returns a window property as a string, similar to an infolabel.
@@ -263,7 +263,10 @@ class Window(object):
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
             category = win.getProperty('Category')
         """
-        return str
+        try:
+            return self._properties[key]
+        except KeyError:
+            return ''
 
     def clearProperty(self, key):
         """Clears the specific window property.
@@ -277,7 +280,7 @@ class Window(object):
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
             win.clearProperty('Category')
         """
-        pass
+        del self._properties[key]
 
     def clearProperties(self):
         """Clears all window properties.
@@ -286,9 +289,8 @@ class Window(object):
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
             win.clearProperties()
         """
-        pass
+        self._properties = {}
 
-#noinspection PyUnusedLocal
 class WindowDialog(Window):
     """
     Create a new WindowDialog with transparent background, unlike Window.
@@ -298,7 +300,6 @@ class WindowDialog(Window):
         pass
 
 
-#noinspection PyUnusedLocal
 class WindowXML(Window):
 
     """Create a new WindowXML script."""
@@ -352,35 +353,20 @@ class WindowXML(Window):
 
     def getCurrentListPosition(self):
         """Gets the current position in the Window List."""
-        return long
+        return 1
 
     def getListItem(self, position):
         """Returns a given ListItem in this Window List.
 
         position: integer - position of item to return.
         """
-        return ListItem
+        return ListItem()
 
     def getListSize(self):
         """Returns the number of items in this Window List."""
-        return long
-
-    def setProperty(self, key, value):
-        """Sets a container property, similar to an infolabel.
-
-        key: string - property name.
-        value: string or unicode - value of property.
-
-        Note:
-            Key is NOT case sensitive.
-
-        Example:
-            self.setProperty('Category', 'Newest')
-        """
-        pass
+        return 5
 
 
-#noinspection PyUnusedLocal
 class WindowXMLDialog(WindowXML):
 
     """Create a new WindowXMLDialog script."""
@@ -432,7 +418,7 @@ class Control(object):
     def canAcceptMessages(self):
         pass
 
-    def controlDown(self, control=None):
+    def controlDown(self, control):
         """
         controlDown(control)--Set's the controls down navigation.
         control : control object - control to navigate to on down.
@@ -446,7 +432,7 @@ class Control(object):
         """
         pass
 
-    def controlLeft(self, control=None):
+    def controlLeft(self, control):
         """
         controlLeft(control)--Set's the controls left navigation.
 
@@ -464,7 +450,7 @@ class Control(object):
         """
         pass
 
-    def controlRight(self, control=None):
+    def controlRight(self, control):
         """
         controlRight(control)--Set's the controls right navigation.
 
@@ -481,7 +467,7 @@ class Control(object):
         """
         pass
 
-    def controlUp(self, control=None):
+    def controlUp(self, control):
         """
         controlUp(control)--Set's the controls up navigation.
 
@@ -504,7 +490,7 @@ class Control(object):
         example:
         - height = self.button.getHeight()
         """
-        return int
+        return self._height
 
     def getId(self):
         """
@@ -513,7 +499,7 @@ class Control(object):
         example:
         - id = self.button.getId()
         """
-        return int
+        return 1
 
     def getPosition(self):
         """
@@ -522,7 +508,7 @@ class Control(object):
         example:
         - pos = self.button.getPosition()
         """
-        return (int, int)
+        return self._x, self._y
 
     def getWidth(self):
         """
@@ -531,20 +517,21 @@ class Control(object):
         example:
         - width = self.button.getWidth()
         """
-        return int
+        return self._width
+
     def getX(self):
         """
         Get X coordinate of a control as an integer.
         """
-        return int
+        return self._x
 
     def getY(self):
         """
         Get Y coordinate of a control as an integer.
         """
-        return int
+        return self._y
 
-    def setAnimations(self, event_attr=[()]):
+    def setAnimations(self, event_attr):
         """
         setAnimations([(event, attr,)*])--Set's the control's animations.
 
@@ -574,7 +561,7 @@ class Control(object):
         """
         pass
 
-    def setEnabled(self, enabled=True):
+    def setEnabled(self, enabled):
         """
         setEnabled(enabled)--Set's the control's enabled/disabled state.
 
@@ -594,9 +581,9 @@ class Control(object):
         example:
         - self.image.setHeight(100)
         """
-        pass
+        self._height = height
 
-    def setNavigation(self, up=None, down=None, left=None, right=None):
+    def setNavigation(self, up, down, left, right):
         """
         setNavigation(up, down, left, right)--Set's the controls navigation.
 
@@ -629,7 +616,8 @@ class Control(object):
         example:
         - self.button.setPosition(100, 250)
         """
-        pass
+        self._x = x
+        self._y = y
 
     def setVisible(self, visible):
         """
@@ -666,15 +654,14 @@ class Control(object):
         example:
         - self.image.setWidth(100)
         """
-        pass
+        self._width = width
 
 
-#noinspection PyUnusedLocal
 class ListItem(object):
 
     """Creates a new ListItem."""
 
-    def __init__(self, label='', label2='', iconImage=None, thumbnailImage=None, path=None):
+    def __init__(self, label='', label2='', iconImage='', thumbnailImage='', path=''):
         """
         label: string or unicode - label1 text.
         label2: string or unicode - label2 text.
@@ -685,7 +672,14 @@ class ListItem(object):
         Example:
         listitem = xbmcgui.ListItem('Casino Royale', '[PG-13]', 'blank-poster.tbn', 'poster.tbn', path='f:\\movies\\casino_royale.mov')
         """
-        pass
+        self._list_item = {'label': label, 'label2': label2,
+                           'iconImage': iconImage, 'thumbnailImage': thumbnailImage, 'path': path,
+                           'stream_info': None,
+                           'info': {}, 'properties': {},
+                           'context_menu': None,
+                           'subtitles': None,
+                           'art': None}
+        self._selected = False
 
     def addStreamInfo(self, type, values):
         """
@@ -712,54 +706,54 @@ class ListItem(object):
         example:
         - self.list.getSelectedItem().addStreamInfo('video', { 'Codec': 'h264', 'Width' : 1280 })
         """
-        pass
+        self._list_item['stream_info'][type] = values
 
     def getLabel(self):
         """Returns the listitem label."""
-        return str
+        return self._list_item['label']
 
     def getLabel2(self):
         """Returns the listitem's second label."""
-        return str
+        return self._list_item['label2']
 
     def setLabel(self, label):
         """Sets the listitem's label.
 
         label: string or unicode - text string.
         """
-        pass
+        self._list_item['label'] = label
 
     def setLabel2(self, label2):
         """Sets the listitem's second label.
 
         label2: string or unicode - text string.
         """
-        pass
+        self._list_item['label2'] = label2
 
     def setIconImage(self, icon):
         """Sets the listitem's icon image.
 
         icon: string or unicode - image filename.
         """
-        pass
+        self._list_item['iconImage'] = icon
 
     def setThumbnailImage(self, thumb):
         """Sets the listitem's thumbnail image.
 
         thumb: string or unicode - image filename.
         """
-        pass
+        self._list_item['thumbnailImage'] = thumb
 
     def select(self, selected):
         """Sets the listitem's selected status.
 
         selected: bool - True=selected/False=not selected.
         """
-        pass
+        self._selected = selected
 
     def isSelected(self):
         """Returns the listitem's selected status."""
-        return bool
+        return self._selected
 
     def setInfo(self, type, infoLabels):
         """Sets the listitem's infoLabels.
@@ -832,7 +826,7 @@ class ListItem(object):
         Example:
             self.list.getSelectedItem().setInfo('video', { 'Genre': 'Comedy' })
         """
-        pass
+        self._list_item['info'][type] = infoLabels
 
     def setProperty(self, key, value):
         """Sets a listitem property, similar to an infolabel.
@@ -851,7 +845,7 @@ class ListItem(object):
             self.list.getSelectedItem().setProperty('AspectRatio', '1.85 : 1')
             self.list.getSelectedItem().setProperty('StartOffset', '256.4')
         """
-        pass
+        self._list_item['properties'][key] = value
 
     def getProperty(self, key):
         """Returns a listitem property as a string, similar to an infolabel.
@@ -861,7 +855,10 @@ class ListItem(object):
         Note:
             Key is NOT case sensitive.
         """
-        return str
+        try:
+            return self._list_item['properties'][key]
+        except KeyError:
+            return ''
 
     def addContextMenuItems(self, list, replaceItems=False):
         """Adds item(s) to the context menu for media lists.
@@ -876,7 +873,7 @@ class ListItem(object):
         Example:
             listitem.addContextMenuItems([('Theater Showtimes', 'XBMC.RunScript(special://home/scripts/showtimes/default.py,Iron Man)')])
         """
-        pass
+        self._list_item['context_menu'] = list
 
     def setPath(self, path):
         """
@@ -887,18 +884,18 @@ class ListItem(object):
         example:
         - self.list.getSelectedItem().setPath(path='ActivateWindow(Weather)')
         """
-        pass
+        self._list_item['path'] = path
 
-    def setSubtitles(self, subtitles=[]):
+    def setSubtitles(self, subtitles):
         """
         setSubtitles() --Sets subtitles for this listitem.
 
         example:
         - listitem.setSubtitles(['special://temp/example.srt', 'http://example.com/example.srt' ])
         """
-        pass
+        self._list_item['subtitles'] = subtitles
 
-    def setArt(self, values={}):
+    def setArt(self, values):
         """
         setArt(values) -- Sets the listitem's art
 
@@ -916,10 +913,9 @@ class ListItem(object):
         example:
         - self.list.getSelectedItem().setArt({ 'poster': 'poster.png', 'banner' : 'banner.png' })
         """
-        pass
+        self._list_item['art'] = values
 
 
-#noinspection PyUnusedLocal
 class ControlLabel(Control):
 
     """
@@ -948,21 +944,24 @@ class ControlLabel(Control):
         Example:
             self.label = xbmcgui.ControlLabel(100, 250, 125, 75, 'Status', angle=45)
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._label = label
 
     def setLabel(self, label):
         """Set's text for this label.
 
         label: string or unicode - text string.
         """
-        pass
+        self._label = label
 
     def getLabel(self):
         """Returns the text value for this label."""
-        return str
+        return self._label
 
 
-#noinspection PyUnusedLocal
 class ControlFadeLabel(Control):
 
     """Control which scrolls long label text."""
@@ -983,21 +982,24 @@ class ControlFadeLabel(Control):
         Example:
         self.fadelabel = xbmcgui.ControlFadeLabel(100, 250, 200, 50, textColor='0xFFFFFFFF')
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._label = ''
 
     def addLabel(self, label):
         """Add a label to this control for scrolling.
 
         label: string or unicode - text string.
         """
-        pass
+        self._label = label
 
     def reset(self):
         """Clears this fadelabel."""
-        pass
+        self._label = ''
 
 
-#noinspection PyUnusedLocal
 class ControlTextBox(Control):
 
     """
@@ -1020,14 +1022,18 @@ class ControlTextBox(Control):
         Example:
             self.textbox = xbmcgui.ControlTextBox(100, 250, 300, 300, textColor='0xFFFFFFFF')
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._text = ''
 
     def setText(self, text):
         """Set's the text for this textbox.
 
         text: string or unicode - text string.
         """
-        pass
+        self._text = text
 
     def scroll(self, position):
         """Scrolls to the given position.
@@ -1038,10 +1044,9 @@ class ControlTextBox(Control):
 
     def reset(self):
         """Clear's this textbox."""
-        pass
+        self._text = ''
 
 
-#noinspection PyUnusedLocal
 class ControlButton(Control):
 
     """
@@ -1076,7 +1081,12 @@ class ControlButton(Control):
         Example:
             self.button = xbmcgui.ControlButton(100, 250, 200, 50, 'Status', font='font14')
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._label = label
+        self._label2 = ''
 
     def setDisabledColor(self, disabledColor):
         """Set's this buttons disabled color.
@@ -1085,7 +1095,8 @@ class ControlButton(Control):
         """
         pass
 
-    def setLabel(self, label=None, font=None, textColor=None, disabledColor=None, shadowColor=None, focusedColor=None):
+    def setLabel(self, label='', font=None, textColor=None, disabledColor=None, shadowColor=None, focusedColor=None,
+                 label2=''):
         """Set's this buttons text attributes.
 
         label: string or unicode - text string.
@@ -1099,18 +1110,18 @@ class ControlButton(Control):
         Example:
             self.button.setLabel('Status', 'font14', '0xFFFFFFFF', '0xFFFF3300', '0xFF000000')
         """
-        pass
+        self._label = label
+        self._label2 = label2
 
     def getLabel(self):
         """Returns the buttons label as a unicode string."""
-        return unicode
+        return self._label
 
     def getLabel2(self):
         """Returns the buttons label2 as a unicode string."""
-        return unicode
+        return self._label2
 
 
-#noinspection PyUnusedLocal
 class ControlCheckMark(Control):
 
     """
@@ -1142,7 +1153,12 @@ class ControlCheckMark(Control):
         Example:
             self.checkmark = xbmcgui.ControlCheckMark(100, 250, 200, 50, 'Status', font='font14')
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._label = label
+        self._selected = False
 
     def setDisabledColor(self, disabledColor):
         """Set's this controls disabled color.
@@ -1151,7 +1167,7 @@ class ControlCheckMark(Control):
         """
         pass
 
-    def setLabel(self, label, font=None, textColor=None, disabledColor=None):
+    def setLabel(self, label='', font=None, textColor=None, disabledColor=None):
         """Set's this controls text attributes.
 
         label: string or unicode - text string.
@@ -1162,18 +1178,18 @@ class ControlCheckMark(Control):
         Example:
             self.checkmark.setLabel('Status', 'font14', '0xFFFFFFFF', '0xFFFF3300')
         """
-        pass
+        self._label = label
 
     def getSelected(self):
         """Returns the selected status for this checkmark as a bool."""
-        return bool
+        return self._selected
 
-    def setSelected(self, isOn):
+    def setSelected(self, selected):
         """Sets this checkmark status to on or off.
 
         isOn: bool - True=selected (on) / False=not selected (off)
         """
-        pass
+        self._selected = selected
 
 
 #noinspection PyUnusedLocal
@@ -1211,32 +1227,45 @@ class ControlList(Control):
         Example:
             self.cList = xbmcgui.ControlList(100, 250, 200, 250, 'font14', space=5)
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._items = []
+        self._selected = -1
 
     def addItem(self, item):
         """Add a new item to this list control.
 
         item: string, unicode or ListItem - item to add.
         """
-        pass
+        if isinstance(item, str) or isinstance(item, unicode):
+            item = ListItem(label=item)
+        elif isinstance(item, ListItem):
+            pass
+        else:
+            raise ValueError('Arguments must be of str, unicode or ListItem types!')
+        self._items.append(item)
+        self._selected = 1
 
     def addItems(self, items):
         """Adds a list of listitems or strings to this list control.
 
         items: List - list of strings, unicode objects or ListItems to add.
         """
-        pass
+        for item in items:
+            self.addItem(item)
 
     def selectItem(self, item):
         """Select an item by index number.
 
         item: integer - index number of the item to select.
         """
-        pass
+        self._selected = item
 
     def reset(self):
         """Clear all ListItems in this control list."""
-        pass
+        self._items = []
 
     def getSpinControl(self):
         """Returns the associated ControlSpin object.
@@ -1246,7 +1275,7 @@ class ControlList(Control):
             After adding this control list to a window it is not possible to change
             the settings of this spin control.
         """
-        return object
+        raise NotImplementedError('getSpinControl method is not implemented!')
 
     def setImageDimensions(self, imageWidth=None, imageHeight=None):
         """Sets the width/height of items icon or thumbnail.
@@ -1283,7 +1312,7 @@ class ControlList(Control):
         Note:
             Returns -1 for empty lists.
         """
-        return int
+        return self._selected
 
     def getSelectedItem(self):
         """Returns the selected item as a ListItem object.
@@ -1292,11 +1321,11 @@ class ControlList(Control):
             Same as getSelectedPosition(), but instead of an integer a ListItem object is returned. Returns None for empty lists.
             See windowexample.py on how to use this.
         """
-        return ListItem
+        return self._items[self._selected]
 
     def size(self):
         """Returns the total number of items in this list control as an integer."""
-        return long
+        return len(self._items)
 
     def getListItem(self, index):
         """Returns a given ListItem in this List.
@@ -1306,22 +1335,22 @@ class ControlList(Control):
         Raises:
             ValueError: If index is out of range.
         """
-        return ListItem
+        return self._items[index]
 
     def getItemHeight(self):
         """Returns the control's current item height as an integer."""
-        return long
+        return 50
 
     def getSpace(self):
         """Returns the control's space between items as an integer."""
-        return long
+        return 5
 
     def setStaticContent(self, items):
         """Fills a static list with a list of listitems.
 
         items: List - list of listitems to add.
         """
-        pass
+        self.addItems(items)
 
     def removeItem(self, index):
         """
@@ -1330,10 +1359,9 @@ class ControlList(Control):
         example:
         my_list.removeItem(12)
         """
-        pass
+        del self._items[index]
 
 
-#noinspection PyUnusedLocal
 class ControlImage(Control):
 
     """
@@ -1358,7 +1386,10 @@ class ControlImage(Control):
         Example:
             self.image = xbmcgui.ControlImage(100, 250, 125, 75, aspectRatio=2)
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
 
     def setImage(self, filename):
         """Changes the image.
@@ -1375,7 +1406,6 @@ class ControlImage(Control):
         pass
 
 
-#noinspection PyUnusedLocal
 class ControlProgress(Control):
 
     """
@@ -1401,7 +1431,11 @@ class ControlProgress(Control):
         Example:
             self.progress = xbmcgui.ControlProgress(100, 250, 125, 75)
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._percent = 0.0
 
     def setPercent(self, percent):
         """Sets the percentage of the progressbar to show.
@@ -1411,14 +1445,13 @@ class ControlProgress(Control):
         Note:
             Valid range for percent is 0-100.
         """
-        pass
+        self._percent = float(percent)
 
     def getPercent(self):
         """Returns a float of the percent of the progress."""
-        return float
+        return self._percent
 
 
-#noinspection PyUnusedLocal
 class ControlSlider(Control):
 
     """
@@ -1442,18 +1475,21 @@ class ControlSlider(Control):
         Example:
             self.slider = xbmcgui.ControlSlider(100, 250, 350, 40)
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._percent = 0.0
 
     def getPercent(self):
         """Returns a float of the percent of the slider."""
-        return float
+        return self._percent
 
     def setPercent(self, percent):
         """Sets the percent of the slider."""
-        pass
+        self._percent = float(percent)
 
 
-#noinspection PyUnusedLocal
 class ControlGroup(Control):
 
     """ControlGroup class."""
@@ -1468,14 +1504,17 @@ class ControlGroup(Control):
         Example:
         self.group = xbmcgui.ControlGroup(100, 250, 125, 75)
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
 
-#noinspection PyUnusedLocal
+
 class ControlEdit(Control):
 
     """
     ControlEdit class.
-    ControlEdit(x, y, width, height, label[, font, textColor,
+    ControlEdit(x, y, width, height, label, font, textColor,
                                                     disabledColor, alignment, focusTexture, noFocusTexture])
     """
 
@@ -1502,7 +1541,12 @@ class ControlEdit(Control):
         example:
         - self.edit = xbmcgui.ControlEdit(100, 250, 125, 75, 'Status')
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._label = label
+        self._text = 'Some text'
 
     def getLabel(self):
         """
@@ -1511,7 +1555,7 @@ class ControlEdit(Control):
         example:
         - label = self.edit.getLabel()
         """
-        return unicode
+        return self._label
 
     def getText(self):
         """
@@ -1520,7 +1564,7 @@ class ControlEdit(Control):
         example:
         - value = self.edit.getText()
         """
-        return unicode
+        return self._text
 
     def setLabel(self, label):
         """
@@ -1530,7 +1574,7 @@ class ControlEdit(Control):
         example:
         - self.edit.setLabel('Status')
         """
-        pass
+        self._label = label
 
     def setText(self, value):
         """
@@ -1540,10 +1584,9 @@ class ControlEdit(Control):
         example:
         - self.edit.setText('online')
         """
-        pass
+        self._text = value
 
 
-#noinspection PyUnusedLocal
 class ControlRadioButton(Control):
 
     """
@@ -1585,20 +1628,25 @@ class ControlRadioButton(Control):
         Example:
             self.radiobutton = xbmcgui.ControlRadioButton(100, 250, 200, 50, 'Status', font='font14')
         """
-        pass
+        self._x = x
+        self._y = y
+        self._width = width
+        self._height = height
+        self._label = label
+        self._selected = False
 
     def setSelected(self, selected):
         """Sets the radio buttons's selected status.
 
         selected: bool - True=selected (on) / False=not selected (off)
         """
-        pass
+        self._selected = selected
 
     def isSelected(self):
         """Returns the radio buttons's selected status."""
-        return bool
+        return self._selected
 
-    def setLabel(self, label, font=None, textColor=None, disabledColor=None, shadowColor=None, focusedColor=None):
+    def setLabel(self, label='', font=None, textColor=None, disabledColor=None, shadowColor=None, focusedColor=None):
         """Set's the radio buttons text attributes.
 
         label: string or unicode - text string.
@@ -1611,7 +1659,7 @@ class ControlRadioButton(Control):
         Example:
             self.radiobutton.setLabel('Status', 'font14', '0xFFFFFFFF', '0xFFFF3300', '0xFF000000')
         """
-        pass
+        self._label = label
 
     def setRadioDimension(self, x, y, width, height):
         """Sets the radio buttons's radio texture's position and size.
@@ -1627,7 +1675,6 @@ class ControlRadioButton(Control):
         pass
 
 
-#noinspection PyUnusedLocal
 class Dialog(object):
 
     def browse(self, type, heading, s_shares, mask=None, useThumbs=False, treatAsFolder=False, default=None,
@@ -1662,7 +1709,7 @@ class Dialog(object):
             dialog = xbmcgui.Dialog()
             fn = dialog.browse(3, 'XBMC', 'files', '', False, False, False, 'special://masterprofile/script_data/XBMC Lyrics')
         """
-        return str
+        return '/some/fake/path'
 
     def browseMultiple(self, type, heading, shares, mask=None, useThumbs=None, treatAsFolder=None, default=None):
         """
@@ -1690,7 +1737,7 @@ class Dialog(object):
         - dialog = xbmcgui.Dialog()
         - fn = dialog.browseMultiple(2, 'XBMC', 'files', '', False, False, 'special://masterprofile/script_data/XBMC Lyrics')
         """
-        return tuple
+        return '/some/fake/path1', '/some/fake/path2'
 
     def browseSingle(self, type, heading, shares, mask=None, useThumbs=None, treatAsFolder=None, default=None):
         """
@@ -1719,7 +1766,7 @@ class Dialog(object):
         - dialog = xbmcgui.Dialog()
         - fn = dialog.browse(3, 'XBMC', 'files', '', False, False, 'special://masterprofile/script_data/XBMC Lyrics')
         """
-        return str
+        return '/some/fake/path'
 
     def input(self, heading, default=None, type=None, option=None, autoclose=None):
         """
@@ -1756,7 +1803,7 @@ class Dialog(object):
         - dialog = xbmcgui.Dialog()
         - d = dialog.input('Enter secret code', type=xbmcgui.INPUT_ALPHANUM, option=xbmcgui.ALPHANUM_HIDE_INPUT)
         """
-        return str
+        return 'Some text'
 
     def numeric(self, type, heading, default=None):
         """Show a 'Numeric' dialog.
@@ -1779,7 +1826,7 @@ class Dialog(object):
             dialog = xbmcgui.Dialog()
             d = dialog.numeric(1, 'Enter date of birth')
         """
-        return str
+        return '1'
 
     def notification(self, heading, message, icon=None, time=None, sound=None):
         """
@@ -1819,7 +1866,7 @@ class Dialog(object):
             dialog = xbmcgui.Dialog()
             ret = dialog.yesno('XBMC', 'Do you want to exit this script?')
         """
-        return bool
+        return True
 
     def ok(self, heading, line1, line2=None, line3=None):
         """Show a dialog 'OK'.
@@ -1836,7 +1883,7 @@ class Dialog(object):
             dialog = xbmcgui.Dialog()
             ok = dialog.ok('XBMC', 'There was an error.')
         """
-        return bool
+        return True
 
     def select(self, heading, list, autoclose=0):
         """Show a select dialog.
@@ -1853,10 +1900,9 @@ class Dialog(object):
             dialog = xbmcgui.Dialog()
             ret = dialog.select('Choose a playlist', ['Playlist #1', 'Playlist #2, 'Playlist #3'])
         """
-        return int
+        return 1
 
 
-#noinspection PyUnusedLocal
 class DialogProgress(object):
     def create(self, heading, line1=None, line2=None, line3=None):
         """Create and show a progress dialog.
@@ -1893,7 +1939,7 @@ class DialogProgress(object):
 
     def iscanceled(self):
         """Returns True if the user pressed cancel."""
-        return bool
+        return False
 
     def close(self):
         """Close the progress dialog."""
@@ -1939,7 +1985,7 @@ class DialogProgressBG(object):
         example:
         - if (pDialog.isFinished()): break
         """
-        return bool
+        return True
 
     def update(percent, heading=None, message=None):
         """
@@ -1956,7 +2002,7 @@ class DialogProgressBG(object):
         """
         pass
 
-#noinspection PyUnusedLocal
+
 class Action(object):
     """Action class.
 
@@ -1969,19 +2015,19 @@ class Action(object):
 
     def getId(self):
         """Returns the action's current id as a long or 0 if no action is mapped in the xml's."""
-        return long
+        return 0
 
     def getButtonCode(self):
         """Returns the button code for this action."""
-        return long
+        return 1
 
     def getAmount1(self):
         """Returns the first amount of force applied to the thumbstick."""
-        return float
+        return 0.1
 
     def getAmount2(self):
         """Returns the second amount of force applied to the thumbstick."""
-        return float
+        return 0.1
 
 
 def lock():
@@ -2012,7 +2058,7 @@ def getCurrentWindowId():
     example:
     - wid = xbmcgui.getCurrentWindowId()
     """
-    return long
+    return 1
 
 def getCurrentWindowDialogId():
     """
@@ -2021,7 +2067,7 @@ def getCurrentWindowDialogId():
     example:
     - wid = xbmcgui.getCurrentWindowDialogId()
     """
-    return long
+    return 1
 
 ALPHANUM_HIDE_INPUT = 2
 CONTROL_TEXT_OFFSET_X = 10
