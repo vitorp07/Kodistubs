@@ -221,3 +221,5 @@ pip-log.txt
 
 *.cmd
 *.bat
+
+epydoc.cfg
