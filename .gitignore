@@ -218,3 +218,6 @@ pip-log.txt
 .idea/
 # Exclude zip files
 *.zip
+
+*.cmd
+*.bat

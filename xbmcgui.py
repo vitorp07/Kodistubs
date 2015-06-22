@@ -1916,7 +1916,7 @@ class DialogProgressBG(object):
         """
         pass
 
-    def create(heading, message=''):
+    def create(self, heading, message=''):
         """
         create(heading[, message])--Create and show a background progress dialog.n
 
@@ -1941,7 +1941,7 @@ class DialogProgressBG(object):
         """
         return bool
 
-    def update(percent, heading=None, message=None):
+    def update(self, percent, heading=None, message=None):
         """
         update([percent, heading, message])--Updates the background progress dialog.
 
