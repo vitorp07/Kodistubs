@@ -1,6 +1,13 @@
 ## @package xbmc
 #  Various classes and functions to interact with XBMC.
 #
+"""
+Module xbmc
+
+Various classes and functions to interact with Kodi.
+"""
+
+import xbmcgui
 
 CAPTURE_FLAG_CONTINUOUS = 1
 CAPTURE_FLAG_IMMEDIATELY = 2
@@ -41,14 +48,14 @@ __credits__ = 'Team XBMC'
 __date__ = 'Sun Aug 18 16:43:16 CEST 2013'
 __platform__ = 'ALL'
 __version__ = '2.0'
-abortRequested = False
 
-#noinspection PyUnusedLocal
+
 class Keyboard(object):
-    def __init__(self, default=None, heading=None, hidden=False):
-        """Creates a new Keyboard object with default text heading and hidden input flag if supplied.
+    def __init__(self, line='', heading='', hidden=False):
+        """
+        Creates a new Keyboard object with default text heading and hidden input flag if supplied.
 
-        default: string - default text entry.
+        line: string - default text entry.
         heading: string - keyboard heading.
         hidden: boolean - True for hidden text entry.
 
@@ -76,17 +83,17 @@ class Keyboard(object):
         """
         pass
 
-    def setDefault(self, default):
+    def setDefault(self, line=''):
         """Set the default text entry.
 
-        default: string - default text entry.
+        line: string - default text entry.
 
         Example:
             kb.setDefault('password')
         """
         pass
 
-    def setHiddenInput(self, hidden):
+    def setHiddenInput(self, hidden=False):
         """Allows hidden text entry.
 
         hidden: boolean - True for hidden text entry.
@@ -117,18 +124,18 @@ class Keyboard(object):
 
     def isConfirmed(self):
         """Returns False if the user cancelled the input.
+
         example:
         - if (kb.isConfirmed()):"""
         return bool
 
 
-#noinspection PyUnusedLocal
 class Player(object):
-    def __init__(self, core=None):
+    def __init__(self, playerCore=None):
         """Creates a new Player with as default the xbmc music playlist.
 
         Args:
-            core: Use a specified playcore instead of letting xbmc decide the playercore to use.
+            playerCore: Use a specified playcore instead of letting xbmc decide the playercore to use.
                 - xbmc.PLAYER_CORE_AUTO
                 - xbmc.PLAYER_CORE_DVDPLAYER
                 - xbmc.PLAYER_CORE_MPLAYER
@@ -175,7 +182,7 @@ class Player(object):
         """Play previous item in playlist."""
         pass
 
-    def playselected(self):
+    def playselected(self, selected):
         """Play a certain item from the current playlist."""
         pass
 
@@ -252,10 +259,12 @@ class Player(object):
         return bool
 
     def getPlayingFile(self):
-        """Returns the current playing file as a string.
+        """
+        getPlayingFile() --returns the current playing file as a string.
 
-        Raises:
-            Exception: If player is not playing a file.
+        Note: For LiveTV, returns a pvr:// url which is not translatable to an OS specific file or external url
+
+        Throws: Exception, if player is not playing a file.
         """
         return str
 
@@ -268,7 +277,7 @@ class Player(object):
         Note:
             This doesn't work yet, it's not tested.
         """
-        return object
+        return InfoTagVideo
 
     def getMusicInfoTag(self):
         """Returns the MusicInfoTag of the current playing 'Song'.
@@ -276,7 +285,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file or current file is not a music file.
         """
-        return object
+        return InfoTagMusic
 
     def getTotalTime(self):
         """Returns the total time of the current playing media in seconds.
@@ -306,10 +315,10 @@ class Player(object):
         """
         pass
 
-    def setSubtitles(self, path):
+    def setSubtitles(self, subtitleFile):
         """Set subtitle file and enable subtitles.
 
-        path: string or unicode - Path to subtitle.
+        subtitleFile: string or unicode - Path to subtitle.
 
         Example:
             setSubtitles('/path/to/subtitle/test.srt')
@@ -327,23 +336,44 @@ class Player(object):
     def getAvailableAudioStreams(self):
         """Get audio stream names."""
         return list
+
     def getAvailableSubtitleStreams(self):
         """
         getAvailableSubtitleStreams() -- get Subtitle stream names
         """
         return list
 
-    def setAudioStream(self, stream):
+    def setAudioStream(self, iStream):
         """Set audio stream.
 
-        stream: int
+        iStream: int
         """
         pass
 
+    def setSubtitleStream(self, iStream):
+        """
+        setSubtitleStream(iStream) -- set Subtitle Stream
 
-#noinspection PyUnusedLocal
+        iStream : int
+
+        example:
+            - setSubtitleStream(1)
+        """
+        pass
+
+    def showSubtitles(self, bVisible):
+        """
+        showSubtitles(bVisible)--enable/disable subtitles
+
+        bVisible : boolean - True for visible subtitles.
+
+        example:
+            - xbmc.Player().showSubtitles(True)
+        """
+        pass
+
 class PlayList(object):
-    def __init__(self, playlist):
+    def __init__(self, playList):
         """Retrieve a reference from a valid xbmc playlist
 
         playlist: int - can be one of the next values:
@@ -355,10 +385,12 @@ class PlayList(object):
         pass
 
     def __getitem__(self, item):
-        return None
+        """x.__getitem__(y) <==> x[y]"""
+        return xbmcgui.ListItem
 
     def __len__(self):
-        return 0
+        """x.__len__() <==> len(x)"""
+        return int
 
     def add(self, url, listitem=None, index=-1):
         """Adds a new file to the playlist.
@@ -409,8 +441,11 @@ class PlayList(object):
         """Returns the position of the current song in this playlist."""
         return int
 
+    def getPlayListId(self):
+        """getPlayListId() --returns an integer."""
+        return int
 
-#noinspection PyUnusedLocal
+
 class PlayListItem(object):
     """Creates a new PlaylistItem which can be added to a PlayList."""
 
@@ -427,7 +462,6 @@ class PlayListItem(object):
         return str
 
 
-#noinspection PyUnusedLocal
 class InfoTagMusic(object):
     def getURL(self):
         """Returns a string."""
@@ -494,7 +528,6 @@ class InfoTagMusic(object):
         return str
 
 
-#noinspection PyUnusedLocal
 class InfoTagVideo(object):
     def getDirector(self):
         """Returns a string."""
@@ -576,10 +609,11 @@ class InfoTagVideo(object):
         """Returns a string."""
         return str
 
-#noinspection PyUnusedLocal
+
 class Monitor(object):
     """
-   	Monitor class.
+    Monitor class.
+
     Monitor() -- Creates a new Monitor to notify addon about changes.
     """
     def onAbortRequested(self):
@@ -597,6 +631,7 @@ class Monitor(object):
     def onScreensaverActivated(self):
         """
         onScreensaverActivated() -- onScreensaverActivated method.
+
         Will be called when screensaver kicks in
         """
         pass
@@ -604,6 +639,7 @@ class Monitor(object):
     def onScreensaverDeactivated(self):
         """
         onScreensaverDeactivated() -- onScreensaverDeactivated method.
+
         Will be called when screensaver goes off
         """
         pass
@@ -611,6 +647,7 @@ class Monitor(object):
     def onSettingsChanged(self):
         """
         onSettingsChanged() -- onSettingsChanged method.
+
         Will be called when addon settings are changed
         """
         pass
@@ -623,19 +660,19 @@ class Monitor(object):
 
     def onNotification(self, sender, method, data):
         """
-        onNotification(sender, method, data)--onNotification method.
+        onNotification(sender, method, data) -- onNotification method.
 
-        sender : sender of the notification
-        method : name of the notification
-        data : JSON-encoded data of the notification
+        sender : str - sender of the notification
+        method : str - name of the notification
+        data : str - JSON-encoded data of the notification
 
         Will be called when XBMC receives or sends a notification
         """
         pass
 
-    def onCleanStarted(self, library=''):
+    def onCleanStarted(self, library):
         """
-        onCleanStarted(library)--onCleanStarted method.
+        onCleanStarted(library) -- onCleanStarted method.
 
         library : video/music as string
 
@@ -644,7 +681,7 @@ class Monitor(object):
         """
         pass
 
-    def onCleanFinished(self, library=''):
+    def onCleanFinished(self, library):
         """
         onCleanFinished(library)--onCleanFinished method.
 
@@ -671,7 +708,7 @@ class Monitor(object):
         """
         pass
 
-    def onScanFinished(self, library=''):
+    def onScanFinished(self, library):
         """
         onScanFinished(library)--onScanFinished method.
 
@@ -682,7 +719,7 @@ class Monitor(object):
         """
         pass
 
-    def onScanStarted(self, library=''):
+    def onScanStarted(self, library):
         """
         onScanStarted(library)--onScanStarted method.
 
@@ -695,8 +732,9 @@ class Monitor(object):
 
     def waitForAbort(self, timeout):
         """
-        waitForAbort([timeout]) -- Block until abort is requested, or until timeout occurs. If an
-        abort requested have already been made, return immediately.
+        waitForAbort([timeout]) -- Block until abort is requested, or until timeout occurs.
+
+        If an abort requested have already been made, return immediately.
         Returns True when abort have been requested, False if a timeout is given and the operation times out.
 
         :param timeout: float - (optional) timeout in seconds. Default: no timeout.
@@ -704,11 +742,16 @@ class Monitor(object):
         """
         return bool
 
+    def abortRequested(self):
+        """
+        Returns True if abort has been requested.
+        """
+        return bool
 
-#noinspection PyUnusedLocal
+
 class RenderCapture(object):
 
-    def capture(self, width, height, flags=None):
+    def capture(self, width, height, flags=0):
         """
         capture(width, height [, flags])--issue capture request.
         width : Width capture image should be rendered to
@@ -761,7 +804,7 @@ class RenderCapture(object):
         """
         return int
 
-    def waitForCaptureStateChangeEvent(self, msec):
+    def waitForCaptureStateChangeEvent(self, msecs=0):
         """
         waitForCaptureStateChangeEvent([msecs])--wait for capture state change event.
         msecs : Milliseconds to wait. Waits forever if not specified.
@@ -788,7 +831,7 @@ def audioSuspend():
     """
     pass
 
-def convertLanguage(language, format_):
+def convertLanguage(language, format):
     """
     convertLanguage(language, format)--Returns the given language converted to the given format as a string.
 
@@ -822,7 +865,7 @@ def executeJSONRPC(jsonrpccommand):
     """
     return str
 
-def executebuiltin(function):
+def executebuiltin(function, wait=False):
     """
     executebuiltin(function)--Execute a built in XBMC function.
     function : string - builtin function to execute.
@@ -852,7 +895,7 @@ def getCacheThumbName(path):
     """
     return str
 
-def getCleanMovieTitle(path, usefoldername):
+def getCleanMovieTitle(path, usefoldername=False):
     """
     getCleanMovieTitle(path[, usefoldername])--Returns a clean movie title and year string if available.
 
@@ -862,7 +905,7 @@ def getCleanMovieTitle(path, usefoldername):
     example:
     - title, year = xbmc.getCleanMovieTitle('/path/to/moviefolder/test.avi', True)
     """
-    return str
+    return tuple
 
 def getCondVisibility(condition):
     """
@@ -892,7 +935,7 @@ def getDVDState():
     example:
      - dvdstate = xbmc.getDVDState()
      """
-    return int
+    return long
 
 def getFreeMem():
     """
@@ -901,7 +944,7 @@ def getFreeMem():
     example:
      - freemem = xbmc.getFreeMem()
      """
-    return int
+    return long
 
 def getGlobalIdleTime():
     """
@@ -910,7 +953,7 @@ def getGlobalIdleTime():
     example:
     - t = xbmc.getGlobalIdleTime()
     """
-    return int
+    return long
 
 def getIPAddress():
     """
@@ -934,7 +977,7 @@ def getInfoImage(infotag):
     """
     return str
 
-def getInfoLabel(infotag):
+def getInfoLabel(cLine):
     """
     getInfoLabel(infotag)--Returns an InfoLabel as a string.
 
@@ -947,7 +990,7 @@ def getInfoLabel(infotag):
     """
     return str
 
-def getLanguage(format_, region):
+def getLanguage(format=ENGLISH_NAME, region=False):
     """
     getLanguage([format], [region])--Returns the active language as a string.
 
@@ -964,7 +1007,7 @@ def getLanguage(format_, region):
     """
     return str
 
-def getLocalizedString(id_):
+def getLocalizedString(id):
     """
     getLocalizedString(id)--Returns a localized 'unicode string'.
 
@@ -978,7 +1021,7 @@ def getLocalizedString(id_):
     """
     return unicode
 
-def getRegion(id_):
+def getRegion(id):
     """
     getRegion(id)--Returns your regions setting as a string for the specified id.
 
@@ -1002,7 +1045,7 @@ def getSkinDir():
     """
     return str
 
-def getSupportedMedia(media):
+def getSupportedMedia(mediaType):
     """
     getSupportedMedia(media)--Returns the supported file types for the specific media as a string.
 
@@ -1036,7 +1079,7 @@ def log(msg, level=LOGNOTICE):
     """
     pass
 
-def makeLegalFilename(filename, fatX):
+def makeLegalFilename(filename, fatX=True):
     """
     makeLegalFilename(filename[, fatX])--Returns a legal filename or path as a string.
 
@@ -1054,7 +1097,7 @@ def makeLegalFilename(filename, fatX):
     """
     return str
 
-def playSFX(filename, useCached=False):
+def playSFX(filename, useCached=True):
     """
     playSFX(filename,[useCached])--Plays a wav file by filename
 
@@ -1106,7 +1149,7 @@ def skinHasImage(image):
     """
     return bool
 
-def sleep(time):
+def sleep(timemillis):
     """
     sleep(time)--Sleeps for 'time' msec.
 
@@ -1123,7 +1166,7 @@ def sleep(time):
     """
     pass
 
-def startServer(typ, bStart, bWait):
+def startServer(iTyp, bStart, bWait=False):
     """
     startServer(typ, bStart, bWait)--start or stop a server.
 
