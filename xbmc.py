@@ -2,8 +2,6 @@
 #  Various classes and functions to interact with XBMC.
 #
 """
-Module xbmc
-
 Various classes and functions to interact with Kodi.
 """
 
@@ -42,12 +40,12 @@ SERVER_ZEROCONF = 7
 TRAY_CLOSED_MEDIA_PRESENT = 96
 TRAY_CLOSED_NO_MEDIA = 64
 TRAY_OPEN = 16
-
-__author__ = 'Team XBMC <http://xbmc.org>'
-__credits__ = 'Team XBMC'
-__date__ = 'Sun Aug 18 16:43:16 CEST 2013'
+__author__ = 'Team Kodi <http://kodi.tv>'
+__credits__ = 'Team Kodi'
+__date__ = 'Fri May 01 16:22:03 BST 2015'
 __platform__ = 'ALL'
-__version__ = '2.0'
+__version__ = '2.20.0'
+abortRequested = False
 
 
 class Keyboard(object):

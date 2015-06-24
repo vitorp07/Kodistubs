@@ -1,8 +1,17 @@
 ## @package xbmcaddon
 #  A class to access addon properties.
 #
+"""
+A class to access addon properties
+"""
 
-#noinspection PyUnusedLocal
+__author__ = 'Team Kodi <http://kodi.tv>'
+__credits__ = 'Team Kodi'
+__date__ = 'Fri May 01 16:22:07 BST 2015'
+__platform__ = 'ALL'
+__version__ = '2.20.0'
+
+
 class Addon(object):
     def __init__(self, id = None):
         """Creates a new Addon class.
