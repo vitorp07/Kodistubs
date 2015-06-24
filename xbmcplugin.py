@@ -1,17 +1,20 @@
 ## @package xbmcplugin
 #  Functions for XBMC plugins.
 #
+"""
+Functions for Kodi plugins
+"""
 
 SORT_METHOD_ALBUM = 13
 SORT_METHOD_ALBUM_IGNORE_THE = 14
 SORT_METHOD_ARTIST = 11
 SORT_METHOD_ARTIST_IGNORE_THE = 12
-SORT_METHOD_BITRATE = 39
+SORT_METHOD_BITRATE = 40
 SORT_METHOD_CHANNEL = 38
 SORT_METHOD_COUNTRY = 16
 SORT_METHOD_DATE = 3
 SORT_METHOD_DATEADDED = 19
-SORT_METHOD_DATE_TAKEN = 40
+SORT_METHOD_DATE_TAKEN = 41
 SORT_METHOD_DRIVE_TYPE = 6
 SORT_METHOD_DURATION = 8
 SORT_METHOD_EPISODE = 22
@@ -43,8 +46,14 @@ SORT_METHOD_VIDEO_SORT_TITLE = 24
 SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE = 25
 SORT_METHOD_VIDEO_TITLE = 23
 SORT_METHOD_VIDEO_YEAR = 17
+__author__ = 'Team Kodi <http://kodi.tv>'
+__credits__ = 'Team Kodi'
+__date__ = 'Fri May 01 16:22:19 BST 2015'
+__platform__ = 'ALL'
+__version__ = '2.20.0'
 
-#noinspection PyUnusedLocal
+
+
 def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
     """Callback function to pass directory contents back to XBMC.
 
@@ -62,7 +71,7 @@ def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
     """
     return bool
 
-#noinspection PyUnusedLocal
+
 def addDirectoryItems(handle, items, totalItems=0):
     """Callback function to pass directory contents back to XBMC as a list.
 
@@ -82,7 +91,7 @@ def addDirectoryItems(handle, items, totalItems=0):
     """
     return bool
 
-#noinspection PyUnusedLocal
+
 def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True):
     """Callback function to tell XBMC that the end of the directory listing in a virtualPythonFolder module is reached.
 
@@ -109,8 +118,8 @@ def setResolvedUrl(handle, succeeded, listitem):
     """
     pass
 
-#noinspection PyUnusedLocal
-def addSortMethod(handle, sortMethod, label2="%D"):
+
+def addSortMethod(handle, sortMethod, label2Mask=''):
     """Adds a sorting method for the media list.
 
     handle: integer - handle the plugin was started with.
@@ -126,7 +135,7 @@ def addSortMethod(handle, sortMethod, label2="%D"):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def getSetting(handle, id):
     """Returns the value of a setting as a string.
 
@@ -138,7 +147,7 @@ def getSetting(handle, id):
     """
     return str
 
-#noinspection PyUnusedLocal
+
 def setSetting(handle, id, value):
     """Sets a plugin setting for the current running plugin.
 
@@ -151,7 +160,7 @@ def setSetting(handle, id, value):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setContent(handle, content):
     """Sets the plugins content.
 
@@ -166,7 +175,7 @@ def setContent(handle, content):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setPluginCategory(handle, category):
     """Sets the plugins name for skins to display.
 
@@ -178,7 +187,7 @@ def setPluginCategory(handle, category):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
     """Sets the plugins fanart and color for skins to display.
 
@@ -193,7 +202,7 @@ def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setProperty(handle, key, value):
     """Sets a container property for this plugin.
 
