@@ -1,9 +1,11 @@
 ## @package xbmcgui
-#  Classes and functions to work with XBMC GUI.
+#  Classes and functions to work with Kodi GUI.
 #
 """
 Classes and functions to work with Kodi GUI
 """
+
+import xbmc
 
 ACTION_ANALOG_FORWARD = 113
 ACTION_ANALOG_MOVE = 49
@@ -366,19 +368,26 @@ class Window(object):
         """
         pass
 
-    def onClick(self, control):
+    def onClick(self, controlId):
         """onClick method.
 
         This method will recieve all click events that the main program will send to this window.
         """
         pass
 
-    def onDoubleClick(self):
+    def onDoubleClick(self, controlId):
+        """
+        onDoubleClick(self, int controlId)--onClick method.
+
+        This method will recieve all double click events that the main program will send
+        to this window.
+        """
         pass
 
     def onControl(self, control):
         """
         onControl method.
+
         This method will recieve all control events that the main program will send to this window.
         'control' is an instance of a Control object.
         """
@@ -402,7 +411,7 @@ class Window(object):
         """Display this window until close() is called."""
         pass
 
-    def addControl(self, control):
+    def addControl(self, pControl):
         """Add a Control to this window.
 
         Raises:
@@ -424,7 +433,7 @@ class Window(object):
         """
         pass
 
-    def addControls(self, controls):
+    def addControls(self, pControls):
         """
         addControls(self, List)--Add a list of Controls to this window.
 
@@ -435,7 +444,7 @@ class Window(object):
         """
         pass
 
-    def getControl(self, controlId):
+    def getControl(self, iControlId):
         """Get's the control from this window.
 
         Raises:
@@ -450,7 +459,7 @@ class Window(object):
         """
         return object
 
-    def setFocus(self, Control):
+    def setFocus(self, pControl):
         """Give the supplied control focus.
 
         Raises:
@@ -460,7 +469,7 @@ class Window(object):
         """
         pass
 
-    def setFocusId(self, int):
+    def setFocusId(self, iControlId):
         """Gives the control with the supplied focus.
 
         Raises:
@@ -476,7 +485,7 @@ class Window(object):
             SystemError: On Internal error.
             RuntimeError: If no control has focus.
         """
-        return object
+        return Control
 
     def getFocusId(self):
         """Returns the id of the control which is focused.
@@ -487,7 +496,7 @@ class Window(object):
         """
         return long
 
-    def removeControl(self, control):
+    def removeControl(self, pControl):
         """Removes the control from this window.
 
         Raises:
@@ -498,7 +507,16 @@ class Window(object):
         """
         pass
 
-    def removeControls(self, controls):
+    def removeControls(self, pControls):
+        """
+        removeControls(self, List)--Removes a list of controls from this window.
+
+        Throws:
+            - TypeError, if supplied argument is not aControl type
+            - RuntimeError, if control is not added to this window
+
+        This will not delete the controls. They are only removed from the window.
+        """
         pass
 
     def getHeight(self):
@@ -527,7 +545,7 @@ class Window(object):
         """
         return long
 
-    def setCoordinateResolution(self, resolution):
+    def setCoordinateResolution(self, res):
         """Sets the resolution that the coordinates of all controls are defined in.
 
         Allows XBMC to scale control positions and width/heights to whatever resolution
@@ -606,16 +624,33 @@ class Window(object):
 
 class WindowDialog(Window):
     """
-    Create a new WindowDialog with transparent background, unlike Window.
-    WindowDialog always stays on top of XBMC UI.
+    Create a new WindowDialog with transparent background.
+
+    Unlike Window, WindowDialog always stays on top of XBMC UI.
     """
     pass
 
 
 
 class WindowXML(Window):
+    """
+    WindowXML class.
 
-    """Create a new WindowXML script."""
+    WindowXML(self, xmlFilename, scriptPath[, defaultSkin, defaultRes])--Create a newWindowXML script.
+
+    xmlFilename : string - the name of the xml file to look for.
+    scriptPath : string - path to script. used to fallback to if the xml doesn't exist in the current skin. (eg os.getcwd())
+    defaultSkin : [opt] string - name of the folder in the skins path to look in for the xml. (default='Default')
+    defaultRes : [opt] string - default skins resolution. (default='720p')
+
+    *Note, skin folder structure is eg(resources/skins/Default/720p)
+
+    example:
+
+        - ui = GUI('script-Lyrics-main.xml', os.getcwd(), 'LCARS', 'PAL')
+    ui.doModal()
+    del ui
+    """
 
     def __init__(self, xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p'):
         """
@@ -666,7 +701,7 @@ class WindowXML(Window):
 
     def getCurrentListPosition(self):
         """Gets the current position in the Window List."""
-        return long
+        return int
 
     def getListItem(self, position):
         """Returns a given ListItem in this Window List.
@@ -677,9 +712,9 @@ class WindowXML(Window):
 
     def getListSize(self):
         """Returns the number of items in this Window List."""
-        return long
+        return int
 
-    def setProperty(self, key, value):
+    def setProperty(self, strProperty, strValue):
         """Sets a container property, similar to an infolabel.
 
         key: string - property name.
@@ -695,30 +730,32 @@ class WindowXML(Window):
 
 
 class WindowXMLDialog(WindowXML):
+    """
+    WindowXMLDialog class.
 
-    """Create a new WindowXMLDialog script."""
+    WindowXMLDialog(self, xmlFilename, scriptPath[, defaultSkin, defaultRes])--Create a newWindowXMLDialog script.
 
-    def __init__(self, xmlFilename, scriptPath, defaultSkin="Default", defaultRes="720p"):
-        """
-        xmlFilename: string - the name of the xml file to look for.
-        scriptPath: string - path to script. used to fallback to if the xml doesn't exist in the current skin. (eg os.getcwd())
-        defaultSkin: string - name of the folder in the skins path to look in for the xml.
-        defaultRes: string - default skins resolution.
+    xmlFilename : string - the name of the xml file to look for.
+    scriptPath : string - path to script. used to fallback to if the xml doesn't exist in the current skin.
+    (eg os.getcwd())
+    defaultSkin : [opt] string - name of the folder in the skins path to look in for the xml. (default='Default')
+    defaultRes : [opt] string - default skins resolution. (default='720p')
 
-        Note:
-        Skin folder structure is eg(resources/skins/Default/720p).
+    *Note, skin folder structure is eg(resources/skins/Default/720p)
 
-        Example:
-        ui = GUI('script-Lyrics-main.xml', os.getcwd(), 'LCARS', 'PAL')
-        ui.doModal()
-        del ui
-        """
-        pass
+    example:
+        - ui = GUI('script-Lyrics-main.xml', os.getcwd(), 'LCARS', 'PAL')
+        - ui.doModal()
+        - del ui
+    """
+    pass
 
 
 class Control(object):
     """
-    Parent for control classes. The problem here is that Python uses references to this class in a dynamic typing way.
+    Parent for control classes.
+
+    The problem here is that Python uses references to this class in a dynamic typing way.
     For example, you will find this type of python code frequently:
     window.getControl( 100 ).setLabel( "Stupid Dynamic Type")
     Notice that the 'getControl' call returns a 'Control ' object.
@@ -745,9 +782,10 @@ class Control(object):
     def canAcceptMessages(self):
         pass
 
-    def controlDown(self, control=None):
+    def controlDown(self, control):
         """
         controlDown(control)--Set's the controls down navigation.
+
         control : control object - control to navigate to on down.
         *Note, You can also usesetNavigation() . Set to self to disable navigation.
 
@@ -759,7 +797,7 @@ class Control(object):
         """
         pass
 
-    def controlLeft(self, control=None):
+    def controlLeft(self, control):
         """
         controlLeft(control)--Set's the controls left navigation.
 
@@ -777,7 +815,7 @@ class Control(object):
         """
         pass
 
-    def controlRight(self, control=None):
+    def controlRight(self, control):
         """
         controlRight(control)--Set's the controls right navigation.
 
@@ -794,7 +832,7 @@ class Control(object):
         """
         pass
 
-    def controlUp(self, control=None):
+    def controlUp(self, control):
         """
         controlUp(control)--Set's the controls up navigation.
 
@@ -835,7 +873,7 @@ class Control(object):
         example:
         - pos = self.button.getPosition()
         """
-        return (int, int)
+        return int, int
 
     def getWidth(self):
         """
@@ -857,7 +895,7 @@ class Control(object):
         """
         return int
 
-    def setAnimations(self, event_attr=[()]):
+    def setAnimations(self, eventAttr):
         """
         setAnimations([(event, attr,)*])--Set's the control's animations.
 
@@ -876,6 +914,7 @@ class Control(object):
     def setEnableCondition(self, enable):
         """
         setEnableCondition(enable)--Set's the control's enabled condition.
+
         Allows XBMC to control the enabled status of the control.
 
         enable : string - Enable condition.
@@ -887,7 +926,7 @@ class Control(object):
         """
         pass
 
-    def setEnabled(self, enabled=True):
+    def setEnabled(self, enabled):
         """
         setEnabled(enabled)--Set's the control's enabled/disabled state.
 
@@ -909,7 +948,7 @@ class Control(object):
         """
         pass
 
-    def setNavigation(self, up=None, down=None, left=None, right=None):
+    def setNavigation(self, up, down, left, right):
         """
         setNavigation(up, down, left, right)--Set's the controls navigation.
 
@@ -958,6 +997,7 @@ class Control(object):
     def setVisibleCondition(self, condition, allowHiddenFocus=False):
         """
         setVisibleCondition(visible[,allowHiddenFocus])--Set's the control's visible condition.
+
         Allows XBMC to control the visible status of the control.
 
         visible : string - Visible condition.
@@ -1000,7 +1040,7 @@ class ListItem(object):
         """
         pass
 
-    def addStreamInfo(self, type, values):
+    def addStreamInfo(self, cType, dictionary):
         """
         addStreamInfo(type, values) -- Add a stream with details.
 
@@ -1027,6 +1067,24 @@ class ListItem(object):
         """
         pass
 
+    def getdescription(self):
+        """
+        getdescription() --Returns the description of this PlayListItem.
+        """
+        return str
+
+    def getduration(self):
+        """
+        getduration() --Returns the duration of this PlayListItem
+        """
+        return str
+
+    def getfilename(self):
+        """
+        getfilename() --Returns the filename of this PlayListItem.
+        """
+        return str
+
     def getLabel(self):
         """Returns the listitem label."""
         return str
@@ -1049,14 +1107,14 @@ class ListItem(object):
         """
         pass
 
-    def setIconImage(self, icon):
+    def setIconImage(self, iconImage):
         """Sets the listitem's icon image.
 
         icon: string or unicode - image filename.
         """
         pass
 
-    def setThumbnailImage(self, thumb):
+    def setThumbnailImage(self, thumbFilename):
         """Sets the listitem's thumbnail image.
 
         thumb: string or unicode - image filename.
@@ -1176,7 +1234,7 @@ class ListItem(object):
         """
         return str
 
-    def addContextMenuItems(self, list, replaceItems=False):
+    def addContextMenuItems(self, items, replaceItems=False):
         """Adds item(s) to the context menu for media lists.
 
         items: list - [(label, action)] A list of tuples consisting of label and action pairs.
@@ -1194,6 +1252,7 @@ class ListItem(object):
     def setPath(self, path):
         """
         setPath(path) -- Sets the listitem's path.
+
         path           : string or unicode - path, activated when item is clicked.
         *Note, You can use the above as keywords for arguments.
 
@@ -1202,20 +1261,11 @@ class ListItem(object):
         """
         pass
 
-    def setSubtitles(self, subtitles=[]):
+    def setArt(self, dictionary):
         """
-        setSubtitles() --Sets subtitles for this listitem.
+        setArt(dictionary) -- Sets the listitem's art
 
-        example:
-        - listitem.setSubtitles(['special://temp/example.srt', 'http://example.com/example.srt' ])
-        """
-        pass
-
-    def setArt(self, values={}):
-        """
-        setArt(values) -- Sets the listitem's art
-
-        values : dictionary - pairs of { label: value }.
+        dictionary : dict - pairs of { label: value }.
 
         - Some default art values (any string possible):
         - thumb : string - image filename
@@ -1231,16 +1281,51 @@ class ListItem(object):
         """
         pass
 
+    def getMusicInfoTag(self):
+        """
+        getMusicInfoTag() --returns the MusicInfoTag for this item.
+        """
+        return xbmc.InfoTagMusic
+
+    def getVideoInfoTag(self):
+        """
+        getVideoInfoTag() --returns the VideoInfoTag for this item.
+        """
+        return xbmc.InfoTagVideo
+
+    def setMimeType(self, mimetype):
+        """
+        setMimeType(mimetype)--Sets the listitem's mimetype if known.
+
+        mimetype : string or unicode - mimetype.
+
+        *If known prehand, this can avoid xbmc doing HEAD requests to http servers to figure out file type.
+        """
+        pass
+
+    def setSubtitles(self, subtitleFiles):
+        """
+        setSubtitles(subtitleFiles) --Sets subtitles for this listitem.
+
+        subtitleFiles - list of subtitle paths
+
+        example:
+        - listitem.setSubtitles(['special://temp/example.srt', 'http://example.com/example.srt' ])
+        """
+        pass
+
 
 class ControlLabel(Control):
 
     """
     ControlLabel class.
+
     Creates a text label.
     """
 
-    def __init__(self, x, y, width, height, label, font=None, textColor=None, disabledColor=None, alignment=None,
-                 hasPath=None, angle=None):
+    def __init__(self, x, y, width, height, label,
+                 font=None, textColor=None, disabledColor=None, alignment=0,
+                 hasPath=False, angle=0):
         """
         x: integer - x coordinate of control.
         y: integer - y coordinate of control.
@@ -1262,7 +1347,8 @@ class ControlLabel(Control):
         """
         pass
 
-    def setLabel(self, label):
+    def setLabel(self, label='', font=None, textColor=None, disabledColor=None, shadowColor=None,
+                 focusedColor=None, label2=''):
         """Set's text for this label.
 
         label: string or unicode - text string.
@@ -1271,14 +1357,14 @@ class ControlLabel(Control):
 
     def getLabel(self):
         """Returns the text value for this label."""
-        return str
+        return unicode
 
 
 class ControlFadeLabel(Control):
 
     """Control which scrolls long label text."""
 
-    def __init__(self, x, y, width, height, font=None, textColor=None, _alignment=None):
+    def __init__(self, x, y, width, height, font=None, textColor=None, _alignment=0):
         """
          x: integer - x coordinate of control.
         y: integer - y coordinate of control.
@@ -1312,6 +1398,7 @@ class ControlTextBox(Control):
 
     """
     ControlTextBox class.
+
     Creates a box for multi-line text.
     """
 
@@ -1332,6 +1419,28 @@ class ControlTextBox(Control):
         """
         pass
 
+    def autoScroll(self, delay, time, repeat):
+        """
+        autoScroll(delay, time, repeat)--Set autoscrolling times.
+
+        delay : integer - Scroll delay (in ms)
+        time : integer - Scroll time (in ms)
+        repeat : integer - Repeat time
+
+        example:
+            - self.textbox.autoScroll(1, 2, 1)
+        """
+        pass
+
+    def getText(self):
+        """
+        getText() --Returns the text value for this textbox.
+
+        example:
+            - text = self.text.getText()
+        """
+        return unicode
+
     def setText(self, text):
         """Set's the text for this textbox.
 
@@ -1339,7 +1448,7 @@ class ControlTextBox(Control):
         """
         pass
 
-    def scroll(self, position):
+    def scroll(self, id):
         """Scrolls to the given position.
 
         id: integer - position to scroll to.
@@ -1358,8 +1467,11 @@ class ControlButton(Control):
     Creates a clickable button.
     """
 
-    def __init__(self, x, y, width, height, label, focusTexture=None, noFocusTexture=None, textOffsetX=None,
-                 textOffsetY=None, alignment=None, font=None, textColor=None, disabledColor=None, angle=None,
+    def __init__(self, x, y, width, height, label, focusTexture=None, noFocusTexture=None,
+                 textOffsetX=CONTROL_TEXT_OFFSET_X,
+                 textOffsetY=CONTROL_TEXT_OFFSET_Y,
+                 alignment=4,
+                 font=None, textColor=None, disabledColor=None, angle=0,
                  shadowColor=None, focusedColor=None):
         """
         x: integer - x coordinate of control.
@@ -1387,14 +1499,15 @@ class ControlButton(Control):
         """
         pass
 
-    def setDisabledColor(self, disabledColor):
+    def setDisabledColor(self, color):
         """Set's this buttons disabled color.
 
         disabledColor: hexstring - color of disabled button's label. (e.g. '0xFFFF3300')
         """
         pass
 
-    def setLabel(self, label=None, font=None, textColor=None, disabledColor=None, shadowColor=None, focusedColor=None):
+    def setLabel(self, label='', font=None, textColor=None, disabledColor=None, shadowColor=None,
+                 focusedColor=None, label2=''):
         """Set's this buttons text attributes.
 
         label: string or unicode - text string.
@@ -1423,11 +1536,13 @@ class ControlCheckMark(Control):
 
     """
     ControlCheckMark class.
+
     Creates a checkmark with 2 states.
     """
 
-    def __init__(self, x, y, width, height, label, focusTexture=None, noFocusTexture=None, checkWidth=None,
-                 checkHeight=None, _alignment=None, font=None, textColor=None, disabledColor=None):
+    def __init__(self, x, y, width, height, label,
+                 focusTexture=None, noFocusTexture=None, checkWidth=30,
+                 checkHeight=30, _alignment=1, font=None, textColor=None, disabledColor=None):
         """
         x: integer - x coordinate of control.
         y: integer - y coordinate of control.
@@ -1452,14 +1567,15 @@ class ControlCheckMark(Control):
         """
         pass
 
-    def setDisabledColor(self, disabledColor):
+    def setDisabledColor(self, color):
         """Set's this controls disabled color.
 
         disabledColor: hexstring - color of disabled checkmark's label. (e.g. '0xFFFF3300')
         """
         pass
 
-    def setLabel(self, label, font=None, textColor=None, disabledColor=None):
+    def setLabel(self, label='', font=None, textColor=None, disabledColor=None,
+                 shadowColor=None, focusedColor=None, label2=''):
         """Set's this controls text attributes.
 
         label: string or unicode - text string.
@@ -1476,10 +1592,10 @@ class ControlCheckMark(Control):
         """Returns the selected status for this checkmark as a bool."""
         return bool
 
-    def setSelected(self, isOn):
+    def setSelected(self, selected):
         """Sets this checkmark status to on or off.
 
-        isOn: bool - True=selected (on) / False=not selected (off)
+        selected - bool - True=selected (on) / False=not selected (off)
         """
         pass
 
@@ -1488,12 +1604,14 @@ class ControlList(Control):
 
     """
     ControlList class.
+
     Creates a list of items.
     """
 
-    def __init__(self, x, y, width, height, font=None, textColor=None, buttonTexture=None, buttonFocusTexture=None,
-                 selectedColor=None, _imageWidth=None, _imageHeight=None, _itemTextXOffset=None, _itemTextYOffset=None,
-                 _itemHeight=None, _space=None, _alignmentY=None):
+    def __init__(self, x, y, width, height, font=None, textColor=None, buttonTexture=None,
+                 buttonFocusTexture=None, selectedColor=None, _imageWidth=10, _imageHeight=10,
+                 _itemTextXOffset=10, _itemTextYOffset=2,
+                 _itemHeight=27, _space=2, _alignmentY=4):
         """
         x: integer - x coordinate of control.
         y: integer - y coordinate of control.
@@ -1520,7 +1638,7 @@ class ControlList(Control):
         """
         pass
 
-    def addItem(self, item):
+    def addItem(self, item, sendMessage=True):
         """Add a new item to this list control.
 
         item: string, unicode or ListItem - item to add.
@@ -1553,9 +1671,9 @@ class ControlList(Control):
             After adding this control list to a window it is not possible to change
             the settings of this spin control.
         """
-        return object
+        return ControlSpin
 
-    def setImageDimensions(self, imageWidth=None, imageHeight=None):
+    def setImageDimensions(self, imageWidth, imageHeight):
         """Sets the width/height of items icon or thumbnail.
 
         imageWidth: integer - width of items icon or thumbnail.
@@ -1577,7 +1695,7 @@ class ControlList(Control):
         """
         pass
 
-    def setSpace(self, space=None):
+    def setSpace(self, space):
         """Set's the space between items.
 
         space: integer - space between items.
@@ -1633,6 +1751,7 @@ class ControlList(Control):
     def removeItem(self, index):
         """
         Remove an item by index number.
+
         index : integer - index number of the item to remove.
         example:
         my_list.removeItem(12)
@@ -1644,10 +1763,11 @@ class ControlImage(Control):
 
     """
     ControlImage class.
+
     Displays an image from a file.
     """
 
-    def __init__(self, x, y, width, height, filename, colorKey=None, aspectRatio=None, colorDiffuse=None):
+    def __init__(self, x, y, width, height, filename, aspectRatio=0, colorDiffuse=None):
         """
         x: integer - x coordinate of control.
         y: integer - y coordinate of control.
@@ -1666,14 +1786,14 @@ class ControlImage(Control):
         """
         pass
 
-    def setImage(self, filename):
+    def setImage(self, imageFilename, useCache=True):
         """Changes the image.
 
         filename: string - image filename.
         """
         pass
 
-    def setColorDiffuse(self, colorDiffuse):
+    def setColorDiffuse(self, hexString):
         """Changes the images color.
 
         colorDiffuse: hexString - (example, '0xC0FF0000' (red tint)).
@@ -1687,7 +1807,9 @@ class ControlProgress(Control):
     ControlProgress class.
     """
 
-    def __init__(self, x, y, width, height, texturebg=None, textureleft=None, texturemid=None, textureright=None,
+    def __init__(self, x, y, width, height,
+                 texturebg=None, textureleft=None,
+                 texturemid=None, textureright=None,
                  textureoverlay=None):
         """
         x: integer - x coordinate of control.
@@ -1708,7 +1830,7 @@ class ControlProgress(Control):
         """
         pass
 
-    def setPercent(self, percent):
+    def setPercent(self, pct):
         """Sets the percentage of the progressbar to show.
 
         percent: float - percentage of the bar to show.
@@ -1727,6 +1849,7 @@ class ControlSlider(Control):
 
     """
     ControlSlider class.
+
     Creates a slider.
     """
 
@@ -1778,12 +1901,14 @@ class ControlEdit(Control):
 
     """
     ControlEdit class.
+
     ControlEdit(x, y, width, height, label[, font, textColor,
                                                     disabledColor, alignment, focusTexture, noFocusTexture])
     """
 
-    def __init__(self, x, y, width, height, label, font=None, textColor=None, disabledColor=None, alignment=None,
-                                                                            focusTexture=None, noFocusTexture=None):
+    def __init__(self, x, y, width, height, label, font=None, textColor=None,
+                 disabledColor=None, _alignment=0,
+                 focusTexture=None, noFocusTexture=None, isPassword=False):
         """
         x              : integer - x coordinate of control.
         y              : integer - y coordinate of control.
@@ -1825,7 +1950,8 @@ class ControlEdit(Control):
         """
         return unicode
 
-    def setLabel(self, label):
+    def setLabel(self, label='', font=None, textColor=None, disabledColor=None, shadowColor=None,
+                 focusedColor=None, label2=''):
         """
         setLabel(label) -- Set's text heading for this edit control.
 
@@ -1835,11 +1961,11 @@ class ControlEdit(Control):
         """
         pass
 
-    def setText(self, value):
+    def setText(self, text):
         """
-        setText(value) -- Set's text value for this edit control.
+        setText(text) -- Set's text value for this edit control.
 
-        value          : string or unicode - text string.
+        text - string or unicode - text string.
         example:
         - self.edit.setText('online')
         """
@@ -1929,9 +2055,26 @@ class ControlRadioButton(Control):
         pass
 
 
+class ControlSpin(Control):
+    """
+    ControlSpin class.
+
+    - Not working yet -.
+
+    you can't create this object, it is returned by objects likeControlTextBox andControlList.
+    """
+
+    def setTextures(self, up, down, upFocus, downFocus):
+        """
+        setTextures(up, down, upFocus, downFocus)--Set's textures for this control.
+
+        texture are image files that are used for example in the skin
+        """
+        pass
+
 class Dialog(object):
 
-    def browse(self, type, heading, s_shares, mask=None, useThumbs=False, treatAsFolder=False, default=None,
+    def browse(self, type, heading, s_shares, mask='', useThumbs=False, treatAsFolder=False, default='',
                enableMultiple=False):
         """Show a 'Browse' dialog.
 
@@ -1965,7 +2108,7 @@ class Dialog(object):
         """
         return str
 
-    def browseMultiple(self, type, heading, shares, mask=None, useThumbs=None, treatAsFolder=None, default=None):
+    def browseMultiple(self, type, heading, shares, mask='', useThumbs=None, treatAsFolder=None, default=''):
         """
         browse(type, heading, shares[, mask, useThumbs, treatAsFolder, default])--Show a 'Browse' dialog.
 
@@ -1993,7 +2136,7 @@ class Dialog(object):
         """
         return tuple
 
-    def browseSingle(self, type, heading, shares, mask=None, useThumbs=None, treatAsFolder=None, default=None):
+    def browseSingle(self, type, heading, shares, mask='', useThumbs=None, treatAsFolder=None, default=''):
         """
         browse(type, heading, shares[, mask, useThumbs, treatAsFolder, default])--Show a 'Browse' dialog.
 
@@ -2022,7 +2165,7 @@ class Dialog(object):
         """
         return str
 
-    def input(self, heading, default=None, type=None, option=None, autoclose=None):
+    def input(self, heading, default='', type=INPUT_ALPHANUM, option=0, autoclose=0):
         """
         input(heading[, default, type, option, autoclose])--Show an Input dialog.
 
@@ -2059,7 +2202,7 @@ class Dialog(object):
         """
         return str
 
-    def numeric(self, type, heading, default=None):
+    def numeric(self, type, heading, default=''):
         """Show a 'Numeric' dialog.
 
         type: integer - the type of numeric dialog.
@@ -2082,7 +2225,7 @@ class Dialog(object):
         """
         return str
 
-    def notification(self, heading, message, icon=None, time=None, sound=None):
+    def notification(self, heading, message, icon='', time=0, sound=True):
         """
         notification(heading, message[, icon, time, sound])--Show a Notification alert.
 
@@ -2103,7 +2246,7 @@ class Dialog(object):
         """
         pass
 
-    def yesno(self, heading, line1, line2=None, line3=None, nolabel=None, yeslabel=None):
+    def yesno(self, heading, line1, line2='', line3='', nolabel='', yeslabel='', autoclose=0):
         """Show a dialog 'YES/NO'.
 
         heading: string or unicode - dialog heading.
@@ -2112,6 +2255,7 @@ class Dialog(object):
         line3: string or unicode - line #3 text.
         nolabel: label to put on the no button.
         yeslabel: label to put on the yes button.
+        autoclose : [opt] integer - milliseconds to autoclose dialog. (default=do not autoclose)
 
         Note:
             Returns True if 'Yes' was pressed, else False.
@@ -2122,7 +2266,7 @@ class Dialog(object):
         """
         return bool
 
-    def ok(self, heading, line1, line2=None, line3=None):
+    def ok(self, heading, line1, line2='', line3=''):
         """Show a dialog 'OK'.
 
         heading: string or unicode - dialog heading.
@@ -2158,7 +2302,7 @@ class Dialog(object):
 
 
 class DialogProgress(object):
-    def create(self, heading, line1=None, line2=None, line3=None):
+    def create(self, heading, line1='', line2='', line3=''):
         """Create and show a progress dialog.
 
         heading: string or unicode - dialog heading.
@@ -2175,7 +2319,7 @@ class DialogProgress(object):
         """
         pass
 
-    def update(self, percent, line1=None, line2=None, line3=None):
+    def update(self, percent, line1='', line2='', line3=''):
         """Update's the progress dialog.
 
         percent: integer - percent complete. (0:100)
@@ -2241,7 +2385,7 @@ class DialogProgressBG(object):
         """
         return bool
 
-    def update(self, percent, heading=None, message=None):
+    def update(self, percent=0, heading='', message=''):
         """
         update([percent, heading, message])--Updates the background progress dialog.
 
