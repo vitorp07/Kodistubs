@@ -108,5 +108,6 @@ docs/_build/
 # PyBuilder
 target/
 
-epydoc.*
+epydoc.cmd
+epydoc.cfg
 _docs/
