@@ -13,7 +13,7 @@ __version__ = '2.20.0'
 
 
 class Addon(object):
-    def __init__(self, id = None):
+    def __init__(self, id=None):
         """Creates a new Addon class.
 
         id: string - id of the addon (autodetected in XBMC Eden)

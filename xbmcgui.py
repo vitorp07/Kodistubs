@@ -324,7 +324,7 @@ __version__ = '2.20.0'
 class Window(object):
     """Create a new Window to draw on."""
 
-    def __init__(self, windowId=-1):
+    def __init__(self, existingWindowId=-1):
         """
         Create a new Window to draw on.
 
