@@ -531,17 +531,26 @@ class Window(object):
         """Returns the resolution of the screen.
 
         The returned value is one of the following:
-            0 - 1080i      (1920x1080)
-            1 - 720p       (1280x720)
-            2 - 480p 4:3   (720x480)
-            3 - 480p 16:9  (720x480)
-            4 - NTSC 4:3   (720x480)
-            5 - NTSC 16:9  (720x480)
-            6 - PAL 4:3    (720x576)
-            7 - PAL 16:9   (720x576)
-            8 - PAL60 4:3  (720x480)
-            9 - PAL60 16:9 (720x480)
-        Note: this info is outdated. XBMC 12+ returns different vaulues.
+              RES_INVALID        = -1,
+              RES_HDTV_1080i     =  0,
+              RES_HDTV_720pSBS   =  1,
+              RES_HDTV_720pTB    =  2,
+              RES_HDTV_1080pSBS  =  3,
+              RES_HDTV_1080pTB   =  4,
+              RES_HDTV_720p      =  5,
+              RES_HDTV_480p_4x3  =  6,
+              RES_HDTV_480p_16x9 =  7,
+              RES_NTSC_4x3       =  8,
+              RES_NTSC_16x9      =  9,
+              RES_PAL_4x3        = 10,
+              RES_PAL_16x9       = 11,
+              RES_PAL60_4x3      = 12,
+              RES_PAL60_16x9     = 13,
+              RES_AUTORES        = 14,
+              RES_WINDOW         = 15,
+              RES_DESKTOP        = 16,          Desktop resolution for primary screen
+              RES_CUSTOM         = 16 + 1
+              See: /xbmc/guilib/Resolution.h
         """
         return long
 
@@ -552,20 +561,26 @@ class Window(object):
         XBMC is currently using.
 
         resolution is one of the following:
-            0 - 1080i      (1920x1080)
-            1 - 720p       (1280x720)
-            2 - 480p 4:3   (720x480)
-            3 - 480p 16:9  (720x480)
-            4 - NTSC 4:3   (720x480)
-            5 - NTSC 16:9  (720x480)
-            6 - PAL 4:3    (720x576)
-            7 - PAL 16:9   (720x576)
-            8 - PAL60 4:3  (720x480)
-            9 - PAL60 16:9 (720x480)
-
-        Note: default is 720p (1280x720)
-        Note 2: this is not an actual display resulution. This is the resolution of the coordinate grid
-        all controls are placed on.
+              RES_INVALID        = -1,
+              RES_HDTV_1080i     =  0,
+              RES_HDTV_720pSBS   =  1,
+              RES_HDTV_720pTB    =  2,
+              RES_HDTV_1080pSBS  =  3,
+              RES_HDTV_1080pTB   =  4,
+              RES_HDTV_720p      =  5,
+              RES_HDTV_480p_4x3  =  6,
+              RES_HDTV_480p_16x9 =  7,
+              RES_NTSC_4x3       =  8,
+              RES_NTSC_16x9      =  9,
+              RES_PAL_4x3        = 10,
+              RES_PAL_16x9       = 11,
+              RES_PAL60_4x3      = 12,
+              RES_PAL60_16x9     = 13,
+              RES_AUTORES        = 14,
+              RES_WINDOW         = 15,
+              RES_DESKTOP        = 16,          Desktop resolution for primary screen
+              RES_CUSTOM         = 16 + 1
+              See: /xbmc/guilib/Resolution.h
         """
         pass
 
