@@ -2443,27 +2443,6 @@ class Action(object):
         return float
 
 
-def lock():
-    """
-    lock()--Lock the gui until xbmcgui.unlock() is called.
-
-    *Note, This will improve performance when doing a lot of gui manipulation at once.
-    The main program (xbmc itself) will freeze until xbmcgui.unlock() is called.
-
-    example:
-    - xbmcgui.lock()
-    """
-    pass
-
-def unlock():
-    """
-    unlock()--Unlock the gui from a lock() call.
-
-    example:
-    - xbmcgui.unlock()
-    """
-    pass
-
 def getCurrentWindowId():
     """
     getCurrentWindowId()--Returns the id for the current 'active' window as an integer.
@@ -2472,6 +2451,7 @@ def getCurrentWindowId():
     - wid = xbmcgui.getCurrentWindowId()
     """
     return long
+
 
 def getCurrentWindowDialogId():
     """
