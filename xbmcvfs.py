@@ -13,208 +13,255 @@ __version__ = '2.20.0'
 
 
 class File(object):
+    """
+    File(self, filepath, mode=None)
+
+    Creates a file object
+
+    :param filepath: file path
+    :param mode: (opt) file access mode. None: read (default), 'w': write.
+
+    Example::
+
+        f = xbmcvfs.File(file, 'w')
+    """
     def __init__(self, filepath, mode=None):
         """
         'w' - (opt) open for write
-        example:
-         f = xbmcvfs.File(file, ['w'])
+
+        example::
+
+            f = xbmcvfs.File(file, ['w'])
         """
         pass
 
     def close(self):
         """
-        example:
-         f = xbmcvfs.File(file)
-         f.close()
+        Close the file
+
+        example::
+
+            f = xbmcvfs.File(file)
+            f.close()
         """
         pass
 
     def read(self, numBytes=0):
         """
-        read(numBytes)
+        Read from the file to a string.
 
-        numBytes : how many bytes to read [opt]- if not set it will read the whole file
-        example:
-        f = xbmcvfs.File(file)
-        b = f.read()
-        f.close()
+        :param numBytes : how many bytes to read [opt]- if not set it will read the whole file
+        :returns: str
+
+        example::
+
+            f = xbmcvfs.File(file)
+            b = f.read()
+            f.close()
         """
-        return str
+        return str()
 
     def readBytes(self, numBytes=0):
         """
-        readBytes(numBytes)
+        Read from the file to a bytearray.
 
-        numBytes : how many bytes to read [opt]- if not set it will read the whole file
+        :param numBytes : how many bytes to read [opt]- if not set it will read the whole file
+        :return: bytearray
 
-        returns: bytearray
-
-        example:
-        f = xbmcvfs.File(file)
-        b = f.read()
-        f.close()
+        example::
+            f = xbmcvfs.File(file)
+            b = f.read()
+            f.close()
         """
-        return bytearray
+        return bytearray()
 
     def seek(self, seekBytes, iWhence):
         """
-        seek()
+        Seek the file to the specified position.
 
-        seekBytes : position in the file
-        iWhence : where in a file to seek from[0 begining, 1 current , 2 end possition]
-        example:
-         f = xbmcvfs.File(file)
-         result = f.seek(8129, 0)
-         f.close()
+        :param seekBytes: position in the file
+        :param iWhence: where in a file to seek from [0 begining, 1 current , 2 end possition]
+
+        example::
+
+            f = xbmcvfs.File(file)
+            result = f.seek(8129, 0)
+            f.close()
         """
-        return long
+        return long()
 
     def size(self):
         """
-        size()
+        Returns the size of the file
 
-        example:
-         f = xbmcvfs.File(file)
-         s = f.size()
-         f.close()
+        example::
+
+            f = xbmcvfs.File(file)
+            s = f.size()
+            f.close()
         """
-        return long
+        return long()
 
     def write(self, buffer):
         """
-        write(buffer)
+        Write to the file.
 
-        buffer : buffer to write to file
-        example:
-         f = xbmcvfs.File(file, 'w', True)
-         result = f.write(buffer)
-         f.close()
+        :param buffer: buffer to write to the file
+
+        example::
+
+            f = xbmcvfs.File(file, 'w')
+            result = f.write(buffer)
+            f.close()
         """
-        return bool
+        return bool(1)
 
 
 def copy(strSource, strDestnation):
     """Copy file to destination, returns true/false.
 
-    source: string - file to copy.
-    destination: string - destination file
+    :param source: string - file to copy.
+    :param destination: string - destination file
 
-    Example:
-        success = xbmcvfs.copy(source, destination)"""
-    return bool
+    Example::
+
+        success = xbmcvfs.copy(source, destination)
+    """
+    return bool(1)
 
 
 def delete(file):
-    """Deletes a file.
+    """Delete the file
 
-    file: string - file to delete
+    :param file: string - file to delete
 
-    Example:
-        xbmcvfs.delete(file)"""
+    Example::
+
+        xbmcvfs.delete(file)
+    """
     pass
 
 
 def rename(file, newFile):
     """Renames a file, returns true/false.
 
-    file: string - file to rename
-    newFile: string - new filename, including the full path
+    :param file: string - file to rename
+    :param newFile: string - new filename, including the full path
 
-    Example:
+    Example::
+
         success = xbmcvfs.rename(file,newFileName)"""
-    return bool
+    return bool(1)
 
 
 def mkdir(path):
     """Create a folder.
 
-    path: folder
+    :param path: folder
 
-    Example:
+    Example::
+
         success = xbmcfvs.mkdir(path)
     """
-    return bool
+    return bool(1)
 
 
 def mkdirs(path):
     """
-    mkdirs(path)--Create folder(s) - it will create all folders in the path.
+    Create folder(s) - it will create all folders in the path.
 
-    path : folder
+    :param path: folder
 
-    example:
+    example::
 
-    - success = xbmcvfs.mkdirs(path)
+        success = xbmcvfs.mkdirs(path)
     """
-    return bool
+    return bool(1)
 
 
 def rmdir(path, force=False):
     """Remove a folder.
 
-    path: folder
+    :param path: folder
 
-    Example:
+    Example::
+
         success = xbmcfvs.rmdir(path)
     """
-    return bool
+    return bool(1)
 
 
 def exists(path):
     """Checks for a file or folder existance, mimics Pythons os.path.exists()
 
-    path: string - file or folder
+    :param path: string - file or folder
 
-    Example:
-        success = xbmcvfs.exists(path)"""
-    return bool
+    Example::
+
+        success = xbmcvfs.exists(path)
+    """
+    return bool(1)
+
 
 def listdir(path):
     """
     listdir(path) -- lists content of a folder.
 
-    path        : folder
+    :param path: folder
 
-    example:
-     - dirs, files = xbmcvfs.listdir(path)
+    example::
+
+        dirs, files = xbmcvfs.listdir(path)
     """
-    return tuple
+    return tuple()
 
 
 class Stat(object):
+    """
+    Stat(path)
+
+    Get file or file system status.
+
+    :param path: file or folder
+
+    example::
+
+        print xbmcvfs.Stat(path).st_mtime()
+    """
     def __init__(self, path):
         """
         Stat(path) -- get file or file system status.
 
-        path        : file or folder
+        :param path: file or folder
 
-        example:
-        - print xbmcvfs.Stat(path).st_mtime()
+        example::
+
+            print xbmcvfs.Stat(path).st_mtime()
         """
 
     def st_mode(self):
-        return long
+        return long()
 
     def st_ino(self):
-        return long
+        return long()
 
     def st_nlink(self):
-        return long
+        return long()
 
     def st_uid(self):
-        return long
+        return long()
 
     def st_gid(self):
-        return long
+        return long()
 
     def st_size(self):
-        return long
+        return long()
 
     def st_atime(self):
-        return long
+        return long()
 
     def st_mtime(self):
-        return long
+        return long()
 
     def st_ctime(self):
-        return long
+        return long()
