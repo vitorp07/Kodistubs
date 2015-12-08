@@ -27,11 +27,12 @@ class File(object):
     """
     def __init__(self, filepath, mode=None):
         """
-        'w' - (opt) open for write
+        :param filepath: file path
+        :param mode: (opt) file access mode. None: read (default), 'w': write.
 
-        example::
+        Example::
 
-            f = xbmcvfs.File(file, ['w'])
+            f = xbmcvfs.File(file, 'w')
         """
         pass
 
