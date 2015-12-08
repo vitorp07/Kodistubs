@@ -17,7 +17,7 @@ Then you will get auto-completion, quick help and code inspection for Kodi Pytho
 so don't try to run your program outside Kodi unless you add some testing code into xbmcstubs
 or use some mocking library to mock Kodi Pyhton API.
 
-[Auto-generated Kodi Python API documentation from xbmcstubs docstrings](http://romanvm.github.io/xbmcstubs/docs).
+[Auto-generated Kodi Python API documentation from xbmcstubs docstrings](http://romanvm.github.io/kodistubs/docs).
 
 [Discussion topic on Kodi forum](http://forum.kodi.tv/showthread.php?tid=173780).
 
