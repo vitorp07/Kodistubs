@@ -1,5 +1,5 @@
-Kodi Stubs
-==========
+Kodistubs
+=========
 **(former xbmcstubs)**
 
 These files can help you to develop a script or an addon for `Kodi (XBMC)`_ Media Center.
