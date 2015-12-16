@@ -10,8 +10,8 @@ Typically, a Python IDE (Integrated Development Environment) allows you add a "s
 the Kodistubs files to your development project. Then you will be able to "import" the modules as you normally would
 in Python.
 
-E.g. in `PyCharm IDE`_ go to **File** > **Settings** > **Project xxx** >
-**Project Structure**, click **+ Add Content Root** and select a folder with Koditubs ``.py`` files.
+E.g. in `PyCharm IDE`_ go to ``File** > Settings > Project xxx > Project Structure``,
+click ``+ Add Content Root`` and select a folder with Koditubs ``.py`` files.
 Then you will get auto-completion, quick help and code inspection for Kodi Python API fuctions/classes/methods.
 
 **Warning**: Kodistubs are literally stubs and do not include any useful code,
