@@ -1,6 +1,4 @@
-## @package xbmcplugin
-#  Functions for XBMC plugins.
-#
+# coding: utf-8
 """
 Functions for Kodi plugins
 """

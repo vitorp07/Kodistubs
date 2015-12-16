@@ -111,3 +111,5 @@ target/
 epydoc.cmd
 epydoc.cfg
 _docs/
+venv/
+venv.cmd

@@ -1,6 +1,4 @@
-## @package xbmcaddon
-#  A class to access addon properties.
-#
+# coding: utf-8
 """
 A class to access addon properties
 """

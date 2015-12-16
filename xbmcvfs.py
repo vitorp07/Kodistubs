@@ -1,6 +1,3 @@
-## @package xbmcvfs
-#  Classes and functions to work with files and folders.
-#
 """
 Classes and functions to work with files and folders
 """
@@ -19,7 +16,7 @@ class File(object):
     Creates a file object
 
     :param filepath: file path
-    :param mode: (opt) file access mode. None: read (default), 'w': write.
+    :param mode: (opt) file access mode. ``None``: read (default), ``'w'``: write.
 
     Example::
 
@@ -51,7 +48,7 @@ class File(object):
         """
         Read from the file to a string.
 
-        :param numBytes : how many bytes to read [opt]- if not set it will read the whole file
+        :param numBytes: how many bytes to read [opt]- if not set it will read the whole file
         :returns: str
 
         example::
@@ -66,7 +63,7 @@ class File(object):
         """
         Read from the file to a bytearray.
 
-        :param numBytes : how many bytes to read [opt]- if not set it will read the whole file
+        :param numBytes: how many bytes to read [opt]- if not set it will read the whole file
         :return: bytearray
 
         example::
