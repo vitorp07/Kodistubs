@@ -1,17 +1,18 @@
-XBMC Stubs
+Kodi Stubs
 ==========
+(former xbmcstubs)
 
 These files can help you to develop a script or an addon for `Kodi (XBMC)`_ Media Center.
 Use them in your favorite IDE to enable autocompletion of function, class and method names and access docstrings
 for each function, class and method.
 
 Typically, a Python IDE (Integrated Development Environment) allows you add a "source directory" containing
-the xbmcstubs files to your development project. Then you will be able to "import" the modules as you normally would
+the Kodistubs files to your development project. Then you will be able to "import" the modules as you normally would
 in Python.
 
 E.g. in `PyCharm IDE`_ go to **File** > **Settings** > **Project xxx** >
-**Project Structure**, click **+ Add Content Root** and select a folder with **Koditubs** files.
-Then you will get auto-completion, quick help and code inspection for Kodi Python API modules.
+**Project Structure**, click **+ Add Content Root** and select a folder with Koditubs ``.py`` files.
+Then you will get auto-completion, quick help and code inspection for Kodi Python API fuctions/classes/methods.
 
 **Warning**: Kodistubs are literally stubs and do not include any useful code,
 so don't try to run your program outside Kodi unless you add some testing code into Kodistubs
