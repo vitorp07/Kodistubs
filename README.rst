@@ -1,6 +1,7 @@
 Kodistubs
 =========
 **(former xbmcstubs)**
+----------------------
 
 These files can help you to develop a script or an addon for `Kodi (XBMC)`_ Media Center.
 Use them in your favorite IDE to enable autocompletion of function, class and method names and access docstrings
