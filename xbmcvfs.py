@@ -11,7 +11,7 @@ __version__ = '2.20.0'
 
 class File(object):
     """
-    File(self, filepath, mode=None)
+    File(filepath, mode=None)
 
     Creates a file object
 

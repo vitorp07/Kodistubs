@@ -1,11 +1,11 @@
 Kodi Python API
 ===============
 
-.. toctree::
-    :maxdepth: 4
+.. autosummary::
+    :toctree: _autosummary
 
-    _autosummary/xbmc
-    _autosummary/xbmcaddon
-    _autosummary/xbmcgui
-    _autosummary/xbmcplugin
-    _autosummary/xbmcvfs
+    xbmc
+    xbmcaddon
+    xbmcgui
+    xbmcplugin
+    xbmcvfs
