@@ -2514,15 +2514,16 @@ class Dialog(object):
 
     def input(self, heading, default='', type=INPUT_ALPHANUM, option=0, autoclose=0):
         """
-        input(heading[, default, type, option, autoclose])--Show an Input dialog.
+        Show an Input dialog.
 
-        heading : string - dialog heading.
-        default : [opt] string - default value. (default=empty string)
-        type : [opt] integer - the type of keyboard dialog. (default=xbmcgui.INPUT_ALPHANUM)
-        option : [opt] integer - option for the dialog. (see Options below)
-        autoclose : [opt] integer - milliseconds to autoclose dialog. (default=do not autoclose)
+        :param heading: string -- dialog heading.
+        :param default: [opt] string -- default value. (default=empty string)
+        :param type: [opt] integer -- the type of keyboard dialog. (default=xbmcgui.INPUT_ALPHANUM)
+        :param option: [opt] integer -- option for the dialog. (see Options below)
+        :param autoclose: [opt] integer -- milliseconds to autoclose dialog. (default=do not autoclose)
 
         Types:
+
         - xbmcgui.INPUT_ALPHANUM (standard keyboard)
         - xbmcgui.INPUT_NUMERIC (format: #)
         - xbmcgui.INPUT_DATE (format: DD/MM/YYYY)
@@ -2531,124 +2532,134 @@ class Dialog(object):
         - xbmcgui.INPUT_PASSWORD (return md5 hash of input, input is masked)
 
 
-        Options PasswordDialog :
+        Options PasswordDialog: xbmcgui.PASSWORD_VERIFY (verifies an existing (default) md5 hashed password)
+        Options AlphanumDialog: xbmcgui.ALPHANUM_HIDE_INPUT (masks input)
 
-        - xbmcgui.PASSWORD_VERIFY (verifies an existing (default) md5 hashed password)
-        Options AlphanumDialog :
 
-        - xbmcgui.ALPHANUM_HIDE_INPUT (masks input)
-        *Note, Returns the entered data as a string.
-        Returns an empty string if dialog was canceled.
+        .. note::
+            Returns the entered data as a string.
+            Returns an empty string if dialog was canceled.
 
-        Note:
+        .. note::
             available since Gotham
 
-        Example:
-        - dialog = xbmcgui.Dialog()
-        - d = dialog.input('Enter secret code', type=xbmcgui.INPUT_ALPHANUM, option=xbmcgui.ALPHANUM_HIDE_INPUT)
+        Example::
+
+            dialog = xbmcgui.Dialog()
+            d = dialog.input('Enter secret code', type=xbmcgui.INPUT_ALPHANUM, option=xbmcgui.ALPHANUM_HIDE_INPUT)
         """
-        return str
+        return str()
 
     def numeric(self, type, heading, default=''):
         """Show a 'Numeric' dialog.
 
-        type: integer - the type of numeric dialog.
-        heading: string or unicode - dialog heading.
-        default: string - default value.
+        :param type: integer -- the type of numeric dialog.
+        :param heading: string or unicode -- dialog heading.
+        :param default: string -- default value.
 
-        Types:
+        Types::
+
             0: ShowAndGetNumber    (default format: #)
             1: ShowAndGetDate      (default format: DD/MM/YYYY)
             2: ShowAndGetTime      (default format: HH:MM)
             3: ShowAndGetIPAddress (default format: #.#.#.#)
 
-        Note:
+        .. note::
             Returns the entered data as a string.
             Returns the default value if dialog was canceled.
 
-        Example:
+        Example::
+
             dialog = xbmcgui.Dialog()
             d = dialog.numeric(1, 'Enter date of birth')
         """
-        return str
+        return str()
 
     def notification(self, heading, message, icon='', time=0, sound=True):
         """
-        notification(heading, message[, icon, time, sound])--Show a Notification alert.
+        Show a Notification alert.
 
-        heading : string - dialog heading.
-        message : string - dialog message.
-        icon : [opt] string - icon to use. (default xbmcgui.NOTIFICATION_INFO)
-        time : [opt] integer - time in milliseconds (default 5000)
-        sound : [opt] bool - play notification sound (default True)
+        :param heading: string -- dialog heading.
+        :param message: string -- dialog message.
+        :param icon: [opt] string -- icon to use. (default xbmcgui.NOTIFICATION_INFO)
+        :param time: [opt] integer -- time in milliseconds (default 5000)
+        :param sound: [opt] bool -- play notification sound (default True)
 
         Builtin Icons:
 
         - xbmcgui.NOTIFICATION_INFO
         - xbmcgui.NOTIFICATION_WARNING
         - xbmcgui.NOTIFICATION_ERROR
-        example:
-        - dialog = xbmcgui.Dialog()
-        - dialog.notification('Movie Trailers', 'Finding Nemo download finished.', xbmcgui.NOTIFICATION_INFO, 5000)
+
+        example::
+
+            dialog = xbmcgui.Dialog()
+            dialog.notification('Movie Trailers', 'Finding Nemo download finished.', xbmcgui.NOTIFICATION_INFO, 5000)
         """
         pass
 
     def yesno(self, heading, line1, line2='', line3='', nolabel='', yeslabel='', autoclose=0):
-        """Show a dialog 'YES/NO'.
+        """Show a confirmation dialog 'YES/NO'.
 
-        heading: string or unicode - dialog heading.
-        line1: string or unicode - line #1 text.
-        line2: string or unicode - line #2 text.
-        line3: string or unicode - line #3 text.
-        nolabel: label to put on the no button.
-        yeslabel: label to put on the yes button.
-        autoclose : [opt] integer - milliseconds to autoclose dialog. (default=do not autoclose)
+        :param heading: string or unicode -- dialog heading.
+        :param line1: string or unicode -- line #1 text.
+        :param line2: string or unicode -- line #2 text.
+        :param line3: string or unicode -- line #3 text.
+        :param nolabel: label to put on the no button.
+        :param yeslabel: label to put on the yes button.
+        :param autoclose : [opt] integer -- milliseconds to autoclose dialog. (default=do not autoclose)
 
-        Note:
-            Returns True if 'Yes' was pressed, else False.
+        .. note::
+            Returns ``True`` if 'Yes' was pressed, else ``False``.
 
-        Example:
+        Example::
+
             dialog = xbmcgui.Dialog()
             ret = dialog.yesno('XBMC', 'Do you want to exit this script?')
         """
-        return bool
+        return bool(1)
 
     def ok(self, heading, line1, line2='', line3=''):
         """Show a dialog 'OK'.
 
-        heading: string or unicode - dialog heading.
-        line1: string or unicode - line #1 text.
-        line2: string or unicode - line #2 text.
-        line3: string or unicode - line #3 text.
+        :param heading: string or unicode -- dialog heading.
+        :param line1: string or unicode -- line #1 text.
+        :param line2: string or unicode -- line #2 text.
+        :param line3: string or unicode -- line #3 text.
 
-        Note:
-            Returns True if 'Ok' was pressed, else False.
+        .. note::
+            Returns ``True`` if 'Ok' was pressed, else ``False``.
 
-        Example:
+        Example::
+
             dialog = xbmcgui.Dialog()
             ok = dialog.ok('XBMC', 'There was an error.')
         """
-        return bool
+        return bool(1)
 
     def select(self, heading, list, autoclose=0):
         """Show a select dialog.
 
-        heading: string or unicode - dialog heading.
-        list: string list - list of items.
-        autoclose: integer - milliseconds to autoclose dialog.
+        :param heading: string or unicode -- dialog heading.
+        :param list: string list -- list of items.
+        :param autoclose: integer -- milliseconds to autoclose dialog.
 
-        Note:
+        .. note::
             autoclose = 0 - This disables autoclose.
             Returns the position of the highlighted item as an integer.
 
-        Example:
+        Example::
+
             dialog = xbmcgui.Dialog()
             ret = dialog.select('Choose a playlist', ['Playlist #1', 'Playlist #2, 'Playlist #3'])
         """
-        return int
+        return int()
 
 
 class DialogProgress(object):
+    """
+    Implements a modal progress dialog
+    """
     def create(self, heading, line1='', line2='', line3=''):
         """Create and show a progress dialog.
 
