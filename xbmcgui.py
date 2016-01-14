@@ -2663,15 +2663,16 @@ class DialogProgress(object):
     def create(self, heading, line1='', line2='', line3=''):
         """Create and show a progress dialog.
 
-        heading: string or unicode - dialog heading.
-        line1: string or unicode - line #1 text.
-        line2: string or unicode - line #2 text.
-        line3: string or unicode - line #3 text.
+        :param heading: string or unicode - dialog heading.
+        :param line1: string or unicode - line #1 text.
+        :param line2: string or unicode - line #2 text.
+        :param line3: string or unicode - line #3 text.
 
-        Note:
+        .. note::
             Use update() to update lines and progressbar.
 
-        Example:
+        Example::
+
             pDialog = xbmcgui.DialogProgress()
             ret = pDialog.create('XBMC', 'Initializing script...')
         """
@@ -2680,22 +2681,23 @@ class DialogProgress(object):
     def update(self, percent, line1='', line2='', line3=''):
         """Update's the progress dialog.
 
-        percent: integer - percent complete. (0:100)
-        line1: string or unicode - line #1 text.
-        line2: string or unicode - line #2 text.
-        line3: string or unicode - line #3 text.
+        :param percent: integer - percent complete. (0:100)
+        :param line1: string or unicode - line #1 text.
+        :param line2: string or unicode - line #2 text.
+        :param line3: string or unicode - line #3 text.
 
-        Note:
+        .. note::
             If percent == 0, the progressbar will be hidden.
 
-        Example:
+        Example::
+
             pDialog.update(25, 'Importing modules...')
         """
         pass
 
     def iscanceled(self):
-        """Returns True if the user pressed cancel."""
-        return bool
+        """Returns ``True`` if the user pressed cancel."""
+        return bool(1)
 
     def close(self):
         """Close the progress dialog."""
@@ -2703,58 +2705,63 @@ class DialogProgress(object):
 
 
 class DialogProgressBG(object):
-
     """
-   	DialogProgressBG class
     Displays a small progress dialog in the corner of the screen.
+
+    The dialog is not modal and does not block Kodi UI.
     """
 
     def close(self):
         """
-        close() --Close the background progress dialog
+        Close the background progress dialog
 
-        example:
-        - pDialog.close()
+        example::
+
+            pDialog.close()
         """
         pass
 
     def create(self, heading, message=''):
         """
-        create(heading[, message])--Create and show a background progress dialog.n
+        Create and show a background progress dialog.n
 
-        heading : string or unicode - dialog headingn
-        message : [opt] string or unicode - message textn
+        :param heading: string or unicode - dialog heading
+        :param message: [opt] string or unicode - message text
 
-        *Note, 'heading' is used for the dialog's id. Use a unique heading.n
-        Useupdate() to update heading, message and progressbar.n
+        .. note:: 'heading' is used for the dialog's id. Use a unique heading.
+            Use update() to update heading, message and progressbar.
 
-        example:
-        - pDialog = xbmcgui.DialogProgressBG()
-        - pDialog.create('Movie Trailers', 'Downloading Monsters Inc. ...')
+        example::
+
+            pDialog = xbmcgui.DialogProgressBG()
+            pDialog.create('Movie Trailers', 'Downloading Monsters Inc. ...')
         """
         pass
 
     def isFinished(self):
         """
-        isFinished() --Returns True if the background dialog is active.
+        Returns ``True`` if the background dialog is active.
 
-        example:
-        - if (pDialog.isFinished()): break
+        example::
+
+            if (pDialog.isFinished()):
+                break
         """
-        return bool
+        return bool(1)
 
     def update(self, percent=0, heading='', message=''):
         """
-        update([percent, heading, message])--Updates the background progress dialog.
+        Updates the background progress dialog.
 
-        percent : [opt] integer - percent complete. (0:100)
-        heading : [opt] string or unicode - dialog heading
-        message : [opt] string or unicode - message text
+        :param percent: [opt] integer - percent complete. (0:100)
+        :param heading: [opt] string or unicode - dialog heading
+        :param message: [opt] string or unicode - message text
 
-        *Note, To clear heading or message, you must pass a blank character.
+        .. note:: To clear heading or message, you must pass a blank character.
 
-        example:
-        - pDialog.update(25, message='Downloading Finding Nemo ...')
+        example::
+
+            pDialog.update(25, message='Downloading Finding Nemo ...')
         """
         pass
 
