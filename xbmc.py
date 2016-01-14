@@ -5,7 +5,7 @@
 Various classes and functions to interact with Kodi.
 """
 
-import xbmcgui
+import xbmcgui as _xbmcgui
 
 CAPTURE_FLAG_CONTINUOUS = 1
 CAPTURE_FLAG_IMMEDIATELY = 2
@@ -49,6 +49,25 @@ abortRequested = False
 
 
 class Keyboard(object):
+    """
+    Keyboardline='', heading='', hidden=False)
+
+    Creates a new Keyboard object with default text heading and hidden input flag if supplied.
+
+    :param line: string - default text entry.
+    :param heading: string - keyboard heading.
+    :param hidden: boolean - True for hidden text entry.
+
+    Example::
+
+        kb = xbmc.Keyboard('default', 'heading', True)
+        kb.setDefault('password') # optional
+        kb.setHeading('Enter password') # optional
+        kb.setHiddenInput(True) # optional
+        kb.doModal()
+        if (kb.isConfirmed()):
+            text = kb.getText()
+    """
     def __init__(self, line='', heading='', hidden=False):
         """
         Creates a new Keyboard object with default text heading and hidden input flag if supplied.
@@ -71,12 +90,13 @@ class Keyboard(object):
     def doModal(self, autoclose=0):
         """Show keyboard and wait for user action.
 
-        autoclose: integer - milliseconds to autoclose dialog.
+        :param autoclose: integer - milliseconds to autoclose dialog.
 
-        Note:
+        .. note::
             autoclose = 0 - This disables autoclose
 
-        Example:
+        Example::
+
             kb.doModal(30000)
         """
         pass
@@ -84,9 +104,10 @@ class Keyboard(object):
     def setDefault(self, line=''):
         """Set the default text entry.
 
-        line: string - default text entry.
+        :param line: string - default text entry.
 
-        Example:
+        Example::
+
             kb.setDefault('password')
         """
         pass
@@ -94,9 +115,10 @@ class Keyboard(object):
     def setHiddenInput(self, hidden=False):
         """Allows hidden text entry.
 
-        hidden: boolean - True for hidden text entry.
+        :param hidden: boolean - ``True`` for hidden text entry.
 
-        Example:
+        Example::
+
             kb.setHiddenInput(True)
         """
         pass
@@ -104,9 +126,10 @@ class Keyboard(object):
     def setHeading(self, heading):
         """Set the keyboard heading.
 
-        heading: string - keyboard heading.
+        :param heading: string - keyboard heading.
 
-        Example:
+        Example::
+
             kb.setHeading('Enter password')
         """
         pass
@@ -114,18 +137,25 @@ class Keyboard(object):
     def getText(self):
         """Returns the user input as a string.
 
-        Note:
+        :return: entered text
+
+        .. note::
             This will always return the text entry even if you cancel the keyboard.
             Use the isConfirmed() method to check if user cancelled the keyboard.
         """
-        return str
+        return str()
 
     def isConfirmed(self):
-        """Returns False if the user cancelled the input.
+        """Returns ``False`` if the user cancelled the input.
 
-        example:
-        - if (kb.isConfirmed()):"""
-        return bool
+        :return: confirmed status
+
+        example::
+
+            if (kb.isConfirmed()):
+                pass
+        """
+        return bool(1)
 
 
 class Player(object):
@@ -384,7 +414,7 @@ class PlayList(object):
 
     def __getitem__(self, item):
         """x.__getitem__(y) <==> x[y]"""
-        return xbmcgui.ListItem
+        return _xbmcgui.ListItem()
 
     def __len__(self):
         """x.__len__() <==> len(x)"""
