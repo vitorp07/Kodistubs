@@ -8,8 +8,8 @@ Use them in your favorite IDE to enable autocompletion of function, class and me
 for each function, class and method.
 
 Typically, a Python IDE (Integrated Development Environment) allows you add a "source directory" containing
-the Kodistubs files to your development project. Then you will be able to "import" the modules as you normally would
-in Python.
+the Kodistubs files to your development project. Then you will be able to "import" the modules
+as you normally would in Python.
 
 E.g. in `PyCharm IDE`_ go to ``File** > Settings > Project xxx > Project Structure``,
 click ``+ Add Content Root`` and select a folder with Koditubs ``.py`` files.

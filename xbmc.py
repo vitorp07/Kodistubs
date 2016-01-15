@@ -739,9 +739,9 @@ class Monitor(object):
 
     def onCleanFinished(self, library):
         """
-        onCleanFinished(library)--onCleanFinished method.
+        onCleanFinished method.
 
-        library : video/music as string
+        :param library: video/music as string
 
         Will be called when library clean has ended
         and return video or music to indicate which library has been cleaned
@@ -750,7 +750,7 @@ class Monitor(object):
 
     def onDPMSActivated(self):
         """
-        onDPMSActivated() --onDPMSActivated method.
+        onDPMSActivated method.
 
         Will be called when energysaving/DPMS gets active
         """
@@ -758,7 +758,7 @@ class Monitor(object):
 
     def onDPMSDeactivated(self):
         """
-        onDPMSDeactivated() --onDPMSDeactivated method.
+        onDPMSDeactivated method.
 
         Will be called when energysaving/DPMS is turned off
         """
@@ -766,9 +766,9 @@ class Monitor(object):
 
     def onScanFinished(self, library):
         """
-        onScanFinished(library)--onScanFinished method.
+        onScanFinished method.
 
-        library : video/music as string
+        :param library: video/music as string
 
         Will be called when library scan has ended
         and return video or music to indicate which library has been scanned
@@ -777,9 +777,9 @@ class Monitor(object):
 
     def onScanStarted(self, library):
         """
-        onScanStarted(library)--onScanStarted method.
+        onScanStarted method.
 
-        library : video/music as string
+        :param library: video/music as string
 
         Will be called when library scan has started
         and return video or music to indicate which library is being scanned
@@ -788,480 +788,578 @@ class Monitor(object):
 
     def waitForAbort(self, timeout):
         """
-        waitForAbort([timeout]) -- Block until abort is requested, or until timeout occurs.
+        Block until abort is requested, or until timeout occurs.
 
         If an abort requested have already been made, return immediately.
-        Returns True when abort have been requested, False if a timeout is given and the operation times out.
+        Returns ``True`` when abort have been requested,
+        ``False`` if a timeout is given and the operation times out.
 
         :param timeout: float - (optional) timeout in seconds. Default: no timeout.
         :return: bool
         """
-        return bool
+        return bool(0)
 
     def abortRequested(self):
         """
-        Returns True if abort has been requested.
+        Returns ``True`` if abort has been requested.
         """
-        return bool
+        return bool(0)
 
 
 class RenderCapture(object):
-
+    """RenerCapture class"""
     def capture(self, width, height, flags=0):
         """
-        capture(width, height [, flags])--issue capture request.
-        width : Width capture image should be rendered to
-        height : Height capture image should should be rendered to
-        flags : Optional. Flags that control the capture processing.
+        Issue capture request.
+
+        :param width: Width capture image should be rendered to
+        :param height: Height capture image should should be rendered to
+        :param flags: Optional. Flags that control the capture processing.
+
         The value for 'flags' could be or'ed from the following constants:
-        - xbmc.CAPTURE_FLAG_CONTINUOUS : after a capture is done, issue a new capture request immediately
-        - xbmc.CAPTURE_FLAG_IMMEDIATELY : read out immediately whencapture() is called, this can cause a busy wait
+
+        - ``xbmc.CAPTURE_FLAG_CONTINUOUS``: after a capture is done,
+          issue a new capture request immediately
+        - ``xbmc.CAPTURE_FLAG_IMMEDIATELY``: read out immediately whencapture() is called,
+          this can cause a busy wait
         """
         pass
 
     def getAspectRatio(self):
         """
-        getAspectRatio() --returns aspect ratio of currently displayed video as a float number.
+        :return: aspect ratio of currently displayed video as a float number.
         """
-        return float
+        return float()
 
     def getCaptureState(self):
         """
-        getCaptureState() --returns processing state of capture request.
-        The returned value could be compared against the following constants:
-         - xbmc.CAPTURE_STATE_WORKING : Capture request in progress.
-         - xbmc.CAPTURE_STATE_DONE : Capture request done. The image could be retrieved withgetImage()
-         - xbmc.CAPTURE_STATE_FAILED : Capture request failed.
+        :return: processing state of capture request.
+
+        The returned value could be compared against the following constants::
+
+        - ``xbmc.CAPTURE_STATE_WORKING``: Capture request in progress.
+        - ``xbmc.CAPTURE_STATE_DONE``: Capture request done. The image could be retrieved withgetImage()
+        - ``xbmc.CAPTURE_STATE_FAILED``: Capture request failed.
         """
-        return int
+        return int()
 
     def getHeight(self):
         """
-        getHeight() --returns height of captured image.
+        :return: height of captured image.
         """
-        return int
+        return int()
 
     def getImage(self):
         """
-        getImage() --returns captured image as a bytearray.
-        The size of the image isgetWidth() *getHeight() * 4
+        :return: captured image as a bytearray.
+
+        The size of the image isgetWidth() * getHeight() * 4
         """
-        return bytearray
+        return bytearray()
 
     def getImageFormat(self):
         """
-        getImageFormat() --returns format of captured image: 'BGRA' or 'RGBA'.
+        :return: format of captured image: 'BGRA' or 'RGBA'.
         """
-        return str
+        return str()
 
     def getWidth(self):
         """
-        getWidth() --returns width of captured image.
+        :return: width of captured image.
         """
-        return int
+        return int()
 
     def waitForCaptureStateChangeEvent(self, msecs=0):
         """
-        waitForCaptureStateChangeEvent([msecs])--wait for capture state change event.
-        msecs : Milliseconds to wait. Waits forever if not specified.
-        The method will return 1 if the Event was triggered. Otherwise it will return 0.
+        wait for capture state change event
+
+        :param msecs: Milliseconds to wait. Waits forever if not specified.
+
+        The method will return ``1`` if the Event was triggered. Otherwise it will return ``0``.
         """
-        return int
+        return int()
 
 
-#noinspection PyUnusedLocal
 def audioResume():
     """
-    audioResume()--Resume Audio engine.
+    Resume Audio engine.
 
-    example: xbmc.audioResume()
+    example::
+
+        xbmc.audioResume()
     """
     pass
+
 
 def audioSuspend():
     """
-    audioSuspend()--Suspend Audio engine.
+    Suspend Audio engine.
 
-     example:
-         - xbmc.audioSuspend()
+    example::
+
+        xbmc.audioSuspend()
     """
     pass
+
 
 def convertLanguage(language, format):
     """
-    convertLanguage(language, format)--Returns the given language converted to the given format as a string.
+    Returns the given language converted to the given format as a string.
 
-    language: string either as name in English, two letter code (ISO 639-1), or three letter code (ISO 639-2/T(B)
+    :param language: string either as name in English, two letter code (ISO 639-1),
+        or three letter code (ISO 639-2/T(B)
+    :param format: format of the returned language string:
 
-    format: format of the returned language string
-    xbmc.ISO_639_1: two letter code as defined in ISO 639-1
-    xbmc.ISO_639_2: three letter code as defined in ISO 639-2/T or ISO 639-2/B
-    xbmc.ENGLISH_NAME: full language name in English (default)
-    example:
-     - language = xbmc.convertLanguage(English, xbmc.ISO_639_2)
-     """
-    return str
+    - ``xbmc.ISO_639_1``: two letter code as defined in ISO 639-1
+    - ``xbmc.ISO_639_2``: three letter code as defined in ISO 639-2/T or ISO 639-2/B
+    - ``xbmc.ENGLISH_NAME``: full language name in English (default)
+
+    example::
+
+        language = xbmc.convertLanguage(English, xbmc.ISO_639_2)
+    """
+    return str()
+
 
 def enableNavSounds(yesNo):
     """
-    enableNavSounds(yesNo)--Enables/Disables nav sounds
-    yesNo : integer - enable (True) or disable (False) nav sounds
-    example:
-     - xbmc.enableNavSounds(True)
+    Enables/Disables nav sounds
+
+    :param yesNo: enable (``True``) or disable (``False``) nav sounds
+
+    example::
+
+        xbmc.enableNavSounds(True)
     """
     pass
+
 
 def executeJSONRPC(jsonrpccommand):
     """
-    executeJSONRPC(jsonrpccommand)--Execute an JSONRPC command.
-    jsonrpccommand : string - jsonrpc command to execute.
-    List of commands - http://wiki.xbmc.org/?title=JSON-RPC_API
-    example:
-    - response = xbmc.executeJSONRPC('{ "jsonrpc": "2.0", "method": "JSONRPC.Introspect", "id": 1 }')
+    Execute an JSONRPC command.
+
+    :param jsonrpccommand: string - jsonrpc command to execute.
+
+    List of commands: http://wiki.xbmc.org/?title=JSON-RPC_API
+
+    example::
+
+        response = xbmc.executeJSONRPC('{ "jsonrpc": "2.0", "method": "JSONRPC.Introspect", "id": 1 }')
     """
-    return str
+    return str()
+
 
 def executebuiltin(function, wait=False):
     """
-    executebuiltin(function)--Execute a built in XBMC function.
-    function : string - builtin function to execute.
-    List of functions - http://wiki.xbmc.org/?title=List_of_Built_In_Functions
-    example:
-     - xbmc.executebuiltin('XBMC.RunXBE(c:\avalaunch.xbe)')
+    Execute a built in XBMC function.
+
+    :param function: string - builtin function to execute.
+
+    List of functions: http://wiki.xbmc.org/?title=List_of_Built_In_Functions
+
+    example::
+
+        xbmc.executebuiltin('XBMC.RunXBE(c:\avalaunch.xbe)')
     """
     pass
+
 
 def executescript(script):
     """
-    executescript(script)--Execute a python script.
-    script : string - script filename to execute.
-    example:
-    - xbmc.executescript('special://home/scripts/update.py')
+    Execute a python script.
+
+    :param script: string - script filename to execute.
+
+    example::
+
+        xbmc.executescript('special://home/scripts/update.py')
     """
     pass
+
 
 def getCacheThumbName(path):
     """
-    getCacheThumbName(path)--Returns a thumb cache filename.
+    Returns a thumb cache filename.
 
-    path : string or unicode - path to file
+    :param path: string or unicode -- path to file
 
-    example:
-    - thumb = xbmc.getCacheThumbName('f:\videos\movie.avi')
+    example::
+
+        thumb = xbmc.getCacheThumbName('f:\videos\movie.avi')
     """
-    return str
+    return str()
+
 
 def getCleanMovieTitle(path, usefoldername=False):
     """
-    getCleanMovieTitle(path[, usefoldername])--Returns a clean movie title and year string if available.
+    Returns a clean movie title and year string if available.
 
-    path : string or unicode - String to clean
-    bool : [opt] bool - use folder names (defaults to false)
+    :param path: string or unicode - String to clean
+    :param usefoldername: [opt] bool - use folder names (defaults to ``False``)
 
-    example:
-    - title, year = xbmc.getCleanMovieTitle('/path/to/moviefolder/test.avi', True)
+    example::
+
+        title, year = xbmc.getCleanMovieTitle('/path/to/moviefolder/test.avi', True)
     """
-    return tuple
+    return tuple()
+
 
 def getCondVisibility(condition):
     """
-    getCondVisibility(condition)--Returns True (1) or False (0) as a bool.
+    Returns ``True`` (``1``) or ``False`` (``0``) as a ``bool``.
 
-    condition : string - condition to check.
+    :param condition: string - condition to check.
 
-    List of Conditions -http://wiki.xbmc.org/?title=List_of_Boolean_Conditions
+    List of Conditions: http://wiki.xbmc.org/?title=List_of_Boolean_Conditions
 
-    *Note, You can combine two (or more) of the above settings by using "+" as an AND operator,
-    "|" as an OR operator, "!" as a NOT operator, and "[" and "]" to bracket expressions.
+    .. note:: You can combine two (or more) of the above settings by using "+" as an ``AND`` operator,
+        "|" as an ``OR`` operator, "!" as a ``NOT`` operator, and "[" and "]" to bracket expressions.
 
-    example:
-    - visible = xbmc.getCondVisibility('[Control.IsVisible(41) + !Control.IsVisible(12)]')
+    example::
+
+        visible = xbmc.getCondVisibility('[Control.IsVisible(41) + !Control.IsVisible(12)]')
     """
-    return bool
+    return bool(1)
+
 
 def getDVDState():
     """
-    getDVDState()--Returns the dvd state as an integer.
+    Returns the dvd state as an integer.
 
     return values are:
-     - 1 : xbmc.DRIVE_NOT_READY
-     - 16 : xbmc.TRAY_OPEN
-     - 64 : xbmc.TRAY_CLOSED_NO_MEDIA
-     - 96 : xbmc.TRAY_CLOSED_MEDIA_PRESENT
-    example:
-     - dvdstate = xbmc.getDVDState()
-     """
-    return long
+
+    - 1 : ``xbmc.DRIVE_NOT_READY``
+    - 16 : ``xbmc.TRAY_OPEN``
+    - 64 : ``xbmc.TRAY_CLOSED_NO_MEDIA``
+    - 96 : ``xbmc.TRAY_CLOSED_MEDIA_PRESENT``
+
+    example::
+
+        dvdstate = xbmc.getDVDState()
+    """
+    return long()
+
 
 def getFreeMem():
     """
-    getFreeMem()--Returns the amount of free memory in MB as an integer.
+    Returns the amount of free memory in MB as an integer.
 
-    example:
-     - freemem = xbmc.getFreeMem()
-     """
-    return long
+    example::
+
+        freemem = xbmc.getFreeMem()
+    """
+    return long()
+
 
 def getGlobalIdleTime():
     """
-    getGlobalIdleTime()--Returns the elapsed idle time in seconds as an integer.
+    Returns the elapsed idle time in seconds as an integer.
 
-    example:
-    - t = xbmc.getGlobalIdleTime()
+    example::
+
+        t = xbmc.getGlobalIdleTime()
     """
-    return long
+    return long()
+
 
 def getIPAddress():
     """
-    getIPAddress()--Returns the current ip address as a string.
+    Returns the current ip address as a string.
 
-    example:
-    - ip = xbmc.getIPAddress()
+    example::
+
+        ip = xbmc.getIPAddress()
     """
-    return str
+    return str()
+
 
 def getInfoImage(infotag):
     """
-    getInfoImage(infotag)--Returns a filename including path to the InfoImage's thumbnail as a string.
+    Returns a filename including path to the InfoImage's thumbnail as a string.
 
-    infotag : string - infotag for value you want returned.
+    :param infotag: string - infotag for value you want returned.
 
-    List of InfoTags -http://wiki.xbmc.org/?title=InfoLabels
+    List of InfoTags: http://wiki.xbmc.org/?title=InfoLabels
 
-    example:
-    - filename = xbmc.getInfoImage('Weather.Conditions')
+    example::
+
+        filename = xbmc.getInfoImage('Weather.Conditions')
     """
-    return str
+    return str()
+
 
 def getInfoLabel(cLine):
     """
-    getInfoLabel(infotag)--Returns an InfoLabel as a string.
+    Returns an InfoLabel as a string.
 
-    infotag : string - infoTag for value you want returned.
+    :param cLine: string - infoTag for value you want returned.
 
-    List of InfoTags -http://wiki.xbmc.org/?title=InfoLabels
+    List of InfoTags: http://wiki.xbmc.org/?title=InfoLabels
 
-    example:
-    - label = xbmc.getInfoLabel('Weather.Conditions')
+    example::
+
+        label = xbmc.getInfoLabel('Weather.Conditions')
     """
-    return str
+    return str()
+
 
 def getLanguage(format=ENGLISH_NAME, region=False):
     """
-    getLanguage([format], [region])--Returns the active language as a string.
+    Returns the active language as a string.
 
-    format: [opt] format of the returned language string
-    - xbmc.ISO_639_1: two letter code as defined in ISO 639-1
-    - xbmc.ISO_639_2: three letter code as defined in ISO 639-2/T or ISO 639-2/B
-    - xbmc.ENGLISH_NAME: full language name in English (default)
+    :param format: [opt] format of the returned language string
 
+    - ``xbmc.ISO_639_1``: two letter code as defined in ISO 639-1
+    - ``xbmc.ISO_639_2``: three letter code as defined in ISO 639-2/T or ISO 639-2/B
+    - ``xbmc.ENGLISH_NAME``: full language name in English (default)
 
-    region: [opt] append the region delimited by "-" of the language (setting) to the returned language string
+    :param region: [opt] append the region delimited by "-" of the language (setting)
+        to the returned language string
 
-    example:
-    - language = xbmc.getLanguage(xbmc.ENGLISH_NAME)
+    example::
+
+        language = xbmc.getLanguage(xbmc.ENGLISH_NAME)
     """
-    return str
+    return str()
+
 
 def getLocalizedString(id):
     """
-    getLocalizedString(id)--Returns a localized 'unicode string'.
+    Returns a localized 'unicode string'.
 
-    id : integer - id# for string you want to localize.
+    :param id: integer -- id# for string you want to localize.
 
-    *Note, See strings.po in language folders for which id
-    you need for a string.
+    .. note:: See strings.po in language folders for which id you need for a string.
 
-    example:
-    - locstr = xbmc.getLocalizedString(6)
+    example::
+
+        locstr = xbmc.getLocalizedString(6)
     """
-    return unicode
+    return unicode()
+
 
 def getRegion(id):
     """
-    getRegion(id)--Returns your regions setting as a string for the specified id.
+    Returns your regions setting as a string for the specified id.
 
-    id : string - id of setting to return
+    :param id: string - id of setting to return
 
-    *Note, choices are (dateshort, datelong, time, meridiem, tempunit, speedunit)You can use the above as keywords for arguments.
+    .. note:: choices are (dateshort, datelong, time, meridiem, tempunit, speedunit)
+        You can use the above as keywords for arguments.
 
-    example:
-    - date_long_format = xbmc.getRegion('datelong')
+    example::
+
+        date_long_format = xbmc.getRegion('datelong')
     """
-    return str
+    return str()
+
 
 def getSkinDir():
     """
-    getSkinDir()--Returns the active skin directory as a string.
+    Returns the active skin directory as a string.
 
-    *Note, This is not the full path like 'special://home/addons/MediaCenter', but only 'MediaCenter'.
+    .. note:: This is not the full path like ``'special://home/addons/skin.confluence'``,
+        but only ``'skin.confluence'``.
 
-    example:
-    - skindir = xbmc.getSkinDir()
+    example::
+
+        skindir = xbmc.getSkinDir()
     """
-    return str
+    return str()
+
 
 def getSupportedMedia(mediaType):
     """
-    getSupportedMedia(media)--Returns the supported file types for the specific media as a string.
+    Returns the supported file types for the specific media as a string.
 
-    media : string - media type
+    :param mediaType: string - media type
 
-    *Note, media type can be (video, music, picture).The return value is a pipe separated string of filetypes (eg. '.mov|.avi').
+    .. note:: media type can be (video, music, picture).
+        The return value is a pipe separated string of filetypes (eg. '.mov|.avi').
 
     You can use the above as keywords for arguments.
 
-    example:
-    - mTypes = xbmc.getSupportedMedia('video')
+    example::
+
+        mTypes = xbmc.getSupportedMedia('video')
     """
-    return str
+    return str()
+
 
 def log(msg, level=LOGNOTICE):
     """
-    log(msg[, level])--Write a string to XBMC's log file and the debug window.
-    msg : string - text to output.
-    level : [opt] integer - log level to ouput at. (default=LOGNOTICE)
+    Write a string to XBMC's log file and the debug window.
 
-    *Note, You can use the above as keywords for arguments and skip certain optional arguments.
-    Once you use a keyword, all following arguments require the keyword.
+    :param msg: string - text to output.
+    :param level: [opt] integer - log level to ouput at. (default=``LOGNOTICE``)
+
+    .. note:: You can use the above as keywords for arguments and skip certain optional arguments.
+        Once you use a keyword, all following arguments require the keyword.
+
+    .. warning:: Starting from Kodi 16.0 (Jarvis) default level will be changed to ``DEBUG``.
 
     Text is written to the log for the following conditions.
-    XBMC loglevel == -1 (NONE, nothing at all is logged)
-    XBMC loglevel == 0 (NORMAL, shows LOGNOTICE, LOGERROR, LOGSEVERE and LOGFATAL) * XBMC loglevel == 1 (DEBUG, shows all)
+
+    - XBMC loglevel == -1 (NONE, nothing at all is logged)
+    - XBMC loglevel == 0 (NORMAL, shows LOGNOTICE, LOGERROR, LOGSEVERE and LOGFATAL) * XBMC loglevel == 1
+        (DEBUG, shows all)
+
     See pydocs for valid values for level.
 
-    example:
-    - xbmc.output(msg='This is a test string.', level=xbmc.LOGDEBUG));
+    example::
+
+        xbmc.output(msg='This is a test string.', level=xbmc.LOGDEBUG));
     """
     pass
 
+
 def makeLegalFilename(filename, fatX=True):
     """
-    makeLegalFilename(filename[, fatX])--Returns a legal filename or path as a string.
+    Returns a legal filename or path as a string.
 
-    filename : string or unicode - filename/path to make legal
-    fatX : [opt] bool - True=Xbox file system(Default)
+    :param filename: string or unicode -- filename/path to make legal
+    :param fatX: [opt] bool -- ``True``=Xbox file system(Default)
 
 
-    *Note, If fatX is true you should pass a full path. If fatX is false only pass the basename of the path.
+    .. note: If fatX is ``True`` you should pass a full path.
+        If fatX is ``False`` only pass the basename of the path.
 
     You can use the above as keywords for arguments and skip certain optional arguments.
     Once you use a keyword, all following arguments require the keyword.
 
-    example:
-    - filename = xbmc.makeLegalFilename('F: Age: The Meltdown.avi')
+    example::
+
+        filename = xbmc.makeLegalFilename('F: Age: The Meltdown.avi')
     """
-    return str
+    return str()
+
 
 def playSFX(filename, useCached=True):
     """
-    playSFX(filename,[useCached])--Plays a wav file by filename
+    Plays a wav file by filename
 
-    filename : string - filename of the wav file to play.
-    useCached : [opt] bool - False = Dump any previously cached wav associated with filename
+    :param filename: string - filename of the wav file to play.
+    :param useCached: [opt] bool - False = Dump any previously cached wav associated with filename
 
-    example:
-    - xbmc.playSFX('special://xbmc/scripts/dingdong.wav')
+    example::
 
-    - xbmc.playSFX('special://xbmc/scripts/dingdong.wav',False)
+        xbmc.playSFX('special://xbmc/scripts/dingdong.wav')
+        xbmc.playSFX('special://xbmc/scripts/dingdong.wav',False)
     """
     pass
 
+
 def stopSFX():
     """
-    stopSFX() -- Stops wav file
+    Stops wav file
 
-    example:
-    - xbmc.stopSFX()
+    example::
+
+        xbmc.stopSFX()
     """
+    pass
+
 
 def restart():
     """
-    restart()--Restart the htpc. example:
-    - xbmc.restart()
+    Restart the htpc.
+
+    example::
+
+        xbmc.restart()
     """
     pass
 
 def shutdown():
     """
-    Shutdown()--Shutdown the htpc.
+    Shutdown the htpc.
 
-    example:
-    - xbmc.shutdown()
+    example::
+
+        xbmc.shutdown()
     """
     pass
+
 
 def skinHasImage(image):
     """
-    skinHasImage(image)--Returns True if the image file exists in the skin.
+    Returns ``True`` if the image file exists in the skin.
 
-    image : string - image filename
+    :param image: string - image filename
 
-    *Note, If the media resides in a subfolder include it.
-    (eg. home-myfiles\home-myfiles2.png)You can use the above as keywords for arguments.
+    .. note:: If the media resides in a subfolder include it.
+        (eg. home-myfiles\home-myfiles2.png). You can use the above as keywords for arguments.
 
-    example:
-    - exists = xbmc.skinHasImage('ButtonFocusedTexture.png')
+    example::
+
+        exists = xbmc.skinHasImage('ButtonFocusedTexture.png')
     """
-    return bool
+    return bool(1)
+
 
 def sleep(timemillis):
     """
-    sleep(time)--Sleeps for 'time' msec.
+    Sleeps for 'time' msec.
 
-    time : integer - number of msec to sleep.
+    :param timemillis: integer - number of msec to sleep.
 
-    *Note, This is useful if you have for example aPlayer class that is waiting
-    for onPlayBackEnded() calls.
+    .. note: This is useful if you have for example aPlayer class that is waiting
+        for onPlayBackEnded() calls.
 
+    :raises: TypeError, if time is not an integer.
 
-    Throws: PyExc_TypeError, if time is not an integer.
+    example::
 
-    example:
-    - xbmc.sleep(2000) # sleeps for 2 seconds
+        xbmc.sleep(2000) # sleeps for 2 seconds
     """
     pass
+
 
 def startServer(iTyp, bStart, bWait=False):
     """
-    startServer(typ, bStart, bWait)--start or stop a server.
+    start or stop a server.
 
-    typ : integer - use SERVER_* constants
-    bStart : bool - start (True) or stop (False) a server
-    bWait : [opt] bool - wait on stop before returning (not supported by all servers)
-    returnValue : bool - True or False
+    :param iTyp: integer - use SERVER_* constants
+    :param bStart: bool - start (True) or stop (False) a server
+    :param bWait : [opt] bool - wait on stop before returning (not supported by all servers)
+    :return: bool - ``True`` or ``False``
 
 
-    example:
-    - xbmc.startServer(xbmc.SERVER_AIRPLAYSERVER, False)
+    example::
+
+        xbmc.startServer(xbmc.SERVER_AIRPLAYSERVER, False)
     """
     pass
 
+
 def translatePath(path):
     """
-    translatePath(path)--Returns the translated path.
+    Returns the translated path.
 
-    path : string or unicode - Path to format
+    :param path: string or unicode - Path to format
 
-    *Note, Only useful if you are coding for both Linux and Windows.
-    e.g. Converts 'special://masterprofile/script_data' -> '/home/user/XBMC/UserData/script_data' on Linux.
+    .. note: Only useful if you are coding for both Linux and Windows.
 
-    example:
-    - fpath = xbmc.translatePath('special://masterprofile/script_data')
+    Converts 'special://masterprofile/script_data' -> '/home/user/XBMC/UserData/script_data' on Linux.
+
+    example::
+
+        fpath = xbmc.translatePath('special://masterprofile/script_data')
     """
-    return unicode
+    return unicode()
+
 
 def validatePath(path):
     """
-    validatePath(path)--Returns the validated path.
+    Returns the validated path.
 
-    path : string or unicode - Path to format
+    :param path: string or unicode - Path to format
 
-    *Note, Only useful if you are coding for both Linux and Windows for fixing slash problems.
-    e.g. Corrects 'Z://something' -> 'Z:'
+    .. note:: Only useful if you are coding for both Linux and Windows for fixing slash problems.
+        e.g. Corrects 'Z://something' -> 'Z:'
 
-    example:
-    - fpath = xbmc.validatePath(somepath)
+    example::
+
+    fpath = xbmc.validatePath(somepath)
     """
-    return unicode
-
+    return unicode()
