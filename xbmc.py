@@ -46,6 +46,7 @@ __date__ = 'Fri May 01 16:22:03 BST 2015'
 __platform__ = 'ALL'
 __version__ = '2.20.0'
 abortRequested = False
+"""Returns ``True`` if Kodi prepares to close itself"""
 
 
 class Keyboard(object):
@@ -267,60 +268,57 @@ class Player(object):
         """
         onPlayBackSpeedChanged(speed) -- onPlayBackSpeedChanged method.
 
-         speed          : integer - current speed of player.
+        :param speed: integer - current speed of player.
 
-         *Note, negative speed means player is rewinding, 1 is normal playback speed.
+        .. note:: negative speed means player is rewinding, 1 is normal playback speed.
 
-         Will be called when players speed changes. (eg. user FF/RW)
+        Will be called when players speed changes. (eg. user FF/RW)
         """
         pass
 
     def onQueueNextItem(self):
         """
-        onQueueNextItem() -- onQueueNextItem method.
+        onQueueNextItem method.
 
         Will be called when player requests next item
         """
         pass
 
     def isPlaying(self):
-        """Returns True is xbmc is playing a file."""
+        """Returns ``True`` is xbmc is playing a file."""
         return bool(1)
 
     def isPlayingAudio(self):
-        """Returns True is xbmc is playing an audio file."""
+        """Returns ``True`` is xbmc is playing an audio file."""
         return bool(1)
 
     def isPlayingVideo(self):
-        """Returns True if xbmc is playing a video."""
+        """Returns ``True`` if xbmc is playing a video."""
         return bool(1)
 
     def getPlayingFile(self):
         """
-        getPlayingFile() --returns the current playing file as a string.
+        returns the current playing file as a string.
 
-        Note: For LiveTV, returns a pvr:// url which is not translatable to an OS specific file or external url
+        .. note:: For LiveTV, returns a pvr:// url which is not translatable to an OS specific file or external url
 
-        Throws: Exception, if player is not playing a file.
+        :raises: Exception, if player is not playing a file.
         """
         return str()
 
     def getVideoInfoTag(self):
         """Returns the VideoInfoTag of the current playing Movie.
 
-        Raises:
-            Exception: If player is not playing a file or current file is not a movie file.
+        :raises: Exception: If player is not playing a file or current file is not a movie file.
 
-        Note:
-            This doesn't work yet, it's not tested.
+        .. note:: This doesn't work yet, it's not tested.
         """
         return InfoTagVideo()
 
     def getMusicInfoTag(self):
         """Returns the MusicInfoTag of the current playing 'Song'.
 
-        Raises:
-            Exception: If player is not playing a file or current file is not a music file.
+        :raises: Exception: If player is not playing a file or current file is not a music file.
         """
         return InfoTagMusic()
 
@@ -329,16 +327,14 @@ class Player(object):
 
         This is only accurate to the full second.
 
-        Raises:
-            Exception: If player is not playing a file.
+        :raises: Exception: If player is not playing a file.
         """
         return float()
 
     def getTime(self):
         """Returns the current time of the current playing media as fractional seconds.
 
-        Raises:
-            Exception: If player is not playing a file.
+        :raises: Exception: If player is not playing a file.
         """
         return float()
 
@@ -347,17 +343,17 @@ class Player(object):
 
         The time specified is relative to the beginning of the currently playing media file.
 
-        Raises:
-            Exception: If player is not playing a file.
+        :raises: Exception: If player is not playing a file.
         """
         pass
 
     def setSubtitles(self, subtitleFile):
         """Set subtitle file and enable subtitles.
 
-        subtitleFile: string or unicode - Path to subtitle.
+        :param subtitleFile: string or unicode - Path to subtitle.
 
-        Example:
+        Example::
+
             setSubtitles('/path/to/subtitle/test.srt')
         """
         pass
@@ -376,14 +372,14 @@ class Player(object):
 
     def getAvailableSubtitleStreams(self):
         """
-        getAvailableSubtitleStreams() -- get Subtitle stream names
+        get Subtitle stream names
         """
         return list()
 
     def setAudioStream(self, iStream):
         """Set audio stream.
 
-        iStream: int
+        :param iStream: int
         """
         pass
 
@@ -391,30 +387,45 @@ class Player(object):
         """
         setSubtitleStream(iStream) -- set Subtitle Stream
 
-        iStream : int
+        :param iStream : int
 
-        example:
-            - setSubtitleStream(1)
+        example::
+            setSubtitleStream(1)
         """
         pass
 
     def showSubtitles(self, bVisible):
         """
-        showSubtitles(bVisible)--enable/disable subtitles
+        enable/disable subtitles
 
-        bVisible : boolean - True for visible subtitles.
+        :param bVisible : boolean - True for visible subtitles.
 
-        example:
-            - xbmc.Player().showSubtitles(True)
+        example::
+
+            xbmc.Player().showSubtitles(True)
         """
         pass
 
 
 class PlayList(object):
+    """Retrieve a reference from a valid xbmc playlist
+
+    :param playlist: int - can be one of the next values:
+
+    ::
+
+        0: xbmc.PLAYLIST_MUSIC
+        1: xbmc.PLAYLIST_VIDEO
+
+    Use PlayList[int position] or __getitem__(int position) to get a PlayListItem.
+    """
     def __init__(self, playList):
         """Retrieve a reference from a valid xbmc playlist
 
         playlist: int - can be one of the next values:
+
+        ::
+
             0: xbmc.PLAYLIST_MUSIC
             1: xbmc.PLAYLIST_VIDEO
 
@@ -428,16 +439,17 @@ class PlayList(object):
 
     def __len__(self):
         """x.__len__() <==> len(x)"""
-        return int
+        return int()
 
     def add(self, url, listitem=None, index=-1):
         """Adds a new file to the playlist.
 
-        url: string or unicode - filename or url to add.
-        listitem: listitem - used with setInfo() to set different infolabels.
-        index: integer - position to add playlist item.
+        :param url: string or unicode - filename or url to add.
+        :param listitem: listitem - used with setInfo() to set different infolabels.
+        :param index: integer - position to add playlist item.
 
-        Example:
+        Example::
+
             playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
             video = 'F:\\movies\\Ironman.mov'
             listitem = xbmcgui.ListItem('Ironman', thumbnailImage='F:\\movies\\Ironman.tbn')
@@ -451,12 +463,16 @@ class PlayList(object):
 
         Clear current playlist and copy items from the file to this Playlist filename can be like .pls or .m3u ...
 
-        Returns False if unable to load playlist, True otherwise.
+        :param filename:
+        :return: ``False`` if unable to load playlist, True otherwise.
         """
-        return bool
+        return bool(1)
 
     def remove(self, filename):
-        """Remove an item with this filename from the playlist."""
+        """Remove an item with this filename from the playlist.
+
+        :param filename:
+        """
         pass
 
     def clear(self):
@@ -473,15 +489,15 @@ class PlayList(object):
 
     def size(self):
         """Returns the total number of PlayListItems in this playlist."""
-        return int
+        return int()
 
     def getposition(self):
         """Returns the position of the current song in this playlist."""
-        return int
+        return int()
 
     def getPlayListId(self):
         """getPlayListId() --returns an integer."""
-        return int
+        return int()
 
 
 class PlayListItem(object):
@@ -489,186 +505,188 @@ class PlayListItem(object):
 
     def getdescription(self):
         """Returns the description of this PlayListItem."""
-        return str
+        return str()
 
     def getduration(self):
         """Returns the duration of this PlayListItem."""
-        return long
+        return long()
 
     def getfilename(self):
         """Returns the filename of this PlayListItem."""
-        return str
+        return str()
 
 
 class InfoTagMusic(object):
+    """InfoTagMusic class"""
     def getURL(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getTitle(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getArtist(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getAlbumArtist(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getAlbum(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getGenre(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getDuration(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getTrack(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getDisc(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getTrackAndDisc(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getReleaseDate(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getListeners(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getPlayCount(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getLastPlayed(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getComment(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getLyrics(self):
         """Returns a string."""
-        return str
+        return str()
 
 
 class InfoTagVideo(object):
+    """InfoTagVideo class"""
     def getDirector(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getWritingCredits(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getGenre(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getTagLine(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getPlotOutline(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getPlot(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getPictureURL(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getTitle(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getOriginalTitle(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getVotes(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getCast(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getFile(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getPath(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getIMDBNumber(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getYear(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getPremiered(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getFirstAired(self):
         """Returns a string."""
-        return str
+        return str()
 
     def getRating(self):
         """Returns a float."""
-        return float
+        return float()
 
     def getPlayCount(self):
         """Returns an integer."""
-        return int
+        return int()
 
     def getLastPlayed(self):
         """Returns a string."""
-        return str
+        return str()
 
 
 class Monitor(object):
     """
     Monitor class.
 
-    Monitor() -- Creates a new Monitor to notify addon about changes.
+    Creates a new Monitor to notify addon about changes.
     """
     def onAbortRequested(self):
         """
-        Deprecated!
+        .. warning:: Deprecated!
         """
         pass
 
     def onDatabaseUpdated(self, database):
         """
-        Deprecated!
+        .. warning:: Deprecated!
         """
         pass
 
     def onScreensaverActivated(self):
         """
-        onScreensaverActivated() -- onScreensaverActivated method.
+        onScreensaverActivated method.
 
         Will be called when screensaver kicks in
         """
@@ -676,7 +694,7 @@ class Monitor(object):
 
     def onScreensaverDeactivated(self):
         """
-        onScreensaverDeactivated() -- onScreensaverDeactivated method.
+        onScreensaverDeactivated method.
 
         Will be called when screensaver goes off
         """
@@ -684,7 +702,7 @@ class Monitor(object):
 
     def onSettingsChanged(self):
         """
-        onSettingsChanged() -- onSettingsChanged method.
+        onSettingsChanged method.
 
         Will be called when addon settings are changed
         """
@@ -692,27 +710,27 @@ class Monitor(object):
 
     def onDatabaseScanStarted(self, database):
         """
-        Deprecated!
+        .. warning:: Deprecated!
         """
         pass
 
     def onNotification(self, sender, method, data):
         """
-        onNotification(sender, method, data) -- onNotification method.
+        onNotification method.
 
-        sender : str - sender of the notification
-        method : str - name of the notification
-        data : str - JSON-encoded data of the notification
+        :param sender: str - sender of the notification
+        :param method: str - name of the notification
+        :param data: str - JSON-encoded data of the notification
 
-        Will be called when XBMC receives or sends a notification
+        Will be called when Kodi receives or sends a notification
         """
         pass
 
     def onCleanStarted(self, library):
         """
-        onCleanStarted(library) -- onCleanStarted method.
+        onCleanStarted method.
 
-        library : video/music as string
+        :param library: video/music as string
 
         Will be called when library clean has started
         and return video or music to indicate which library is being cleaned
