@@ -159,38 +159,47 @@ class Keyboard(object):
 
 
 class Player(object):
+    """
+    Player()
+
+    Creates a new Player with as default the xbmc music playlist.
+
+    .. note:: currently Player class constructor does not take any parameters.
+        Kodi automatically selects a necessary player.
+    """
     def __init__(self, playerCore=None):
         """Creates a new Player with as default the xbmc music playlist.
 
-        Args:
-            playerCore: Use a specified playcore instead of letting xbmc decide the playercore to use.
-                - xbmc.PLAYER_CORE_AUTO
-                - xbmc.PLAYER_CORE_DVDPLAYER
-                - xbmc.PLAYER_CORE_MPLAYER
-                - xbmc.PLAYER_CORE_PAPLAYER
+        :param playerCore: Use a specified playcore instead of letting xbmc decide the playercore to use.
+
+        - xbmc.PLAYER_CORE_AUTO
+        - xbmc.PLAYER_CORE_DVDPLAYER
+        - xbmc.PLAYER_CORE_MPLAYER
+        - xbmc.PLAYER_CORE_PAPLAYER
         """
         pass
 
     def play(self, item=None, listitem=None, windowed=False, statrpos=-1):
         """
-        play([item, listitem, windowed, startpos]) -- Play this item.
+        Play this item.
 
-        item : [opt] string - filename, url or playlist.
-        listitem : [opt] listitem - used with setInfo() to set different infolabels.
-        windowed : [opt] bool - true=play video windowed, false=play users preference.(default)
-        startpos : [opt] int - starting position when playing a playlist. Default = -1
+        :param item: [opt] string - filename, url or playlist.
+        :param listitem: [opt] listitem - used with setInfo() to set different infolabels.
+        :param windowed: [opt] bool - true=play video windowed, false=play users preference.(default)
+        :param startpos: [opt] int - starting position when playing a playlist. Default = -1
 
-        *Note, If item is not given then the Player will try to play the current item
-        in the current playlist.
+        .. note:: If item is not given then the Player will try to play the current item
+            in the current playlist.
 
         You can use the above as keywords for arguments and skip certain optional arguments.
         Once you use a keyword, all following arguments require the keyword.
 
-        example:
-        - listitem = xbmcgui.ListItem('Ironman')
-        - listitem.setInfo('video', {'Title': 'Ironman', 'Genre': 'Science Fiction'})
-        - xbmc.Player().play(url, listitem, windowed)
-        - xbmc.Player().play(playlist, listitem, windowed, startpos)
+        example::
+
+            listitem = xbmcgui.ListItem('Ironman')
+            listitem.setInfo('video', {'Title': 'Ironman', 'Genre': 'Science Fiction'})
+            xbmc.Player().play(url, listitem, windowed)
+            xbmc.Player().play(playlist, listitem, windowed, startpos)
         """
         pass
 
@@ -235,22 +244,22 @@ class Player(object):
 
     def onPlayBackSeek(self, time, seekOffset):
         """
-        onPlayBackSeek(time, seekOffset) -- onPlayBackSeek method.
+        onPlayBackSeek method.
 
-         time           : integer - time to seek to.
-         seekOffset     : integer - ?.
+        :param time: integer - time to seek to.
+        :param seekOffset: integer - ?.
 
-         Will be called when user seeks to a time
+        Will be called when user seeks to a time
         """
         pass
 
     def onPlayBackSeekChapter(self, chapter):
         """
-        onPlayBackSeekChapter(chapter) -- onPlayBackSeekChapter method.
+        onPlayBackSeekChapter method.
 
-         chapter        : integer - chapter to seek to.
+        :param chapter: integer - chapter to seek to.
 
-         Will be called when user performs a chapter seek
+        Will be called when user performs a chapter seek
         """
         pass
 
@@ -276,15 +285,15 @@ class Player(object):
 
     def isPlaying(self):
         """Returns True is xbmc is playing a file."""
-        return bool
+        return bool(1)
 
     def isPlayingAudio(self):
         """Returns True is xbmc is playing an audio file."""
-        return bool
+        return bool(1)
 
     def isPlayingVideo(self):
         """Returns True if xbmc is playing a video."""
-        return bool
+        return bool(1)
 
     def getPlayingFile(self):
         """
@@ -294,7 +303,7 @@ class Player(object):
 
         Throws: Exception, if player is not playing a file.
         """
-        return str
+        return str()
 
     def getVideoInfoTag(self):
         """Returns the VideoInfoTag of the current playing Movie.
@@ -305,7 +314,7 @@ class Player(object):
         Note:
             This doesn't work yet, it's not tested.
         """
-        return InfoTagVideo
+        return InfoTagVideo()
 
     def getMusicInfoTag(self):
         """Returns the MusicInfoTag of the current playing 'Song'.
@@ -313,7 +322,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file or current file is not a music file.
         """
-        return InfoTagMusic
+        return InfoTagMusic()
 
     def getTotalTime(self):
         """Returns the total time of the current playing media in seconds.
@@ -323,7 +332,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file.
         """
-        return float
+        return float()
 
     def getTime(self):
         """Returns the current time of the current playing media as fractional seconds.
@@ -331,7 +340,7 @@ class Player(object):
         Raises:
             Exception: If player is not playing a file.
         """
-        return float
+        return float()
 
     def seekTime(self, pTime):
         """Seeks the specified amount of time as fractional seconds.
@@ -355,7 +364,7 @@ class Player(object):
 
     def getSubtitles(self):
         """Get subtitle stream name."""
-        return str
+        return str()
 
     def disableSubtitles(self):
         """Disable subtitles."""
@@ -363,13 +372,13 @@ class Player(object):
 
     def getAvailableAudioStreams(self):
         """Get audio stream names."""
-        return list
+        return list()
 
     def getAvailableSubtitleStreams(self):
         """
         getAvailableSubtitleStreams() -- get Subtitle stream names
         """
-        return list
+        return list()
 
     def setAudioStream(self, iStream):
         """Set audio stream.
@@ -399,6 +408,7 @@ class Player(object):
             - xbmc.Player().showSubtitles(True)
         """
         pass
+
 
 class PlayList(object):
     def __init__(self, playList):
