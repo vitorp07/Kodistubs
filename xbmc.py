@@ -1213,7 +1213,7 @@ def log(msg, level=LOGNOTICE):
 
     example::
 
-        xbmc.log('This is a test string.', level=xbmc.LOGDEBUG))
+        xbmc.log('This is a test string.', level=xbmc.LOGDEBUG)
     """
     pass
 
