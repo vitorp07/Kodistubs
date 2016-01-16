@@ -51,8 +51,6 @@ abortRequested = False
 
 class Keyboard(object):
     """
-    Keyboardline='', heading='', hidden=False)
-
     Creates a new Keyboard object with default text heading and hidden input flag if supplied.
 
     :param line: string - default text entry.
