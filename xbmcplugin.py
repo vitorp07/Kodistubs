@@ -1,6 +1,4 @@
-## @package xbmcplugin
-#  Functions for XBMC plugins.
-#
+# coding: utf-8
 """
 Functions for Kodi plugins
 """
@@ -53,23 +51,23 @@ __platform__ = 'ALL'
 __version__ = '2.20.0'
 
 
-
 def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
     """Callback function to pass directory contents back to XBMC.
 
     Returns a bool for successful completion.
 
-    handle: integer - handle the plugin was started with.
-    url: string - url of the entry. would be plugin:// for another virtual directory.
-    listitem: ListItem - item to add.
-    isFolder: bool - True=folder / False=not a folder.
-    totalItems: integer - total number of items that will be passed. (used for progressbar)
+    :param handle: integer - handle the plugin was started with.
+    :param url: string - url of the entry. would be plugin:// for another virtual directory.
+    :param listitem: ListItem - item to add.
+    :param isFolder: bool - True=folder / False=not a folder.
+    :param totalItems: integer - total number of items that will be passed. (used for progressbar)
 
-    Example:
+    Example::
+
         if not xbmcplugin.addDirectoryItem(int(sys.argv[1]), 'F:\\Trailers\\300.mov', listitem, totalItems=50):
             break
     """
-    return bool
+    return bool(1)
 
 
 def addDirectoryItems(handle, items, totalItems=0):
@@ -77,43 +75,46 @@ def addDirectoryItems(handle, items, totalItems=0):
 
     Returns a bool for successful completion.
 
-    handle: integer - handle the plugin was started with.
-    items: List - list of (url, listitem[, isFolder]) as a tuple to add.
-    totalItems: integer - total number of items that will be passed. (used for progressbar)
+    :param handle: integer - handle the plugin was started with.
+    :param items: List - list of (url, listitem[, isFolder]) as a tuple to add.
+    :param totalItems: integer - total number of items that will be passed. (used for progressbar)
 
-    Note:
+    .. note::
         Large lists benefit over using the standard addDirectoryItem().
         You may call this more than once to add items in chunks.
 
-    Example:
+    Example::
+
         if not xbmcplugin.addDirectoryItems(int(sys.argv[1]), [(url, listitem, False,)]:
             raise
     """
-    return bool
+    return bool(1)
 
 
 def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True):
     """Callback function to tell XBMC that the end of the directory listing in a virtualPythonFolder module is reached.
 
-    handle: integer - handle the plugin was started with.
-    succeeded: bool - True=script completed successfully/False=Script did not.
-    updateListing: bool - True=this folder should update the current listing/False=Folder is a subfolder.
-    cacheToDisc: bool - True=Folder will cache if extended time/False=this folder will never cache to disc.
+    :param handle: integer - handle the plugin was started with.
+    :param succeeded: bool - True=script completed successfully/False=Script did not.
+    :param updateListing: bool - True=this folder should update the current listing/False=Folder is a subfolder.
+    :param cacheToDisc: bool - True=Folder will cache if extended time/False=this folder will never cache to disc.
 
-    Example:
+    Example::
+
         xbmcplugin.endOfDirectory(int(sys.argv[1]), cacheToDisc=False)
     """
     pass
 
-#noinspection PyUnusedLocal
+
 def setResolvedUrl(handle, succeeded, listitem):
     """Callback function to tell XBMC that the file plugin has been resolved to a url
 
-    handle: integer - handle the plugin was started with.
-    succeeded: bool - True=script completed successfully/False=Script did not.
-    listitem: ListItem - item the file plugin resolved to for playback.
+    :param handle: integer - handle the plugin was started with.
+    :param succeeded: bool - True=script completed successfully/False=Script did not.
+    :param listitem: ListItem - item the file plugin resolved to for playback.
 
-    Example:
+    Example::
+
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem)
     """
     pass
@@ -122,15 +123,16 @@ def setResolvedUrl(handle, succeeded, listitem):
 def addSortMethod(handle, sortMethod, label2Mask=''):
     """Adds a sorting method for the media list.
 
-    handle: integer - handle the plugin was started with.
-    sortMethod: integer - number for sortmethod see FileItem.h.
-    label2Mask: string - the label mask to use for the second label.  Defaults to '%D'
-        applies to: SORT_METHOD_NONE, SORT_METHOD_UNSORTED, SORT_METHOD_VIDEO_TITLE,
-        SORT_METHOD_TRACKNUM, SORT_METHOD_FILE, SORT_METHOD_TITLE
-        SORT_METHOD_TITLE_IGNORE_THE, SORT_METHOD_LABEL
-        SORT_METHOD_LABEL_IGNORE_THE
+    :param handle: integer - handle the plugin was started with.
+    :param sortMethod: integer - number for sortmethod see FileItem.h.
+    :param label2Mask: string - the label mask to use for the second label. Defaults to '%D'
+        applies to: ``SORT_METHOD_NONE``, ``SORT_METHOD_UNSORTED``, ``SORT_METHOD_VIDEO_TITLE``,
+        ``SORT_METHOD_TRACKNUM``, ``SORT_METHOD_FILE``, ``SORT_METHOD_TITLE``,
+        ``SORT_METHOD_TITLE_IGNORE_THE``, ``SORT_METHOD_LABEL``,
+        ``SORT_METHOD_LABEL_IGNORE_THE``
 
-    Example:
+    Example::
+
         xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_TITLE)
     """
     pass
@@ -139,23 +141,25 @@ def addSortMethod(handle, sortMethod, label2Mask=''):
 def getSetting(handle, id):
     """Returns the value of a setting as a string.
 
-    handle: integer - handle the plugin was started with.
-    id: string - id of the setting that the module needs to access.
+    :param handle: integer - handle the plugin was started with.
+    :param id: string - id of the setting that the module needs to access.
 
-    Example:
+    Example::
+
         apikey = xbmcplugin.getSetting(int(sys.argv[1]), 'apikey')
     """
-    return str
+    return str()
 
 
 def setSetting(handle, id, value):
     """Sets a plugin setting for the current running plugin.
 
-    handle: integer - handle the plugin was started with.
-    id: string - id of the setting that the module needs to access.
-    value: string or unicode - value of the setting.
+    :param handle: integer - handle the plugin was started with.
+    :param id: string - id of the setting that the module needs to access.
+    :param value: string or unicode - value of the setting.
 
-    Example:
+    Example::
+
         xbmcplugin.setSetting(int(sys.argv[1]), id='username', value='teamxbmc')
     """
     pass
@@ -164,13 +168,14 @@ def setSetting(handle, id, value):
 def setContent(handle, content):
     """Sets the plugins content.
 
-    handle: integer - handle the plugin was started with.
-    content: string - content type (eg. movies).
+    :param handle: integer - handle the plugin was started with.
+    :param content: string - content type (eg. movies).
 
-    Note:
+    .. note::
         Possible values for content: files, songs, artists, albums, movies, tvshows, episodes, musicvideos
 
-    Example:
+    Example::
+
         xbmcplugin.setContent(int(sys.argv[1]), 'movies')
     """
     pass
@@ -179,10 +184,11 @@ def setContent(handle, content):
 def setPluginCategory(handle, category):
     """Sets the plugins name for skins to display.
 
-    handle: integer - handle the plugin was started with.
-    category: string or unicode - plugins sub category.
+    :param handle: integer - handle the plugin was started with.
+    :param category: string or unicode - plugins sub category.
 
-    Example:
+    Example::
+
         xbmcplugin.setPluginCategory(int(sys.argv[1]), 'Comedy')
     """
     pass
@@ -191,14 +197,16 @@ def setPluginCategory(handle, category):
 def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
     """Sets the plugins fanart and color for skins to display.
 
-    handle: integer - handle the plugin was started with.\n"
-    image: string - path to fanart image.
-    color1: hexstring - color1. (e.g. '0xFFFFFFFF')
-    color2: hexstring - color2. (e.g. '0xFFFF3300')
-    color3: hexstring - color3. (e.g. '0xFF000000')
+    :param handle: integer - handle the plugin was started with.
+    :param image: string - path to fanart image.
+    :param color1: hexstring - color1. (e.g. '0xFFFFFFFF')
+    :param color2: hexstring - color2. (e.g. '0xFFFF3300')
+    :param color3: hexstring - color3. (e.g. '0xFF000000')
 
-    Example:
-        xbmcplugin.setPluginFanart(int(sys.argv[1]), 'special://home/addons/plugins/video/Apple movie trailers II/fanart.png', color2='0xFFFF3300')
+    Example::
+
+        xbmcplugin.setPluginFanart(int(sys.argv[1]),
+                'special://home/addons/plugins/video/Apple movie trailers II/fanart.png', color2='0xFFFF3300')
     """
     pass
 
@@ -206,14 +214,15 @@ def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
 def setProperty(handle, key, value):
     """Sets a container property for this plugin.
 
-    handle: integer - handle the plugin was started with.
-    key: string - property name.
-    value: string or unicode - value of property.
+    :param handle: integer - handle the plugin was started with.
+    :param key: string - property name.
+    :param value: string or unicode - value of property.
 
-    Note:
+    .. note::
         Key is NOT case sensitive.
 
-    Example:
+    Example::
+
         xbmcplugin.setProperty(int(sys.argv[1]), 'Emulator', 'M.A.M.E.')
     """
     pass
