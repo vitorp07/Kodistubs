@@ -7,7 +7,7 @@ Kodi stubs are Python files can help you to develop addons for `Kodi (XBMC)`_ Me
 Use them in your favorite IDE to enable autocompletion and view docstrings
 for Kodi Python API functions, classes and mehtods.
 
-Read `Kodi stubs`_ documentation for more info on how to use Kodi stubs.
+Read `Kodi stubs documentation`_ for more info on how to use Kodi stubs.
 
 **Warning**: Kodistubs are literally stubs and do not include any useful code,
 so don't try to run your program outside Kodi unless you add some testing code into Kodistubs
@@ -24,4 +24,4 @@ License: `GPL v.3`_
 .. _Kodi (XBMC): http://kodi.tv
 .. _Discussion topic on Kodi forum: http://forum.kodi.tv/showthread.php?tid=173780
 .. _GPL v.3: http://www.gnu.org/licenses/gpl.html
-.. _Kodi stubs: http://romanvm.github.io/Kodistubs/
+.. _Kodi stubs documentation: http://romanvm.github.io/Kodistubs/
