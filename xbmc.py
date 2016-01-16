@@ -377,9 +377,9 @@ class Player(object):
 
     def setSubtitleStream(self, iStream):
         """
-        setSubtitleStream(iStream) -- set Subtitle Stream
+        set Subtitle Stream
 
-        :param iStream : int
+        :param iStream: int
 
         example::
             setSubtitleStream(1)
@@ -390,7 +390,7 @@ class Player(object):
         """
         enable/disable subtitles
 
-        :param bVisible : boolean - True for visible subtitles.
+        :param bVisible: boolean - ``True`` for visible subtitles.
 
         example::
 
