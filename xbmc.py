@@ -382,6 +382,7 @@ class Player(object):
         :param iStream: int
 
         example::
+
             setSubtitleStream(1)
         """
         pass
@@ -453,7 +454,8 @@ class PlayList(object):
     def load(self, filename):
         """Load a playlist.
 
-        Clear current playlist and copy items from the file to this Playlist filename can be like .pls or .m3u ...
+        Clear current playlist and copy items from the file to this Playlist.
+        filename can be like .pls or .m3u ...
 
         :param filename:
         :return: ``False`` if unable to load playlist, True otherwise.
