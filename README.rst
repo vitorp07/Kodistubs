@@ -3,30 +3,25 @@ Kodistubs
 **(former xbmcstubs)**
 ----------------------
 
-These files can help you to develop a script or an addon for `Kodi (XBMC)`_ Media Center.
-Use them in your favorite IDE to enable autocompletion of function, class and method names and access docstrings
-for each function, class and method.
+Kodi stubs are Python files can help you to develop addons for `Kodi (XBMC)`_ Media Center.
+Use them in your favorite IDE to enable autocompletion and view docstrings
+for Kodi Python API functions, classes and mehtods.
 
-Typically, a Python IDE (Integrated Development Environment) allows you add a "source directory" containing
-the Kodistubs files to your development project. Then you will be able to "import" the modules
-as you normally would in Python.
-
-E.g. in `PyCharm IDE`_ go to ``File** > Settings > Project xxx > Project Structure``,
-click ``+ Add Content Root`` and select a folder with Koditubs ``.py`` files.
-Then you will get auto-completion, quick help and code inspection for Kodi Python API fuctions/classes/methods.
+Read `Kodi stubs`_ documentation for more info on how to use Kodi stubs.
 
 **Warning**: Kodistubs are literally stubs and do not include any useful code,
 so don't try to run your program outside Kodi unless you add some testing code into Kodistubs
 or use some mocking library to mock Kodi Pyhton API.
 
-`Kodistubs documentation`_
+**Note**: I try to keep Kodi stubs in sync with Kodi Python API developement, but it may happen
+that I miss something. Don't hesitate to open issues or submit pull requests if you notice
+discrepancies with the actual state of Kodi Python API.
 
 `Discussion topic on Kodi forum`_
 
 License: `GPL v.3`_
 
 .. _Kodi (XBMC): http://kodi.tv
-.. _PyCharm IDE: https://www.jetbrains.com/pycharm
-.. _Kodistubs documentation: http://romanvm.github.io/Kodistubs/docs
 .. _Discussion topic on Kodi forum: http://forum.kodi.tv/showthread.php?tid=173780
 .. _GPL v.3: http://www.gnu.org/licenses/gpl.html
+.. _Kodi stubs: http://romanvm.github.io/Kodistubs/

@@ -13,8 +13,8 @@ Below are the instructions for using Kodistubs in popular Python IDEs.
 PyCharm
 -------
 
-To add Kodistubs to current project open ``Settings`` > ``Project`` > ``Project Structure``,
-click ``+ Add Content Root`` and select a folder where Kodistubs ``.py`` files are located.
+To add Kodistubs to current project open **Settings** > **Project** > **Project Structure**,
+click **+ Add Content Root** and select a folder where Kodistubs ``.py`` files are located.
 
 .. figure:: _static/pycharm_add_content_root.jpg
 
@@ -26,13 +26,13 @@ After that you'll get code completion and quick help for Kodi Python API functio
 
     **Code completion and quick help in PyCharm**
 
-.. note:: PyCharm quick help partially supports reStructuredText formatting.
+.. note:: PyCharm quick help partially supports **reStructuredText** formatting.
 
 Eclipse + PyDev
 ---------------
 
-In PyDev right-click the project's name, select ``Properties`` > ``PyDev - PYTHONPATH`` >
-``External Libraries``, click ``Add source folder`` and select a folder where Kodistubs ``.py``
+In PyDev right-click the project's name, select **Properties** > **PyDev - PYTHONPATH** >
+**External Libraries**, click **Add source folder** and select a folder where Kodistubs ``.py``
 files are located.
 
 .. figure:: _static/pydev_add_source_folder.jpg
@@ -72,4 +72,21 @@ to write unit tests for your addon code.
 Documenting Code
 ================
 
+Currently `Sphinx`_ is *de facto* the standard tool for documenting Python code. But for generating
+documentation from docstrings it requires your modules to be importable without any side-effects
+(i.e. exceptions). If you want to document your addon with Sphinx, add Kodi stubs folder to
+``sys.path`` of ``conf.py`` file in your Sphinx project and in most cases your addon modules will be
+imported without issues. Just don't forget to protect your module-level exetutable code with
+``if __name__ == '__main__'`` condition.
 
+Also the root path of this documentation (without ``index.html``) can be used as a reference point
+for **intersphinx**. For example::
+
+    intersphinx_mapping = {
+        'https://docs.python.org/2.7': None,
+        'http://romanvm.github.io/Kodistubs': None,
+    }
+
+This will enable cross-references to Kodi Python API objects in your Sphinx-generated documentation.
+
+.. _Sphinx: http://www.sphinx-doc.org/en/stable/

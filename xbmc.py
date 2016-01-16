@@ -168,15 +168,9 @@ class Player(object):
     .. note:: currently Player class constructor does not take any parameters.
         Kodi automatically selects a necessary player.
     """
-    def __init__(self, playerCore=None):
-        """Creates a new Player with as default the xbmc music playlist.
-
-        :param playerCore: Use a specified playcore instead of letting xbmc decide the playercore to use.
-
-        - xbmc.PLAYER_CORE_AUTO
-        - xbmc.PLAYER_CORE_DVDPLAYER
-        - xbmc.PLAYER_CORE_MPLAYER
-        - xbmc.PLAYER_CORE_PAPLAYER
+    def __init__(self):
+        """
+        Creates a new Player with as default the xbmc music playlist.
         """
         pass
 
@@ -822,6 +816,8 @@ class RenderCapture(object):
           issue a new capture request immediately
         - ``xbmc.CAPTURE_FLAG_IMMEDIATELY``: read out immediately whencapture() is called,
           this can cause a busy wait
+
+        .. warning:: As of Kodi 17.x (Krypton) ``flags`` option will be depreciated.
         """
         pass
 
@@ -840,6 +836,8 @@ class RenderCapture(object):
         - ``xbmc.CAPTURE_STATE_WORKING``: Capture request in progress.
         - ``xbmc.CAPTURE_STATE_DONE``: Capture request done. The image could be retrieved withgetImage()
         - ``xbmc.CAPTURE_STATE_FAILED``: Capture request failed.
+
+        .. warning:: Will be depreciated in Kodi 17.x (Krypton)
         """
         return int()
 
@@ -849,9 +847,14 @@ class RenderCapture(object):
         """
         return int()
 
-    def getImage(self):
+    def getImage(self, msecs=0):
         """
+        Get image
+
+        :param msecs: wait time in msec
         :return: captured image as a bytearray.
+
+        .. note:: ``msec`` param will be added in Kodi 17.x (Krypton).
 
         The size of the image isgetWidth() * getHeight() * 4
         """
@@ -860,6 +863,8 @@ class RenderCapture(object):
     def getImageFormat(self):
         """
         :return: format of captured image: 'BGRA' or 'RGBA'.
+
+        .. note:: As of Kodi 17.x (Krypton) 'BRRA' will always be returned
         """
         return str()
 
@@ -983,7 +988,7 @@ def getCacheThumbName(path):
 
     :param path: string or unicode -- path to file
 
-    example::
+    Example::
 
         thumb = xbmc.getCacheThumbName('f:\videos\movie.avi')
     """
@@ -1196,7 +1201,7 @@ def log(msg, level=LOGNOTICE):
     .. note:: You can use the above as keywords for arguments and skip certain optional arguments.
         Once you use a keyword, all following arguments require the keyword.
 
-    .. warning:: Starting from Kodi 16.0 (Jarvis) default level will be changed to ``DEBUG``.
+    .. warning:: Starting from Kodi 16.0 (Jarvis) default level will be changed to ``LOGDEBUG``.
 
     Text is written to the log for the following conditions.
 
@@ -1218,7 +1223,7 @@ def makeLegalFilename(filename, fatX=True):
     Returns a legal filename or path as a string.
 
     :param filename: string or unicode -- filename/path to make legal
-    :param fatX: [opt] bool -- ``True``=Xbox file system(Default)
+    :param fatX: [opt] bool -- ``True`` = Xbox file system(Default)
 
 
     .. note: If fatX is ``True`` you should pass a full path.
@@ -1227,7 +1232,7 @@ def makeLegalFilename(filename, fatX=True):
     You can use the above as keywords for arguments and skip certain optional arguments.
     Once you use a keyword, all following arguments require the keyword.
 
-    example::
+    Example::
 
         filename = xbmc.makeLegalFilename('F: Age: The Meltdown.avi')
     """
@@ -1308,7 +1313,7 @@ def sleep(timemillis):
 
     :raises: TypeError, if time is not an integer.
 
-    example::
+    Example::
 
         xbmc.sleep(2000) # sleeps for 2 seconds
     """
@@ -1319,13 +1324,13 @@ def startServer(iTyp, bStart, bWait=False):
     """
     start or stop a server.
 
-    :param iTyp: integer - use SERVER_* constants
-    :param bStart: bool - start (True) or stop (False) a server
-    :param bWait : [opt] bool - wait on stop before returning (not supported by all servers)
-    :return: bool - ``True`` or ``False``
+    :param iTyp: integer -- use SERVER_* constants
+    :param bStart: bool -- start (True) or stop (False) a server
+    :param bWait : [opt] bool -- wait on stop before returning (not supported by all servers)
+    :return: bool -- ``True`` or ``False``
 
 
-    example::
+    Example::
 
         xbmc.startServer(xbmc.SERVER_AIRPLAYSERVER, False)
     """
@@ -1340,9 +1345,9 @@ def translatePath(path):
 
     .. note: Only useful if you are coding for both Linux and Windows.
 
-    Converts 'special://masterprofile/script_data' -> '/home/user/XBMC/UserData/script_data' on Linux.
+    Converts ``'special://masterprofile/script_data'`` -> ``'/home/user/XBMC/UserData/script_data'`` on Linux.
 
-    example::
+    Example::
 
         fpath = xbmc.translatePath('special://masterprofile/script_data')
     """
@@ -1358,8 +1363,8 @@ def validatePath(path):
     .. note:: Only useful if you are coding for both Linux and Windows for fixing slash problems.
         e.g. Corrects 'Z://something' -> 'Z:'
 
-    example::
+    Example::
 
-    fpath = xbmc.validatePath(somepath)
+        fpath = xbmc.validatePath(somepath)
     """
     return unicode()
