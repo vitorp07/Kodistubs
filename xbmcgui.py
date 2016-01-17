@@ -656,7 +656,7 @@ class WindowDialog(Window):
 
 class WindowXML(Window):
     """
-    WindowXML(xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p'):
+    WindowXML(xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p')
 
     WindowXML class.
 
@@ -760,7 +760,7 @@ class WindowXML(Window):
 
 class WindowXMLDialog(WindowXML):
     """
-    WindowXMLDialog(xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p'):
+    WindowXMLDialog(xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p')
 
     WindowXMLDialog class.
 
