@@ -4,17 +4,19 @@ Using Kodistubs
 Writing Code
 ============
 
-The main purpose of Kodistubs is to help you to write Kodi addon code in various IDEs
-(Integrated Development Environments) by providing code completion, quick help based on Kodistubs docstrings,
-and code inspection (linting) in IDEs that provide this feature.
+The main purpose of Kodistubs is to help you to write Kodi addon code in various
+:abbr:`IDEs(Integrated Development Environments)` by providing code completion,
+quick help based on Kodistubs docstrings, and code inspection (linting)
+in IDEs that provide this feature.
 
 Below are the instructions for using Kodistubs in popular Python IDEs.
 
 PyCharm
 -------
 
-To add Kodistubs to current project open **Settings** > **Project** > **Project Structure**,
-click **+ Add Content Root** and select a folder where Kodistubs ``.py`` files are located.
+To add Kodistubs to the current project open
+:menuselection:`Settings --> Project --> Project Structure`,
+click :guilabel:`+ Add Content Root` and select a folder where Kodistubs :file:`.py` files are located.
 
 .. figure:: _static/pycharm_add_content_root.jpg
 
@@ -31,9 +33,10 @@ After that you'll get code completion and quick help for Kodi Python API functio
 Eclipse + PyDev
 ---------------
 
-In PyDev right-click the project's name, select **Properties** > **PyDev - PYTHONPATH** >
-**External Libraries**, click **Add source folder** and select a folder where Kodistubs ``.py``
-files are located.
+In PyDev right-click the project's name, select
+:menuselection:`Properties --> PyDev - PYTHONPATH --> External Libraries`,
+click :guilabel:`Add source folder` and select a  folder
+where Kodistubs :file:`.py` files are located.
 
 .. figure:: _static/pydev_add_source_folder.jpg
 
@@ -48,8 +51,9 @@ After that you'll get code completion and quick help for Kodi Python API functio
 Python Tools for Visual Studio
 ------------------------------
 
-In **Solution Explorer** right-click **Search Paths**, in a context menu select **Add Folder To Search Path...**
-and select a folder where Kodistubs ``.py`` files are located.
+In :guilabel:`Solution Explorer` right-click :guilabel:`Search Paths`,
+in the context menu select :guilabel:`Add Folder To Search Path...`
+and then select a folder where Kodistubs :file:`.py` files are located.
 
 .. figure:: _static/ptvs_add_to_search_path.jpg
 
@@ -72,21 +76,23 @@ to write unit tests for your addon code.
 Documenting Code
 ================
 
-Currently `Sphinx`_ is *de facto* the standard tool for documenting Python code. But for generating
-documentation from docstrings it requires your modules to be importable without any side-effects
+Currently `Sphinx`_ is in fact the standard tool for documenting Python code. But for generating
+documentation from docstrings it requires that your modules can be imported without any side-effects
 (i.e. exceptions). If you want to document your addon with Sphinx, add Kodi stubs folder to
-``sys.path`` of ``conf.py`` file in your Sphinx project and in most cases your addon modules will be
+:data:`sys.path` of :file:`conf.py` file in your Sphinx project and in most cases your addon modules will be
 imported without issues. Just don't forget to protect your module-level exetutable code with
 ``if __name__ == '__main__'`` condition.
 
-Also the root path of this documentation (without ``index.html``) can be used as a reference point
-for **intersphinx**. For example::
+Also the root URL of this documentation (without :file:`index.html`) can be used as a reference point
+for `intersphinx`_. For example::
 
     intersphinx_mapping = {
         'https://docs.python.org/2.7': None,
-        'http://romanvm.github.io/Kodistubs': None,
+        'http://romanvm.github.io/Kodistubs': None,  # Reference to Kodi stubs
     }
 
 This will enable cross-references to Kodi Python API objects in your Sphinx-generated documentation.
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
+.. _intersphinx: http://www.sphinx-doc.org/en/stable/ext/intersphinx.html
+
