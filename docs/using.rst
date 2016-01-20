@@ -6,7 +6,7 @@ Writing Code
 
 The main purpose of Kodistubs is to help you to write Kodi addon code in various
 :abbr:`IDEs(Integrated Development Environments)` by providing code completion,
-quick help based on Kodistubs docstrings, and code inspection (linting)
+quick access to Kodi Python API docstrings, and code inspection (linting)
 in IDEs that provide this feature.
 
 Below are the instructions for using Kodistubs in popular Python IDEs.
@@ -22,13 +22,13 @@ click :guilabel:`+ Add Content Root` and select a folder where Kodistubs :file:
 
     **Adding Kodistubs to the current project in PyCharm**
 
-After that you'll get code completion and quick help for Kodi Python API functions/classes/methods.
+This enables code completion and docstrings pop-ups for Kodi Python API functions/classes/methods.
 
 .. figure:: _static/pycharm_autocompletion.jpg
 
-    **Code completion and quick help in PyCharm**
+    **Code completion and a docstring pop-up in PyCharm**
 
-.. note:: PyCharm quick help partially supports **reStructuredText** formatting.
+.. note:: PyCharm docstrings pop-ups partially support reStructuredText formatting.
 
 Eclipse + PyDev
 ---------------
@@ -42,11 +42,11 @@ where Kodistubs :file:`.py` files are located.
 
     **Adding Kodistubs to the current project in PyDev**
 
-After that you'll get code completion and quick help for Kodi Python API functions/classes/methods.
+This enables code completion and docstrings pop-ups for Kodi Python API functions/classes/methods.
 
 .. figure:: _static/pydev_autocompletion.jpg
 
-     **Code completion and quick help in PyDev**
+     **Code completion and a docstring pop-up in PyDev**
 
 Python Tools for Visual Studio
 ------------------------------
@@ -59,11 +59,11 @@ and then select a folder where Kodistubs :file:`.py` files are located.
 
     **Adding Kodistubs to the current project in PTVS**
 
-After that you'll get code completion and quick help for Kodi Python API functions/classes/methods.
+This enables code completion and docstrings pop-ups for Kodi Python API functions/classes/methods.
 
 .. figure:: _static/ptvs_autocompletion.jpg
 
-    **Code completion and quick help in PTVS**
+    **Code completion and a docstring pop-up in PTVS**
 
 Testing Code
 ============

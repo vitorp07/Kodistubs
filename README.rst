@@ -3,9 +3,9 @@ Kodistubs
 **(former xbmcstubs)**
 ----------------------
 
-Kodi stubs are Python files can help you to develop addons for `Kodi (XBMC)`_ Media Center.
+Kodi stubs are Python files that can help you develop addons for `Kodi (XBMC)`_ Media Center.
 Use them in your favorite IDE to enable autocompletion and view docstrings
-for Kodi Python API functions, classes and mehtods.
+for Kodi Python API functions, classes and methods.
 
 Read `Kodi stubs documentation`_ for more info on how to use Kodi stubs.
 
@@ -13,7 +13,7 @@ Read `Kodi stubs documentation`_ for more info on how to use Kodi stubs.
 so don't try to run your program outside Kodi unless you add some testing code into Kodistubs
 or use some mocking library to mock Kodi Pyhton API.
 
-**Note**: I try to keep Kodi stubs in sync with Kodi Python API developement, but it may happen
+**Note**: I try to keep Kodi stubs in sync with Kodi Python API development, but it may happen
 that I miss something. Don't hesitate to open issues or submit pull requests if you notice
 discrepancies with the actual state of Kodi Python API.
 
