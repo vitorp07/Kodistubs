@@ -780,7 +780,7 @@ class Monitor(object):
         """
         pass
 
-    def waitForAbort(self, timeout):
+    def waitForAbort(self, timeout=-1):
         """
         Block until abort is requested, or until timeout occurs.
 
