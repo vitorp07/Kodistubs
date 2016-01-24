@@ -16,7 +16,7 @@ to enable autocompletion and view docstrings for Kodi Python API functions, clas
     or submit pull requests in the Kodistubs Github repo.
 
 .. warning:: Kodistubs are literally stubs and do not include any useful code beyond absolute minimum
-    so that not to rise exceptions.
+    so that not to rise syntax errors.
     Don't try to run your program outside Kodi unless you add some testing code into Kodistubs
     or use some mocking library to mock Kodi Pyhton API.
 
