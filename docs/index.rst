@@ -10,10 +10,10 @@ to enable autocompletion and view docstrings for Kodi Python API functions, clas
 .. note:: Docstrings in Kodistubs may differ from the `official Kodi Python API docs`_.
     Except for `reStructuredText`_ formatting needed for this documentation, docstrings are
     updated using the information taken directly from `Kodi sources`_
-    or based on practical experience of addon developement.
+    or based on practical experience of addon development.
 
-    If you notice discrepancies with the actual state of Kodi Python API, don't hesitate to open issues
-    or submit pull requests in the Kodistubs Github repo.
+If you notice discrepancies with the actual state of Kodi Python API, don't hesitate to open issues
+or submit pull requests in the Kodistubs Github repo.
 
 .. warning:: Kodistubs are literally stubs and do not include any useful code beyond absolute minimum
     so that not to rise syntax errors.
