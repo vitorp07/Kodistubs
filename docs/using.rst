@@ -65,6 +65,33 @@ This enables code completion and docstrings pop-ups for Kodi Python API function
 
     **Code completion and a docstring pop-up in PTVS**
 
+Sublime Text 3 + Anaconda
+-------------------------
+
+In :guilabel:`Preferences` select :menuselection:`Package Settings --> Anaconda --> Settings - User`,
+and add the folder with Kodistubs :file:`.py` files to ``extra_paths`` list
+of Anaconda User configuraiton file.
+
+.. note:: Sublime Text configuration files have JSON formatting.
+
+For example:
+
+.. code-block:: json
+
+  {
+      "extra_paths":
+      [
+          "d:\\Python\\Kodistubs"
+      ]
+  }
+
+This enables code completion and docstrings pop-ups for Kodi Python API functions/classes/methods.
+
+.. figure:: _static/sublime_text_anaconda.jpg
+
+    **Code completion and a docstring pop-up in Sublime Text 3**
+
+
 Testing Code
 ============
 
