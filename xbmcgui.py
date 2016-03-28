@@ -2416,7 +2416,7 @@ class Dialog(object):
 
     Then you need to call a method to open the respective dialog.
     """
-    def browse(self, type, heading, s_shares, mask='', useThumbs=False, treatAsFolder=False, default='',
+    def browse(self, type, heading, s_shares, mask='', useThumbs=False, treatAsFolder=False, defaultt='',
                enableMultiple=False):
         """Show a 'Browse' dialog.
 
@@ -2426,7 +2426,7 @@ class Dialog(object):
         :param mask: string or unicode - '|' separated file mask. (i.e. '.jpg|.png')
         :param useThumbs: boolean - if True autoswitch to Thumb view if files exist.
         :param treatAsFolder: boolean - if True playlists and archives act as folders.
-        :param default: string - default path or file.
+        :param defaultt: string - default path or file. Note the spelling of the argument name.
         :param enableMultiple: boolean - if True multiple file selection is enabled.
 
         Types::
@@ -2453,7 +2453,7 @@ class Dialog(object):
         """
         return str()
 
-    def browseMultiple(self, type, heading, shares, mask='', useThumbs=None, treatAsFolder=None, default=''):
+    def browseMultiple(self, type, heading, shares, mask='', useThumbs=None, treatAsFolder=None, defaultt=''):
         """
         Show a 'Browse' dialog.
 
@@ -2463,7 +2463,7 @@ class Dialog(object):
         :param mask: [opt] string or unicode - '|' separated file mask. (i.e. '.jpg|.png')
         :param useThumbs: [opt] boolean - if True autoswitch to Thumb view if files exist (default=false).
         :param treatAsFolder: [opt] boolean - if True playlists and archives act as folders (default=false).
-        :param default: [opt] string - default path or file.
+        :param defaultt: [opt] string - default path or file. Note the spelling of the argument name.
 
         Types::
 
@@ -2482,7 +2482,7 @@ class Dialog(object):
         """
         return tuple()
 
-    def browseSingle(self, type, heading, shares, mask='', useThumbs=None, treatAsFolder=None, default=''):
+    def browseSingle(self, type, heading, shares, mask='', useThumbs=None, treatAsFolder=None, defaultt=''):
         """
         Show a 'Browse' dialog.
 
@@ -2492,7 +2492,7 @@ class Dialog(object):
         :param mask: [opt] string or unicode - '|' separated file mask. (i.e. '.jpg|.png')
         :param useThumbs: [opt] boolean - if True autoswitch to Thumb view if files exist (default=false).
         :param treatAsFolder: [opt] boolean - if True playlists and archives act as folders (default=false).
-        :param default: [opt] string - default path or file.
+        :param defaultt: [opt] string - default path or file. Note the spelling of the argument name.
 
         Types::
 
