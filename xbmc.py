@@ -659,6 +659,22 @@ class InfoTagVideo(object):
         """Returns a string."""
         return str()
 
+    def getTVShowTitle(self):
+        """Returns a string."""
+        return str()
+
+    def getMediaType(self):
+        """Returns a string."""
+        return str()
+
+    def getSeason(self):
+        """Returns an int."""
+        return int()
+
+    def getEpisode(self):
+        """Returns an int."""
+        return int()
+
 
 class Monitor(object):
     """
