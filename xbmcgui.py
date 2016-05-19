@@ -1259,6 +1259,9 @@ class ListItem(object):
             album: string (The Joshua Tree)
             votes: string (12345 votes)
             trailer: string (/home/user/trailer.avi)
+            imdbnumber : string (tt0110293) - IMDb code
+            set : string (Batman Collection) - name of the collection
+            setid : integer (14) - ID of the collection
 
         Music Values::
 
