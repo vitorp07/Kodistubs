@@ -1418,6 +1418,31 @@ class ListItem(object):
         """
         pass
 
+    def getArt(self, key):
+        """
+        Returns a listitem art path as a string, similar to an infolabel
+
+        :param key: art name
+        :return: path to art image
+
+        Some default art values (any string possible)::
+
+            - thumb         : string - image path
+            - poster        : string - image path
+            - banner        : string - image path
+            - fanart        : string - image path
+            - clearart      : string - image path
+            - clearlogo     : string - image path
+            - landscape     : string - image path
+            - icon          : string - image path
+
+        Example::
+
+            poster = self.list.getSelectedItem().getArt('poster')
+
+        """
+        return str()
+
 
 class ControlLabel(Control):
 
