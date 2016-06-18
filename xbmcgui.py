@@ -2413,6 +2413,7 @@ class ControlSpin(Control):
         """
         pass
 
+
 class Dialog(object):
     """
     Initializes Dialog instance.
@@ -2657,6 +2658,18 @@ class Dialog(object):
             ret = dialog.select('Choose a playlist', ['Playlist #1', 'Playlist #2, 'Playlist #3'])
         """
         return int()
+
+    def contextmenu(self, list):
+        """
+        Shows a context menu dialog
+
+        :param list: a :class:`list` of menu item labels
+        :return: the index of a selected item or ``-1`` if nothing is selected
+
+        Example::
+
+            res = xbmcgui.Dialog().contextmenu(list=['option1', 'option2'])
+        """
 
 
 class DialogProgress(object):
