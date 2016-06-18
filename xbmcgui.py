@@ -2706,6 +2706,20 @@ class Dialog(object):
         """
         return int()
 
+    def textviewer(self, heading, text):
+        """
+        Show a dialog for viewing some text
+
+        :param heading: dialog heading
+        :param text: text to display.
+
+        Example::
+
+            dialog = xbmcgui.Dialog()
+            dialog.textviewer('Plot', 'Some movie plot.')
+        """
+        pass
+
 
 class DialogProgress(object):
     """
