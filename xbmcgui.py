@@ -2704,6 +2704,7 @@ class Dialog(object):
 
             res = xbmcgui.Dialog().contextmenu(list=['option1', 'option2'])
         """
+        return int()
 
 
 class DialogProgress(object):
