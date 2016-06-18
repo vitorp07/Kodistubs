@@ -1319,13 +1319,12 @@ class ListItem(object):
         """
         return str()
 
-    def addContextMenuItems(self, items, replaceItems=False):
+    def addContextMenuItems(self, items):
         """Adds item(s) to the context menu for media lists.
 
         :param items: list - [(label, action)] A list of tuples consisting of label and action pairs.
             label: string or unicode - item's label.
             action: string or unicode - any built-in function to perform.
-        :param replaceItems: bool - True=only your items will show/False=your items will be added to context menu.
 
         List of functions: http://wiki.xbmc.org/?title=List_of_Built_In_Functions
 
