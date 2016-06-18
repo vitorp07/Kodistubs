@@ -757,6 +757,16 @@ class WindowXML(Window):
         """
         pass
 
+    def getCurrentContainerId(self):
+        """
+        Returns the id of the currently visible container.
+
+        Example::
+
+            container_id = self.getCurrentContainerId()
+        """
+        return int()
+
 
 class WindowXMLDialog(WindowXML):
     """
