@@ -2675,11 +2675,11 @@ class Dialog(object):
         """
         return bool(1)
 
-    def select(self, heading, list, autoclose=0):
+    def select(self, heading, list_, autoclose=0):
         """Show a select dialog.
 
         :param heading: string or unicode -- dialog heading.
-        :param list: string list -- list of items.
+        :param list_: string list -- list of items.
         :param autoclose: integer -- milliseconds to autoclose dialog.
 
         .. note::
@@ -2693,11 +2693,11 @@ class Dialog(object):
         """
         return int()
 
-    def contextmenu(self, list):
+    def contextmenu(self, list_):
         """
         Shows a context menu dialog
 
-        :param list: a :class:`list` of menu item labels
+        :param list_: a :class:`list` of menu item labels
         :return: the index of a selected item or ``-1`` if nothing is selected
 
         Example::
@@ -2719,6 +2719,22 @@ class Dialog(object):
             dialog.textviewer('Plot', 'Some movie plot.')
         """
         pass
+
+    def multiselect(self, heading, options, autoclose=0):
+        """
+        Show a multi-select dialog
+
+        :param heading: dialog heading.
+        :param options: options to choose from.
+        :param autoclose: milliseconds to autoclose dialog. (default=do not autoclose)
+        :return: the selected items as a list of indices, or ``None`` if cancelled.
+
+        Example::
+
+            dialog = xbmcgui.Dialog()
+            ret = dialog.multiselect('Choose something', ['Foo', 'Bar', 'Baz'])
+        """
+        return list()
 
 
 class DialogProgress(object):
