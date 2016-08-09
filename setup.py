@@ -1,16 +1,29 @@
-from distutils.core import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
+with open('README.rst') as fobj:
+    long_descr = fobj.read()
 
 setup(
-    name="kodistubs",
-    version='1.0.0',
-    description="Recreated kodi modules as stubs with docstrings.",
-    author="romanvm",
-    url="https://github.com/imsodin/Kodistubs",
-    license="GPLv3",
+    name='Kodistubs',
+    version='2.0.0',
+    py_modules=['xbmc', 'xbmcaddon', 'xbmcgui', 'xbmcplugin', 'xbmcvfs'],
+    description='Stub modules that re-create Kodi Python API',
+    long_description=long_descr,
+    author='Tenzer, twinther, Roman V.M.',
+    maintainer='Roman V.M.',
+    maintainer_email='romanvm@yandex.ua',
+    url='https://github.com/romanvm/Kodistubs',
+    license='GPLv3',
     keywords="kodi documentation inspection",
-    packages=['.'],
     classifieres=[
+        'Environment :: Plugins',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Operating System :: OS Independent',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 3'
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Python Modules',
         ]
 )
