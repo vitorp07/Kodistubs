@@ -9,7 +9,20 @@ The main purpose of Kodistubs is to help you to write Kodi addon code in various
 quick access to Kodi Python API docstrings, and code inspection (linting)
 in IDEs that provide this feature.
 
-Below are the instructions for using Kodistubs in popular Python IDEs.
+Virtual Environment
+-------------------
+
+You can install Kodistubs in your working Python virtual environment
+either from sources using :file:`setup.py` script::
+
+  python setup.py install
+
+or directly from the GitHub repository using ``pip``::
+
+  pip install git+https://github.com/romanvm/Kodistubs.git#egg=Kodistubs
+
+If you don't want to install Kodistubs into your Python environment,
+below are the instructions for using Kodistubs in popular Python IDEs.
 
 PyCharm
 -------
