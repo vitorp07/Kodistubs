@@ -1752,95 +1752,15 @@ class ControlButton(Control):
 
 
 class ControlCheckMark(Control):
-
     """
-    ControlCheckMark(x, y, width, height, label, focusTexture=None, noFocusTexture=None, checkWidth=30, checkHeight=30, _alignment=1, font=None, textColor=None, disabledColor=None)
-
-    ControlCheckMark class.
-
-    Creates a checkmark with 2 states.
-
-    :param x: integer - x coordinate of control.
-    :param y: integer - y coordinate of control.
-    :param width: integer - width of control.
-    :param height: integer - height of control.
-    :param label: string or unicode - text string.
-    :param focusTexture: string - filename for focus texture.
-    :param noFocusTexture: string - filename for no focus texture.
-    :param checkWidth: integer - width of checkmark.
-    :param checkHeight: integer - height of checkmark.
-    :param _alignment: integer - alignment of label - *Note, see xbfont.h
-    :param font: string - font used for label text. (e.g. 'font13')
-    :param textColor: hexstring - color of enabled checkmark's label. (e.g. '0xFFFFFFFF')
-    :param disabledColor: hexstring - color of disabled checkmark's label. (e.g. '0xFFFF3300')
-
-    .. note::
-        After you create the control, you need to add it to the window with addControl().
-
-    Example::
-
-        self.checkmark = xbmcgui.ControlCheckMark(100, 250, 200, 50, 'Status', font='font14')
+    .. warning:: Depreciated!
     """
 
-    def __init__(self, x, y, width, height, label,
-                 focusTexture=None, noFocusTexture=None, checkWidth=30,
-                 checkHeight=30, _alignment=1, font=None, textColor=None, disabledColor=None):
+    def __init__(self, *args, **kwargs):
         """
-        :param x: integer - x coordinate of control.
-        :param y: integer - y coordinate of control.
-        :param width: integer - width of control.
-        :param height: integer - height of control.
-        :param label: string or unicode - text string.
-        :param focusTexture: string - filename for focus texture.
-        :param noFocusTexture: string - filename for no focus texture.
-        :param checkWidth: integer - width of checkmark.
-        :param checkHeight: integer - height of checkmark.
-        :param _alignment: integer - alignment of label - *Note, see xbfont.h
-        :param font: string - font used for label text. (e.g. 'font13')
-        :param textColor: hexstring - color of enabled checkmark's label. (e.g. '0xFFFFFFFF')
-        :param disabledColor: hexstring - color of disabled checkmark's label. (e.g. '0xFFFF3300')
-
-        .. note::
-            After you create the control, you need to add it to the window with addControl().
-
-        Example::
-
-            self.checkmark = xbmcgui.ControlCheckMark(100, 250, 200, 50, 'Status', font='font14')
+        .. warning:: Depreciated!
         """
-        pass
-
-    def setDisabledColor(self, color):
-        """Set's this controls disabled color.
-
-        :param color: hexstring - color of disabled checkmark's label. (e.g. '0xFFFF3300')
-        """
-        pass
-
-    def setLabel(self, label='', font=None, textColor=None, disabledColor=None,
-                 shadowColor=None, focusedColor=None, label2=''):
-        """Set's this controls text attributes.
-
-        :param label: string or unicode - text string.
-        :param font: string - font used for label text. (e.g. 'font13')
-        :param textColor: hexstring - color of enabled checkmark's label. (e.g. '0xFFFFFFFF')
-        :param disabledColor: hexstring - color of disabled checkmark's label. (e.g. '0xFFFF3300')
-
-        Example::
-
-            self.checkmark.setLabel('Status', 'font14', '0xFFFFFFFF', '0xFFFF3300')
-        """
-        pass
-
-    def getSelected(self):
-        """Returns the selected status for this checkmark as a bool."""
-        return bool(1)
-
-    def setSelected(self, selected):
-        """Sets this checkmark status to on or off.
-
-        :param selected: bool - True=selected (on) / False=not selected (off)
-        """
-        pass
+        raise DeprecationWarning
 
 
 class ControlList(Control):
