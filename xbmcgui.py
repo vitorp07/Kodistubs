@@ -2163,13 +2163,14 @@ class ControlSlider(Control):
 
     Creates a slider.
 
-    :param x: integer - x coordinate of control.
-    :param y: integer - y coordinate of control.
-    :param width: integer - width of control.
-    :param height: integer - height of control.
-    :param textureback: string - image filename.
-    :param texture: string - image filename.
-    :param texturefocus: string - image filename.
+    :param x: integer -- x coordinate of control.
+    :param y: integer -- y coordinate of control.
+    :param width: integer -- width of control.
+    :param height: integer -- height of control.
+    :param textureback: string -- image filename.
+    :param texture: string -- image filename.
+    :param texturefocus: string -- image filename.
+    :param orientation: int -- orientation of the slider
 
     .. note::
         After you create the control, you need to add it to the window with addControl().
@@ -2179,7 +2180,7 @@ class ControlSlider(Control):
         self.slider = xbmcgui.ControlSlider(100, 250, 350, 40)
     """
 
-    def __init__(self, x, y, width, height, textureback=None, texture=None, texturefocus=None):
+    def __init__(self, x, y, width, height, textureback=None, texture=None, texturefocus=None, orientation=1):
         """
         :param x: integer - x coordinate of control.
         :param y: integer - y coordinate of control.
@@ -2188,6 +2189,7 @@ class ControlSlider(Control):
         :param textureback: string - image filename.
         :param texture: string - image filename.
         :param texturefocus: string - image filename.
+        :param orientation: int -- orientation of the slider
 
         .. note::
             After you create the control, you need to add it to the window with addControl().
