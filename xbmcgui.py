@@ -2675,12 +2675,13 @@ class Dialog(object):
         """
         return bool(1)
 
-    def select(self, heading, list_, autoclose=0):
+    def select(self, heading, list_, autoclose=0, preselect=-1):
         """Show a select dialog.
 
         :param heading: string or unicode -- dialog heading.
         :param list_: string list -- list of items.
-        :param autoclose: integer -- milliseconds to autoclose dialog.
+        :param autoclose: integer -- milliseconds to autoclose dialog (optional).
+        :param preselect: integer -- pre-selected item's index (optional)
 
         .. note::
             autoclose = 0 - This disables autoclose.
@@ -2720,13 +2721,14 @@ class Dialog(object):
         """
         pass
 
-    def multiselect(self, heading, options, autoclose=0):
+    def multiselect(self, heading, options, autoclose=0, preselect=None):
         """
         Show a multi-select dialog
 
         :param heading: dialog heading.
         :param options: options to choose from.
         :param autoclose: milliseconds to autoclose dialog. (default=do not autoclose)
+        :param preselect: the list of pre-selected items' indices (optional)
         :return: the selected items as a list of indices, or ``None`` if cancelled.
 
         Example::
