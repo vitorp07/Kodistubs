@@ -355,8 +355,10 @@ class Player(object):
         return str()
 
     def disableSubtitles(self):
-        """Disable subtitles."""
-        pass
+        """
+        .. warning:: Depreciated!
+        """
+        raise DeprecationWarning
 
     def getAvailableAudioStreams(self):
         """Get audio stream names."""
@@ -686,13 +688,13 @@ class Monitor(object):
         """
         .. warning:: Deprecated!
         """
-        pass
+        raise DeprecationWarning
 
     def onDatabaseUpdated(self, database):
         """
         .. warning:: Deprecated!
         """
-        pass
+        raise DeprecationWarning
 
     def onScreensaverActivated(self):
         """
@@ -722,7 +724,7 @@ class Monitor(object):
         """
         .. warning:: Deprecated!
         """
-        pass
+        raise DeprecationWarning
 
     def onNotification(self, sender, method, data):
         """
