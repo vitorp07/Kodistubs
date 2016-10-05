@@ -6,3 +6,4 @@ include xbmcvfs.py
 include setup.py
 include LICENSE.txt
 include README.rst
+global-exclude *.pyc *.pyo
