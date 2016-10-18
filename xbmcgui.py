@@ -312,6 +312,9 @@ REMOTE_6 = 64
 REMOTE_7 = 65
 REMOTE_8 = 66
 REMOTE_9 = 67
+HORIZONTAL = 0
+VERTICAL = 1
+
 __author__ = 'Team Kodi <http://kodi.tv>'
 __credits__ = 'Team Kodi'
 __date__ = 'Fri May 01 16:22:15 BST 2015'
@@ -2100,23 +2103,26 @@ class ControlSlider(Control):
         self.slider = xbmcgui.ControlSlider(100, 250, 350, 40)
     """
 
-    def __init__(self, x, y, width, height, textureback=None, texture=None, texturefocus=None, orientation=1):
+    def __init__(self, x, y, width, height, textureback=None, texture=None, texturefocus=None, orientation=VERTICAL):
         """
-        :param x: integer - x coordinate of control.
-        :param y: integer - y coordinate of control.
-        :param width: integer - width of control.
-        :param height: integer - height of control.
-        :param textureback: string - image filename.
-        :param texture: string - image filename.
-        :param texturefocus: string - image filename.
+        :param x: integer -- x coordinate of control.
+        :param y: integer -- y coordinate of control.
+        :param width: integer -- width of control.
+        :param height: integer -- height of control.
+        :param textureback: string -- image filename.
+        :param texture: string -- image filename.
+        :param texturefocus: string -- image filename.
         :param orientation: int -- orientation of the slider
+
+        .. note::
+            By default a ControlSlider has vertical orientation.
 
         .. note::
             After you create the control, you need to add it to the window with addControl().
 
         Example::
 
-            self.slider = xbmcgui.ControlSlider(100, 250, 350, 40)
+            self.slider = xbmcgui.ControlSlider(100, 250, 350, 40, orientation=xbmcgui.HORIZONTAL)
         """
         pass
 
