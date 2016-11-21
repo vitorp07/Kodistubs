@@ -1024,7 +1024,7 @@ def getCleanMovieTitle(path, usefoldername=False):
 
         title, year = xbmc.getCleanMovieTitle('/path/to/moviefolder/test.avi', True)
     """
-    return tuple()
+    return str(), str()
 
 
 def getCondVisibility(condition):
