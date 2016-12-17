@@ -1302,6 +1302,26 @@ class ListItem(object):
         """
         pass
 
+
+    def setCast(self, actors):
+        """
+        :param actors:            list of dictionaries (see below for relevant keys)
+
+        - Keys:
+        | Label         | Description
+        |--------------:|:------------------------------------------------
+        | name          | string (Michael C. Hall)
+        | role          | string (Dexter)
+        | thumbnail     | string (http://www.someurl.com/someimage.png)
+        | order         | integer (1)
+
+        Example:
+        actors = [{"name": "Actor 1", "role": "role 1"}, {"name": "Actor 2", "role": "role 2"}]
+        listitem.setCast(actors)
+        """
+        pass
+
+
     def setProperty(self, key, value):
         """Sets a listitem property, similar to an infolabel.
 
