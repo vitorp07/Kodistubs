@@ -1234,67 +1234,67 @@ class ListItem(object):
 
         General Values that apply to all types:
 
-            * count: integer (12) - can be used to store an id for later, or for sorting purposes
-            * size: long (1024) - size in bytes
-            * date: string (%d.%m.%Y / 01.01.2009) - file date
+            * count : integer (12) - can be used to store an id for later, or for sorting purposes
+            * size  : long (1024) - size in bytes
+            * date  : string (%d.%m.%Y / 01.01.2009) - file date
 
         Video Values::
 
-            genre: string (Comedy)
-            year: integer (2009)
-            episode: integer (4)
-            season: integer (1)
-            top250: integer (192)
-            tracknumber: integer (3)
-            rating: float (6.4) - range is 0..10
-            watched: depreciated - use playcount instead
-            playcount: integer (2) - number of times this item has been played
-            overlay: integer (2) - range is 0..8.  See GUIListItem.h for values
-            cast: list (Michal C. Hall)
-            castandrole: list (Michael C. Hall|Dexter)
-            director: string (Dagur Kari)
-            mpaa: string (PG-13)
-            plot: string (Long Description)
-            plotoutline: string (Short Description)
-            title: string (Big Fan)
-            originaltitle: string (Big Fan)
-            duration: string - duration in minutes (95)
-            studio: string (Warner Bros.)
-            tagline: string (An awesome movie) - short description of movie
-            writer: string (Robert D. Siegel)
-            tvshowtitle: string (Heroes)
-            premiered: string (2005-03-04)
-            status: string (Continuing) - status of a TVshow
-            code: string (tt0110293) - IMDb code
-            aired: string (2008-12-07)
-            credits: string (Andy Kaufman) - writing credits
-            lastplayed: string (%Y-%m-%d %h:%m:%s = 2009-04-05 23:16:04)
-            album: string (The Joshua Tree)
-            votes: string (12345 votes)
-            trailer: string (/home/user/trailer.avi)
-            imdbnumber : string (tt0110293) - IMDb code
-            set : string (Batman Collection) - name of the collection
-            setid : integer (14) - ID of the collection
+            genre         : string (Comedy)
+            year          : integer (2009)
+            episode       : integer (4)
+            season        : integer (1)
+            top250        : integer (192)
+            tracknumber   : integer (3)
+            rating        : float (6.4) - range is 0..10
+            watched       : depreciated - use playcount instead
+            playcount     : integer (2) - number of times this item has been played
+            overlay       : integer (2) - range is 0..8.  See GUIListItem.h for values
+            cast          : list (Michal C. Hall)
+            castandrole   : list (Michael C. Hall|Dexter)
+            director      : string (Dagur Kari)
+            mpaa          : string (PG-13)
+            plot          : string (Long Description)
+            plotoutline   : string (Short Description)
+            title         : string (Big Fan)
+            originaltitle : string (Big Fan)
+            duration      : string - duration in minutes (95)
+            studio        : string (Warner Bros.)
+            tagline       : string (An awesome movie) - short description of movie
+            writer        : string (Robert D. Siegel)
+            tvshowtitle   : string (Heroes)
+            premiered     : string (2005-03-04)
+            status        : string (Continuing) - status of a TVshow
+            code          : string (tt0110293) - IMDb code
+            aired         : string (2008-12-07)
+            credits       : string (Andy Kaufman) - writing credits
+            lastplayed    : string (%Y-%m-%d %h:%m:%s = 2009-04-05 23:16:04)
+            album         : string (The Joshua Tree)
+            votes         : string (12345 votes)
+            trailer       : string (/home/user/trailer.avi)
+            imdbnumber    : string (tt0110293) - IMDb code
+            set           : string (Batman Collection) - name of the collection
+            setid         : integer (14) - ID of the collection
 
         Music Values::
 
-            tracknumber: integer (8)
-            duration: integer (245) - duration in seconds
-            year: integer (1998)
-            genre: string (Rock)
-            album: string (Pulse)
-            artist: string (Muse)
-            title: string (American Pie)
-            rating: string (3) - single character between 0 and 5
-            lyrics: string (On a dark desert highway...)
-            playcount: integer (2) - number of times this item has been played
-            lastplayed: string (%Y-%m-%d %h:%m:%s = 2009-04-05 23:16:04)
+            tracknumber : integer (8)
+            duration    : integer (245) - duration in seconds
+            year        : integer (1998)
+            genre       : string (Rock)
+            album       : string (Pulse)
+            artist      : string (Muse)
+            title       : string (American Pie)
+            rating      : string (3) - single character between 0 and 5
+            lyrics      : string (On a dark desert highway...)
+            playcount   : integer (2) - number of times this item has been played
+            lastplayed  : string (%Y-%m-%d %h:%m:%s = 2009-04-05 23:16:04)
 
         Picture Values::
 
-            title: string (In the last summer-1)
-            picturepath: string (/home/username/pictures/img001.jpg)
-            exif: string (See CPictureInfoTag::TranslateString in PictureInfoTag.cpp for valid strings)
+            title       : string (In the last summer-1)
+            picturepath : string (/home/username/pictures/img001.jpg)
+            exif        : string (See CPictureInfoTag::TranslateString in PictureInfoTag.cpp for valid strings)
 
         Example::
 
@@ -1391,11 +1391,11 @@ class ListItem(object):
 
         Some default art values (any string possible):
 
-        * thumb : string - image filename
-        * poster : string - image filename
-        * banner : string - image filename
-        * fanart : string - image filename
-        * clearart : string - image filename
+        * thumb     : string - image filename
+        * poster    : string - image filename
+        * banner    : string - image filename
+        * fanart    : string - image filename
+        * clearart  : string - image filename
         * clearlogo : string - image filename
         * landscape : string - image filename
 
