@@ -1304,20 +1304,21 @@ class ListItem(object):
 
 
     def setCast(self, actors):
-        """
-        :param actors:            list of dictionaries (see below for relevant keys)
+        """ Sets the cast parameters, including artwork and the ability to specify the order of occurrence
 
-        - Keys:
-        | Label         | Description
-        |--------------:|:------------------------------------------------
-        | name          | string (Michael C. Hall)
-        | role          | string (Dexter)
-        | thumbnail     | string (http://www.someurl.com/someimage.png)
-        | order         | integer (1)
+        :param actors: list of dictionaries (see below for relevant keys)
 
-        Example:
-        actors = [{"name": "Actor 1", "role": "role 1"}, {"name": "Actor 2", "role": "role 2"}]
-        listitem.setCast(actors)
+        Keys::
+
+            name          : string (Michael C. Hall)
+            role          : string (Dexter)
+            thumbnail     : string (http://www.someurl.com/someimage.png)
+            order         : integer (1)
+
+        Example::
+
+            actors = [{"name": "Actor 1", "role": "role 1"}, {"name": "Actor 2", "role": "role 2"}]
+            listitem.setCast(actors)
         """
         pass
 
