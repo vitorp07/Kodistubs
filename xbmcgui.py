@@ -1485,7 +1485,7 @@ class ControlLabel(Control):
     :param font: string -- font used for label text. (e.g. 'font13')
     :param textColor: hexstring -- color of enabled label's label. (e.g. '0xFFFFFFFF')
     :param disabledColor: hexstring -- color of disabled label's label. (e.g. '0xFFFF3300')
-    :param alignment: integer -- alignment of label -- \*Note, see xbfont\.h
+    :param alignment: integer -- alignment of label -- \*Note, see xbfont.h
     :param hasPath: bool -- True=stores a path / False=no path.
     :param angle: integer -- angle of control. (+ rotates CCW, - rotates CW)
 
@@ -1548,7 +1548,7 @@ class ControlFadeLabel(Control):
     :param height: integer - height of control.
     :param font: string - font used for label text. (e.g. 'font13')
     :param textColor: hexstring - color of fadelabel's labels. (e.g. '0xFFFFFFFF')
-    :param _alignment: integer - alignment of label - \*Note, see xbfont\.h
+    :param _alignment: integer - alignment of label - \*Note, see xbfont.h
 
     .. note::
         After you create the control, you need to add it to the window with addControl().
@@ -1692,7 +1692,7 @@ class ControlButton(Control):
     :param noFocusTexture: string - filename for no focus texture.
     :param textOffsetX: integer - x offset of label.
     :param textOffsetY: integer - y offset of label.
-    :param alignment: integer - alignment of label - \*Note, see xbfont\.h
+    :param alignment: integer - alignment of label - \*Note, see xbfont.h
     :param font: string - font used for label text. (e.g. 'font13')
     :param textColor: hexstring - color of enabled button's label. (e.g. '0xFFFFFFFF')
     :param disabledColor: hexstring - color of disabled button's label. (e.g. '0xFFFF3300')
@@ -1811,7 +1811,7 @@ class ControlList(Control):
     :param _itemTextYOffset: integer - y offset of items label.
     :param _itemHeight: integer - height of items.
     :param _space: integer - space between items.
-    :param _alignmentY: integer - Y-axis alignment of items label - \*Note, see xbfont\.h
+    :param _alignmentY: integer - Y-axis alignment of items label - \*Note, see xbfont.h
 
     .. note::
         After you create the control, you need to add it to the window with addControl().
@@ -2205,7 +2205,7 @@ class ControlEdit(Control):
     :param font: [opt] string - font used for label text. (e.g. 'font13')
     :param textColor: [opt] hexstring - color of enabled label's label. (e.g. '0xFFFFFFFF')
     :param disabledColor: [opt] hexstring - color of disabled label's label. (e.g. '0xFFFF3300')
-    :param _alignment: [opt] integer - alignment of label - \*Note, see xbfont\.h
+    :param _alignment: [opt] integer - alignment of label - \*Note, see xbfont.h
     :param focusTexture: [opt] string - filename for focus texture.
     :param noFocusTexture: [opt] string - filename for no focus texture.
     :param isPassword: [opt] bool - if true, mask text value.
