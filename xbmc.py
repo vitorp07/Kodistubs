@@ -1008,7 +1008,7 @@ def getCacheThumbName(path):
 
     Example::
 
-        thumb = xbmc.getCacheThumbName('f:\videos\movie.avi')
+        thumb = xbmc.getCacheThumbName('f:\\videos\\movie.avi')
     """
     return str()
 
@@ -1344,7 +1344,7 @@ def startServer(iTyp, bStart, bWait=False):
 
     :param iTyp: integer -- use SERVER_* constants
     :param bStart: bool -- start (True) or stop (False) a server
-    :param bWait : [opt] bool -- wait on stop before returning (not supported by all servers)
+    :param bWait: [opt] bool -- wait on stop before returning (not supported by all servers)
     :return: bool -- ``True`` or ``False``
 
 
