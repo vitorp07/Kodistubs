@@ -1099,7 +1099,7 @@ class ListItem(object):
     :param thumbnailImage: string - thumbnail filename.
     :param path: string or unicode - listitem's path.
 
-    .. warning:: Starting from 16.0 (Jarvis) all image-related parameters and methods will be depreciated,
+    .. warning:: Starting from 16.0 (Jarvis) all image-related parameters and methods will be deprecated,
         and :func:`setArt` will become the only method for setting ListItem's images.
 
     Example::
@@ -1247,7 +1247,7 @@ class ListItem(object):
             top250        : integer (192)
             tracknumber   : integer (3)
             rating        : float (6.4) - range is 0..10
-            watched       : depreciated - use playcount instead
+            watched       : deprecated - use playcount instead
             playcount     : integer (2) - number of times this item has been played
             overlay       : integer (2) - range is 0..8.  See GUIListItem.h for values
             cast          : list (Michal C. Hall)
@@ -1399,7 +1399,7 @@ class ListItem(object):
         * clearlogo : string - image filename
         * landscape : string - image filename
 
-        .. warning:: Starting from 16.0 (Jarvis) all image-related parameters and methods will be depreciated,
+        .. warning:: Starting from 16.0 (Jarvis) all image-related parameters and methods will be deprecated,
             and ``setArt`` will become the only method for setting ListItem's images.
 
         example::
@@ -1777,12 +1777,12 @@ class ControlButton(Control):
 
 class ControlCheckMark(Control):
     """
-    .. warning:: Depreciated!
+    .. warning:: Deprecated!
     """
 
     def __init__(self, *args, **kwargs):
         """
-        .. warning:: Depreciated!
+        .. warning:: Deprecated!
         """
         raise DeprecationWarning
 
