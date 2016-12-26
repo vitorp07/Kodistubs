@@ -1777,12 +1777,12 @@ class ControlButton(Control):
 
 class ControlCheckMark(Control):
     """
-    .. warning:: Deprecated!
+    .. warning:: Depreciated!
     """
 
     def __init__(self, *args, **kwargs):
         """
-        .. warning:: Deprecated!
+        .. warning:: Depreciated!
         """
         raise DeprecationWarning
 
