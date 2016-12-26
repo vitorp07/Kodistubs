@@ -2797,6 +2797,52 @@ class DialogProgressBG(object):
         pass
 
 
+class DialogBusy(object):
+    """
+    Provides "Busy" dialog for long running actions.
+
+    .. note:: Added on Kodi v.17 (Krypton)
+    """
+    def create(self):
+        """
+        Create and show a busy dialog.
+
+        .. note:: Use :meth:`DialogBusy.update` to update the progressbar.
+
+        Example::
+
+            dialog = xbmcgui.DialogBusy()
+            dialog.create()
+        """
+        pass
+
+    def update(self, percent):
+        """
+        Updates the busy dialog.
+
+        :param percent: percent complete. (-1:100).
+        :type percent: int
+
+        .. note:: If percent == -1 (default), the progressbar will be hidden.
+        """
+        pass
+
+    def close(self):
+        """
+        Close the progress dialog.
+        """
+        pass
+
+    def iscanceled(self):
+        """
+        Checks if busy dialog is canceled.
+
+        :return: ``True`` if the user pressed cancel.
+        :rtype: bool
+        """
+        return bool(0)
+
+
 class Action(object):
     """Action class.
 
