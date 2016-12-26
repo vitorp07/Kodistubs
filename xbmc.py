@@ -356,7 +356,7 @@ class Player(object):
 
     def disableSubtitles(self):
         """
-        .. warning:: Depreciated!
+        .. warning:: Deprecated!
         """
         raise DeprecationWarning
 
@@ -835,7 +835,7 @@ class RenderCapture(object):
         - ``xbmc.CAPTURE_FLAG_IMMEDIATELY``: read out immediately whencapture() is called,
           this can cause a busy wait
 
-        .. warning:: As of Kodi 17.x (Krypton) ``flags`` option will be depreciated.
+        .. warning:: As of Kodi 17.x (Krypton) ``flags`` option will be deprecated.
         """
         pass
 
@@ -855,7 +855,7 @@ class RenderCapture(object):
         - ``xbmc.CAPTURE_STATE_DONE``: Capture request done. The image could be retrieved withgetImage()
         - ``xbmc.CAPTURE_STATE_FAILED``: Capture request failed.
 
-        .. warning:: Will be depreciated in Kodi 17.x (Krypton)
+        .. warning:: Will be deprecated in Kodi 17.x (Krypton)
         """
         return int()
 
@@ -1008,7 +1008,7 @@ def getCacheThumbName(path):
 
     Example::
 
-        thumb = xbmc.getCacheThumbName('f:\videos\movie.avi')
+        thumb = xbmc.getCacheThumbName('f:\\videos\\movie.avi')
     """
     return str()
 
@@ -1344,7 +1344,7 @@ def startServer(iTyp, bStart, bWait=False):
 
     :param iTyp: integer -- use SERVER_* constants
     :param bStart: bool -- start (True) or stop (False) a server
-    :param bWait : [opt] bool -- wait on stop before returning (not supported by all servers)
+    :param bWait: [opt] bool -- wait on stop before returning (not supported by all servers)
     :return: bool -- ``True`` or ``False``
 
 
