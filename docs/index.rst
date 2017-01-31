@@ -20,7 +20,7 @@ or submit pull requests in the Kodistubs Github repo.
     Don't try to run your program outside Kodi unless you add some testing code into Kodistubs
     or use some mocking library to mock Kodi Pyhton API.
 
-`Discussion topic on Kodi forum`_
+`Discussion topic on Kodi forum`_.
 
 License: `GPL v.3`_
 
@@ -29,7 +29,7 @@ License: `GPL v.3`_
 .. _PyCharm IDE: https://www.jetbrains.com/pycharm
 .. _Discussion topic on Kodi forum: http://forum.kodi.tv/showthread.php?tid=173780
 .. _GPL v.3: http://www.gnu.org/licenses/gpl.html
-.. _official Kodi Python API docs: http://mirrors.kodi.tv/docs/python-docs/
+.. _official Kodi Python API docs: https://codedocs.xyz/xbmc/xbmc/group__python.html
 .. _Kodi sources: https://github.com/xbmc/xbmc
 
 .. toctree::
