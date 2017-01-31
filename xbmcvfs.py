@@ -211,7 +211,7 @@ def listdir(path):
 
         dirs, files = xbmcvfs.listdir(path)
     """
-    return tuple()
+    return list(), list()
 
 
 class Stat(object):
