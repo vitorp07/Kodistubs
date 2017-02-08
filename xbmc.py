@@ -201,7 +201,7 @@ class Player(object):
         pass
 
     def pause(self):
-        """Pause playing."""
+        """Pause or resume playing if already paused."""
         pass
 
     def playnext(self):
