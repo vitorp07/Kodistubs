@@ -2101,7 +2101,7 @@ class ControlProgress(Control):
 class ControlSlider(Control):
 
     """
-    ControlSlider(x, y, width, height, textureback=None, texture=None, texturefocus=None)
+    ControlSlider(x, y, width, height, textureback=None, texture=None, texturefocus=None, orientation=VERTICAL)
 
     ControlSlider class.
 
@@ -2115,6 +2115,9 @@ class ControlSlider(Control):
     :param texture: string -- image filename.
     :param texturefocus: string -- image filename.
     :param orientation: int -- orientation of the slider
+
+    .. note::
+        By default a ControlSlider has vertical orientation.
 
     .. note::
         After you create the control, you need to add it to the window with addControl().
@@ -2134,9 +2137,6 @@ class ControlSlider(Control):
         :param texture: string -- image filename.
         :param texturefocus: string -- image filename.
         :param orientation: int -- orientation of the slider
-
-        .. note::
-            By default a ControlSlider has vertical orientation.
 
         .. note::
             After you create the control, you need to add it to the window with addControl().
