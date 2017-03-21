@@ -130,6 +130,7 @@ html_theme_options = {
     'github_user': 'romanvm',
     'github_repo': 'Kodistubs',
     'github_banner': True,
+    'font_family': 'Georgia',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
