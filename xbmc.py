@@ -354,12 +354,6 @@ class Player(object):
         """Get subtitle stream name."""
         return str()
 
-    def disableSubtitles(self):
-        """
-        .. warning:: Deprecated!
-        """
-        raise DeprecationWarning
-
     def getAvailableAudioStreams(self):
         """Get audio stream names."""
         return list()
@@ -684,17 +678,6 @@ class Monitor(object):
 
     Creates a new Monitor to notify addon about changes.
     """
-    def onAbortRequested(self):
-        """
-        .. warning:: Deprecated!
-        """
-        raise DeprecationWarning
-
-    def onDatabaseUpdated(self, database):
-        """
-        .. warning:: Deprecated!
-        """
-        raise DeprecationWarning
 
     def onScreensaverActivated(self):
         """
@@ -719,12 +702,6 @@ class Monitor(object):
         Will be called when addon settings are changed
         """
         pass
-
-    def onDatabaseScanStarted(self, database):
-        """
-        .. warning:: Deprecated!
-        """
-        raise DeprecationWarning
 
     def onNotification(self, sender, method, data):
         """

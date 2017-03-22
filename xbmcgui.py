@@ -1219,7 +1219,7 @@ class ListItem(object):
 
     def isSelected(self):
         """Returns the listitem's selected status."""
-        return bool
+        return bool(1)
 
     def setInfo(self, type, infoLabels):
         """Sets the listitem's infoLabels.
@@ -1773,18 +1773,6 @@ class ControlButton(Control):
     def getLabel2(self):
         """Returns the buttons label2 as a unicode string."""
         return unicode()
-
-
-class ControlCheckMark(Control):
-    """
-    .. warning:: Depreciated!
-    """
-
-    def __init__(self, *args, **kwargs):
-        """
-        .. warning:: Depreciated!
-        """
-        raise DeprecationWarning
 
 
 class ControlList(Control):
