@@ -2674,6 +2674,19 @@ class Dialog(object):
         """
         return list()
 
+    def info(self, item):
+        """
+        Show the corresponding info dialog for a given listItem
+
+        The type of a dialog is based on the ListItem InfoTag.
+
+        :param item: ListItem instance
+        :type item: ListItem
+        :return: ``True`` if the info dialog is opened successfully
+        :rtype: bool
+        """
+        return bool(1)
+
 
 class DialogProgress(object):
     """
