@@ -23,7 +23,6 @@ xbmcgui
       Action
       Control
       ControlButton
-      ControlCheckMark
       ControlEdit
       ControlFadeLabel
       ControlGroup
