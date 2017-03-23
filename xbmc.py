@@ -1196,8 +1196,6 @@ def log(msg, level=LOGDEBUG):
     .. note:: You can use the above as keywords for arguments and skip certain optional arguments.
         Once you use a keyword, all following arguments require the keyword.
 
-    .. warning:: Starting from Kodi 16.0 (Jarvis) default level will be changed to ``LOGDEBUG``.
-
     Text is written to the log for the following conditions.
 
     - XBMC loglevel == -1 (NONE, nothing at all is logged)
