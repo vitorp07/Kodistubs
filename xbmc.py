@@ -1186,7 +1186,7 @@ def getSupportedMedia(mediaType):
     return str()
 
 
-def log(msg, level=LOGNOTICE):
+def log(msg, level=LOGDEBUG):
     """
     Write a string to XBMC's log file and the debug window.
 
