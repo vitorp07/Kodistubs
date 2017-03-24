@@ -1275,6 +1275,7 @@ class ListItem(object):
             imdbnumber    : string (tt0110293) - IMDb code
             set           : string (Batman Collection) - name of the collection
             setid         : integer (14) - ID of the collection
+            mediatype     : string "video", "movie", "tvshow", "season", "episode" or "musicvideo" 
 
         Music Values::
 
