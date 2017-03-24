@@ -1468,6 +1468,33 @@ class ListItem(object):
         """
         return str()
 
+    def setUniqueIDs(self, values, defaultrating=''):
+        """
+        Sets the listitem's uniqueID 
+        
+        Some example values (any string possible):
+        
+        -------------------------------
+        Label   |Type
+        -------------------------------
+        imdb    |string - uniqueid name
+        tvdb    |string - uniqueid name
+        tmdb    |string - uniqueid name
+        anidb   |string - uniqueid name
+        -------------------------------
+        
+        :param values: pairs of { label: value 
+        :type values: dict
+        :param defaultrating: [opt] the name of default rating
+        :type defaultrating: str
+        
+        Example::
+        
+            # setUniqueIDs(values, defaultrating)
+            listitem.setUniqueIDs({ 'imdb': 'tt8938399', 'tmdb' : '9837493' }, "imdb")
+        """
+        pass
+
 
 class ControlLabel(Control):
 
