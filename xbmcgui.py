@@ -1089,15 +1089,16 @@ class Control(object):
 
 class ListItem(object):
     """
-    ListItem(self, label='', label2='', iconImage=None, thumbnailImage=None, path=None)
+    ListItem(self, label='', label2='', iconImage=None, thumbnailImage=None, path=None, offscreen=False)
 
     Creates a new ListItem.
 
-    :param label: string or unicode - label1 text.
-    :param label2: string or unicode - label2 text.
-    :param iconImage: string - icon filename.
-    :param thumbnailImage: string - thumbnail filename.
-    :param path: string or unicode - listitem's path.
+    :param label: string or unicode -- label1 text.
+    :param label2: string or unicode -- label2 text.
+    :param iconImage: string -- icon filename.
+    :param thumbnailImage: string -- thumbnail filename.
+    :param path: string or unicode -- listitem's path.
+    :param offscreen: bool
 
     .. warning:: Starting from 16.0 (Jarvis) all image-related parameters and methods will be deprecated,
         and :func:`setArt` will become the only method for setting ListItem's images.
@@ -1109,13 +1110,14 @@ class ListItem(object):
                     path='f:\\movies\\casino_royale.mov')
     """
 
-    def __init__(self, label='', label2='', iconImage=None, thumbnailImage=None, path=None):
+    def __init__(self, label='', label2='', iconImage=None, thumbnailImage=None, path=None, offscreen=False):
         """
-        :param label: string or unicode - label1 text.
-        :param label2: string or unicode - label2 text.
-        :param iconImage: string - icon filename.
-        :param thumbnailImage: string - thumbnail filename.
-        :param path: string or unicode - listitem's path.
+        :param label: string or unicode -- label1 text.
+        :param label2: string or unicode -- label2 text.
+        :param iconImage: string -- icon filename.
+        :param thumbnailImage: string -- thumbnail filename.
+        :param path: string or unicode -- listitem's path.
+        :param offscreen: bool -- do not lock UI (for scrapers and subtitle addons).
 
         Example::
 
