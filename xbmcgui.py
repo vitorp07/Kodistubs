@@ -2516,12 +2516,12 @@ class Dialog(object):
         """
         return str()
 
-    def input(self, heading, default='', type=INPUT_ALPHANUM, option=0, autoclose=0):
+    def input(self, heading, defaultt='', type=INPUT_ALPHANUM, option=0, autoclose=0):
         """
         Show an Input dialog.
 
         :param heading: string -- dialog heading.
-        :param default: [opt] string -- default value. (default=empty string)
+        :param defaultt: [opt] string -- default value. (default=empty string)
         :param type: [opt] integer -- the type of keyboard dialog. (default=xbmcgui.INPUT_ALPHANUM)
         :param option: [opt] integer -- option for the dialog. (see Options below)
         :param autoclose: [opt] integer -- milliseconds to autoclose dialog. (default=do not autoclose)
@@ -2554,12 +2554,12 @@ class Dialog(object):
         """
         return str()
 
-    def numeric(self, type, heading, default=''):
+    def numeric(self, type, heading, defaultt=''):
         """Show a 'Numeric' dialog.
 
         :param type: integer -- the type of numeric dialog.
         :param heading: string or unicode -- dialog heading.
-        :param default: string -- default value.
+        :param defaultt: string -- default value.
 
         Types::
 
