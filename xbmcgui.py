@@ -330,8 +330,8 @@ class Window(object):
 
     Specify an id to use an existing window.
 
-    :raises: ``ValueError``: If supplied window Id does not exist.
-    :raises: ``Exception``: If more then 200 windows are created.
+    :raises ValueError: If supplied window Id does not exist.
+    :raises Exception: If more then 200 windows are created.
 
     Deleting this window will activate the old window that was active
     and resets (not delete) all controls that are associated with this window.
@@ -343,8 +343,8 @@ class Window(object):
 
         Specify an id to use an existing window.
 
-        :raises: ``ValueError``: If supplied window Id does not exist.
-        :raises: ``Exception``: If more then 200 windows are created.
+        :raises ValueError: If supplied window Id does not exist.
+        :raises Exception: If more then 200 windows are created.
 
         Deleting this window will activate the old window that was active
         and resets (not delete) all controls that are associated with this window.
@@ -426,9 +426,9 @@ class Window(object):
     def addControl(self, pControl):
         """Add a Control to this window.
 
-        :raises: ``TypeError``: If supplied argument is not a Control type.
-        :raises: ``ReferenceError``: If control is already used in another window.
-        :raises: ``RuntimeError``: Should not happen :-)
+        :raises TypeError: If supplied argument is not a Control type.
+        :raises ReferenceError: If control is already used in another window.
+        :raises RuntimeError: Should not happen :-)
 
         The next controls can be added to a window atm:
 
@@ -449,16 +449,16 @@ class Window(object):
         """
         Add a list of Controls to this window.
 
-        :raises: ``TypeError``, if supplied argument is not ofList type, or a control is not ofControl type
-        :raises: ``ReferenceError``, if control is already used in another window
-        :raises: ``RuntimeError``, should not happen :-)
+        :raises TypeError, if supplied argument is not ofList type, or a control is not ofControl type
+        :raises ReferenceError, if control is already used in another window
+        :raises RuntimeError, should not happen :-)
         """
         pass
 
     def getControl(self, iControlId):
         """Get's the control from this window.
 
-        :raises: ``Exception``: If Control doesn't exist
+        :raises Exception: If Control doesn't exist
 
         controlId doesn't have to be a python control, it can be a control id
         from a xbmc window too (you can find id's in the xml files).
@@ -471,41 +471,41 @@ class Window(object):
     def setFocus(self, pControl):
         """Give the supplied control focus.
 
-        :raises: ``TypeError``: If supplied argument is not a Control type.
-        :raises: ``SystemError``: On Internal error.
-        :raises: ``RuntimeError``: If control is not added to a window.
+        :raises TypeError: If supplied argument is not a Control type.
+        :raises SystemError: On Internal error.
+        :raises RuntimeError: If control is not added to a window.
         """
         pass
 
     def setFocusId(self, iControlId):
         """Gives the control with the supplied focus.
 
-        :raises: ``SystemError``: On Internal error.
-        :raises: ``RuntimeError``: If control is not added to a window.
+        :raises SystemError: On Internal error.
+        :raises RuntimeError: If control is not added to a window.
         """
         pass
 
     def getFocus(self):
         """Returns the control which is focused.
 
-        :raises: ``SystemError``: On Internal error.
-        :raises: ``RuntimeError``: If no control has focus.
+        :raises SystemError: On Internal error.
+        :raises RuntimeError: If no control has focus.
         """
         return Control
 
     def getFocusId(self):
         """Returns the id of the control which is focused.
 
-        :raises: ``SystemError``: On Internal error.
-        :raises: ``RuntimeError``: If no control has focus.
+        :raises SystemError: On Internal error.
+        :raises RuntimeError: If no control has focus.
         """
         return long()
 
     def removeControl(self, pControl):
         """Removes the control from this window.
 
-        :raises: ``TypeError``: If supplied argument is not a Control type.
-        :raises: ``RuntimeError``: If control is not added to this window.
+        :raises TypeError: If supplied argument is not a Control type.
+        :raises RuntimeError: If control is not added to this window.
 
         This will not delete the control. It is only removed from the window.
         """
@@ -515,8 +515,8 @@ class Window(object):
         """
         removeControls(self, List)--Removes a list of controls from this window.
 
-        :raises: ``TypeError``, if supplied argument is not aControl type
-        :raises: ``RuntimeError``, if control is not added to this window
+        :raises TypeError: if supplied argument is not aControl type
+        :raises RuntimeError: if control is not added to this window
 
         This will not delete the controls. They are only removed from the window.
         """
@@ -840,8 +840,8 @@ class Control(object):
 
         .. note:: You can also usesetNavigation() . Set to self to disable navigation.
 
-        :raises: TypeError, if one of the supplied arguments is not a control type.
-        :raises: ReferenceError, if one of the controls is not added to a window.
+        :raises TypeError: if one of the supplied arguments is not a control type.
+        :raises: ReferenceError if one of the controls is not added to a window.
 
         example::
 
@@ -857,8 +857,8 @@ class Control(object):
 
         .. note:: You can also usesetNavigation(). Set to self to disable navigation.
 
-        :raises: TypeError, if one of the supplied arguments is not a control type.
-        :raises: ReferenceError, if one of the controls is not added to a window.
+        :raises TypeError: if one of the supplied arguments is not a control type.
+        :raises ReferenceError: if one of the controls is not added to a window.
 
         example::
 
@@ -874,8 +874,8 @@ class Control(object):
 
         .. note:: You can also usesetNavigation(). Set to self to disable navigation.
 
-        :raises: TypeError, if one of the supplied arguments is not a control type.
-        :raises: ReferenceError, if one of the controls is not added to a window.
+        :raises TypeError: if one of the supplied arguments is not a control type.
+        :raises ReferenceError: if one of the controls is not added to a window.
 
         example::
 
@@ -891,8 +891,8 @@ class Control(object):
 
         .. note:: You can also usesetNavigation() . Set to self to disable navigation.
 
-        :raises: TypeError, if one of the supplied arguments is not a control type.
-        :raises: ReferenceError, if one of the controls is not added to a window.
+        :raises TypeError: if one of the supplied arguments is not a control type.
+        :raises ReferenceError: if one of the controls is not added to a window.
 
         example::
 
@@ -1021,8 +1021,8 @@ class Control(object):
         .. note:: Same ascontrolUp() ,controlDown() ,controlLeft() ,controlRight().
             Set to self to disable navigation for that direction.
 
-        :raises: TypeError, if one of the supplied arguments is not a control type.
-        :raises: ReferenceError, if one of the controls is not added to a window.
+        :raises TypeError: if one of the supplied arguments is not a control type.
+        :raises ReferenceError: if one of the controls is not added to a window.
 
         example::
 
