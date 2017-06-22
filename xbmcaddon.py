@@ -77,7 +77,7 @@ class Addon(object):
         :param id: string - id of the property that the module needs to access.
 
         .. note::
-            Choices are (author, changelog, description, disclaimer, fanart, icon, id, name, path
+            Choices are (author, changelog, description, disclaimer, fanart, icon, id, name, path,
             profile, stars, summary, type, version)
 
         Example::
