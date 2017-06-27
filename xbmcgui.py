@@ -1305,7 +1305,6 @@ class ListItem(object):
         """
         pass
 
-
     def setCast(self, actors):
         """ Sets the cast parameters, including artwork and the ability to specify the order of occurrence
 
@@ -1324,7 +1323,6 @@ class ListItem(object):
             listitem.setCast(actors)
         """
         pass
-
 
     def setProperty(self, key, value):
         """Sets a listitem property, similar to an infolabel.
@@ -1385,6 +1383,14 @@ class ListItem(object):
             self.list.getSelectedItem().setPath(path='ActivateWindow(Weather)')
         """
         pass
+
+    def getPath(self):
+        """
+        Returns the path of this listitem.
+
+        v17 Python API changes: New function added.
+        """
+        return str()
 
     def setArt(self, dictionary):
         """
@@ -1479,10 +1485,10 @@ class ListItem(object):
         =========  ======================
         **Label**  **Type**
         ---------  ----------------------
-        imdb        string - uniqueid name
-        tvdb        string - uniqueid name
-        tmdb        string - uniqueid name
-        anidb       string - uniqueid name
+        imdb       string - uniqueid name
+        tvdb       string - uniqueid name
+        tmdb       string - uniqueid name
+        anidb      string - uniqueid name
         =========  ======================
         
         :param values: pairs of ``{label: value}``
@@ -1494,6 +1500,188 @@ class ListItem(object):
         
             # setUniqueIDs(values, defaultrating)
             listitem.setUniqueIDs({ 'imdb': 'tt8938399', 'tmdb' : '9837493' }, "imdb")
+        """
+        pass
+
+    def getUniqueID(self, key):
+        """
+        Returns a listitem uniqueID as a string, similar to an infolabel.
+
+        Parameters:
+
+        - key: string - uniqueID name.
+
+        Some example values (any string possible):
+
+        =========  ======================
+        **Label**  **Type**
+        ---------  ----------------------
+        imdb       string - uniqueid name
+        tvdb       string - uniqueid name
+        tmdb       string - uniqueid name
+        anidb      string - uniqueid name
+        =========  ======================
+
+        Example::
+
+            uniqueID = listitem.getUniqueID('imdb')
+
+        """
+        return str()
+
+    def addAvailableThumb(self, images):
+        """
+        Add a thumb to available thumbs (needed for scrapers)
+
+        Parameters:
+
+        - url: string (image path url)
+        - aspect: [opt] string (image type)
+        - referrer: [opt] string (referr url)
+        - cache: [opt] string (filename in cache)
+        - post: [opt] bool (use post to retrieve the image, default false)
+        - isgz: [opt] bool (use gzip to retrieve the image, default false)
+        - season: [opt] integer (number of season in case of season thumb)
+
+        v18 Python API changes: New function added.
+
+        Example::
+
+            listitem.addAvailableThumb(path_to_image_1, "1.77")
+
+        """
+        pass
+
+    def addSeason(self, number, name=''):
+        """
+        Add a season with name to a listitem. It needs at least the season number
+
+        Parameters:
+
+        - number: int -- the number of the season.
+        - name: string -- the name of the season. Default "".
+
+        v18 Python API changes: New function added.
+
+        Example::
+
+            listitem.addSeason(1, 'Murder House-)
+
+        """
+        pass
+
+    def getRating(self, key):
+        """
+        Returns a listitem rating as a float.
+
+        Parameters:
+
+        - key: string -- rating type.
+
+        Some default key values (any string possible):
+
+        =====  ==================
+        Label  Type
+        -----  ------------------
+        imdb   string - type name
+        tvdb   string - type name
+        tmdb   string - type name
+        anidb  string - type name
+        =====  ==================
+        """
+        return float()
+
+    def setRating(self, type, rating, votes=0, defaultt=False):
+        """
+        Sets a listitem's rating. It needs at least type and rating param
+
+        Parameters:
+
+        - type: string - the type of the rating. Any string.
+        - rating: float - the value of the rating.
+        - votes: int - the number of votes. Default 0.
+        - defaultt: bool - is the default rating? Default: ``False``.
+
+        Some default key values (any string possible):
+
+        =====  ==================
+        Label  Type
+        -----  ------------------
+        imdb   string - type name
+        tvdb   string - type name
+        tmdb   string - type name
+        anidb  string - type name
+        =====  ==================
+        """
+
+    def getVotes(self, key):
+        """
+        Returns a listitem votes as a integer.
+
+        Parameters:
+
+        - key: string - rating type.
+
+        Some default key values (any string possible):
+
+        =====  ==================
+        Label  Type
+        -----  ------------------
+        imdb   string - type name
+        tvdb   string - type name
+        tmdb   string - type name
+        anidb  string - type name
+        =====  ==================
+
+        Example::
+
+            votes = listitem.getVotes('imdb')
+
+        """
+        return int()
+
+    def setAvailableFanart(self, images):
+        """
+        Set available images (needed for scrapers)
+
+        Parameters:
+
+        - images: list of dictionaries (see below for relevant keys)
+
+        Keys:
+
+        ==========  ============================================================
+        Label       Description
+        ----------  ------------------------------------------------------------
+        image       string (http://www.someurl.com/someimage.png)
+        preview     [opt] string (http://www.someurl.com/somepreviewimage.png)
+        colors      [opt] string (either comma separated Kodi hex values ("FFFFFFFF,DDDDDDDD")
+                    or TVDB RGB Int Triplets ("|68,69,59|69,70,58|78,78,68|"))
+        ==========  ============================================================
+
+        v18 Python API changes: New function added.
+
+        Example::
+
+            fanart = [
+                {"image": path_to_image_1, "preview": path_to_preview_1},
+                {"image": path_to_image_2, "preview": path_to_preview_2}
+                ]
+            listitem.setAvailableFanart(fanart)
+
+        """
+        pass
+
+    def setContentLookup(self, enable):
+        """
+        Enable or disable content lookup for item.
+
+        If disabled, HEAD requests to e.g determine mime type will not be sent.
+
+        :param enable:
+        :type enable: bool
+
+        v16 Python API changes: New function added.
         """
         pass
 
