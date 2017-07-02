@@ -37,6 +37,7 @@ xbmcgui
       Dialog
       DialogProgress
       DialogProgressBG
+      DialogBusy
       ListItem
       Window
       WindowDialog
