@@ -53,7 +53,7 @@ class Addon(object):
 
             apikey = self.Addon.getSetting('apikey')
         """
-        return unicode()
+        return str()
 
     def setSetting(self, id, value):
         """Sets a script setting.
