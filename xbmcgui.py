@@ -656,18 +656,25 @@ class WindowDialog(Window):
     pass
 
 
-
 class WindowXML(Window):
     """
-    WindowXML(xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p')
+    WindowXML(xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p', isMedia=False)
 
     WindowXML class.
 
-    :param xmlFilename: string - the name of the xml file to look for.
-    :param: scriptPath: string - path to script. used to fallback to if the xml doesn't exist in the current skin.
+    :param xmlFilename: the name of the xml file to look for.
+    :type xmlFilename: str
+    :param scriptPath: path to script. used to fallback to if the xml doesn't exist in the current skin.
         (eg ``os.getcwd()``)
-    :param defaultSkin: string - name of the folder in the skins path to look in for the xml.
-    :param defaultRes: string - default skins resolution.
+    :type scriptPath: str
+    :param defaultSkin: name of the folder in the skins path to look in for the xml.
+    :type defaultSkin: str
+    :param defaultRes: default skins resolution.
+    :type defaultRes: str
+    :param isMedia: if False, create a regular window. if True,
+        create a mediawindow. (default=False)
+    :type isMedia: bool
+    :raises Exception: if more then 200 windows are created.
 
     .. note:: Skin folder structure is eg (resources/skins/Default/720p).
 
@@ -678,15 +685,23 @@ class WindowXML(Window):
         del ui
     """
 
-    def __init__(self, xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p'):
+    def __init__(self, xmlFilename, scriptPath, defaultSkin='Default', defaultRes='720p', isMedia=False):
         """
         Class constructor
 
-        :param xmlFilename: string - the name of the xml file to look for.
-        :param: scriptPath: string - path to script. used to fallback to if the xml doesn't exist in the current skin.
+        :param xmlFilename: the name of the xml file to look for.
+        :type xmlFilename: str
+        :param scriptPath: path to script. used to fallback to if the xml doesn't exist in the current skin.
             (eg ``os.getcwd()``)
-        :param defaultSkin: string - name of the folder in the skins path to look in for the xml.
-        :param defaultRes: string - default skins resolution.
+        :type scriptPath: str
+        :param defaultSkin: name of the folder in the skins path to look in for the xml.
+        :type defaultSkin: str
+        :param defaultRes: default skins resolution.
+        :type defaultRes: str
+        :param isMedia: if False, create a regular window. if True,
+            create a mediawindow. (default=False)
+        :type isMedia: bool
+        :raises Exception: if more then 200 windows are created.
 
         .. note:: Skin folder structure is eg (resources/skins/Default/720p).
 
@@ -720,6 +735,15 @@ class WindowXML(Window):
         """
         pass
 
+    def addItems(self, items):
+        """
+        Add a list of items to to the window list.
+
+        :param items: list of strings, unicode objects or ListItems to add.
+        :type items: list
+        """
+        pass
+
     def clearList(self):
         """Clear the Window List."""
         pass
@@ -746,13 +770,14 @@ class WindowXML(Window):
         """Returns the number of items in this Window List."""
         return int()
 
-    def setProperty(self, strProperty, strValue):
-        """Sets a container property, similar to an infolabel.
+    def setContainerProperty(self, key, value):
+        """
+        Sets a container property, similar to an infolabel.
 
-        :param strProperty: string - property name.
-        :param strValue: string or unicode - value of property.
+        :param key: string - property name.
+        :param value: string or unicode - value of property.
 
-        .. note:: ``strProperty`` is NOT case sensitive.
+        .. note:: ``key`` is NOT case sensitive.
 
         Example::
 
@@ -769,6 +794,49 @@ class WindowXML(Window):
             container_id = self.getCurrentContainerId()
         """
         return int()
+
+    def setContent(self, value):
+        """
+        Sets the content type of the container.
+
+        :param value: string or unicode -- content value.
+
+        Available content types:
+
+        =========== =========================================
+        Name        Media
+        ----------- -----------------------------------------
+        actors      Videos
+        addons      Addons, Music, Pictures, Programs, Videos
+        albums      Music, Videos
+        artists     Music, Videos
+        countries   Music, Videos
+        directors   Videos
+        files       Music, Videos
+        games       Games
+        genres      Music, Videos
+        images      Pictures
+        mixed       Music, Videos
+        movies      Videos
+        Musicvideos Music, Videos
+        playlists   Music, Videos
+        seasons     Videos
+        sets        Videos
+        songs       Music
+        studios     Music, Videos
+        tags        Music, Videos
+        tvshows     Videos
+        videos      Videos
+        years       Music, Videos
+        =========== =========================================
+
+        v18 Python API changes: Added new function.
+
+        Example::
+
+            self.setContent('movies')
+        """
+        pass
 
 
 class WindowXMLDialog(WindowXML):
@@ -1655,8 +1723,8 @@ class ListItem(object):
         ----------  ------------------------------------------------------------
         image       string (http://www.someurl.com/someimage.png)
         preview     [opt] string (http://www.someurl.com/somepreviewimage.png)
-        colors      [opt] string (either comma separated Kodi hex values ("FFFFFFFF,DDDDDDDD")
-                    or TVDB RGB Int Triplets ("|68,69,59|69,70,58|78,78,68|"))
+        colors      [opt] string (either comma separated Kodi hex values ("``FFFFFFFF,DDDDDDDD``")
+                    or TVDB RGB Int Triplets ("``|68,69,59|69,70,58|78,78,68|``"))
         ==========  ============================================================
 
         v18 Python API changes: New function added.
