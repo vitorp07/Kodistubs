@@ -3,20 +3,9 @@ xbmcaddon
 
 .. automodule:: xbmcaddon
 
-   
-   
-   
+  .. rubric:: Classes
 
-   
-   
-   .. rubric:: Classes
+  .. autosummary::
 
-   .. autosummary::
-   
-      Addon
-   
-   
-
-   
-   
-   
+    
+    Addon

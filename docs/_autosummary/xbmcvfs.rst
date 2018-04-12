@@ -3,34 +3,25 @@ xbmcvfs
 
 .. automodule:: xbmcvfs
 
-   
-   
-   .. rubric:: Functions
+  .. rubric:: Classes
 
-   .. autosummary::
-   
-      copy
-      delete
-      exists
-      listdir
-      mkdir
-      mkdirs
-      rename
-      rmdir
-   
-   
+  .. autosummary::
 
-   
-   
-   .. rubric:: Classes
+    
+    File
+    Stat
 
-   .. autosummary::
-   
-      File
-      Stat
-   
-   
 
-   
-   
-   
+  .. rubric:: Functions
+
+  .. autosummary::
+
+    
+    copy
+    delete
+    rename
+    exists
+    mkdir
+    mkdirs
+    rmdir
+    listdir

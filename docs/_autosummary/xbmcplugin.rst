@@ -3,30 +3,19 @@ xbmcplugin
 
 .. automodule:: xbmcplugin
 
-   
-   
-   .. rubric:: Functions
+  .. rubric:: Functions
 
-   .. autosummary::
-   
-      addDirectoryItem
-      addDirectoryItems
-      addSortMethod
-      endOfDirectory
-      getSetting
-      setContent
-      setPluginCategory
-      setPluginFanart
-      setProperty
-      setResolvedUrl
-      setSetting
-   
-   
+  .. autosummary::
 
-   
-   
-   
-
-   
-   
-   
+    
+    addDirectoryItem
+    addDirectoryItems
+    endOfDirectory
+    setResolvedUrl
+    addSortMethod
+    getSetting
+    setSetting
+    setContent
+    setPluginCategory
+    setPluginFanart
+    setProperty

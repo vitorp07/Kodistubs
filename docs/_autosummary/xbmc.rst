@@ -3,65 +3,56 @@ xbmc
 
 .. automodule:: xbmc
 
-   
-   
-   .. rubric:: Functions
+  .. rubric:: Classes
 
-   .. autosummary::
-   
-      audioResume
-      audioSuspend
-      convertLanguage
-      enableNavSounds
-      executeJSONRPC
-      executebuiltin
-      executescript
-      getCacheThumbName
-      getCleanMovieTitle
-      getCondVisibility
-      getDVDState
-      getFreeMem
-      getGlobalIdleTime
-      getIPAddress
-      getInfoImage
-      getInfoLabel
-      getLanguage
-      getLocalizedString
-      getRegion
-      getSkinDir
-      getSupportedMedia
-      log
-      makeLegalFilename
-      playSFX
-      restart
-      shutdown
-      skinHasImage
-      sleep
-      startServer
-      stopSFX
-      translatePath
-      validatePath
-   
-   
+  .. autosummary::
 
-   
-   
-   .. rubric:: Classes
+    
+    InfoTagMusic
+    InfoTagRadioRDS
+    InfoTagVideo
+    Keyboard
+    Monitor
+    Player
+    PlayList
+    RenderCapture
 
-   .. autosummary::
-   
-      InfoTagMusic
-      InfoTagRadioRDS
-      InfoTagVideo
-      Keyboard
-      Monitor
-      PlayList
-      PlayListItem
-      Player
-      RenderCapture
-   
-   
 
-   
-   
-   
+  .. rubric:: Functions
+
+  .. autosummary::
+
+    
+    log
+    shutdown
+    restart
+    executescript
+    executebuiltin
+    executeJSONRPC
+    sleep
+    getLocalizedString
+    getSkinDir
+    getLanguage
+    getIPAddress
+    getDVDState
+    getFreeMem
+    getInfoLabel
+    getInfoImage
+    playSFX
+    stopSFX
+    enableNavSounds
+    getCondVisibility
+    getGlobalIdleTime
+    getCacheThumbName
+    makeLegalFilename
+    translatePath
+    getCleanMovieTitle
+    validatePath
+    getRegion
+    getSupportedMedia
+    skinHasImage
+    startServer
+    audioSuspend
+    audioResume
+    getUserAgent
+    convertLanguage
