@@ -10,6 +10,7 @@ setup(
     name='Kodistubs',
     version='2.0.0',
     py_modules=['xbmc', 'xbmcaddon', 'xbmcgui', 'xbmcplugin', 'xbmcvfs'],
+    requires=['typing'],
     zip_safe=False,
     description='Stub modules that re-create Kodi Python API',
     long_description=long_descr,
