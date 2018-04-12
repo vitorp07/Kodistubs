@@ -51,6 +51,7 @@ xbmc
    .. autosummary::
    
       InfoTagMusic
+      InfoTagRadioRDS
       InfoTagVideo
       Keyboard
       Monitor
