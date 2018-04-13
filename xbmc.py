@@ -10,10 +10,13 @@ information about the media currently playing and that allow manipulation of
 the media player (such as starting a new song). You can also find system
 information using the functions available in this library.
 """
-from typing import *
+from typing import Union, List, Tuple, Text
 from xbmcgui import ListItem
 
 __kodistubs__ = True
+
+int_type = Union[int, long]
+str_type = Union[str, unicode]
 
 DRIVE_NOT_READY = 1
 ENGLISH_NAME = 2
@@ -43,7 +46,7 @@ TRAY_OPEN = 16
 
 class InfoTagMusic(object):
     """
-    Kodi's music info tag class.
+    Kodi's music info tag class
 
     ``InfoTagMusic()``
 
@@ -67,17 +70,6 @@ class InfoTagMusic(object):
         # type: () -> None
         pass
     
-    def getDbId(self):
-        # type: () -> int
-        """
-        ``getDbId()`` 
-
-        Get identification number of tag in database. 
-
-        :return: [integer] database id.
-        """
-        return 0
-    
     def getURL(self):
         # type: () -> str
         """
@@ -97,27 +89,6 @@ class InfoTagMusic(object):
         Returns the title from music as string on info tag. 
 
         :return: [string] Music title
-        """
-        return ""
-    
-    def getMediaType(self):
-        # type: () -> str
-        """
-        ``getMediaType()`` 
-
-        Get the media type of the music item. 
-
-        :return: [string] media type
-
-        Available strings about media type for music:
-
-        =======  ==============================
-        String   Description                   
-        =======  ==============================
-        artist   If it is defined as an artist 
-        album    If it is defined as an album  
-        song     If it is defined as a song    
-        =======  ==============================
         """
         return ""
     
@@ -289,15 +260,15 @@ class InfoTagMusic(object):
 
 class InfoTagRadioRDS(object):
     """
-    Kodi's radio RDS info tag class.
+    Kodi's radio RDS info tag class
 
     ``InfoTagRadioRDS()``
 
     To get radio RDS info tag data of currently played PVR radio channel source.
 
-    Info tag load is only be possible from present player class.
-    Also is all the data variable from radio channels and not known on beginning
-    of radio receiving.
+    Info tag load is only be possible from present player class. Also is all
+    the data variable from radio channels and not known on begining of radio
+    receiving.
 
     **Example:**
 
@@ -637,7 +608,7 @@ class InfoTagRadioRDS(object):
 
 class InfoTagVideo(object):
     """
-    Kodi's video info tag class.
+    Kodi's video info tag class
 
     ``InfoTagVideo()``
 
@@ -669,6 +640,8 @@ class InfoTagVideo(object):
         Get identification number of tag in database 
 
         :return: [integer] database id
+
+        New function added.
         """
         return 0
     
@@ -769,7 +742,7 @@ class InfoTagVideo(object):
 
         :return: [string] TV show title
 
-          New function added. 
+        New function added.
         """
         return ""
     
@@ -795,6 +768,8 @@ class InfoTagVideo(object):
         season       The type is used as a series season  
         episode      The type is used as a series episode 
         ===========  =====================================
+
+        New function added.
         """
         return ""
     
@@ -862,7 +837,7 @@ class InfoTagVideo(object):
 
         :return: [integer] season number
 
-          New function added. 
+        New function added.
         """
         return 0
     
@@ -874,6 +849,8 @@ class InfoTagVideo(object):
         To get episode number of a series 
 
         :return: [integer] episode number
+
+        New function added.
         """
         return 0
     
@@ -893,9 +870,9 @@ class InfoTagVideo(object):
         """
         ``getRating()`` 
 
-        Get the video rating if present as float (double where supported). 
+        Get the video rating if present as int.
 
-        :return: [float] The rating of the video
+        :return: [int] The rating of the video
         """
         return 0
     
@@ -973,70 +950,24 @@ class InfoTagVideo(object):
         To get the path where the trailer is stored. 
 
         :return: [string] Trailer path
+
+        New function added.
         """
         return ""
-    
-    def getArtist(self):
-        # type: () -> str
-        """
-        ``getArtist()`` 
-
-        To get the artist name (for musicvideos) 
-
-        :return: [string] Artist name
-        """
-        return ""
-    
-    def getAlbum(self):
-        # type: () -> str
-        """
-        ``getAlbum()`` 
-
-        To get the album name (for musicvideos) 
-
-        :return: [string] Album name
-        """
-        return ""
-    
-    def getTrack(self):
-        # type: () -> int
-        """
-        ``getTrack()`` 
-
-        To get the track number (for musicvideos) 
-
-        :return: [int] Track number
-
-          New function added. 
-        """
-        return 0
-    
-    def getDuration(self):
-        # type: () -> int
-        """
-        ``getDuration()`` 
-
-        To get the duration 
-
-        :return: [unsigned int] Duration
-
-          New function added. 
-        """
-        return 0
     
 
 class Keyboard(object):
     """
-    Kodi's keyboard class.
+    Kodi's keyboard class
 
     ``xbmc.Keyboard([default, heading, hidden])``
 
     Creates a new Keyboard object with default text heading and hidden input
     flag if supplied.
 
-    :param default: [opt] string - default text entry.
-    :param heading: [opt] string - keyboard heading.
-    :param hidden: [opt] boolean - True for hidden text entry.
+    :param default: : [opt] string - default text entry. 
+    :param heading: : [opt] string - keyboard heading. 
+    :param hidden: : [opt] boolean - True for hidden text entry.
 
     **Example:**
 
@@ -1049,12 +980,12 @@ class Keyboard(object):
         kb.setHiddenInput(True) # optional
         kb.doModal()
         if (kb.isConfirmed()):
-          text = kb.getText()
+            text = kb.getText()
         ..
     """
     
     def __init__(self, line="", heading="", hidden=False):
-        # type: (AnyStr, AnyStr, bool) -> None
+        # type: (str_type, str_type, bool) -> None
         pass
     
     def doModal(self, autoclose=0):
@@ -1078,7 +1009,7 @@ class Keyboard(object):
         pass
     
     def setDefault(self, line=""):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``setDefault(line)`` 
 
@@ -1116,7 +1047,7 @@ class Keyboard(object):
         pass
     
     def setHeading(self, heading):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``setHeading(heading)`` 
 
@@ -1178,7 +1109,7 @@ class Keyboard(object):
 
 class Monitor(object):
     """
-    Kodi's monitor class.
+    Kodi's monitor class
 
     ``xbmc.Monitor()``
 
@@ -1245,7 +1176,7 @@ class Monitor(object):
         pass
     
     def onScanStarted(self, library):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``onScanStarted(library)`` 
 
@@ -1261,7 +1192,7 @@ class Monitor(object):
         pass
     
     def onScanFinished(self, library):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``onScanFinished(library)`` 
 
@@ -1277,7 +1208,7 @@ class Monitor(object):
         pass
     
     def onDatabaseScanStarted(self, database):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``onDatabaseScanStarted(database)`` 
 
@@ -1286,18 +1217,16 @@ class Monitor(object):
         pass
     
     def onDatabaseUpdated(self, database):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``onDatabaseUpdated(database)`` 
 
         .. warning:: Deprecated. Use **onScanFinished()**.
-
-
         """
         pass
     
     def onCleanStarted(self, library):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``onCleanStarted(library)`` 
 
@@ -1313,7 +1242,7 @@ class Monitor(object):
         pass
     
     def onCleanFinished(self, library):
-        # type: (AnyStr) -> None
+        # type: (str_type) -> None
         """
         ``onCleanFinished(library)`` 
 
@@ -1339,7 +1268,7 @@ class Monitor(object):
         pass
     
     def onNotification(self, sender, method, data):
-        # type: (AnyStr, AnyStr, AnyStr) -> None
+        # type: (str_type, str_type, str_type) -> None
         """
         ``onNotification(sender, method, data`` 
 
@@ -1369,7 +1298,7 @@ class Monitor(object):
         :return: True when abort have been requested, False if a timeout
             is given and the operation times out.
 
-        New function added.
+        New function added. 
         """
         return True
     
@@ -1408,20 +1337,8 @@ class Player(object):
         # type: (int) -> None
         pass
     
-    def playStream(self, item="", listitem=None, windowed=False):
-        # type: (AnyStr, ListItem, bool) -> None
-        pass
-    
-    def playPlaylist(self, playlist=None, windowed=False, startpos=-1):
-        # type: (PlayList, bool, int) -> None
-        pass
-    
-    def playCurrent(self, windowed=False):
-        # type: (bool) -> None
-        pass
-    
     def play(self, item="", listitem=None, windowed=False, startpos=-1):
-        # type: (Union[AnyStr, PlayList], ListItem, bool, int) -> None
+        # type: (Union[str_type, PlayList], ListItem, bool, int) -> None
         """
         ``play([item, listitem, windowed, startpos])`` 
 
@@ -1430,15 +1347,15 @@ class Player(object):
         :param item: [opt] string - filename, url or playlist 
         :param listitem: [opt] listitem - used with setInfo() to set different
             infolabels.
-        :param windowed: [opt] bool - true=play video windowed, false=play users
-            preference.(default)
+        :param windowed: [opt] bool - true=play video windowed,
+            false=play users preference.(default)
         :param startpos: [opt] int - starting position when playing a playlist.
             Default = -1
 
         If item is not given then the Player will try to play the current item
         in the current playlist. You can use the above as keywords for arguments
-        and skip certain optional arguments. Once you use a keyword,
-        all following arguments require the keyword.
+        and skip certain optional arguments. Once you use a keyword, all
+        following arguments require the keyword.
 
         **Example:**
 
@@ -1551,8 +1468,8 @@ class Player(object):
 
         Returns the current playing file as a string. 
 
-        For LiveTV, returns a ``pvr://`` url which is not translatable to
-        an OS specific file or external url.
+        For LiveTV, returns a ``pvr://`` url which is not translatable
+        to an OS specific file or external url.
 
         :return: Playing filename
         :raises Exception: If player is not playing a file. 
@@ -1781,7 +1698,7 @@ class Player(object):
             ...
         """
         pass
-
+    
 
 class PlayList(object):
     """
@@ -1813,8 +1730,19 @@ class PlayList(object):
         # type: (int) -> None
         pass
     
+    def getPlayListId(self):
+        # f() -> int
+        """
+        ``getPlayListId()`` 
+
+        Get the PlayList Identifier 
+
+        :return: Id as an integer. 
+        """
+        return 0
+    
     def add(self, url, listitem=None, index=-1):
-        # type: (AnyStr, p.ListItem, int) -> None
+        # type: (str_type, ListItem, int) -> None
         """
         ``add(url[, listitem, index])`` 
 
@@ -1852,7 +1780,7 @@ class PlayList(object):
         Load a playlist. 
 
         Clear current playlist and copy items from the file to this Playlist
-        filename can be like .pls or .m3u ...
+        filename can be like .pls or .m3u
 
         :param filename: File with list to play inside 
         :return: False if unable to load playlist 
@@ -1875,7 +1803,7 @@ class PlayList(object):
         """
         ``clear()`` 
 
-        Clear all items in the playlist. 
+        Clear all items in the playlist.
         """
         pass
     
@@ -1904,7 +1832,7 @@ class PlayList(object):
         """
         ``unshuffle()`` 
 
-        Unshuffle the playlist.
+        Unshuffle the playlist
         """
         pass
     
@@ -2008,7 +1936,7 @@ class RenderCapture(object):
 
         Issue capture request. 
 
-        :param width: Width capture image should be rendered to
+        :param width: Width capture image should be rendered to height.
         :param height: Height capture image should should be rendered to
 
         Removed the option to pass **flags**
@@ -2024,7 +1952,7 @@ def log(msg, level=LOGDEBUG):
     Write a string to Kodi's log file and the debug window. 
 
     :param msg: string - text to output. 
-    :param level: [opt] integer - log level to output at. (default=LOGDEBUG)
+    :param level: [opt] integer - log level to ouput at. (default=LOGDEBUG)
 
     ================  ==========================================================
     Value:            Description:                                                                                                                                      
@@ -2036,22 +1964,19 @@ def log(msg, level=LOGDEBUG):
                       thought you might want to know. Fairly excessive output
                       that most people won't care about.
     xbmc.LOGNOTICE    Similar to INFO but the average Joe might want to know
-                      about these events. This level and above are logged
-                      by default.
+                      about these events. This level and above are logged by default.
     xbmc.LOGWARNING   Something potentially bad has happened. If Kodi did
-                      something you didn't expect, this is probably why.
-                      Watch for errors to follow.
+                      something you didn't expect, this is probably why. Watch for errors to follow.
     xbmc.LOGERROR     This event is bad. Something has failed. You likely
-                      noticed problems with the application be it skin artifacts,
-                      failure of playback a crash, etc.
+                      noticed problems with the application be it skin artifacts, failure of playback a crash, etc.
     xbmc.LOGFATAL     We're screwed. Kodi is about to crash.                                                                                                            
     ================  ==========================================================
 
     You can use the above as keywords for arguments and skip certain optional
-    arguments. Once you use a keyword, all following arguments require
-    the keyword.
+    arguments. Once you use a keyword, all following arguments
+    require the keyword.
 
-    Text is written to the log for the following conditions.
+    Text is written to the log for the following conditions:
 
     loglevel == -1 (NONE, nothing at all is logged)
 
@@ -2144,7 +2069,7 @@ def executebuiltin(function, wait=False):
     .. code-block:: python
 
         ..
-        xbmc.executebuiltin('Skin.SetString(abc,def)')
+        xbmc.executebuiltin('RunXBE(c:\\avalaunch.xbe)')
         ..
     """
     pass
@@ -2172,17 +2097,17 @@ def executeJSONRPC(jsonrpccommand):
 
 
 def sleep(timemillis):
-    # type: (int) -> None
+    # type: (int_type) -> None
     """
-    ``xbmc.sleep(timemillis)``
+    ``xbmc.sleep(time)`` 
 
     Sleeps for 'time' msec. 
 
-    :param timemillis: integer - number of msec to sleep.
+    :param time: integer - number of msec to sleep.
     :raises TypeError: If time is not an integer.
 
-    This is useful if you have for example a Player class that is waiting for
-    onPlayBackEnded() calls.
+    This is useful if you have for example a Player class that is waiting
+    for onPlayBackEnded() calls.
 
     **Example:**
 
@@ -2424,7 +2349,7 @@ def stopSFX():
 
     Stops wav file 
 
-    New function added.
+      New function added.
 
     **Example:**
 
@@ -2467,7 +2392,7 @@ def getCondVisibility(condition):
     :param condition: string - condition to check 
     :return: True (1) or False (0) as a bool
 
-    List of Conditions - http://kodi.wiki/view/List_of_Boolean_Conditions
+    List of Conditions -- <http://kodi.wiki/view/List_of_Boolean_Conditions>
 
     You can combine two (or more) of the above settings by using **"+"**
     as an AND operator, **"|"** as an OR operator, **"!"** as a NOT operator,
@@ -2505,7 +2430,7 @@ def getGlobalIdleTime():
 
 
 def getCacheThumbName(path):
-    # type: (AnyStr) -> str
+    # type: (str_type) -> str
     """
     ``xbmc.getCacheThumbName(path)`` 
 
@@ -2526,14 +2451,14 @@ def getCacheThumbName(path):
 
 
 def makeLegalFilename(filename, fatX=True):
-    # type: (AnyStr, bool) -> str
+    # type: (str_type, bool) -> str
     """
     ``xbmc.makeLegalFilename(filename[, fatX])`` 
 
     Returns a legal filename or path as a string. 
 
-    :param filename: string or unicode - filename/path to make legal 
-    :param fatX: [opt] bool - True=Xbox file system(Default) 
+    :param filename: string or unicode - filename/path to make legal
+    :param fatX: [opt] bool - True=Xbox file system(Default)
     :return: Legal filename or path as a string
 
     If fatX is true you should pass a full path. If fatX is false only pass
@@ -2553,7 +2478,7 @@ def makeLegalFilename(filename, fatX=True):
 
 
 def translatePath(path):
-    # type: (AnyStr) -> str
+    # type: (str_type) -> str
     """
     ``xbmc.translatePath(path)`` 
 
@@ -2562,8 +2487,8 @@ def translatePath(path):
     :param path: string or unicode - Path to format 
     :return: Translated path
 
-    Only useful if you are coding for both Linux and Windows. e.g. Converts
-    ``'special://masterprofile/script_data'`` ->
+    Only useful if you are coding for both Linux and Windows.
+    e.g. Converts ``'special://masterprofile/script_data'`` ->
     ``'/home/user/XBMC/UserData/script_data'`` on Linux.
 
     **Example:**
@@ -2578,7 +2503,7 @@ def translatePath(path):
 
 
 def getCleanMovieTitle(path, usefoldername=False):
-    # type: (AnyStr, bool) -> Tuple[str, str]
+    # type: (str_type, bool) -> Tuple[str, str]
     """
     ``xbmc.getCleanMovieTitle(path[, usefoldername])`` 
 
@@ -2600,7 +2525,7 @@ def getCleanMovieTitle(path, usefoldername=False):
 
 
 def validatePath(path):
-    # type: (AnyStr) -> str
+    # type: (str_type) -> str
     """
     ``xbmc.validatePath(path)`` 
 
@@ -2683,7 +2608,7 @@ def skinHasImage(image):
     :return: True if the image file exists in the skin
 
     If the media resides in a subfolder include it.
-    (eg. home-myfiles\home-myfiles2.png).
+    (eg. ``home-myfiles\home-myfiles2.png``).
     You can use the above as keywords for arguments.
 
     **Example:**
@@ -2723,7 +2648,8 @@ def startServer(iTyp, bStart, bWait=False):
     ==========================  ================================================
 
     :param bStart: bool - start (True) or stop (False) a server 
-    :param bWait: [opt] bool - wait on stop before returning (not supported by all servers) 
+    :param bWait: [opt] bool - wait on stop before returning
+        (not supported by all servers)
     :return: bool - True or False
 
     **Example:**

@@ -5,9 +5,13 @@
 """
 Kodi's addon class
 """
-from typing import *
+from typing import Union, AnyStr, Text
 
 __kodistubs__ = True
+
+
+int_type = Union[int, long]
+str_type = Union[str, unicode]
 
 
 class Addon(object):
