@@ -5,12 +5,10 @@
 """
 Kodi's addon class
 """
-from typing import Union, AnyStr, Text
+from typing import Union, Text
 
 __kodistubs__ = True
 
-
-int_type = Union[int, long]
 str_type = Union[str, unicode]
 
 
@@ -93,7 +91,7 @@ class Addon(object):
         return ""
     
     def setSetting(self, id, value):
-        # type: (str, AnyStr) -> None
+        # type: (str, str_type) -> None
         """
         ``xbmcaddon.Addon([id]).setSetting(id, value)`` 
 
@@ -140,7 +138,7 @@ class Addon(object):
 
         :param id: string - id of the property that the module needs to access.
 
-        Choices for the property are
+        Choices for the property are:
 
         =======  ==========  ============  ===========
         author   changelog   description   disclaimer 
