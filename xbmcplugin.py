@@ -1,231 +1,418 @@
 # coding: utf-8
+# This file is generated from Kodi source code and post-edited
+# to correct code style and docstrings formatting.
+# License: GPL v.3 <https://www.gnu.org/licenses/gpl-3.0.en.html>
 """
-Functions for Kodi plugins
-"""
+Plugin functions on Kodi
 
-SORT_METHOD_NONE = 0
-SORT_METHOD_LABEL = 1
-SORT_METHOD_LABEL_IGNORE_THE = 2
+Offers classes and functions that allow a
+developer to present information through Kodi's standard menu structure. While
+plugins don't have the same flexibility as scripts, they boast significantly
+quicker development time and a more consistent user experience.
+"""
+from typing import Union, List, Tuple
+from xbmcgui import ListItem
+
+__kodistubs__ = True
+
+str_type = Union[str, unicode]
+
+SORT_METHOD_ALBUM = 14
+SORT_METHOD_ALBUM_IGNORE_THE = 15
+SORT_METHOD_ARTIST = 11
+SORT_METHOD_ARTIST_IGNORE_THE = 13
+SORT_METHOD_BITRATE = 43
+SORT_METHOD_CHANNEL = 41
+SORT_METHOD_COUNTRY = 17
 SORT_METHOD_DATE = 3
-SORT_METHOD_SIZE = 4
-SORT_METHOD_FILE = 5
+SORT_METHOD_DATEADDED = 21
+SORT_METHOD_DATE_TAKEN = 44
 SORT_METHOD_DRIVE_TYPE = 6
-SORT_METHOD_TRACKNUM = 7
 SORT_METHOD_DURATION = 8
+SORT_METHOD_EPISODE = 24
+SORT_METHOD_FILE = 5
+SORT_METHOD_FULLPATH = 35
+SORT_METHOD_GENRE = 16
+SORT_METHOD_LABEL = 1
+SORT_METHOD_LABEL_IGNORE_FOLDERS = 36
+SORT_METHOD_LABEL_IGNORE_THE = 2
+SORT_METHOD_LASTPLAYED = 37
+SORT_METHOD_LISTENERS = 39
+SORT_METHOD_MPAA_RATING = 31
+SORT_METHOD_NONE = 0
+SORT_METHOD_PLAYCOUNT = 38
+SORT_METHOD_PLAYLIST_ORDER = 23
+SORT_METHOD_PRODUCTIONCODE = 28
+SORT_METHOD_PROGRAM_COUNT = 22
+SORT_METHOD_SIZE = 4
+SORT_METHOD_SONG_RATING = 29
+SORT_METHOD_SONG_USER_RATING = 30
+SORT_METHOD_STUDIO = 33
+SORT_METHOD_STUDIO_IGNORE_THE = 34
 SORT_METHOD_TITLE = 9
 SORT_METHOD_TITLE_IGNORE_THE = 10
-SORT_METHOD_ARTIST = 11
-SORT_METHOD_ARTIST_IGNORE_THE = 12
-SORT_METHOD_ALBUM = 13
-SORT_METHOD_ALBUM_IGNORE_THE = 14
-SORT_METHOD_GENRE = 15
-SORT_METHOD_VIDEO_YEAR = SORT_METHOD_YEAR = 16
-SORT_METHOD_VIDEO_RATING = 17
-SORT_METHOD_PROGRAM_COUNT = 18
-SORT_METHOD_PLAYLIST_ORDER = 19
-SORT_METHOD_EPISODE = 20
-SORT_METHOD_VIDEO_TITLE = 21
-SORT_METHOD_VIDEO_SORT_TITLE = 22
-SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE = 23
-SORT_METHOD_PRODUCTIONCODE = 24
-SORT_METHOD_SONG_RATING = 25
-SORT_METHOD_MPAA_RATING = 26
-SORT_METHOD_VIDEO_RUNTIME = 27
-SORT_METHOD_STUDIO = 28
-SORT_METHOD_STUDIO_IGNORE_THE = 29
-SORT_METHOD_UNSORTED = 30
-SORT_METHOD_BITRATE = 31
-SORT_METHOD_LISTENERS = 32
-SORT_METHOD_COUNTRY = 33
-SORT_METHOD_DATEADDED = 34
-SORT_METHOD_FULLPATH = 35
-SORT_METHOD_LABEL_IGNORE_FOLDERS = 36
-SORT_METHOD_LASTPLAYED = 37
-SORT_METHOD_PLAYCOUNT = 38
-SORT_METHOD_CHANNEL = 39
-SORT_METHOD_DATE_TAKEN = 40
-SORT_METHOD_VIDEO_USER_RATING = 41
-SORT_METHOD_SONG_USER_RATING = 42
-
-__author__ = 'Team Kodi <http://kodi.tv>'
-__credits__ = 'Team Kodi'
-__date__ = 'Fri May 01 16:22:19 BST 2015'
-__platform__ = 'ALL'
-__version__ = '2.20.0'
+SORT_METHOD_TRACKNUM = 7
+SORT_METHOD_UNSORTED = 40
+SORT_METHOD_VIDEO_RATING = 19
+SORT_METHOD_VIDEO_RUNTIME = 32
+SORT_METHOD_VIDEO_SORT_TITLE = 26
+SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE = 27
+SORT_METHOD_VIDEO_TITLE = 25
+SORT_METHOD_VIDEO_USER_RATING = 20
+SORT_METHOD_VIDEO_YEAR = 18
 
 
 def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
-    """Callback function to pass directory contents back to XBMC.
-
-    Returns a bool for successful completion.
-
-    :param handle: integer - handle the plugin was started with.
-    :param url: string - url of the entry. would be plugin:// for another virtual directory.
-    :param listitem: ListItem - item to add.
-    :param isFolder: bool - True=folder / False=not a folder.
-    :param totalItems: integer - total number of items that will be passed. (used for progressbar)
-
-    Example::
-
-        if not xbmcplugin.addDirectoryItem(int(sys.argv[1]), 'F:\\Trailers\\300.mov', listitem, totalItems=50):
-            break
+    # type: (int, str_type, ListItem, bool, int) -> bool
     """
-    return bool(1)
+    ``xbmcplugin.addDirectoryItem(handle, url, listitem [,isFolder, totalItems])``
+
+    Callback function to pass directory contents back to Kodi. 
+
+    :param handle: integer - handle the plugin was started with. 
+    :param url: string - url of the entry. would be  ``plugin://``
+        for another virtual directory
+    :param listitem: ListItem - item to add. 
+    :param isFolder: [opt] bool - True=folder / False=not a folder(default). 
+    :param totalItems: [opt] integer - total number of items that will be passed
+        (used for progressbar)
+    :return: Returns a bool for successful completion.
+
+    You can use the above as keywords for arguments and skip certain optional
+    arguments. Once you use a keyword, all following arguments require
+    the keyword.
+
+    **Example:**
+
+    .. code-block:: python
+
+        ..
+        if not xbmcplugin.addDirectoryItem(int(sys.argv[1]), 'F:\\Trailers\\300.mov', listitem, totalItems=50): break
+        ..
+    """
+    return True
 
 
 def addDirectoryItems(handle, items, totalItems=0):
-    """Callback function to pass directory contents back to XBMC as a list.
-
-    Returns a bool for successful completion.
-
-    :param handle: integer - handle the plugin was started with.
-    :param items: List - list of (url, listitem[, isFolder]) as a tuple to add.
-    :param totalItems: integer - total number of items that will be passed. (used for progressbar)
-
-    .. note::
-        Large lists benefit over using the standard addDirectoryItem().
-        You may call this more than once to add items in chunks.
-
-    Example::
-
-        if not xbmcplugin.addDirectoryItems(int(sys.argv[1]), [(url, listitem, False,)]:
-            raise
+    # type: (int, List[Tuple[str_type, ListItem, bool]], int) -> bool
     """
-    return bool(1)
+    ``xbmcplugin.addDirectoryItems(handle, items[, totalItems])`` 
+
+    Callback function to pass directory contents back to Kodi as a list. 
+
+    :param handle: integer - handle the plugin was started with. 
+    :param items: List - list of (url, listitem[, isFolder]) as a tuple to add. 
+    :param totalItems: [opt] integer - total number of items that will be passed
+        (used for progressbar)
+    :return: Returns a bool for successful completion.
+
+    Large lists benefit over using the standard addDirectoryItem().
+    You may call this more than once to add items in chunks.
+
+    **Example:**
+
+    .. code-block:: python
+
+        ..
+        if not xbmcplugin.addDirectoryItems(int(sys.argv[1]), [(url, listitem, False,)]: raise
+        ..
+    """
+    return True
 
 
 def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True):
-    """Callback function to tell XBMC that the end of the directory listing in a virtualPythonFolder module is reached.
+    # type: (int, bool, bool, bool) -> None
+    """
+    ``xbmcplugin.endOfDirectory(handle[, succeeded, updateListing, cacheToDisc])`` 
 
-    :param handle: integer - handle the plugin was started with.
-    :param succeeded: bool - True=script completed successfully/False=Script did not.
-    :param updateListing: bool - True=this folder should update the current listing/False=Folder is a subfolder.
-    :param cacheToDisc: bool - True=Folder will cache if extended time/False=this folder will never cache to disc.
+    Callback function to tell Kodi that the end of the directory listing in
+    a virtualPythonFolder module is reached.
 
-    Example::
+    :param handle: integer - handle the plugin was started with. 
+    :param succeeded: [opt] bool - True=script completed successfully(Default)/
+        False=Script did not.
+    :param updateListing: [opt] bool - True=this folder should update
+        the current listing/False=Folder is a subfolder(Default).
+    :param cacheToDisc: [opt] bool - True=Folder will cache if extended time
+        (default)/False=this folder will never cache to disc.
 
+    **Example:**
+
+    .. code-block:: python
+
+        ..
         xbmcplugin.endOfDirectory(int(sys.argv[1]), cacheToDisc=False)
+        ..
     """
     pass
 
 
 def setResolvedUrl(handle, succeeded, listitem):
-    """Callback function to tell XBMC that the file plugin has been resolved to a url
+    # type: (int, bool, ListItem) -> None
+    """
+    ``xbmcplugin.setResolvedUrl(handle, succeeded, listitem)`` 
 
-    :param handle: integer - handle the plugin was started with.
-    :param succeeded: bool - True=script completed successfully/False=Script did not.
+    Callback function to tell Kodi that the file plugin has been resolved
+    to a url
+
+    :param handle: integer - handle the plugin was started with. 
+    :param succeeded: bool - True=script completed successfully/
+        False=Script did not.
     :param listitem: ListItem - item the file plugin resolved to for playback.
 
-    Example::
+    **Example:**
 
+    .. code-block:: python
+
+        ..
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem)
+        ..
     """
     pass
 
 
-def addSortMethod(handle, sortMethod, label2Mask=''):
-    """Adds a sorting method for the media list.
+def addSortMethod(handle, sortMethod, label2Mask=""):
+    # type: (int, int, str_type) -> None
+    """
+    ``xbmcplugin.addSortMethod(handle, sortMethod [,label2Mask])`` 
 
-    :param handle: integer - handle the plugin was started with.
-    :param sortMethod: integer - number for sortmethod see FileItem.h.
-    :param label2Mask: string - the label mask to use for the second label. Defaults to '%D'
-        applies to: ``SORT_METHOD_NONE``, ``SORT_METHOD_UNSORTED``, ``SORT_METHOD_VIDEO_TITLE``,
-        ``SORT_METHOD_TRACKNUM``, ``SORT_METHOD_FILE``, ``SORT_METHOD_TITLE``,
-        ``SORT_METHOD_TITLE_IGNORE_THE``, ``SORT_METHOD_LABEL``,
-        ``SORT_METHOD_LABEL_IGNORE_THE``
+    Adds a sorting method for the media list. 
 
-    Example::
+    :param handle: integer - handle the plugin was started with. 
+    :param sortMethod: integer - see available sort methods at the bottom
+        (or see SortFileItem.h).
 
-        xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_TITLE)
+    ===================================================  =======================
+    Value                                                Description
+    ===================================================  =======================
+    xbmcplugin.SORT_METHOD_NONE                          Do not sort
+    xbmcplugin.SORT_METHOD_LABEL                         Sort by label
+    xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE              Sort by the label
+                                                         and ignore "The" before
+    xbmcplugin.SORT_METHOD_DATE                          Sort by the date
+    xbmcplugin.SORT_METHOD_SIZE                          Sort by the size
+    xbmcplugin.SORT_METHOD_FILE                          Sort by the file
+    xbmcplugin.SORT_METHOD_DRIVE_TYPE                    Sort by the drive type
+    xbmcplugin.SORT_METHOD_TRACKNUM                      Sort by the track number
+    xbmcplugin.SORT_METHOD_DURATION                      Sort by the duration
+    xbmcplugin.SORT_METHOD_TITLE                         Sort by the title
+    xbmcplugin.SORT_METHOD_TITLE_IGNORE_THE              Sort by the title
+                                                         and ignore "The" before
+    xbmcplugin.SORT_METHOD_ARTIST                        Sort by the artist
+    xbmcplugin.SORT_METHOD_ARTIST_IGNORE_THE             Sort by the artist
+                                                         and ignore "The" before
+    xbmcplugin.SORT_METHOD_ALBUM                         Sort by the album
+    xbmcplugin.SORT_METHOD_ALBUM_IGNORE_THE              Sort by the album
+                                                         and ignore "The" before
+    xbmcplugin.SORT_METHOD_GENRE                         Sort by the genre
+    xbmcplugin.SORT_SORT_METHOD_VIDEO_YEAR,              Sort by the year
+    xbmcplugin.SORT_METHOD_YEAR
+    xbmcplugin.SORT_METHOD_VIDEO_RATING                  Sort by the video rating
+    xbmcplugin.SORT_METHOD_PROGRAM_COUNT                 Sort by the program count
+    xbmcplugin.SORT_METHOD_PLAYLIST_ORDER                Sort by the playlist order
+    xbmcplugin.SORT_METHOD_EPISODE                       Sort by the episode
+    xbmcplugin.SORT_METHOD_VIDEO_TITLE                   Sort by the video title
+    xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE              Sort by the video sort
+                                                         title
+    xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE   Sort by the video sort
+                                                         title and ignore "The" before
+    xbmcplugin.SORT_METHOD_PRODUCTIONCODE                Sort by the production
+                                                         code
+    xbmcplugin.SORT_METHOD_SONG_RATING                   Sort by the song rating
+    xbmcplugin.SORT_METHOD_MPAA_RATING                   Sort by the mpaa rating
+    xbmcplugin.SORT_METHOD_VIDEO_RUNTIME                 Sort by video runtime
+    xbmcplugin.SORT_METHOD_STUDIO                        Sort by the studio
+    xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE             Sort by the studio
+                                                         and ignore "The" before
+    xbmcplugin.SORT_METHOD_UNSORTED                      Use list not sorted
+    xbmcplugin.SORT_METHOD_BITRATE                       Sort by the bitrate
+    xbmcplugin.SORT_METHOD_LISTENERS                     Sort by the listeners
+    xbmcplugin.SORT_METHOD_COUNTRY                       Sort by the country
+    xbmcplugin.SORT_METHOD_DATEADDED                     Sort by the added date
+    xbmcplugin.SORT_METHOD_FULLPATH                      Sort by the full path name
+    xbmcplugin.SORT_METHOD_LABEL_IGNORE_FOLDERS          Sort by the label names
+                                                         and ignore related
+                                                         folder names
+    xbmcplugin.SORT_METHOD_LASTPLAYED                    Sort by last played date
+    xbmcplugin.SORT_METHOD_PLAYCOUNT                     Sort by the play count
+    xbmcplugin.SORT_METHOD_CHANNEL                       Sort by the channel
+    xbmcplugin.SORT_METHOD_DATE_TAKEN                    Sort by the taken date
+    xbmcplugin.SORT_METHOD_VIDEO_USER_RATING             Sort by the rating of
+                                                         the user of video
+    xbmcplugin.SORT_METHOD_SONG_USER_RATING              Sort by the rating of
+                                                         the user of song
+    ===================================================  =======================
+
+    :param label2Mask: [opt] string - the label mask to use for the second label.
+        Defaults to  ``%D``applies to:
+
+    =================================  =====================  ==================
+    SORT_METHOD_NONE                   SORT_METHOD_UNSORTED   SORT_METHOD_VIDEO_TITLE                 
+    SORT_METHOD_TRACKNUM               SORT_METHOD_FILE       SORT_METHOD_TITLE                       
+    SORT_METHOD_TITLE_IGNORE_THE       SORT_METHOD_LABEL      SORT_METHOD_LABEL_IGNORE_THE            
+    SORT_METHOD_VIDEO_SORT_TITLE       SORT_METHOD_FULLPATH   SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE 
+    SORT_METHOD_LABEL_IGNORE_FOLDERS   SORT_METHOD_CHANNEL                                            
+    =================================  =====================  ==================
+
+    To add multiple sort methods just call the method multiple times.
+
+    Added new sort **SORT_METHOD_DATE_TAKEN**, **SORT_METHOD_COUNTRY**,
+    **SORT_METHOD_DATEADDED**, **SORT_METHOD_FULLPATH**,
+    **SORT_METHOD_LABEL_IGNORE_FOLDERS**, **SORT_METHOD_LASTPLAYED**,
+    **SORT_METHOD_PLAYCOUNT**, **SORT_METHOD_CHANNEL**.
+    Added new sort **SORT_METHOD_VIDEO_USER_RATING**.
+
+    **Example:**
+
+    .. code-block:: python
+
+        ..
+        xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORTMETHOD_DATEADDED)
+        ..
     """
     pass
 
 
 def getSetting(handle, id):
-    """Returns the value of a setting as a string.
-
-    :param handle: integer - handle the plugin was started with.
-    :param id: string - id of the setting that the module needs to access.
-
-    Example::
-
-        apikey = xbmcplugin.getSetting(int(sys.argv[1]), 'apikey')
+    # type: (int, str) -> str
     """
-    return str()
+    ``xbmcplugin.getSetting(handle, id)`` 
+
+    Returns the value of a setting as a string. 
+
+    :param handle: integer - handle the plugin was started with. 
+    :param id: string - id of the setting that the module needs to access. 
+    :return: Setting value as string
+
+    You can use the above as a keyword.
+
+    **Example:**
+
+    .. code-block:: python
+
+        ..
+        apikey = xbmcplugin.getSetting(int(sys.argv[1]), 'apikey')
+        ..
+    """
+    return ""
 
 
 def setSetting(handle, id, value):
-    """Sets a plugin setting for the current running plugin.
+    # type: (int, str_type, str_type) -> None
+    """
+    ``xbmcplugin.setSetting(handle, id, value)`` 
 
-    :param handle: integer - handle the plugin was started with.
-    :param id: string - id of the setting that the module needs to access.
+    Sets a plugin setting for the current running plugin. 
+
+    :param handle: integer - handle the plugin was started with. 
+    :param id: string - id of the setting that the module needs to access. 
     :param value: string or unicode - value of the setting.
 
-    Example::
+    **Example:**
 
+    .. code-block:: python
+
+        ..
         xbmcplugin.setSetting(int(sys.argv[1]), id='username', value='teamxbmc')
+        ..
     """
     pass
 
 
 def setContent(handle, content):
-    """Sets the plugins content.
+    # type: (int, str) -> None
+    """
+    ``xbmcplugin.setContent(handle, content)`` 
 
-    :param handle: integer - handle the plugin was started with.
-    :param content: string - content type (eg. movies).
+    Sets the plugins content. 
 
-    .. note::
-        Possible values for content: files, songs, artists, albums, movies, tvshows, episodes, musicvideos
+    :param handle: integer - handle the plugin was started with. 
+    :param content: string - content type (eg. movies)
 
-    Example::
+    Available content strings:
 
+    =======  ========  =========  ============
+    files    songs     artists    albums      
+    movies   tvshows   episodes   musicvideos 
+    =======  ========  =========  ============
+
+    **Example:**
+
+    .. code-block:: python
+
+        ..
         xbmcplugin.setContent(int(sys.argv[1]), 'movies')
+        ..
     """
     pass
 
 
 def setPluginCategory(handle, category):
-    """Sets the plugins name for skins to display.
+    # type: (int, str_type) -> None
+    """
+    ``xbmcplugin.setPluginCategory(handle, category)`` 
 
-    :param handle: integer - handle the plugin was started with.
+    Sets the plugins name for skins to display. 
+
+    :param handle: integer - handle the plugin was started with. 
     :param category: string or unicode - plugins sub category.
 
-    Example::
+    **Example:**
 
+    .. code-block:: python
+
+        ..
         xbmcplugin.setPluginCategory(int(sys.argv[1]), 'Comedy')
+        ..
     """
     pass
 
 
 def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
-    """Sets the plugins fanart and color for skins to display.
+    # type: (int, str, str, str, str) -> None
+    """
+    ``xbmcplugin.setPluginFanart(handle, image, color1, color2, color3)`` 
+
+    Sets the plugins fanart and color for skins to display. 
 
     :param handle: integer - handle the plugin was started with.
-    :param image: string - path to fanart image.
-    :param color1: hexstring - color1. (e.g. '0xFFFFFFFF')
-    :param color2: hexstring - color2. (e.g. '0xFFFF3300')
-    :param color3: hexstring - color3. (e.g. '0xFF000000')
+    :param image: [opt] string - path to fanart image. 
+    :param color1: [opt] hexstring - color1. (e.g. '0xFFFFFFFF') 
+    :param color2: [opt] hexstring - color2. (e.g. '0xFFFF3300') 
+    :param color3: [opt] hexstring - color3. (e.g. '0xFF000000')
 
-    Example::
+    **Example:**
 
-        xbmcplugin.setPluginFanart(int(sys.argv[1]),
-                'special://home/addons/plugins/video/Apple movie trailers II/fanart.png', color2='0xFFFF3300')
+    .. code-block:: python
+
+        xbmcplugin.setPluginFanart(
+            int(sys.argv[1]),
+            'special://home/addons/plugins/video/Apple movie trailers II/fanart.png',
+            color2='0xFFFF3300'
+            )
     """
     pass
 
 
 def setProperty(handle, key, value):
-    """Sets a container property for this plugin.
+    # type: (int, str, str_type) -> None
+    """
+    ``xbmcplugin.setProperty(handle, key, value)`` 
 
-    :param handle: integer - handle the plugin was started with.
-    :param key: string - property name.
+    Sets a container property for this plugin. 
+
+    :param handle: integer - handle the plugin was started with. 
+    :param key: string - property name. 
     :param value: string or unicode - value of property.
 
-    .. note::
-        Key is NOT case sensitive.
+    Key is NOT case sensitive.
 
-    Example::
+    **Example:**
 
+    .. code-block:: python
+
+        ..
         xbmcplugin.setProperty(int(sys.argv[1]), 'Emulator', 'M.A.M.E.')
+        ..
     """
     pass
