@@ -122,7 +122,7 @@ Type annotation         Function/method argument or return value
 ``str``                 Accepts or returns UTF-8 encoded byte string (:class:`str`)
 ``basestring``          Accepts both :class:`str` and :class:`unicode`
 ``int_type``            Accepts both :class:`int` and :class:`long`
-``Union[type1, type2]`` Accepts or returns either type1 or type2
+``Union[type1, type2]`` Accepts or returns either ``type1`` or ``type2``
 ======================= ===========================================================
 
 Testing Code
