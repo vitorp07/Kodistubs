@@ -29,13 +29,16 @@ PyCharm
 
 To add Kodistubs to the current project open
 :menuselection:`Settings --> Project --> Project Structure`,
-click :guilabel:`+ Add Content Root` and select a folder where Kodistubs :file:`.py` files are located.
+click :guilabel:`+ Add Content Root` and select a folder where Kodistubs :file:`.py`
+files are located.
 
 .. figure:: _static/pycharm_add_content_root.jpg
 
     **Adding Kodistubs to the current project in PyCharm**
 
 This enables code completion and docstrings pop-ups for Kodi Python API functions/classes/methods.
+PyCharm also supports `mypy`_ type annotations so it should warn you if you
+are trying to pass incompatible arguments to functions or methods.
 
 .. figure:: _static/pycharm_autocompletion.jpg
 
@@ -104,6 +107,12 @@ This enables code completion and docstrings pop-ups for Kodi Python API function
 
     **Code completion and a docstring pop-up in Sublime Text 3**
 
+Type Checking
+=============
+
+Kodistubs include `mypy`_-compatible type annotations for all functions and methods
+so you can yse **mypy** or other compatible tool to check types of function/method
+arguments and return values in your code.
 
 Testing Code
 ============
@@ -135,4 +144,4 @@ This will enable cross-references to Kodi Python API objects in your Sphinx-gene
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _intersphinx: http://www.sphinx-doc.org/en/stable/ext/intersphinx.html
-
+.. _mypy: http://mypy-lang.org/
