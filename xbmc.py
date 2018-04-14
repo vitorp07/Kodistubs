@@ -10,8 +10,7 @@ information about the media currently playing and that allow manipulation of
 the media player (such as starting a new song). You can also find system
 information using the functions available in this library.
 """
-from typing import Union, List, Tuple, Text
-from xbmcgui import ListItem
+from typing import Union, List, Tuple, Text, Any
 
 __kodistubs__ = True
 
@@ -866,15 +865,15 @@ class InfoTagVideo(object):
         return 0
     
     def getRating(self):
-        # type: () -> int
+        # type: () -> float
         """
-        ``getRating()`` 
+        ``getRating()``
 
-        Get the video rating if present as int.
+        Get the video rating if present as float (double where supported).
 
-        :return: [int] The rating of the video
+        :return: [float] The rating of the video
         """
-        return 0
+        return 0.0
     
     def getUserRating(self):
         # type: () -> int
@@ -1338,7 +1337,7 @@ class Player(object):
         pass
     
     def play(self, item="", listitem=None, windowed=False, startpos=-1):
-        # type: (Union[str_type, PlayList], ListItem, bool, int) -> None
+        # type: (Union[str_type, PlayList], Any, bool, int) -> None
         """
         ``play([item, listitem, windowed, startpos])`` 
 
@@ -1742,7 +1741,7 @@ class PlayList(object):
         return 0
     
     def add(self, url, listitem=None, index=-1):
-        # type: (str_type, ListItem, int) -> None
+        # type: (str_type, Any, int) -> None
         """
         ``add(url[, listitem, index])`` 
 
