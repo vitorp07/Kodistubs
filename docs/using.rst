@@ -37,7 +37,7 @@ files are located.
     **Adding Kodistubs to the current project in PyCharm**
 
 This enables code completion and docstrings pop-ups for Kodi Python API functions/classes/methods.
-PyCharm also supports `mypy`_ type annotations so it should warn you if you
+PyCharm also supports `PEP-484`_ type annotations so it should warn you if you
 are trying to pass incompatible arguments to functions or methods.
 
 .. figure:: _static/pycharm_autocompletion.jpg
@@ -107,12 +107,23 @@ This enables code completion and docstrings pop-ups for Kodi Python API function
 
     **Code completion and a docstring pop-up in Sublime Text 3**
 
-Type Checking
-=============
+Type Annotations
+================
 
-Kodistubs include `mypy`_-compatible type annotations for all functions and methods
+Kodistubs include `PEP-484`_ type annotations for all functions and methods
 so you can yse **mypy** or other compatible tool to check types of function/method
 arguments and return values in your code.
+
+The following table explains some of the type annotations:
+
+======================= ===========================================================
+Type annotation         Function/method argument or return value
+======================= ===========================================================
+``str``                 Accepts or returns UTF-8 encoded byte string (:class:`str`)
+``basestring``          Accepts both :class:`str` and :class:`unicode`
+``int_type``            Accepts both :class:`int` and :class:`long`
+``Union[type1, type2]`` Accepts or returns either type1 or type2
+======================= ===========================================================
 
 Testing Code
 ============
@@ -144,4 +155,4 @@ This will enable cross-references to Kodi Python API objects in your Sphinx-gene
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _intersphinx: http://www.sphinx-doc.org/en/stable/ext/intersphinx.html
-.. _mypy: http://mypy-lang.org/
+.. _PEP-484: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code

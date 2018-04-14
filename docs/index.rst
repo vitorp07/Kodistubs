@@ -9,8 +9,8 @@ to enable autocompletion and view docstrings for Kodi Python API functions, clas
 
 Currently Kodistubs are automatically generated (indirectly) from Kodi sources so they
 should reflect the exact state of Kodi Python API, including function and method
-signatures and return values. Kodistubs also include `mypy`_-compatible
-type annotations for all functions and methods.
+signatures and return values. Kodistubs also include `PEP-484`_ type annotations
+for all functions and methods.
 
 The version of Kodistubs corresponds to the Kodi version they are created from.
 
@@ -33,7 +33,7 @@ License: `GPL v.3`_
 .. _GPL v.3: http://www.gnu.org/licenses/gpl.html
 .. _official Kodi Python API docs: https://codedocs.xyz/xbmc/xbmc/group__python.html
 .. _Kodi sources: https://github.com/xbmc/xbmc
-.. _mypy: http://mypy-lang.org/
+.. _PEP-484: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
 
 .. toctree::
     :caption: Contents:
