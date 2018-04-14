@@ -17,6 +17,10 @@ The version of Kodistubs corresponds to the Kodi version they are created from.
 If you notice discrepancies with the actual state of Kodi Python API, don't hesitate to open issues
 or submit pull requests in the Kodistubs Github repo.
 
+.. note:: If a function/method docstring has discrepancies with the actual
+    signature or type annotation of that function/method in Kodistubs,
+    the signature or type annotation should be considered correct.
+
 .. warning:: Kodistubs are literally stubs and do not include any useful code beyond absolute minimum
     so that not to rise syntax errors.
     Don't try to run your program outside Kodi unless you add some testing code into Kodistubs
