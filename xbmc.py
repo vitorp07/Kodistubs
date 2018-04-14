@@ -1965,9 +1965,11 @@ def log(msg, level=LOGDEBUG):
     xbmc.LOGNOTICE    Similar to INFO but the average Joe might want to know
                       about these events. This level and above are logged by default.
     xbmc.LOGWARNING   Something potentially bad has happened. If Kodi did
-                      something you didn't expect, this is probably why. Watch for errors to follow.
+                      something you didn't expect, this is probably why.
+                      Watch for errors to follow.
     xbmc.LOGERROR     This event is bad. Something has failed. You likely
-                      noticed problems with the application be it skin artifacts, failure of playback a crash, etc.
+                      noticed problems with the application be it skin artifacts,
+                      failure of playback a crash, etc.
     xbmc.LOGFATAL     We're screwed. Kodi is about to crash.                                                                                                            
     ================  ==========================================================
 
