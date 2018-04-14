@@ -111,7 +111,7 @@ Type Annotations
 ================
 
 Kodistubs include `PEP-484`_ type annotations for all functions and methods
-so you can yse **mypy** or other compatible tool to check types of function/method
+so you can yse `mypy`_ or other compatible tool to check types of function/method
 arguments and return values in your code.
 
 The following table explains some of the type annotations:
@@ -156,3 +156,4 @@ This will enable cross-references to Kodi Python API objects in your Sphinx-gene
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _intersphinx: http://www.sphinx-doc.org/en/stable/ext/intersphinx.html
 .. _PEP-484: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
+.. _mypy: http://mypy-lang.org/
