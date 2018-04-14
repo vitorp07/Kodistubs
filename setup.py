@@ -1,14 +1,17 @@
+from io import open
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-with open('README.rst') as fobj:
-    long_descr = fobj.read()
+VERSION = '17.6.0'
+
+with open('README.rst', encoding='utf-8') as fo:
+    long_descr = fo.read()
 
 setup(
     name='Kodistubs',
-    version='2.0.0',
+    version=VERSION,
     py_modules=['xbmc', 'xbmcaddon', 'xbmcgui', 'xbmcplugin', 'xbmcvfs'],
     requires=['typing'],
     zip_safe=False,
@@ -16,7 +19,7 @@ setup(
     long_description=long_descr,
     author='Tenzer, twinther, Roman V.M.',
     maintainer='Roman V.M.',
-    maintainer_email='romanvm@yandex.ua',
+    maintainer_email='roman1972@gmail.com',
     url='https://github.com/romanvm/Kodistubs',
     license='GPLv3',
     keywords="kodi documentation inspection",
