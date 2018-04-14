@@ -4,7 +4,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-VERSION = '17.6.0'
+VERSION = '17.6.1'
 
 with open('README.rst', encoding='utf-8') as fo:
     long_descr = fo.read()
