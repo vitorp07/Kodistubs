@@ -5,8 +5,6 @@
 """
 Kodi's addon class
 """
-from typing import Text
-
 __kodistubs__ = True
 
 
@@ -43,7 +41,7 @@ class Addon(object):
         pass
     
     def getLocalizedString(self, id):
-        # type: (int) -> Text
+        # type: (int) -> unicode
         """
         Returns an addon's localized 'unicode string'. 
 

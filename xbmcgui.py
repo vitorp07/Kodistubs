@@ -9,7 +9,7 @@ Offers classes and functions that manipulate the
 Graphical User Interface through windows, dialogs, and various control widgets.
 """
 import sys
-from typing import Union, List, Dict, Tuple, Text
+from typing import Union, List, Dict, Tuple
 from xbmc import InfoTagVideo, InfoTagMusic
 
 __kodistubs__ = True
@@ -1860,7 +1860,7 @@ class ControlButton(Control):
         pass
     
     def getLabel(self):
-        # type: () -> Text
+        # type: () -> unicode
         """
         Returns the buttons label as a unicode string. 
 
@@ -1878,7 +1878,7 @@ class ControlButton(Control):
         return u""
     
     def getLabel2(self):
-        # type: () -> Text
+        # type: () -> unicode
         """
         Returns the buttons label2 as a unicode string. 
 

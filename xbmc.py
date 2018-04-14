@@ -10,7 +10,7 @@ information about the media currently playing and that allow manipulation of
 the media player (such as starting a new song). You can also find system
 information using the functions available in this library.
 """
-from typing import Union, List, Tuple, Text, Any
+from typing import Union, List, Tuple, Any
 
 __kodistubs__ = True
 
@@ -1825,7 +1825,7 @@ def sleep(timemillis):
 
 
 def getLocalizedString(id):
-    # type: (int) -> Text
+    # type: (int) -> unicode
     """
     Get a localized 'unicode string'. 
 
