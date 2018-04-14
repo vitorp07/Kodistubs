@@ -125,6 +125,9 @@ Type annotation         Function/method argument or return value
 ``Union[type1, type2]`` Accepts or returns either ``type1`` or ``type2``
 ======================= ===========================================================
 
+.. _PEP-484: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
+.. _mypy: http://mypy-lang.org/
+
 Testing Code
 ============
 
@@ -155,5 +158,3 @@ This will enable cross-references to Kodi Python API objects in your Sphinx-gene
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _intersphinx: http://www.sphinx-doc.org/en/stable/ext/intersphinx.html
-.. _PEP-484: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
-.. _mypy: http://mypy-lang.org/
