@@ -21,8 +21,6 @@ class File(object):
     """
     Kodi's file class
 
-    ``xbmcvfs.File(filepath, [mode])``
-
     :param filepath: string Selected file path 
     :param mode: [opt] string Additional mode options (if no mode is supplied,
         the default is Open for Read).
@@ -49,8 +47,6 @@ class File(object):
     def read(self, numBytes=0):
         # type: (int_type) -> str
         """
-        ``read([bytes])`` 
-
         Read file parts as string. 
 
         :param bytes: [opt] How many bytes to read - if not set it will read
@@ -72,8 +68,6 @@ class File(object):
     def readBytes(self, numBytes=0):
         # type: (int_type) -> bytearray
         """
-        ``readBytes(numbytes)`` 
-
         Read bytes from file. 
 
         :param numbytes: How many bytes to read [opt]- if not set it will
@@ -95,8 +89,6 @@ class File(object):
     def write(self, buffer):
         # type: (Union[str, bytearray]) -> bool
         """
-        ``write(buffer)`` 
-
         To write given data in file. 
 
         :param buffer: Buffer to write to file 
@@ -117,8 +109,6 @@ class File(object):
     def size(self):
         # type: () -> long
         """
-        ``size()`` 
-
         Get the file size. 
 
         :return: The file size
@@ -138,8 +128,6 @@ class File(object):
     def seek(self, seekBytes, iWhence):
         # type: (int_type, int) -> long
         """
-        ``seek(seekBytes, iWhence)`` 
-
         Seek to position in file. 
 
         :param seekBytes: position in the file 
@@ -161,8 +149,6 @@ class File(object):
     def close(self):
         # type: () -> None
         """
-        ``close()`` 
-
         Close opened file. 
 
 
@@ -182,8 +168,6 @@ class File(object):
 class Stat(object):
     """
     Get file or file system status
-
-    ``xbmcvfs.Stat(path)``
 
     These class return information about a file. Execute (search) permission
     is required on all of the directories in path that lead to the file.
@@ -209,8 +193,6 @@ class Stat(object):
     def st_mode(self):
         # type: () -> long
         """
-        ``st_mode()`` 
-
         To get file protection. 
 
         :return: st_mode 
@@ -220,8 +202,6 @@ class Stat(object):
     def st_ino(self):
         # type: () -> long
         """
-        ``st_ino()`` 
-
         To get inode number. 
 
         :return: st_ino 
@@ -231,8 +211,6 @@ class Stat(object):
     def st_dev(self):
         # type: () -> long
         """
-        ``st_dev()`` 
-
         To get ID of device containing file. 
 
         The st_dev field describes the device on which this file resides.
@@ -244,8 +222,6 @@ class Stat(object):
     def st_nlink(self):
         # type: () -> long
         """
-        ``st_nlink()`` 
-
         To get number of hard links. 
 
         :return: st_nlink 
@@ -255,8 +231,6 @@ class Stat(object):
     def st_uid(self):
         # type: () -> long
         """
-        ``st_uid()`` 
-
         To get user ID of owner. 
 
         :return: st_uid 
@@ -266,8 +240,6 @@ class Stat(object):
     def st_gid(self):
         # type: () -> long
         """
-        ``st_gid()`` 
-
         To get group ID of owner. 
 
         :return: st_gid 
@@ -277,8 +249,6 @@ class Stat(object):
     def st_size(self):
         # type: () -> long
         """
-        ``st_size()`` 
-
         To get total size, in bytes. 
 
         The st_size field gives the size of the file (if it is a regular file
@@ -293,8 +263,6 @@ class Stat(object):
     def atime(self):
         # type: () -> long
         """
-        ``atime()`` 
-
         To get time of last access. 
 
         :return: st_atime 
@@ -304,8 +272,6 @@ class Stat(object):
     def mtime(self):
         # type: () -> long
         """
-        ``mtime()`` 
-
         To get time of last modification. 
 
         :return: st_mtime 
@@ -315,8 +281,6 @@ class Stat(object):
     def ctime(self):
         # type: () -> long
         """
-        ``ctime()`` 
-
         To get time of last status change. 
 
         :return: st_ctime 
@@ -327,8 +291,6 @@ class Stat(object):
 def copy(strSource, strDestnation):
     # type: (str_type, str_type) -> bool
     """
-    ``xbmcvfs.copy(source, destination)`` 
-
     Copy file to destination, returns true/false. 
 
     :param source: file to copy. 
@@ -349,8 +311,6 @@ def copy(strSource, strDestnation):
 def delete(file):
     # type: (str_type) -> bool
     """
-    ``xbmcvfs.delete(file)`` 
-
     Delete a file
 
     :param file: File to delete 
@@ -370,8 +330,6 @@ def delete(file):
 def rename(file, newFile):
     # type: (str_type, str_type) -> bool
     """
-    ``xbmcvfs.rename(file, newFileName)`` 
-
     Rename a file
 
     :param file: File to rename 
@@ -396,8 +354,6 @@ def rename(file, newFile):
 def exists(path):
     # type: (str_type) -> bool
     """
-    ``xbmcvfs.exists(path)`` 
-
     Check for a file or folder existance
 
     :param path: File or folder (folder must end with slash or backslash) 
@@ -417,8 +373,6 @@ def exists(path):
 def mkdir(path):
     # type: (str_type) -> bool
     """
-    ``xbmcvfs.mkdir(path)`` 
-
     Create a folder. 
 
     :param path: Folder to create 
@@ -438,8 +392,6 @@ def mkdir(path):
 def mkdirs(path):
     # type: (str_type) -> bool
     """
-    ``xbmcvfs.mkdirs(path)`` 
-
     Make all directories along the path 
 
     Create folder(s) - it will create all folders in the path.
@@ -461,8 +413,6 @@ def mkdirs(path):
 def rmdir(path, force=False):
     # type: (str_type, bool) -> bool
     """
-    ``xbmcvfs.rmdir(path)`` 
-
     Remove a folder. 
 
     :param path: Folder to remove 
@@ -482,8 +432,6 @@ def rmdir(path, force=False):
 def listdir(path):
     # type: (str_type) -> Tuple[List[str], List[str]]
     """
-    ``xbmcvfs.listdir(path)`` 
-
     Lists content of a folder. 
 
     :param path: Folder to get list from 

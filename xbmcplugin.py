@@ -65,8 +65,6 @@ SORT_METHOD_VIDEO_YEAR = 18
 def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
     # type: (int, str_type, ListItem, bool, int) -> bool
     """
-    ``xbmcplugin.addDirectoryItem(handle, url, listitem [,isFolder, totalItems])``
-
     Callback function to pass directory contents back to Kodi. 
 
     :param handle: integer - handle the plugin was started with. 
@@ -96,8 +94,6 @@ def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
 def addDirectoryItems(handle, items, totalItems=0):
     # type: (int, List[Tuple[str_type, ListItem, bool]], int) -> bool
     """
-    ``xbmcplugin.addDirectoryItems(handle, items[, totalItems])`` 
-
     Callback function to pass directory contents back to Kodi as a list. 
 
     :param handle: integer - handle the plugin was started with. 
@@ -123,8 +119,6 @@ def addDirectoryItems(handle, items, totalItems=0):
 def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True):
     # type: (int, bool, bool, bool) -> None
     """
-    ``xbmcplugin.endOfDirectory(handle[, succeeded, updateListing, cacheToDisc])`` 
-
     Callback function to tell Kodi that the end of the directory listing in
     a virtualPythonFolder module is reached.
 
@@ -150,8 +144,6 @@ def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True
 def setResolvedUrl(handle, succeeded, listitem):
     # type: (int, bool, ListItem) -> None
     """
-    ``xbmcplugin.setResolvedUrl(handle, succeeded, listitem)`` 
-
     Callback function to tell Kodi that the file plugin has been resolved
     to a url
 
@@ -174,8 +166,6 @@ def setResolvedUrl(handle, succeeded, listitem):
 def addSortMethod(handle, sortMethod, label2Mask=""):
     # type: (int, int, str_type) -> None
     """
-    ``xbmcplugin.addSortMethod(handle, sortMethod [,label2Mask])`` 
-
     Adds a sorting method for the media list. 
 
     :param handle: integer - handle the plugin was started with. 
@@ -276,8 +266,6 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
 def getSetting(handle, id):
     # type: (int, str) -> str
     """
-    ``xbmcplugin.getSetting(handle, id)`` 
-
     Returns the value of a setting as a string. 
 
     :param handle: integer - handle the plugin was started with. 
@@ -300,8 +288,6 @@ def getSetting(handle, id):
 def setSetting(handle, id, value):
     # type: (int, str_type, str_type) -> None
     """
-    ``xbmcplugin.setSetting(handle, id, value)`` 
-
     Sets a plugin setting for the current running plugin. 
 
     :param handle: integer - handle the plugin was started with. 
@@ -322,8 +308,6 @@ def setSetting(handle, id, value):
 def setContent(handle, content):
     # type: (int, str) -> None
     """
-    ``xbmcplugin.setContent(handle, content)`` 
-
     Sets the plugins content. 
 
     :param handle: integer - handle the plugin was started with. 
@@ -350,8 +334,6 @@ def setContent(handle, content):
 def setPluginCategory(handle, category):
     # type: (int, str_type) -> None
     """
-    ``xbmcplugin.setPluginCategory(handle, category)`` 
-
     Sets the plugins name for skins to display. 
 
     :param handle: integer - handle the plugin was started with. 
@@ -371,8 +353,6 @@ def setPluginCategory(handle, category):
 def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
     # type: (int, str, str, str, str) -> None
     """
-    ``xbmcplugin.setPluginFanart(handle, image, color1, color2, color3)`` 
-
     Sets the plugins fanart and color for skins to display. 
 
     :param handle: integer - handle the plugin was started with.
@@ -397,8 +377,6 @@ def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
 def setProperty(handle, key, value):
     # type: (int, str, str_type) -> None
     """
-    ``xbmcplugin.setProperty(handle, key, value)`` 
-
     Sets a container property for this plugin. 
 
     :param handle: integer - handle the plugin was started with. 

@@ -19,8 +19,6 @@ class Addon(object):
     Offers classes and functions that manipulate the add-on settings,
     information and localization.
 
-    ``xbmcaddon.Addon([id])``
-
     Creates a new AddOn class.
 
     :param id: [opt] string - id of the addon as specified in addon.xml
@@ -49,8 +47,6 @@ class Addon(object):
     def getLocalizedString(self, id):
         # type: (int) -> Text
         """
-        ``xbmcaddon.Addon([id]).getLocalizedString(id)`` 
-
         Returns an addon's localized 'unicode string'. 
 
         :param id: integer - id# for string you want to localize. 
@@ -71,8 +67,6 @@ class Addon(object):
     def getSetting(self, id):
         # type: (str) -> str
         """
-        ``xbmcaddon.Addon([id]).getSetting(id)`` 
-
         Returns the value of a setting as a unicode string. 
 
         :param id: string - id of the setting that the module needs to access. 
@@ -93,8 +87,6 @@ class Addon(object):
     def setSetting(self, id, value):
         # type: (str, str_type) -> None
         """
-        ``xbmcaddon.Addon([id]).setSetting(id, value)`` 
-
         Sets a script setting. 
 
         :param id: string - id of the setting that the module needs to access. 
@@ -115,8 +107,6 @@ class Addon(object):
     def openSettings(self):
         # type: () -> None
         """
-        ``xbmcaddon.Addon([id]).openSettings()`` 
-
         Opens this scripts settings dialog. 
 
         **Example:**
@@ -132,8 +122,6 @@ class Addon(object):
     def getAddonInfo(self, id):
         # type: (str) -> str
         """
-        ``xbmcaddon.Addon([id]).getAddonInfo(id)`` 
-
         Returns the value of an addon property as a string. 
 
         :param id: string - id of the property that the module needs to access.

@@ -47,8 +47,6 @@ class InfoTagMusic(object):
     """
     Kodi's music info tag class
 
-    ``InfoTagMusic()``
-
     To get music info tag data of currently played source.
 
     Info tag load is only be possible from present player class.
@@ -72,8 +70,6 @@ class InfoTagMusic(object):
     def getURL(self):
         # type: () -> str
         """
-        ``getURL()`` 
-
         Returns url of source as string from music info tag. 
 
         :return: [string] Url of source
@@ -83,8 +79,6 @@ class InfoTagMusic(object):
     def getTitle(self):
         # type: () -> str
         """
-        ``getTitle()`` 
-
         Returns the title from music as string on info tag. 
 
         :return: [string] Music title
@@ -94,8 +88,6 @@ class InfoTagMusic(object):
     def getArtist(self):
         # type: () -> str
         """
-        ``getArtist()`` 
-
         Returns the artist from music as string if present. 
 
         :return: [string] Music artist
@@ -105,8 +97,6 @@ class InfoTagMusic(object):
     def getAlbum(self):
         # type: () -> str
         """
-        ``getAlbum()`` 
-
         Returns the album from music tag as string if present. 
 
         :return: [string] Music album name
@@ -116,8 +106,6 @@ class InfoTagMusic(object):
     def getAlbumArtist(self):
         # type: () -> str
         """
-        ``getAlbumArtist()`` 
-
         Returns the album artist from music tag as string if present.
 
         :return: [string] Music album artist name
@@ -127,8 +115,6 @@ class InfoTagMusic(object):
     def getGenre(self):
         # type: () -> str
         """
-        ``getGenre()`` 
-
         Returns the genre name from music tag as string if present. 
 
         :return: [string] Genre name
@@ -138,8 +124,6 @@ class InfoTagMusic(object):
     def getDuration(self):
         # type: () -> int
         """
-        ``getDuration()`` 
-
         Returns the duration of music as integer from info tag. 
 
         :return: [integer] Duration
@@ -149,8 +133,6 @@ class InfoTagMusic(object):
     def getRating(self):
         # type: () -> int
         """
-        ``getRating()`` 
-
         Returns the scraped rating as integer. 
 
         :return: [integer] Rating
@@ -160,8 +142,6 @@ class InfoTagMusic(object):
     def getUserRating(self):
         # type: () -> int
         """
-        ``getUserRating()`` 
-
         Returns the user rating as integer (-1 if not existing) 
 
         :return: [integer] User rating
@@ -171,8 +151,6 @@ class InfoTagMusic(object):
     def getTrack(self):
         # type: () -> int
         """
-        ``getTrack()`` 
-
         Returns the track number (if present) from music info tag as integer. 
 
         :return: [integer] Track number
@@ -182,8 +160,6 @@ class InfoTagMusic(object):
     def getDisc(self):
         # type: () -> int
         """
-        ``getDisc()`` 
-
         Returns the disk number (if present) from music info tag as integer. 
 
         :return: [integer] Disc number
@@ -193,8 +169,6 @@ class InfoTagMusic(object):
     def getReleaseDate(self):
         # type: () -> str
         """
-        ``getReleaseDate()`` 
-
         Returns the release date as string from music info tag (if present). 
 
         :return: [string] Release date
@@ -204,8 +178,6 @@ class InfoTagMusic(object):
     def getListeners(self):
         # type: () -> int
         """
-        ``getListeners()`` 
-
         Returns the listeners as integer from music info tag. 
 
         :return: [integer] Listeners
@@ -215,8 +187,6 @@ class InfoTagMusic(object):
     def getPlayCount(self):
         # type: () -> int
         """
-        ``getPlayCount()`` 
-
         Returns the number of carried out playbacks. 
 
         :return: [integer] Playback count
@@ -226,8 +196,6 @@ class InfoTagMusic(object):
     def getLastPlayed(self):
         # type: () -> str
         """
-        ``getLastPlayed()`` 
-
         Returns last played time as string from music info tag. 
 
         :return: [string] Last played date / time on tag
@@ -237,8 +205,6 @@ class InfoTagMusic(object):
     def getComment(self):
         # type: () -> str
         """
-        ``getComment()`` 
-
         Returns comment as string from music info tag. 
 
         :return: [string] Comment on tag
@@ -248,8 +214,6 @@ class InfoTagMusic(object):
     def getLyrics(self):
         # type: () -> str
         """
-        ``getLyrics()`` 
-
         Returns a string from lyrics. 
 
         :return: [string] Lyrics on tag
@@ -260,8 +224,6 @@ class InfoTagMusic(object):
 class InfoTagRadioRDS(object):
     """
     Kodi's radio RDS info tag class
-
-    ``InfoTagRadioRDS()``
 
     To get radio RDS info tag data of currently played PVR radio channel source.
 
@@ -288,8 +250,6 @@ class InfoTagRadioRDS(object):
     def getTitle(self):
         # type: () -> str
         """
-        ``getTitle()`` 
-
         Title of the item on the air; i.e. song title. 
 
         :return: Title 
@@ -299,8 +259,6 @@ class InfoTagRadioRDS(object):
     def getBand(self):
         # type: () -> str
         """
-        ``getBand()`` 
-
         Band of the item on air. 
 
         :return: Band 
@@ -310,8 +268,6 @@ class InfoTagRadioRDS(object):
     def getArtist(self):
         # type: () -> str
         """
-        ``getArtist()`` 
-
         Artist of the item on air. 
 
         :return: Artist 
@@ -321,8 +277,6 @@ class InfoTagRadioRDS(object):
     def getComposer(self):
         # type: () -> str
         """
-        ``getComposer()`` 
-
         Get the Composer of the music. 
 
         :return: Composer 
@@ -332,8 +286,6 @@ class InfoTagRadioRDS(object):
     def getConductor(self):
         # type: () -> str
         """
-        ``getConductor()`` 
-
         Get the Conductor of the Band. 
 
         :return: Conductor 
@@ -343,8 +295,6 @@ class InfoTagRadioRDS(object):
     def getAlbum(self):
         # type: () -> str
         """
-        ``getAlbum()`` 
-
         Album of item on air. 
 
         :return: Album name 
@@ -354,8 +304,6 @@ class InfoTagRadioRDS(object):
     def getComment(self):
         # type: () -> str
         """
-        ``getComment()`` 
-
         Get Comment text from channel. 
 
         :return: Comment 
@@ -365,8 +313,6 @@ class InfoTagRadioRDS(object):
     def getAlbumTrackNumber(self):
         # type: () -> int
         """
-        ``getAlbumTrackNumber()`` 
-
         Get the album track number of currently sended music. 
 
         :return: Track Number 
@@ -376,8 +322,6 @@ class InfoTagRadioRDS(object):
     def getInfoNews(self):
         # type: () -> str
         """
-        ``getInfoNews()`` 
-
         Get News informations. 
 
         :return: News Information 
@@ -387,8 +331,6 @@ class InfoTagRadioRDS(object):
     def getInfoNewsLocal(self):
         # type: () -> str
         """
-        ``getInfoNewsLocal()`` 
-
         Get Local news informations. 
 
         :return: Local News Information 
@@ -398,8 +340,6 @@ class InfoTagRadioRDS(object):
     def getInfoSport(self):
         # type: () -> str
         """
-        ``getInfoSport()`` 
-
         Get Sport informations. 
 
         :return: Sport Information 
@@ -409,8 +349,6 @@ class InfoTagRadioRDS(object):
     def getInfoStock(self):
         # type: () -> str
         """
-        ``getInfoStock()`` 
-
         Get Stock informations. 
 
         :return: Stock Information 
@@ -420,8 +358,6 @@ class InfoTagRadioRDS(object):
     def getInfoWeather(self):
         # type: () -> str
         """
-        ``getInfoWeather()`` 
-
         Get Weather informations. 
 
         :return: Weather Information 
@@ -431,8 +367,6 @@ class InfoTagRadioRDS(object):
     def getInfoHoroscope(self):
         # type: () -> str
         """
-        ``getInfoHoroscope()`` 
-
         Get Horoscope informations. 
 
         :return: Horoscope Information 
@@ -442,8 +376,6 @@ class InfoTagRadioRDS(object):
     def getInfoCinema(self):
         # type: () -> str
         """
-        ``getInfoCinema()`` 
-
         Get Cinema informations. 
 
         :return: Cinema Information 
@@ -453,8 +385,6 @@ class InfoTagRadioRDS(object):
     def getInfoLottery(self):
         # type: () -> str
         """
-        ``getInfoLottery()`` 
-
         Get Lottery informations. 
 
         :return: Lottery Information 
@@ -464,8 +394,6 @@ class InfoTagRadioRDS(object):
     def getInfoOther(self):
         # type: () -> str
         """
-        ``getInfoOther()`` 
-
         Get other informations. 
 
         :return: Other Information 
@@ -475,8 +403,6 @@ class InfoTagRadioRDS(object):
     def getEditorialStaff(self):
         # type: () -> str
         """
-        ``getEditorialStaff()`` 
-
         Get Editorial Staff names. 
 
         :return: Editorial Staff 
@@ -486,8 +412,6 @@ class InfoTagRadioRDS(object):
     def getProgStation(self):
         # type: () -> str
         """
-        ``getProgStation()`` 
-
         Name describing station. 
 
         :return: Program Station 
@@ -497,8 +421,6 @@ class InfoTagRadioRDS(object):
     def getProgStyle(self):
         # type: () -> str
         """
-        ``getProgStyle()`` 
-
         The the radio channel style currently used. 
 
         :return: Program Style 
@@ -508,8 +430,6 @@ class InfoTagRadioRDS(object):
     def getProgHost(self):
         # type: () -> str
         """
-        ``getProgHost()`` 
-
         Host of current radio show. 
 
         :return: Program Host 
@@ -519,8 +439,6 @@ class InfoTagRadioRDS(object):
     def getProgWebsite(self):
         # type: () -> str
         """
-        ``getProgWebsite()`` 
-
         Link to URL (web page) for radio station homepage. 
 
         :return: Program Website 
@@ -530,8 +448,6 @@ class InfoTagRadioRDS(object):
     def getProgNow(self):
         # type: () -> str
         """
-        ``getProgNow()`` 
-
         Current radio program show. 
 
         :return: Program Now 
@@ -541,8 +457,6 @@ class InfoTagRadioRDS(object):
     def getProgNext(self):
         # type: () -> str
         """
-        ``getProgNext()`` 
-
         Next program show. 
 
         :return: Program Next 
@@ -552,8 +466,6 @@ class InfoTagRadioRDS(object):
     def getPhoneHotline(self):
         # type: () -> str
         """
-        ``getPhoneHotline()`` 
-
         Telephone number of the radio station's hotline. 
 
         :return: Phone Hotline 
@@ -563,8 +475,6 @@ class InfoTagRadioRDS(object):
     def getEMailHotline(self):
         # type: () -> str
         """
-        ``getEMailHotline()`` 
-
         Email address of the radio station's studio. 
 
         :return: EMail Hotline 
@@ -574,8 +484,6 @@ class InfoTagRadioRDS(object):
     def getPhoneStudio(self):
         # type: () -> str
         """
-        ``getPhoneStudio()`` 
-
         Telephone number of the radio station's studio. 
 
         :return: Phone Studio 
@@ -585,8 +493,6 @@ class InfoTagRadioRDS(object):
     def getEMailStudio(self):
         # type: () -> str
         """
-        ``getEMailStudio()`` 
-
         Email address of radio station studio. 
 
         :return: EMail Studio 
@@ -596,8 +502,6 @@ class InfoTagRadioRDS(object):
     def getSMSStudio(self):
         # type: () -> str
         """
-        ``getSMSStudio()`` 
-
         SMS (Text Messaging) number for studio. 
 
         :return: SMS Studio 
@@ -608,8 +512,6 @@ class InfoTagRadioRDS(object):
 class InfoTagVideo(object):
     """
     Kodi's video info tag class
-
-    ``InfoTagVideo()``
 
     To get video info tag data of currently played source.
 
@@ -634,8 +536,6 @@ class InfoTagVideo(object):
     def getDbId(self):
         # type: () -> int
         """
-        ``getDbId()`` 
-
         Get identification number of tag in database 
 
         :return: [integer] database id
@@ -647,8 +547,6 @@ class InfoTagVideo(object):
     def getDirector(self):
         # type: () -> str
         """
-        ``getDirector()`` 
-
         Get film director who has made the film (if present). 
 
         :return: [string] Film director name.
@@ -658,8 +556,6 @@ class InfoTagVideo(object):
     def getWritingCredits(self):
         # type: () -> str
         """
-        ``getWritingCredits()`` 
-
         Get the writing credits if present from video info tag. 
 
         :return: [string] Writing credits
@@ -669,8 +565,6 @@ class InfoTagVideo(object):
     def getGenre(self):
         # type: () -> str
         """
-        ``getGenre()`` 
-
         To get the Video Genre if available. 
 
         :return: [string] Genre name
@@ -680,8 +574,6 @@ class InfoTagVideo(object):
     def getTagLine(self):
         # type: () -> str
         """
-        ``getTagLine()`` 
-
         Get video tag line if available. 
 
         :return: [string] Video tag line
@@ -691,8 +583,6 @@ class InfoTagVideo(object):
     def getPlotOutline(self):
         # type: () -> str
         """
-        ``getPlotOutline()`` 
-
         Get the outline plot of the video if present. 
 
         :return: [string] Outline plot
@@ -702,8 +592,6 @@ class InfoTagVideo(object):
     def getPlot(self):
         # type: () -> str
         """
-        ``getPlot()`` 
-
         Get the plot of the video if present. 
 
         :return: [string] Plot
@@ -713,8 +601,6 @@ class InfoTagVideo(object):
     def getPictureURL(self):
         # type: () -> str
         """
-        ``getPictureURL()`` 
-
         Get a picture URL of the video to show as screenshot. 
 
         :return: [string] Picture URL
@@ -724,8 +610,6 @@ class InfoTagVideo(object):
     def getTitle(self):
         # type: () -> str
         """
-        ``getTitle()`` 
-
         Get the video title. 
 
         :return: [string] Video title
@@ -735,8 +619,6 @@ class InfoTagVideo(object):
     def getTVShowTitle(self):
         # type: () -> str
         """
-        ``getTVShowTitle()`` 
-
         Get the video TV show title. 
 
         :return: [string] TV show title
@@ -748,8 +630,6 @@ class InfoTagVideo(object):
     def getMediaType(self):
         # type: () -> str
         """
-        ``getMediaType()`` 
-
         Get the media type of the video. 
 
         :return: [string] media type
@@ -775,8 +655,6 @@ class InfoTagVideo(object):
     def getVotes(self):
         # type: () -> str
         """
-        ``getVotes()`` 
-
         Get the video votes if available from video info tag. 
 
         :return: [string] Votes
@@ -786,8 +664,6 @@ class InfoTagVideo(object):
     def getCast(self):
         # type: () -> str
         """
-        ``getCast()`` 
-
         To get the cast of the video when available. 
 
         :return: [string] Video casts
@@ -797,8 +673,6 @@ class InfoTagVideo(object):
     def getFile(self):
         # type: () -> str
         """
-        ``getFile()`` 
-
         To get the video file name. 
 
         :return: [string] File name
@@ -808,8 +682,6 @@ class InfoTagVideo(object):
     def getPath(self):
         # type: () -> str
         """
-        ``getPath()`` 
-
         To get the path where the video is stored. 
 
         :return: [string] Path
@@ -819,8 +691,6 @@ class InfoTagVideo(object):
     def getIMDBNumber(self):
         # type: () -> str
         """
-        ``getIMDBNumber()`` 
-
         To get the IMDb number of the video (if present). 
 
         :return: [string] IMDb number
@@ -830,8 +700,6 @@ class InfoTagVideo(object):
     def getSeason(self):
         # type: () -> int
         """
-        ``getSeason()`` 
-
         To get season number of a series 
 
         :return: [integer] season number
@@ -843,8 +711,6 @@ class InfoTagVideo(object):
     def getEpisode(self):
         # type: () -> int
         """
-        ``getEpisode()`` 
-
         To get episode number of a series 
 
         :return: [integer] episode number
@@ -856,8 +722,6 @@ class InfoTagVideo(object):
     def getYear(self):
         # type: () -> int
         """
-        ``getYear()`` 
-
         Get production year of video if present. 
 
         :return: [integer] Production Year
@@ -867,8 +731,6 @@ class InfoTagVideo(object):
     def getRating(self):
         # type: () -> float
         """
-        ``getRating()``
-
         Get the video rating if present as float (double where supported).
 
         :return: [float] The rating of the video
@@ -878,8 +740,6 @@ class InfoTagVideo(object):
     def getUserRating(self):
         # type: () -> int
         """
-        ``getUserRating()`` 
-
         Get the user rating if present as integer. 
 
         :return: [integer] The user rating of the video
@@ -889,8 +749,6 @@ class InfoTagVideo(object):
     def getPlayCount(self):
         # type: () -> int
         """
-        ``getPlayCount()`` 
-
         To get the number of plays of the video. 
 
         :return: [integer] Play Count
@@ -900,8 +758,6 @@ class InfoTagVideo(object):
     def getLastPlayed(self):
         # type: () -> str
         """
-        ``getLastPlayed()`` 
-
         Get the last played date / time as string. 
 
         :return: [string] Last played date / time
@@ -911,8 +767,6 @@ class InfoTagVideo(object):
     def getOriginalTitle(self):
         # type: () -> str
         """
-        ``getOriginalTitle()`` 
-
         To get the original title of the video. 
 
         :return: [string] Original title
@@ -922,8 +776,6 @@ class InfoTagVideo(object):
     def getPremiered(self):
         # type: () -> str
         """
-        ``getPremiered()`` 
-
         To get premiered date of the video, if available. 
 
         :return: [string]
@@ -933,8 +785,6 @@ class InfoTagVideo(object):
     def getFirstAired(self):
         # type: () -> str
         """
-        ``getFirstAired()`` 
-
         Returns first aired date as string from info tag. 
 
         :return: [string] First aired date
@@ -944,8 +794,6 @@ class InfoTagVideo(object):
     def getTrailer(self):
         # type: () -> str
         """
-        ``getTrailer()`` 
-
         To get the path where the trailer is stored. 
 
         :return: [string] Trailer path
@@ -958,8 +806,6 @@ class InfoTagVideo(object):
 class Keyboard(object):
     """
     Kodi's keyboard class
-
-    ``xbmc.Keyboard([default, heading, hidden])``
 
     Creates a new Keyboard object with default text heading and hidden input
     flag if supplied.
@@ -990,8 +836,6 @@ class Keyboard(object):
     def doModal(self, autoclose=0):
         # type: (int) -> None
         """
-        ``doModal([autoclose])`` 
-
         Show keyboard and wait for user action. 
 
         :param autoclose: [opt] integer - milliseconds to autoclose dialog.
@@ -1010,8 +854,6 @@ class Keyboard(object):
     def setDefault(self, line=""):
         # type: (str_type) -> None
         """
-        ``setDefault(line)`` 
-
         Set the default text entry. 
 
         :param line: string - default text entry.
@@ -1029,8 +871,6 @@ class Keyboard(object):
     def setHiddenInput(self, hidden=False):
         # type: (bool) -> None
         """
-        ``setHiddenInput(hidden)`` 
-
         Allows hidden text entry. 
 
         :param hidden: boolean - True for hidden text entry.
@@ -1048,8 +888,6 @@ class Keyboard(object):
     def setHeading(self, heading):
         # type: (str_type) -> None
         """
-        ``setHeading(heading)`` 
-
         Set the keyboard heading. 
 
         :param heading: string - keyboard heading.
@@ -1067,8 +905,6 @@ class Keyboard(object):
     def getText(self):
         # type: () -> str
         """
-        ``getText()`` 
-
         Returns the user input as a string. 
 
         This will always return the text entry even if you cancel the keyboard.
@@ -1089,8 +925,6 @@ class Keyboard(object):
     def isConfirmed(self):
         # type: () -> bool
         """
-        ``isConfirmed()`` 
-
         Returns False if the user cancelled the input. 
 
         :return: true if confirmed, if cancelled false 
@@ -1110,8 +944,6 @@ class Monitor(object):
     """
     Kodi's monitor class
 
-    ``xbmc.Monitor()``
-
     Creates a new monitor to notify addon about changes.
     """
     
@@ -1122,8 +954,6 @@ class Monitor(object):
     def onSettingsChanged(self):
         # type: () -> None
         """
-        ``onSettingsChanged()`` 
-
         onSettingsChanged method. 
 
         Will be called when addon settings are changed 
@@ -1133,8 +963,6 @@ class Monitor(object):
     def onScreensaverActivated(self):
         # type: () -> None
         """
-        ``onScreensaverActivated()`` 
-
         onScreensaverActivated method. 
 
         Will be called when screensaver kicks in 
@@ -1144,8 +972,6 @@ class Monitor(object):
     def onScreensaverDeactivated(self):
         # type: () -> None
         """
-        ``onScreensaverDeactivated()`` 
-
         onScreensaverDeactivated method. 
 
         Will be called when screensaver goes off 
@@ -1155,8 +981,6 @@ class Monitor(object):
     def onDPMSActivated(self):
         # type: () -> None
         """
-        ``onDPMSActivated()`` 
-
         onDPMSActivated method. 
 
         Will be called when energysaving/DPMS gets active 
@@ -1166,8 +990,6 @@ class Monitor(object):
     def onDPMSDeactivated(self):
         # type: () -> None
         """
-        ``onDPMSDeactivated()`` 
-
         onDPMSDeactivated method. 
 
         Will be called when energysaving/DPMS is turned off 
@@ -1177,8 +999,6 @@ class Monitor(object):
     def onScanStarted(self, library):
         # type: (str_type) -> None
         """
-        ``onScanStarted(library)`` 
-
         onScanStarted method. 
 
         :param library: Video / music as string
@@ -1193,8 +1013,6 @@ class Monitor(object):
     def onScanFinished(self, library):
         # type: (str_type) -> None
         """
-        ``onScanFinished(library)`` 
-
         onScanFinished method. 
 
         :param library: Video / music as string
@@ -1209,8 +1027,6 @@ class Monitor(object):
     def onDatabaseScanStarted(self, database):
         # type: (str_type) -> None
         """
-        ``onDatabaseScanStarted(database)`` 
-
         .. warning:: Deprecated. Use **onScanStarted()**.
         """
         pass
@@ -1218,8 +1034,6 @@ class Monitor(object):
     def onDatabaseUpdated(self, database):
         # type: (str_type) -> None
         """
-        ``onDatabaseUpdated(database)`` 
-
         .. warning:: Deprecated. Use **onScanFinished()**.
         """
         pass
@@ -1227,8 +1041,6 @@ class Monitor(object):
     def onCleanStarted(self, library):
         # type: (str_type) -> None
         """
-        ``onCleanStarted(library)`` 
-
         onCleanStarted method.
 
         :param library: Video / music as string
@@ -1243,8 +1055,6 @@ class Monitor(object):
     def onCleanFinished(self, library):
         # type: (str_type) -> None
         """
-        ``onCleanFinished(library)`` 
-
         onCleanFinished method. 
 
         :param library: Video / music as string
@@ -1259,8 +1069,6 @@ class Monitor(object):
     def onAbortRequested(self):
         # type: () -> None
         """
-        ``onAbortRequested()`` 
-
         .. warning::
             Deprecated. Use **waitForAbort()** to be notified about this event.
         """
@@ -1286,8 +1094,6 @@ class Monitor(object):
     def waitForAbort(self, timeout=-1):
         # type: (float) -> bool
         """
-        ``waitForAbort([timeout])`` 
-
         Wait for Abort 
 
         Block until abort is requested, or until timeout occurs. If an abort
@@ -1304,8 +1110,6 @@ class Monitor(object):
     def abortRequested(self):
         # type: () -> bool
         """
-        ``abortRequested()`` 
-
         Returns True if abort has been requested. 
 
         True if requested 
@@ -1318,8 +1122,6 @@ class Monitor(object):
 class Player(object):
     """
     Kodi's player
-
-    ``xbmc.Player()``
 
     To become and create the class to play something.
 
@@ -1339,8 +1141,6 @@ class Player(object):
     def play(self, item="", listitem=None, windowed=False, startpos=-1):
         # type: (Union[str_type, PlayList], Any, bool, int) -> None
         """
-        ``play([item, listitem, windowed, startpos])`` 
-
         Play a item.
 
         :param item: [opt] string - filename, url or playlist 
@@ -1372,8 +1172,6 @@ class Player(object):
     def stop(self):
         # type: () -> None
         """
-        ``stop()`` 
-
         Stop playing.
         """
         pass
@@ -1381,8 +1179,6 @@ class Player(object):
     def pause(self):
         # type: () -> None
         """
-        ``pause()`` 
-
         Pause or resume playing if already paused.
         """
         pass
@@ -1390,8 +1186,6 @@ class Player(object):
     def playnext(self):
         # type: () -> None
         """
-        ``playnext()`` 
-
         Play next item in playlist.
         """
         pass
@@ -1399,8 +1193,6 @@ class Player(object):
     def playprevious(self):
         # type: () -> None
         """
-        ``playprevious()`` 
-
         Play previous item in playlist.
         """
         pass
@@ -1408,8 +1200,6 @@ class Player(object):
     def playselected(self, selected):
         # type: (int) -> None
         """
-        ``playselected(selected)`` 
-
         Play a certain item from the current playlist. 
 
         :param selected: Integer - Item to select 
@@ -1419,8 +1209,6 @@ class Player(object):
     def isPlaying(self):
         # type: () -> bool
         """
-        ``isPlaying()`` 
-
         Check Kodi is playing something. 
 
         :return: True if Kodi is playing a file. 
@@ -1430,8 +1218,6 @@ class Player(object):
     def isPlayingAudio(self):
         # type: () -> bool
         """
-        ``isPlayingAudio()`` 
-
         Check for playing audio. 
 
         :return: True if Kodi is playing an audio file. 
@@ -1441,8 +1227,6 @@ class Player(object):
     def isPlayingVideo(self):
         # type: () -> bool
         """
-        ``isPlayingVideo()`` 
-
         Check for playing video. 
 
         :return: True if Kodi is playing a video. 
@@ -1452,8 +1236,6 @@ class Player(object):
     def isPlayingRDS(self):
         # type: () -> bool
         """
-        ``isPlayingRDS()`` 
-
         Check for playing radio data system (RDS). 
 
         :return: True if kodi is playing a radio data system (RDS). 
@@ -1463,8 +1245,6 @@ class Player(object):
     def getPlayingFile(self):
         # type: () -> str
         """
-        ``getPlayingFile()`` 
-
         Returns the current playing file as a string. 
 
         For LiveTV, returns a ``pvr://`` url which is not translatable
@@ -1478,8 +1258,6 @@ class Player(object):
     def getTime(self):
         # type: () -> float
         """
-        ``getTime()`` 
-
         Get playing time. 
 
         Returns the current time of the current playing media as fractional
@@ -1493,8 +1271,6 @@ class Player(object):
     def seekTime(self, seekTime):
         # type: (float) -> None
         """
-        ``seekTime(seekTime)`` 
-
         Seek time. 
 
         Seeks the specified amount of time as fractional seconds.
@@ -1509,8 +1285,6 @@ class Player(object):
     def setSubtitles(self, subtitleFile):
         # type: (str) -> None
         """
-        ``setSubtitles(subtitleFile)`` 
-
         Set subtitle file and enable subtitles. 
 
         :param subtitleFile: File to use as source ofsubtitles 
@@ -1520,8 +1294,6 @@ class Player(object):
     def showSubtitles(self, bVisible):
         # type: (bool) -> None
         """
-        ``showSubtitles(visible)`` 
-
         Enable / disable subtitles. 
 
         :param visible: [boolean] True for visible subtitles.
@@ -1539,8 +1311,6 @@ class Player(object):
     def getSubtitles(self):
         # type: () -> str
         """
-        ``getSubtitles()`` 
-
         Get subtitle stream name.
 
         :return: Stream name 
@@ -1550,8 +1320,6 @@ class Player(object):
     def getAvailableSubtitleStreams(self):
         # type: () -> List[str]
         """
-        ``getAvailableSubtitleStreams()`` 
-
         Get Subtitle stream names. 
 
         :return: List of subtitle streams as name 
@@ -1561,8 +1329,6 @@ class Player(object):
     def setSubtitleStream(self, iStream):
         # type: (int) -> None
         """
-        ``setSubtitleStream(stream)`` 
-
         Set Subtitle Stream. 
 
         :param iStream: [int] Subtitle stream to select for play
@@ -1580,8 +1346,6 @@ class Player(object):
     def getVideoInfoTag(self):
         # type: () -> InfoTagVideo
         """
-        ``getVideoInfoTag()`` 
-
         To get video info tag. 
 
         Returns the VideoInfoTag of the current playing Movie.
@@ -1595,8 +1359,6 @@ class Player(object):
     def getMusicInfoTag(self):
         # type: () -> InfoTagMusic
         """
-        ``getMusicInfoTag()`` 
-
         To get music info tag. 
 
         Returns the MusicInfoTag of the current playing 'Song'.
@@ -1610,8 +1372,6 @@ class Player(object):
     def getRadioRDSInfoTag(self):
         # type: () -> InfoTagRadioRDS
         """
-        ``getRadioRDSInfoTag()`` 
-
         To get Radio RDS info tag 
 
         Returns the RadioRDSInfoTag of the current playing Radio Song
@@ -1626,8 +1386,6 @@ class Player(object):
     def getTotalTime(self):
         # type: () -> float
         """
-        ``getTotalTime()`` 
-
         To get total playing time. 
 
         Returns the total time of the current playing media in seconds.
@@ -1641,8 +1399,6 @@ class Player(object):
     def getAvailableAudioStreams(self):
         # type: () -> List[str]
         """
-        ``getAvailableAudioStreams()`` 
-
         Get Audio stream names 
 
         :return: List of audio streams as name 
@@ -1652,8 +1408,6 @@ class Player(object):
     def setAudioStream(self, iStream):
         # type: (int) -> None
         """
-        ``setAudioStream(stream)`` 
-
         Set Audio Stream. 
 
         :param iStream: [int] Audio stream to select for play
@@ -1671,8 +1425,6 @@ class Player(object):
     def getAvailableVideoStreams(self):
         # type: () -> List[str]
         """
-        ``getAvailableVideoStreams()`` 
-
         Get Video stream names 
 
         :return: List of video streams as name 
@@ -1682,8 +1434,6 @@ class Player(object):
     def setVideoStream(self, iStream):
         # type: (int) -> None
         """
-        ``setVideoStream(stream)`` 
-
         Set Video Stream. 
 
         :param iStream: [int] Video stream to select for play
@@ -1702,8 +1452,6 @@ class Player(object):
 class PlayList(object):
     """
     Kodi's Play List class
-
-    ``xbmc.PlayList(playList)``
 
     To create and edit a playlist which can be handled by the player.
 
@@ -1732,8 +1480,6 @@ class PlayList(object):
     def getPlayListId(self):
         # f() -> int
         """
-        ``getPlayListId()`` 
-
         Get the PlayList Identifier 
 
         :return: Id as an integer. 
@@ -1743,8 +1489,6 @@ class PlayList(object):
     def add(self, url, listitem=None, index=-1):
         # type: (str_type, Any, int) -> None
         """
-        ``add(url[, listitem, index])`` 
-
         Adds a new file to the playlist. 
 
         :param url: string or unicode - filename or url to add. 
@@ -1774,8 +1518,6 @@ class PlayList(object):
     def load(self, filename):
         # type: (str) -> bool
         """
-        ``load(filename)`` 
-
         Load a playlist. 
 
         Clear current playlist and copy items from the file to this Playlist
@@ -1789,8 +1531,6 @@ class PlayList(object):
     def remove(self, filename):
         # type: (str) -> None
         """
-        ``remove(filename)`` 
-
         Remove an item with this filename from the playlist. 
 
         :param filename: The file to remove from list. 
@@ -1800,8 +1540,6 @@ class PlayList(object):
     def clear(self):
         # type: () -> None
         """
-        ``clear()`` 
-
         Clear all items in the playlist.
         """
         pass
@@ -1809,8 +1547,6 @@ class PlayList(object):
     def size(self):
         # type: () -> int
         """
-        ``size()`` 
-
         Returns the total number of PlayListItems in this playlist. 
 
         :return: Amount of playlist entries. 
@@ -1820,8 +1556,6 @@ class PlayList(object):
     def shuffle(self):
         # type: () -> None
         """
-        ``shuffle()`` 
-
         Shuffle the playlist.
         """
         pass
@@ -1829,8 +1563,6 @@ class PlayList(object):
     def unshuffle(self):
         # type: () -> None
         """
-        ``unshuffle()`` 
-
         Unshuffle the playlist
         """
         pass
@@ -1838,8 +1570,6 @@ class PlayList(object):
     def getposition(self):
         # type: () -> int
         """
-        ``getposition()`` 
-
         Returns the position of the current song in this playlist. 
 
         :return: Position of the current song 
@@ -1861,8 +1591,6 @@ class RenderCapture(object):
     def getWidth(self):
         # type: () -> int
         """
-        ``getWidth()`` 
-
         Get width 
 
         To get width of captured image as set during RenderCapture.capture().
@@ -1875,8 +1603,6 @@ class RenderCapture(object):
     def getHeight(self):
         # type: () -> int
         """
-        ``getHeight()`` 
-
         Get height 
 
         To get height of captured image as set during RenderCapture.capture().
@@ -1889,8 +1615,6 @@ class RenderCapture(object):
     def getAspectRatio(self):
         # type: () -> float
         """
-        ``getAspectRatio()`` 
-
         Get aspect ratio of currently displayed video. 
 
         :return: Aspect ratio 
@@ -1902,8 +1626,6 @@ class RenderCapture(object):
     def getImageFormat(self):
         # type: () -> str
         """
-        ``getImageFormat()`` 
-
         Get image format 
 
         Format of captured image: 'BGRA' 
@@ -1915,8 +1637,6 @@ class RenderCapture(object):
     def getImage(self, msecs=0):
         # type: (int) -> bytearray
         """
-        ``getImage([msecs])`` 
-
         Returns captured image as a bytearray. 
 
         :param msecs: [opt] Milliseconds to wait. Waits 1000ms if not specified 
@@ -1931,8 +1651,6 @@ class RenderCapture(object):
     def capture(self, width, height):
         # type: (int, int) -> None
         """
-        ``capture(width, height)`` 
-
         Issue capture request. 
 
         :param width: Width capture image should be rendered to height.
@@ -1946,8 +1664,6 @@ class RenderCapture(object):
 def log(msg, level=LOGDEBUG):
     # type: (str, int) -> None
     """
-    ``xbmc.log(msg[, level])`` 
-
     Write a string to Kodi's log file and the debug window. 
 
     :param msg: string - text to output. 
@@ -2001,8 +1717,6 @@ def log(msg, level=LOGDEBUG):
 def shutdown():
     # type: () -> None
     """
-    ``xbmc.Shutdown()`` 
-
     Shutdown the htpc. 
 
     **Example:**
@@ -2019,8 +1733,6 @@ def shutdown():
 def restart():
     # type: () -> None
     """
-    ``xbmc.restart()`` 
-
     Restart the htpc. 
 
     **Example:**
@@ -2037,8 +1749,6 @@ def restart():
 def executescript(script):
     # type: (str) -> None
     """
-    ``xbmc.executescript(script)`` 
-
     Execute a python script. 
 
     :param script: string - script filename to execute.
@@ -2057,8 +1767,6 @@ def executescript(script):
 def executebuiltin(function, wait=False):
     # type: (str, bool) -> None
     """
-    ``xbmc.executebuiltin(function)`` 
-
     Execute a built in Kodi function. 
 
     :param function: string - builtin function to execute.
@@ -2079,8 +1787,6 @@ def executebuiltin(function, wait=False):
 def executeJSONRPC(jsonrpccommand):
     # type: (str) -> str
     """
-    ``xbmc.executeJSONRPC(jsonrpccommand)`` 
-
     Execute an JSONRPC command. 
 
     :param jsonrpccommand: string - jsonrpc command to execute. 
@@ -2100,8 +1806,6 @@ def executeJSONRPC(jsonrpccommand):
 def sleep(timemillis):
     # type: (int_type) -> None
     """
-    ``xbmc.sleep(time)`` 
-
     Sleeps for 'time' msec. 
 
     :param time: integer - number of msec to sleep.
@@ -2124,8 +1828,6 @@ def sleep(timemillis):
 def getLocalizedString(id):
     # type: (int) -> Text
     """
-    ``xbmc.getLocalizedString(id)`` 
-
     Get a localized 'unicode string'. 
 
     :param id: integer - id# for string you want to localize. 
@@ -2148,8 +1850,6 @@ def getLocalizedString(id):
 def getSkinDir():
     # type: () -> str
     """
-    ``xbmc.getSkinDir()`` 
-
     Get the active skin directory. 
 
     :return: The active skin directory as a string
@@ -2171,8 +1871,6 @@ def getSkinDir():
 def getLanguage(format=ENGLISH_NAME, region=False):
     # type: (int, bool) -> str
     """
-    ``xbmc.getLanguage([format], [region])`` 
-
     Get the active language. 
 
     :param format: [opt] format of the returned language string
@@ -2206,8 +1904,6 @@ def getLanguage(format=ENGLISH_NAME, region=False):
 def getIPAddress():
     # type: () -> str
     """
-    ``xbmc.getIPAddress()`` 
-
     Get the current ip address. 
 
     :return: The current ip address as a string
@@ -2226,8 +1922,6 @@ def getIPAddress():
 def getDVDState():
     # type: () -> long
     """
-    ``xbmc.getDVDState()`` 
-
     Returns the dvd state as an integer. 
 
     :return: Values for state are:
@@ -2255,8 +1949,6 @@ def getDVDState():
 def getFreeMem():
     # type: () -> long
     """
-    ``xbmc.getFreeMem()`` 
-
     Get amount of free memory in MB. 
 
     :return: The amount of free memory in MB as an integer
@@ -2275,8 +1967,6 @@ def getFreeMem():
 def getInfoLabel(cLine):
     # type: (str) -> str
     """
-    ``xbmc.getInfoLabel(infotag)`` 
-
     Get a info label 
 
     :param infotag: string - infoTag for value you want returned. 
@@ -2298,8 +1988,6 @@ def getInfoLabel(cLine):
 def getInfoImage(infotag):
     # type: (str) -> str
     """
-    ``xbmc.getInfoImage(infotag)`` 
-
     Get filename including path to the InfoImage's thumbnail. 
 
     :param infotag: string - infotag for value you want returned 
@@ -2321,8 +2009,6 @@ def getInfoImage(infotag):
 def playSFX(filename, useCached=True):
     # type: (str, bool) -> None
     """
-    ``xbmc.playSFX(filename,[useCached])`` 
-
     Plays a wav file by filename 
 
     :param filename: string - filename of the wav file to play 
@@ -2346,8 +2032,6 @@ def playSFX(filename, useCached=True):
 def stopSFX():
     # type: () -> None
     """
-    ``xbmc.stopSFX()`` 
-
     Stops wav file 
 
       New function added.
@@ -2366,8 +2050,6 @@ def stopSFX():
 def enableNavSounds(yesNo):
     # type: (bool) -> None
     """
-    ``xbmc.enableNavSounds(yesNo)`` 
-
     Enables/Disables nav sounds 
 
     :param yesNo: integer - enable (True) or disable (False) nav sounds
@@ -2386,8 +2068,6 @@ def enableNavSounds(yesNo):
 def getCondVisibility(condition):
     # type: (str) -> bool
     """
-    ``xbmc.getCondVisibility(condition)`` 
-
     Get visibility conditions 
 
     :param condition: string - condition to check 
@@ -2413,8 +2093,6 @@ def getCondVisibility(condition):
 def getGlobalIdleTime():
     # type: () -> int
     """
-    ``xbmc.getGlobalIdleTime()`` 
-
     Get the elapsed idle time in seconds. 
 
     :return: Elapsed idle time in seconds as an integer
@@ -2433,8 +2111,6 @@ def getGlobalIdleTime():
 def getCacheThumbName(path):
     # type: (str_type) -> str
     """
-    ``xbmc.getCacheThumbName(path)`` 
-
     Get thumb cache filename. 
 
     :param path: string or unicode - path to file 
@@ -2454,8 +2130,6 @@ def getCacheThumbName(path):
 def makeLegalFilename(filename, fatX=True):
     # type: (str_type, bool) -> str
     """
-    ``xbmc.makeLegalFilename(filename[, fatX])`` 
-
     Returns a legal filename or path as a string. 
 
     :param filename: string or unicode - filename/path to make legal
@@ -2481,8 +2155,6 @@ def makeLegalFilename(filename, fatX=True):
 def translatePath(path):
     # type: (str_type) -> str
     """
-    ``xbmc.translatePath(path)`` 
-
     Returns the translated path. 
 
     :param path: string or unicode - Path to format 
@@ -2506,8 +2178,6 @@ def translatePath(path):
 def getCleanMovieTitle(path, usefoldername=False):
     # type: (str_type, bool) -> Tuple[str, str]
     """
-    ``xbmc.getCleanMovieTitle(path[, usefoldername])`` 
-
     Get clean movie title and year string if available. 
 
     :param path: string or unicode - String to clean 
@@ -2528,8 +2198,6 @@ def getCleanMovieTitle(path, usefoldername=False):
 def validatePath(path):
     # type: (str_type) -> str
     """
-    ``xbmc.validatePath(path)`` 
-
     Returns the validated path. 
 
     :param path: string or unicode - Path to format 
@@ -2552,8 +2220,6 @@ def validatePath(path):
 def getRegion(id):
     # type: (str) -> str
     """
-    ``xbmc.getRegion(id)`` 
-
     Returns your regions setting as a string for the specified id. 
 
     :param id: string - id of setting to return 
@@ -2576,8 +2242,6 @@ def getRegion(id):
 def getSupportedMedia(mediaType):
     # type: (str) -> str
     """
-    ``xbmc.getSupportedMedia(media)`` 
-
     Get the supported file types for the specific media. 
 
     :param media: string - media type 
@@ -2601,8 +2265,6 @@ def getSupportedMedia(mediaType):
 def skinHasImage(image):
     # type: (str) -> bool
     """
-    ``xbmc.skinHasImage(image)`` 
-
     Check skin for presence of Image. 
 
     :param image: string - image filename 
@@ -2626,8 +2288,6 @@ def skinHasImage(image):
 def startServer(iTyp, bStart, bWait=False):
     # type: (int, bool, bool) -> bool
     """
-    ``xbmc.startServer(typ, bStart, bWait)`` 
-
     Start or stop a server. 
 
     :param typ: integer - use SERVER_* constantsUsed format of the returned
@@ -2667,8 +2327,6 @@ def startServer(iTyp, bStart, bWait=False):
 def audioSuspend():
     # type: () -> None
     """
-    ``xbmc.audioSuspend()`` 
-
     Suspend Audio engine. 
 
     **Example:**
@@ -2685,8 +2343,6 @@ def audioSuspend():
 def audioResume():
     # type: () -> None
     """
-    ``xbmc.audioResume()`` 
-
     Resume Audio engine. 
 
     **Example:**
@@ -2703,8 +2359,6 @@ def audioResume():
 def getUserAgent():
     # type: () -> str
     """
-    ``xbmc.getUserAgent()`` 
-
     Returns Kodi's HTTP UserAgent string
 
     :return: HTTP user agent
@@ -2726,8 +2380,6 @@ def getUserAgent():
 def convertLanguage(language, format):
     # type: (str, int) -> str
     """
-    ``xbmc.convertLanguage(language, format)`` 
-
     Returns the given language converted to the given format as a string.
 
     :param language: string either as name in English, two letter code

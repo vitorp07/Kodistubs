@@ -338,8 +338,6 @@ class Control(object):
 
     Offers classes and functions that manipulate the add-on gui controls. 
 
-    ``Control()``
-
     **Code based skin access.**
 
     Kodi is noted as having a very flexible and robust framework for its GUI,
@@ -363,8 +361,6 @@ class Control(object):
     def getId(self):
         # type: () -> int
         """
-        ``getId()`` 
-
         Returns the control's current id as an integer. 
 
         :return: int - Current id
@@ -382,8 +378,6 @@ class Control(object):
     def getX(self):
         # type: () -> int
         """
-        ``getX()`` 
-
         Returns the control's current X position. 
 
         :return: int - Current X position
@@ -401,8 +395,6 @@ class Control(object):
     def getY(self):
         # type: () -> int
         """
-        ``getY()`` 
-
         Returns the control's current Y position. 
 
         :return: int - Current Y position
@@ -420,8 +412,6 @@ class Control(object):
     def getHeight(self):
         # type: () -> int
         """
-        ``getHeight()`` 
-
         Returns the control's current height as an integer. 
 
         :return: int - Current height
@@ -439,8 +429,6 @@ class Control(object):
     def getWidth(self):
         # type: () -> int
         """
-        ``getWidth()`` 
-
         Returns the control's current width as an integer. 
 
         :return: int - Current width
@@ -458,8 +446,6 @@ class Control(object):
     def setEnabled(self, enabled):
         # type: (bool) -> None
         """
-        ``setEnabled(enabled)`` 
-
         Set's the control's enabled/disabled state. 
 
         :param enabled: bool - True=enabled / False=disabled.
@@ -477,8 +463,6 @@ class Control(object):
     def setVisible(self, visible):
         # type: (bool) -> None
         """
-        ``setVisible(visible)`` 
-
         Set's the control's visible/hidden state. 
 
         :param visible: bool - True=visible / False=hidden.
@@ -496,8 +480,6 @@ class Control(object):
     def setVisibleCondition(self, visible, allowHiddenFocus=False):
         # type: (str, bool) -> None
         """
-        ``setVisibleCondition(visible[,allowHiddenFocus])`` 
-
         Set's the control's visible condition. 
 
         Allows Kodi to control the visible status of the control.
@@ -521,8 +503,6 @@ class Control(object):
     def setEnableCondition(self, enable):
         # type: (str) -> None
         """
-        ``setEnableCondition(enable)`` 
-
         Set's the control's enabled condition. 
 
         Allows Kodi to control the enabled status of the control.
@@ -545,8 +525,6 @@ class Control(object):
     def setAnimations(self, eventAttr):
         # type: (List[Tuple[str_type, str_type]]) -> None
         """
-        ``setAnimations([(event, attr,)*])`` 
-
         Set's the control's animations. 
 
         **[(event,attr,)*]**: list - A list of tuples consisting of event
@@ -571,8 +549,6 @@ class Control(object):
     def setPosition(self, x, y):
         # type: (int_type, int_type) -> None
         """
-        ``setPosition(x, y)`` 
-
         Set's the controls position. 
 
         :param x: integer - x coordinate of control. 
@@ -593,8 +569,6 @@ class Control(object):
     def setWidth(self, width):
         # type: (int_type) -> None
         """
-        ``setWidth(width)`` 
-
         Set's the controls width. 
 
         :param width: integer - width of control.
@@ -612,8 +586,6 @@ class Control(object):
     def setHeight(self, height):
         # type: (int_type) -> None
         """
-        ``setHeight(height)`` 
-
         Set's the controls height. 
 
         :param height: integer - height of control.
@@ -631,8 +603,6 @@ class Control(object):
     def setNavigation(self, up, down, left, right):
         # type: (Control, Control, Control, Control) -> None
         """
-        ``setNavigation(up, down, left, right)`` 
-
         Set's the controls navigation. 
 
         :param up: control object - control to navigate to on up. 
@@ -658,8 +628,6 @@ class Control(object):
     def controlUp(self, up):
         # type: (Control) -> None
         """
-        ``controlUp(control)`` 
-
         Set's the controls up navigation. 
 
         :param control: control object - control to navigate to on up. 
@@ -681,8 +649,6 @@ class Control(object):
     def controlDown(self, control):
         # type: (Control) -> None
         """
-        ``controlDown(control)`` 
-
         Set's the controls down navigation. 
 
         :param control: control object - control to navigate to on down. 
@@ -704,8 +670,6 @@ class Control(object):
     def controlLeft(self, control):
         # type: (Control) -> None
         """
-        ``controlLeft(control)`` 
-
         Set's the controls left navigation. 
 
         :param control: control object - control to navigate to on left. 
@@ -727,8 +691,6 @@ class Control(object):
     def controlRight(self, control):
         # type: (Control) -> None
         """
-        ``controlRight(control)`` 
-
         Set's the controls right navigation. 
 
         :param control: control object - control to navigate to on right. 
@@ -754,8 +716,6 @@ class ControlSpin(Control):
 
     Offers classes and functions that manipulate the add-on gui controls. 
 
-    ``ControlSpin()``
-
     **Code based skin access.**
 
     The spin control is used for when a list of options can be chosen
@@ -776,8 +736,6 @@ class ControlSpin(Control):
     def setTextures(self, up, down, upFocus, downFocus, upDisabled, downDisabled):
         # type: (str, str, str, str, str, str) -> None
         """
-        ``setTextures(up, down, upFocus, downFocus)`` 
-
         Set's textures for this control. 
 
         Texture are image files that are used for example in the skin
@@ -806,8 +764,6 @@ class ControlSpin(Control):
 class ControlLabel(Control):
     """
     Used to show some lines of text
-
-    ``ControlLabel(x, y, width, height, label[, font, textColor, disabledColor, alignment, hasPath, angle])``
 
     The label control is used for displaying text in Kodi. You can choose
     the font, size, colour, location and contents of the text to be displayed.
@@ -861,8 +817,6 @@ class ControlLabel(Control):
     def getLabel(self):
         # type: () -> str
         """
-        ``getLabel()`` 
-
         Returns the text value for this label. 
 
         :return: This label
@@ -881,8 +835,6 @@ class ControlLabel(Control):
                  shadowColor=None, focusedColor=None, label2=""):
         # type: (str_type, str, str, str, str, str, str_type) -> None
         """
-        ``setLabel(label[, font, textColor, disabledColor, shadowColor, focusedColor, label2])`` 
-
         Set's text for this label. 
 
         :param label: string or unicode - text string. 
@@ -911,8 +863,6 @@ class ControlLabel(Control):
 class ControlEdit(Control):
     """
     Used as an input control for the osd keyboard and other input fields
-
-    ``ControlEdit(x, y, width, height, label[, font, textColor, disabledColor, alignment, focusTexture, noFocusTexture])``
 
     The edit control allows a user to input text in Kodi. You can choose
     the font, size, colour, location and header of the text to be displayed.
@@ -971,8 +921,6 @@ class ControlEdit(Control):
                  shadowColor=None, focusedColor=None, label2=""):
         # type: (str_type, str, str, str, str, str, str_type) -> None
         """
-        ``setLabel(label[, font, textColor, disabledColor, shadowColor, focusedColor, label2])`` 
-
         Set's text heading for this edit control. 
 
         :param label: string or unicode - text string. 
@@ -1000,8 +948,6 @@ class ControlEdit(Control):
     def getLabel(self):
         # type: () -> str
         """
-        ``getLabel()`` 
-
         Returns the text heading for this edit control. 
 
         :return: Heading text
@@ -1019,8 +965,6 @@ class ControlEdit(Control):
     def setText(self, text):
         # type: (str_type) -> None
         """
-        ``setText(value)`` 
-
         Set's text value for this edit control. 
 
         :param value: string or unicode - text string.
@@ -1038,8 +982,6 @@ class ControlEdit(Control):
     def getText(self):
         # type: () -> str
         """
-        ``getText()`` 
-
         Returns the text value for this edit control. 
 
         :return: Text value of control
@@ -1060,8 +1002,6 @@ class ControlEdit(Control):
 class ControlList(Control):
     """
     Used for a scrolling lists of items. Replaces the list control
-
-    ``ControlList(x, y, width, height[, font, textColor, buttonTexture, buttonFocusTexture, selectedColor, imageWidth, imageHeight, itemTextXOffset, itemTextYOffset, itemHeight, space, alignmentY, shadowColor])``
 
     The list container is one of several containers used to display items from
     file lists in various ways. The list container is very flexible - it's only
@@ -1127,8 +1067,6 @@ class ControlList(Control):
     def addItem(self, item, sendMessage=True):
         # type: (Union[str_type, ListItem], bool) -> None
         """
-        ``addItem(item)`` 
-
         Add a new item to this list control. 
 
         :param item: string, unicode or ListItem - item to add.
@@ -1146,8 +1084,6 @@ class ControlList(Control):
     def addItems(self, items):
         # type: (List[Union[str_type, ListItem]]) -> None
         """
-        ``addItems(items)`` 
-
         Adds a list of listitems or strings to this list control. 
 
         :param items: List - list of strings, unicode objects or ListItems to add.
@@ -1169,8 +1105,6 @@ class ControlList(Control):
     def selectItem(self, item):
         # type: (int_type) -> None
         """
-        ``selectItem(item)`` 
-
         Select an item by index number. 
 
         :param item: integer - index number of the item to select.
@@ -1188,8 +1122,6 @@ class ControlList(Control):
     def removeItem(self, index):
         # type: (int) -> None
         """
-        ``removeItem(index)`` 
-
         Remove an item by index number. 
 
         :param index: integer - index number of the item to remove.
@@ -1209,8 +1141,6 @@ class ControlList(Control):
     def reset(self):
         # type: () -> None
         """
-        ``reset()`` 
-
         Clear all ListItems in this control list. 
 
         **Example:**
@@ -1226,8 +1156,6 @@ class ControlList(Control):
     def getSpinControl(self):
         # type: () -> Control
         """
-        ``getSpinControl()`` 
-
         Returns the associated ControlSpin object.
 
         .. warning::
@@ -1248,8 +1176,6 @@ class ControlList(Control):
     def getSelectedPosition(self):
         # type: () -> long
         """
-        ``getSelectedPosition()`` 
-
         Returns the position of the selected item as an integer.
 
         Returns -1 for empty lists.
@@ -1267,8 +1193,6 @@ class ControlList(Control):
     def getSelectedItem(self):
         # type: () -> ListItem
         """
-        ``getSelectedItem()`` 
-
         Returns the selected item as a ListItem object. 
 
         :return: The selected item
@@ -1290,8 +1214,6 @@ class ControlList(Control):
     def setImageDimensions(self, imageWidth, imageHeight):
         # type: (int_type, int_type) -> None
         """
-        ``setImageDimensions(imageWidth, imageHeight)`` 
-
         Sets the width/height of items icon or thumbnail. 
 
         :param imageWidth: [opt] integer - width of items icon or thumbnail. 
@@ -1310,8 +1232,6 @@ class ControlList(Control):
     def setSpace(self, space):
         # type: (int) -> None
         """
-        ``setSpace(space)`` 
-
         Set's the space between items. 
 
         :param space: [opt] integer - space between items.
@@ -1329,8 +1249,6 @@ class ControlList(Control):
     def setPageControlVisible(self, visible):
         # type: (bool) -> None
         """
-        ``setPageControlVisible(visible)`` 
-
         Sets the spin control's visible/hidden state. 
 
         :param visible: boolean - True=visible / False=hidden.
@@ -1348,8 +1266,6 @@ class ControlList(Control):
     def size(self):
         # type: () -> long
         """
-        ``size()`` 
-
         Returns the total number of items in this list control as an integer.
 
         :return: Total number of items
@@ -1367,8 +1283,6 @@ class ControlList(Control):
     def getItemHeight(self):
         # type: () -> long
         """
-        ``getItemHeight()`` 
-
         Returns the control's current item height as an integer. 
 
         :return: Current item heigh
@@ -1386,8 +1300,6 @@ class ControlList(Control):
     def getSpace(self):
         # type: () -> long
         """
-        ``getSpace()`` 
-
         Returns the control's space between items as an integer. 
 
         :return: Space between items
@@ -1405,8 +1317,6 @@ class ControlList(Control):
     def getListItem(self, index):
         # type: (int) -> ListItem
         """
-        ``getListItem(index)`` 
-
         Returns a given ListItem in this List. 
 
         :param index: integer - index number of item to return. 
@@ -1426,8 +1336,6 @@ class ControlList(Control):
     def setStaticContent(self, items):
         # type: (List[ListItem]) -> None
         """
-        ``setStaticContent(items)`` 
-
         Fills a static list with a list of listitems. 
 
         :param items: List - list of listitems to add.
@@ -1449,8 +1357,6 @@ class ControlFadeLabel(Control):
     """
     Used to show multiple pieces of text in the same position, by fading
     from one to the other
-
-    ``ControlFadeLabel(x, y, width, height[, font, textColor, alignment])``
 
     The fade label control is used for displaying multiple pieces of text in
     the same space in Kodi. You can choose the font, size, colour, location
@@ -1504,8 +1410,6 @@ class ControlFadeLabel(Control):
     def addLabel(self, label):
         # type: (str_type) -> None
         """
-        ``addLabel(label)`` 
-
         Add a label to this control for scrolling. 
 
         :param label: string or unicode - text string to add.
@@ -1525,8 +1429,6 @@ class ControlFadeLabel(Control):
     def setScrolling(self, scroll):
         # type: (bool) -> None
         """
-        ``setScrolling(scroll)`` 
-
         Set scrolling. If set to false, the labels won't scroll. Defaults to true. 
 
         :param scroll: boolean - True = enabled / False = disabled
@@ -1545,8 +1447,6 @@ class ControlFadeLabel(Control):
 class ControlTextBox(Control):
     """
     Used to show a multi-page piece of text
-
-    ``ControlTextBox(x, y, width, height[, font, textColor])``
 
     The text box is used for showing a large multipage piece of text in Kodi.
     You can choose the position, size, and look of the text.
@@ -1583,8 +1483,6 @@ class ControlTextBox(Control):
     def setText(self, text):
         # type: (str_type) -> None
         """
-        ``setText(text)`` 
-
         Set's the text for this textbox. 
 
         :param text: string or unicode - text string.
@@ -1603,8 +1501,6 @@ class ControlTextBox(Control):
     def getText(self):
         # type: () -> str
         """
-        ``getText()`` 
-
         Returns the text value for this textbox. 
 
         :return: To get text from box
@@ -1623,8 +1519,6 @@ class ControlTextBox(Control):
     def reset(self):
         # type: () -> None
         """
-        ``reset()`` 
-
         Clear's this textbox.
 
         **Example:**
@@ -1641,8 +1535,6 @@ class ControlTextBox(Control):
     def scroll(self, id):
         # type: (int_type) -> None
         """
-        ``scroll(id)`` 
-
         Scrolls to the given position. 
 
         :param id: integer - position to scroll to.
@@ -1661,8 +1553,6 @@ class ControlTextBox(Control):
     def autoScroll(self, delay, time, repeat):
         # type: (int, int, int) -> None
         """
-        ``autoScroll(delay, time, repeat)`` 
-
         Set autoscrolling times. 
 
         :param delay: integer - Scroll delay (in ms) 
@@ -1685,8 +1575,6 @@ class ControlTextBox(Control):
 class ControlImage(Control):
     """
     Used to show an image
-
-    ``ControlImage(x, y, width, height, filename[, aspectRatio, colorDiffuse])``
 
     The image control is used for displaying images in Kodi. You can choose
     the position, size, transparency and contents of the image to be displayed.
@@ -1724,8 +1612,6 @@ class ControlImage(Control):
     def setImage(self, imageFilename, useCache=True):
         # type: (str, bool) -> None
         """
-        ``setImage(filename[, useCache])`` 
-
         Changes the image. 
 
         :param filename: string - image filename. 
@@ -1749,8 +1635,6 @@ class ControlImage(Control):
     def setColorDiffuse(self, hexString):
         # type: (str) -> None
         """
-        ``setColorDiffuse(colorDiffuse)`` 
-
         Changes the images color. 
 
         :param colorDiffuse: hexString - (example, '0xC0FF0000' (red tint))
@@ -1770,8 +1654,6 @@ class ControlImage(Control):
 class ControlProgress(Control):
     """
     Used to show the progress of a particular operation
-
-    ``ControlProgress(x, y, width, height, filename[, texturebg, textureleft, texturemid, textureright, textureoverlay])``
 
     The progress control is used to show the progress of an item that may take
     a long time, or to show how far through a movie you are. You can choose
@@ -1822,8 +1704,6 @@ class ControlProgress(Control):
     def setPercent(self, pct):
         # type: (float) -> None
         """
-        ``setPercent(percent)`` 
-
         Sets the percentage of the progressbar to show. 
 
         :param percent: float - percentage of the bar to show.
@@ -1844,8 +1724,6 @@ class ControlProgress(Control):
     def getPercent(self):
         # type: () -> float
         """
-        ``getPercent()`` 
-
         Returns a float of the percent of the progress. 
 
         :return: Percent position
@@ -1865,8 +1743,6 @@ class ControlProgress(Control):
 class ControlButton(Control):
     """
     A standard push button control
-
-    ``ControlButton(x, y, width, height, label[, focusTexture, noFocusTexture, textOffsetX, textOffsetY, alignment, font, textColor, disabledColor, angle, shadowColor, focusedColor])``
 
     The button control is used for creating push buttons in Kodi. You can
     choose the position, size, and look of the button, as well as choosing
@@ -1936,8 +1812,6 @@ class ControlButton(Control):
                  shadowColor=None, focusedColor=None, label2=""):
         # type: (str_type, str, str, str, str, str, str_type) -> None
         """
-        ``setLabel([label, font, textColor, disabledColor, shadowColor, focusedColor, label2])`` 
-
         Set's this buttons text attributes. 
 
         :param label: [opt] string or unicode - text string. 
@@ -1970,8 +1844,6 @@ class ControlButton(Control):
     def setDisabledColor(self, color):
         # type: (str) -> None
         """
-        ``setDisabledColor(disabledColor)`` 
-
         Set's this buttons disabled color.
 
         :param disabledColor: hexstring - color of disabled button's label.
@@ -1991,8 +1863,6 @@ class ControlButton(Control):
     def getLabel(self):
         # type: () -> Text
         """
-        ``getLabel()`` 
-
         Returns the buttons label as a unicode string. 
 
         :return: Unicode string
@@ -2011,8 +1881,6 @@ class ControlButton(Control):
     def getLabel2(self):
         # type: () -> Text
         """
-        ``getLabel2()`` 
-
         Returns the buttons label2 as a unicode string. 
 
         :return: Unicode string of label 2
@@ -2032,8 +1900,6 @@ class ControlButton(Control):
 class ControlGroup(Control):
     """
     Used to group controls together
-
-    ``ControlGroup(x, y, width, height)``
 
     The group control is one of the most important controls.
     It allows you to group controls together, applying attributes
@@ -2070,8 +1936,6 @@ class ControlGroup(Control):
 class ControlRadioButton(Control):
     """
     For control a radio button (as used for on/off settings)
-
-    ``ControlRadioButton(x, y, width, height, label[, focusOnTexture, noFocusOnTexture, focusOffTexture, noFocusOffTexture, focusTexture, noFocusTexture, textOffsetX, textOffsetY, alignment, font, textColor, disabledColor])``
 
     The radio button control is used for creating push button on/off settings
     in Kodi. You can choose the position, size, and look of the button.
@@ -2146,8 +2010,6 @@ class ControlRadioButton(Control):
     def setSelected(self, selected):
         # type: (bool) -> None
         """
-        ``setSelected(selected)`` 
-
         Sets the radio buttons's selected status
 
         :param selected: bool - True=selected (on) / False=not selected (off)
@@ -2169,8 +2031,6 @@ class ControlRadioButton(Control):
     def isSelected(self):
         # type: () -> bool
         """
-        ``isSelected()`` 
-
         Returns the radio buttons's selected status. 
 
         :return: True if selected on
@@ -2189,8 +2049,6 @@ class ControlRadioButton(Control):
                  shadowColor=None, focusedColor=None, label2=""):
         # type: (str_type, str, str, str, str, str, str_type) -> None
         """
-        ``setLabel(label[, font, textColor, disabledColor, shadowColor, focusedColor])`` 
-
         Set's the radio buttons text attributes. 
 
         :param label: string or unicode - text string. 
@@ -2222,8 +2080,6 @@ class ControlRadioButton(Control):
     def setRadioDimension(self, x, y, width, height):
         # type: (int_type, int_type, int_type, int_type) -> None
         """
-        ``setRadioDimension(x, y, width, height)`` 
-
         Sets the radio buttons's radio texture's position and size. 
 
         :param x: integer - x coordinate of radio texture. 
@@ -2249,8 +2105,6 @@ class ControlRadioButton(Control):
 class ControlSlider(Control):
     """
     Used for a volume slider
-
-    ``ControlSlider(x, y, width, height[, textureback, texture, texturefocus, orientation])``
 
     The slider control is used for things where a sliding bar best represents
     the operation at hand (such as a volume control or seek control).
@@ -2292,8 +2146,6 @@ class ControlSlider(Control):
     def getPercent(self):
         # type: () -> float
         """
-        ``getPercent()`` 
-
         Returns a float of the percent of the slider. 
 
         :return: float - Percent of slider
@@ -2311,8 +2163,6 @@ class ControlSlider(Control):
     def setPercent(self, pct):
         # type: (float) -> None
         """
-        ``setPercent(pct)`` 
-
         Sets the percent of the slider. 
 
         :param pct: float - Percent value of slider
@@ -2345,8 +2195,6 @@ class Dialog(object):
               autoclose=0):
         # type: (str_type, str_type, str_type, str_type, str_type, str_type, int) -> bool
         """
-        ``xbmcgui.Dialog().yesno(heading, line1[, line2, line3, nolabel, yeslabel, autoclose])`` 
-
         Yes / no dialog
 
         The Yes / No dialog can be used to inform the user about questions
@@ -2381,8 +2229,6 @@ class Dialog(object):
     def info(self, item):
         # type: (ListItem) -> bool
         """
-        ``xbmcgui.Dialog().info(listitem)`` 
-
         Info dialog
 
         Show the corresponding info dialog for a given listitem
@@ -2406,8 +2252,6 @@ class Dialog(object):
     def select(self, heading, list, autoclose=0, preselect=-1, useDetails=False):
         # type: (str_type, List[Union[str_type, ListItem]], int, int, bool) -> int
         """
-        ``xbmcgui.Dialog().select(heading, list[, autoclose, preselect, useDetails])`` 
-
         Select dialog
 
         Show of a dialog to select of an entry as a key
@@ -2440,8 +2284,6 @@ class Dialog(object):
     def contextmenu(self, list):
         # type: (List[str_type]) -> int
         """
-        ``xbmcgui.Dialog().contextmenu(list)`` 
-
         Show a context menu.
 
         :param list: string list - list of items. 
@@ -2465,8 +2307,6 @@ class Dialog(object):
                     useDetails=False):
         # type: (str_type, List[Union[str_type, ListItem]], int, List[int], bool) -> List[int]
         """
-        ``xbmcgui.Dialog().multiselect(heading, options[, autoclose, preselect, useDetails])`` 
-
         Show a multi-select dialog.
 
         :param heading: string or unicode - dialog heading. 
@@ -2496,8 +2336,6 @@ class Dialog(object):
     def ok(self, heading, line1, line2="", line3=""):
         # type: (str_type, str_type, str_type, str_type) -> bool
         """
-        ``xbmcgui.Dialog().ok(heading, line1[, line2, line3])`` 
-
         OK dialog
 
         The functions permit the call of a dialog of information, a confirmation
@@ -2526,8 +2364,6 @@ class Dialog(object):
     def textviewer(self, heading, text):
         # type: (str_type, str_type) -> None
         """
-        ``xbmcgui.Dialog().textviewer(heading, text)`` 
-
         **TextViewe dialog**
 
         The text viewer dialog can be used to display descriptions,
@@ -2553,8 +2389,6 @@ class Dialog(object):
                treatAsFolder=False, defaultt="", enableMultiple=False):
         # type: (int, str_type, str_type, str_type, bool, bool, str_type, bool) -> Union[str, List[str]]
         """
-        ``xbmcgui.Dialog().browse(type, heading, shares[, mask, useThumbs, treatAsFolder, defaultt, enableMultiple])`` 
-
         Browser dialog
 
         The function offer the possibility to select a file by the user of the add-on.
@@ -2604,8 +2438,6 @@ class Dialog(object):
                      treatAsFolder=False, defaultt=""):
         # type: (int, str_type, str_type, str_type, bool, bool, str_type) -> str
         """
-        ``xbmcgui.Dialog().browseSingle(type, heading, shares[, mask, useThumbs, treatAsFolder, defaultt])`` 
-
         Browse single dialog
 
         The function offer the possibility to select a file by the user of the add-on.
@@ -2652,8 +2484,6 @@ class Dialog(object):
                        treatAsFolder=False, defaultt=""):
         # type: (int, str_type, str_type, str_type, bool, bool, str_type) -> List[str]
         """
-        ``xbmcgui.Dialog().browseMultiple(type, heading, shares[, mask, useThumbs, treatAsFolder, defaultt])`` 
-
         Browser dialog
 
         The function offer the possibility to select multiple files by the user
@@ -2698,8 +2528,6 @@ class Dialog(object):
     def numeric(self, type, heading, defaultt=""):
         # type: (int, str_type, str_type) -> str
         """
-        ``xbmcgui.Dialog().numeric(type, heading[, defaultt])`` 
-
         **Numeric dialog**
 
         The function have to be permitted by the user for the representation
@@ -2735,8 +2563,6 @@ class Dialog(object):
     def notification(self, heading, message, icon="", time=0, sound=True):
         # type: (str_type, str_type, str_type, int, bool) -> None
         """
-        ``xbmcgui.Dialog().notification(heading, message[, icon, time, sound])`` 
-
         Show a Notification alert.
 
         :param heading: string - dialog heading. 
@@ -2768,8 +2594,6 @@ class Dialog(object):
     def input(self, heading, defaultt="", type=0, option=0, autoclose=0):
         # type: (str_type, str_type, int, int, int) -> str
         """
-        ``xbmcgui.Dialog().input(heading[, defaultt, type, option, autoclose])`` 
-
         Show an Input dialog.
 
         :param heading: string - dialog heading. 
@@ -2824,8 +2648,6 @@ class DialogProgress(object):
     def create(self, heading, line1="", line2="", line3=""):
         # type: (str_type, str_type, str_type, str_type) -> None
         """
-        ``xbmcgui.DialogProgress().create(heading[, line1, line2, line3])`` 
-
         Create and show a progress dialog.
 
         :param heading: string or unicode - dialog heading. 
@@ -2852,8 +2674,6 @@ class DialogProgress(object):
     def update(self, percent, line1="", line2="", line3=""):
         # type: (int, str_type, str_type, str_type) -> None
         """
-        ``xbmcgui.DialogProgress().update(percent[, line1, line2, line3])`` 
-
         Updates the progress dialog.
 
         :param percent: integer - percent complete. (0:100) 
@@ -2877,8 +2697,6 @@ class DialogProgress(object):
     def close(self):
         # type: () -> None
         """
-        ``xbmcgui.DialogProgress().close()`` 
-
         Close the progress dialog.
 
         **Example:**
@@ -2894,8 +2712,6 @@ class DialogProgress(object):
     def iscanceled(self):
         # type: () -> bool
         """
-        ``xbmcgui.DialogProgress().iscanceled()`` 
-
         Checks progress is canceled.
 
         :return: True if the user pressed cancel.
@@ -2925,8 +2741,6 @@ class DialogBusy(object):
     def create(self):
         # type: () -> None
         """
-        ``xbmcgui.DialogBusy().create()`` 
-
         Create and show a busy dialog.
 
         Use update() to update the progressbar.
@@ -2947,8 +2761,6 @@ class DialogBusy(object):
     def update(self, percent):
         # f(int) -> None
         """
-        ``xbmcgui.DialogBusy().update(percent)`` 
-
         Updates the busy dialog.
 
         :param percent: integer - percent complete. (-1:100)
@@ -2962,8 +2774,6 @@ class DialogBusy(object):
     def close(self):
         # type: () -> None
         """
-        ``xbmcgui.DialogBusy().close()`` 
-
         Close the progress dialog.
 
         New method added
@@ -2973,8 +2783,6 @@ class DialogBusy(object):
     def iscanceled(self):
         # f() -> bool
         """
-        ``xbmcgui.DialogBusy().iscanceled()`` 
-
         Checks if busy dialog is canceled.
 
         :return: True if the user pressed cancel.
@@ -2996,8 +2804,6 @@ class DialogProgressBG(object):
     def create(self, heading, message=""):
         # type: (str_type, str_type) -> None
         """
-        ``xbmcgui.DialogProgressBG().create(heading[, message])`` 
-
         Create and show a background progress dialog.
 
         :param heading: string or unicode - dialog heading. 
@@ -3020,8 +2826,6 @@ class DialogProgressBG(object):
     def update(self, percent=0, heading="", message=""):
         # type: (int, str_type, str_type) -> None
         """
-        ``xbmcgui.DialogProgressBG().update([percent, heading, message])`` 
-
         Updates the background progress dialog.
 
         :param percent: [opt] integer - percent complete. (0:100) 
@@ -3043,8 +2847,6 @@ class DialogProgressBG(object):
     def close(self):
         # type: () -> None
         """
-        ``xbmcgui.DialogProgressBG().close()`` 
-
         Close the background progress dialog
 
         **Example:**
@@ -3060,8 +2862,6 @@ class DialogProgressBG(object):
     def isFinished(self):
         # type: () -> bool
         """
-        ``xbmcgui.DialogProgressBG().isFinished()`` 
-
         Checks progress is finished
 
         :return: True if the background dialog is active.
@@ -3082,8 +2882,6 @@ class ListItem(object):
     Selectable window list item
 
     The list item control is used for creating item lists in Kodi
-
-    ``ListItem([label, label2, iconImage, thumbnailImage, path])``
 
     :param label: [opt] string 
     :param label2: [opt] string 
@@ -3110,8 +2908,6 @@ class ListItem(object):
     def getLabel(self):
         # type: () -> str
         """
-        ``getLabel()`` 
-
         Returns the listitem label. 
 
         :return: Label of item
@@ -3130,8 +2926,6 @@ class ListItem(object):
     def getLabel2(self):
         # type: () -> str
         """
-        ``getLabel2()`` 
-
         Returns the second listitem label. 
 
         :return: Second label of item
@@ -3150,8 +2944,6 @@ class ListItem(object):
     def setLabel(self, label):
         # type: (str_type) -> None
         """
-        ``setLabel(label)`` 
-
         Sets the listitem's label. 
 
         :param label: string or unicode - text string.
@@ -3170,8 +2962,6 @@ class ListItem(object):
     def setLabel2(self, label):
         # type: (str_type) -> None
         """
-        ``setLabel2(label)`` 
-
         Sets the listitem's label2. 
 
         :param label: string or unicode - text string.
@@ -3190,8 +2980,6 @@ class ListItem(object):
     def setIconImage(self, iconImage):
         # type: (str_type) -> None
         """
-        ``setIconImage(iconImage)`` 
-
         Deprecated. Use **setArt()**. 
 
 
@@ -3201,8 +2989,6 @@ class ListItem(object):
     def setThumbnailImage(self, thumbFilename):
         # type: (str_type) -> None
         """
-        ``setThumbnailImage(thumbFilename)`` 
-
         .. warning:: Deprecated. Use **setArt()**.
         """
         pass
@@ -3210,8 +2996,6 @@ class ListItem(object):
     def setArt(self, dictionary):
         # type: (Dict[str, str_type]) -> None
         """
-        ``setArt(values)`` 
-
         Sets the listitem's art 
 
         :param values: dictionary - pairs of  ``label: value``.
@@ -3246,8 +3030,6 @@ class ListItem(object):
     def setUniqueIDs(self, dictionary):
         # type: (Dict[str, str_type]) -> None
         """
-        ``setUniqueIDs(values)`` 
-
         Sets the listitem's uniqueID 
 
         :param values: dictionary - pairs of  ``label: value``.
@@ -3276,8 +3058,6 @@ class ListItem(object):
     def setRating(self, type, rating, votes=0, defaultt=False):
         # type: (str_type, float, int, bool) -> None
         """
-        ``setRating(type, rating, votes = 0, defaultt = False)`` 
-
         Sets a listitem's rating. It needs at least type and rating param 
 
         :param type: string - the type of the rating. Any string. 
@@ -3309,8 +3089,6 @@ class ListItem(object):
     def getArt(self, key):
         # type: (str) -> str
         """
-        ``getArt(key)`` 
-
         Returns a listitem art path as a string, similar to an infolabel.
 
         :param key: string - art name.Some default art values (any string possible):
@@ -3344,8 +3122,6 @@ class ListItem(object):
     def getUniqueID(self, key):
         # type: (str) -> str
         """
-        ``getUniqueID(key)`` 
-
         Returns a listitem uniqueID as a string, similar to an infolabel.
 
         :param key: string - uniqueID name.Some default uniqueID values
@@ -3373,8 +3149,6 @@ class ListItem(object):
     def getRating(self, key):
         # type: (str) -> float
         """
-        ``getRating(key)`` 
-
         Returns a listitem rating as a float.
 
         :param key: string - rating type.Some default key values
@@ -3402,8 +3176,6 @@ class ListItem(object):
     def getVotes(self, key):
         # type: (str) -> int
         """
-        ``getVotes(key)`` 
-
         Returns a listitem votes as a integer.
 
         :param key: string - rating type.Some default key values
@@ -3431,8 +3203,6 @@ class ListItem(object):
     def select(self, selected):
         # type: (bool) -> None
         """
-        ``select(selected)`` 
-
         Sets the listitem's selected status. 
 
         :param selected: bool - True=selected/False=not selected
@@ -3451,8 +3221,6 @@ class ListItem(object):
     def isSelected(self):
         # type: () -> bool
         """
-        ``isSelected()`` 
-
         Returns the listitem's selected status. 
 
         :return: bool - true if selected, otherwise false
@@ -3471,8 +3239,6 @@ class ListItem(object):
     def setInfo(self, type, infoLabels):
         # type: (str, Dict[str, str_type]) -> None
         """
-        ``setInfo(type, infoLabels)`` 
-
         Sets the listitem's infoLabels. 
 
         :param type: string - type of 
@@ -3618,8 +3384,6 @@ class ListItem(object):
     def setCast(self, actors):
         # type: (List[Dict[str, str_type]]) -> None
         """
-        ``setCast(actors)`` 
-
         Set cast including thumbnails
 
         :param actors: list of dictionaries (see below for relevant keys)
@@ -3652,8 +3416,6 @@ class ListItem(object):
     def addStreamInfo(self, cType, dictionary):
         # type: (str, Dict[str, str_type]) -> None
         """
-        ``addStreamInfo(type, values)`` 
-
         Add a stream with details.
 
         :param type: string - type of stream(video/audio/subtitle). 
@@ -3702,8 +3464,6 @@ class ListItem(object):
     def addContextMenuItems(self, items, replaceItems=False):
         # type: (List[Tuple[str_type, str_type]], bool) -> None
         """
-        ``addContextMenuItems([(label, action,)*], replaceItems)`` 
-
         Adds item(s) to the context menu for media lists. 
 
         :param items: list - [(label, action,)*] A list of tuples consisting
@@ -3736,8 +3496,6 @@ class ListItem(object):
     def setProperty(self, key, value):
         # type: (str, str_type) -> None
         """
-        ``setProperty(key, value)`` 
-
         Sets a listitem property, similar to an infolabel. 
 
         :param key: string - property name. 
@@ -3765,8 +3523,6 @@ class ListItem(object):
     def getProperty(self, key):
         # type: (str) -> str
         """
-        ``getProperty(key)`` 
-
         Returns a listitem property as a string, similar to an infolabel. 
 
         :param key: string - property name.
@@ -3788,8 +3544,6 @@ class ListItem(object):
     def setPath(self, path):
         # type: (str_type) -> None
         """
-        ``setPath(path)`` 
-
         Sets the listitem's path. 
 
         :param path: string or unicode - path, activated when item is clicked.
@@ -3809,8 +3563,6 @@ class ListItem(object):
     def setMimeType(self, mimetype):
         # type: (str_type) -> None
         """
-        ``setMimeType(mimetype)`` 
-
         Sets the listitem's mimetype if known. 
 
         :param mimetype: string or unicode - mimetype
@@ -3823,8 +3575,6 @@ class ListItem(object):
     def setContentLookup(self, enable):
         # type: (bool) -> None
         """
-        ``setContentLookup(enable)`` 
-
         Enable or disable content lookup for item. 
 
         If disabled, HEAD requests to e.g determine mime type will not be sent.
@@ -3838,8 +3588,6 @@ class ListItem(object):
     def setSubtitles(self, subtitleFiles):
         # type: (List[str_type]) -> None
         """
-        ``setSubtitles(subtitleFiles)`` 
-
         Sets subtitles for this listitem. 
 
         :param subtitleFiles: list with path to subtitle files
@@ -3858,8 +3606,6 @@ class ListItem(object):
     def getdescription(self):
         # type: () -> str
         """
-        ``getdescription()`` 
-
         .. warning:: Deprecated.
         """
         return ""
@@ -3867,8 +3613,6 @@ class ListItem(object):
     def getduration(self):
         # type: () -> str
         """
-        ``getduration()`` 
-
         .. warning:: Deprecated. Use **InfoTagMusic**.
         """
         return ""
@@ -3876,8 +3620,6 @@ class ListItem(object):
     def getfilename(self):
         # type: () -> str
         """
-        ``getfilename()`` 
-
         .. warning:: Deprecated.
         """
         return ""
@@ -3885,8 +3627,6 @@ class ListItem(object):
     def getPath(self):
         # type: () -> str
         """
-        ``getPath()`` 
-
         Returns the path of this listitem. 
 
         [string] filename 
@@ -3898,8 +3638,6 @@ class ListItem(object):
     def getVideoInfoTag(self):
         # type: () -> InfoTagVideo
         """
-        ``getVideoInfoTag()`` 
-
         Returns the VideoInfoTag for this item. 
 
         video info tag 
@@ -3911,8 +3649,6 @@ class ListItem(object):
     def getMusicInfoTag(self):
         # type: () -> InfoTagMusic
         """
-        ``getMusicInfoTag()`` 
-
         Returns the MusicInfoTag for this item. 
 
         music info tag 
@@ -3942,8 +3678,6 @@ class Action(object):
     def getId(self):
         # type: () -> long
         """
-        ``getId()`` 
-
         To get kodi_key_action_ids 
 
         This function returns the identification code used by the explained order,
@@ -3966,8 +3700,6 @@ class Action(object):
     def getButtonCode(self):
         # type: () -> long
         """
-        ``getButtonCode()`` 
-
         Returns the button code for this action. 
 
         :return: [integer] button code 
@@ -3977,8 +3709,6 @@ class Action(object):
     def getAmount1(self):
         # type: () -> float
         """
-        ``getAmount1()`` 
-
         Returns the first amount of force applied to the thumbstick. 
 
         :return: [float] first amount 
@@ -3988,8 +3718,6 @@ class Action(object):
     def getAmount2(self):
         # type: () -> float
         """
-        ``getAmount2()`` 
-
         Returns the second amount of force applied to the thumbstick. 
 
         :return: [float] second amount 
@@ -4038,8 +3766,6 @@ class Window(object):
     def show(self):
         # type: () -> None
         """
-        ``show()`` 
-
         Show this window. 
 
         Shows this window by activating it, calling close() after it wil
@@ -4053,8 +3779,6 @@ class Window(object):
     def setFocus(self, pControl):
         # type: (Control) -> None
         """
-        ``setFocus(Control)`` 
-
         Give the supplied control focus. 
 
         :param Control: Control class to focus 
@@ -4067,8 +3791,6 @@ class Window(object):
     def setFocusId(self, iControlId):
         # type: (int) -> None
         """
-        ``setFocusId(ControlId)`` 
-
         Gives the control with the supplied focus. 
 
         :param ControlId: [integer] On skin defined id of control 
@@ -4080,8 +3802,6 @@ class Window(object):
     def getFocus(self):
         # type: () -> Control
         """
-        ``getFocus(Control)`` 
-
         Returns the control which is focused. 
 
         :return: Focused control class
@@ -4093,8 +3813,6 @@ class Window(object):
     def getFocusId(self):
         # type: () -> long
         """
-        ``getFocusId(int)`` 
-
         Returns the id of the control which is focused. 
 
         :return: Focused control id
@@ -4106,8 +3824,6 @@ class Window(object):
     def removeControl(self, pControl):
         # type: (Control) -> None
         """
-        ``removeControl(Control)`` 
-
         Removes the control from this window. 
 
         :param Control: Control class to remove 
@@ -4121,8 +3837,6 @@ class Window(object):
     def removeControls(self, pControls):
         # type: (List[Control]) -> None
         """
-        ``removeControls(List)`` 
-
         Removes a list of controls from this window. 
 
         :param List: List with controls to remove 
@@ -4136,8 +3850,6 @@ class Window(object):
     def getHeight(self):
         # type: () -> long
         """
-        ``getHeight()`` 
-
         Returns the height of this screen. 
 
         :return: Screen height 
@@ -4147,8 +3859,6 @@ class Window(object):
     def getWidth(self):
         # type: () -> long
         """
-        ``getWidth()`` 
-
         Returns the width of this screen. 
 
         :return: Screen width 
@@ -4158,8 +3868,6 @@ class Window(object):
     def getResolution(self):
         # type: () -> long
         """
-        ``getResolution()`` 
-
         Returns The resolution of the screen 
 
         :return: Used Resolution The returned value is one of the following:
@@ -4184,8 +3892,6 @@ class Window(object):
     def setCoordinateResolution(self, res):
         # type: (int_type) -> None
         """
-        ``setCoordinateResolution(int resolution)`` 
-
         Sets the resolution 
 
         That the coordinates of all controls are defined in. Allows Kodi
@@ -4223,8 +3929,6 @@ class Window(object):
     def setProperty(self, key, value):
         # type: (str, str_type) -> None
         """
-        ``setProperty(key, value)`` 
-
         Sets a window property, similar to an infolabel. 
 
         :param key: string - property name. 
@@ -4249,8 +3953,6 @@ class Window(object):
     def getProperty(self, key):
         # type: (str) -> str
         """
-        ``getProperty(key)`` 
-
         Returns a window property as a string, similar to an infolabel. 
 
         :param key: string - property name.
@@ -4273,8 +3975,6 @@ class Window(object):
     def clearProperty(self, key):
         # type: (str) -> None
         """
-        ``clearProperty(key)`` 
-
         Clears the specific window property. 
 
         :param key: string - property name.
@@ -4297,8 +3997,6 @@ class Window(object):
     def clearProperties(self):
         # type: () -> None
         """
-        ``clearProperties()`` 
-
         Clears all window properties. 
 
         **Example:**
@@ -4315,8 +4013,6 @@ class Window(object):
     def close(self):
         # type: () -> None
         """
-        ``close()`` 
-
         Closes this window. 
 
         Closes this window by activating the old window.
@@ -4328,8 +4024,6 @@ class Window(object):
     def doModal(self):
         # type: () -> None
         """
-        ``doModal()`` 
-
         Display this window until close() is called.
         """
         pass
@@ -4337,8 +4031,6 @@ class Window(object):
     def addControl(self, pControl):
         # type: (Control) -> None
         """
-        ``addControl(Control)`` 
-
         Add a Control to this window. 
 
         :param Control: Control to add 
@@ -4376,8 +4068,6 @@ class Window(object):
     def addControls(self, pControls):
         # type: (List[Control]) -> None
         """
-        ``addControls(List)`` 
-
         Add a list of Controls to this window. 
 
         :param List: List with controls to add 
@@ -4391,8 +4081,6 @@ class Window(object):
     def getControl(self, iControlId):
         # type: (int) -> Control
         """
-        ``getControl(controlId)`` 
-
         Gets the control from this window. 
 
         :param controlId: Control id to get 
@@ -4441,8 +4129,6 @@ class WindowDialog(Window):
 class WindowXML(Window):
     """
     GUI xml window class
-
-    ``xbmcgui.WindowXML(xmlFilename, scriptPath[, defaultSkin, defaultRes])``
 
     Creates a new xml file based window class.
 
@@ -4499,8 +4185,6 @@ class WindowXML(Window):
     def addItem(self, item, position=INT_MAX):
         # type: (Union[str_type, ListItem], int) -> None
         """
-        ``addItem(item[, position])`` 
-
         Add a new item to this WindowList. 
 
         :param item: string, unicode or ListItem - item to add. 
@@ -4523,8 +4207,6 @@ class WindowXML(Window):
     def addItems(self, items):
         # type: (List[Union[str_type, ListItem]]) -> None
         """
-        ``addItems(items)`` 
-
         Add a list of items to to the window list. 
 
         :param items: List - list of strings, unicode objects or ListItems to add.
@@ -4542,8 +4224,6 @@ class WindowXML(Window):
     def removeItem(self, position):
         # type: (int) -> None
         """
-        ``removeItem(position)`` 
-
         Removes a specified item based on position, from the WindowList. 
 
         :param position: integer - position of item to remove.
@@ -4561,8 +4241,6 @@ class WindowXML(Window):
     def getCurrentListPosition(self):
         # type: () -> int
         """
-        ``getCurrentListPosition()`` 
-
         Gets the current position in the WindowList.
 
         **Example:**
@@ -4578,8 +4256,6 @@ class WindowXML(Window):
     def setCurrentListPosition(self, position):
         # type: (int) -> None
         """
-        ``setCurrentListPosition(position)`` 
-
         Set the current position in the WindowList. 
 
         :param position: integer - position of item to set.
@@ -4597,8 +4273,6 @@ class WindowXML(Window):
     def getListItem(self, position):
         # type: (int) -> ListItem
         """
-        ``getListItem(position)`` 
-
         Returns a given ListItem in this WindowList. 
 
         :param position: integer - position of item to return.
@@ -4616,8 +4290,6 @@ class WindowXML(Window):
     def getListSize(self):
         # type: () -> int
         """
-        ``getListSize()`` 
-
         Returns the number of items in this WindowList.
 
         **Example:**
@@ -4633,8 +4305,6 @@ class WindowXML(Window):
     def clearList(self):
         # type: () -> None
         """
-        ``clearList()`` 
-
         Clear the WindowList. 
 
         **Example:**
@@ -4650,8 +4320,6 @@ class WindowXML(Window):
     def setContainerProperty(self, strProperty, strValue):
         # type: (str_type, str_type) -> None
         """
-        ``setContainerProperty(key, value)`` 
-
         Sets a container property, similar to an infolabel. 
 
         :param key: string - property name. 
@@ -4676,8 +4344,6 @@ class WindowXML(Window):
     def getCurrentContainerId(self):
         # type: () -> int
         """
-        ``getCurrentContainerId()`` 
-
         Get the id of the currently visible container. 
 
         Added new function.
@@ -4696,8 +4362,6 @@ class WindowXML(Window):
 class WindowXMLDialog(WindowXML):
     """
     GUI xml window dialog
-
-    ``xbmcgui.WindowXMLDialog(xmlFilename, scriptPath[, defaultSkin, defaultRes])``
 
     Creates a new xml file based window dialog class.
 
@@ -4750,8 +4414,6 @@ class WindowXMLDialog(WindowXML):
 def getCurrentWindowId():
     # type: () -> long
     """
-    ``xbmcgui.getCurrentWindowId()`` 
-
     Returns the id for the current 'active' window as an integer. 
 
     :return: The currently active window Id
@@ -4770,8 +4432,6 @@ def getCurrentWindowId():
 def getCurrentWindowDialogId():
     # type: () -> long
     """
-    ``xbmcgui.getCurrentWindowDialogId()`` 
-
     Returns the id for the current 'active' dialog as an integer. 
 
     :return: The currently active dialog Id
