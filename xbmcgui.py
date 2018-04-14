@@ -15,7 +15,6 @@ from xbmc import InfoTagVideo, InfoTagMusic
 __kodistubs__ = True
 
 int_type = Union[int, long]
-str_type = Union[str, unicode]
 
 INT_MAX = sys.maxint
 ACTION_ANALOG_FORWARD = 113
@@ -523,7 +522,7 @@ class Control(object):
         pass
     
     def setAnimations(self, eventAttr):
-        # type: (List[Tuple[str_type, str_type]]) -> None
+        # type: (List[Tuple[basestring, basestring]]) -> None
         """
         Set's the control's animations. 
 
@@ -811,7 +810,7 @@ class ControlLabel(Control):
     
     def __init__(self, x, y, width, height, label, font=None, textColor=None,
                  disabledColor=None, alignment=0, hasPath=False, angle=0):
-        # type: (int_type, int_type, int_type, int_type, str_type, str, str, str, int_type, bool, int_type) -> None
+        # type: (int_type, int_type, int_type, int_type, basestring, str, str, str, int_type, bool, int_type) -> None
         pass
     
     def getLabel(self):
@@ -833,7 +832,7 @@ class ControlLabel(Control):
     
     def setLabel(self, label="", font=None, textColor=None, disabledColor=None,
                  shadowColor=None, focusedColor=None, label2=""):
-        # type: (str_type, str, str, str, str, str, str_type) -> None
+        # type: (basestring, str, str, str, str, str, basestring) -> None
         """
         Set's text for this label. 
 
@@ -914,12 +913,12 @@ class ControlEdit(Control):
     def __init__(self, x, y, width, height, label, font=None, textColor=None,
                  disabledColor=None, _alignment=0, focusTexture=None,
                  noFocusTexture=None, isPassword=False):
-        # type: (int_type, int_type, int_type, int_type, str_type, str, str, str, int_type, str, str, bool) -> None
+        # type: (int_type, int_type, int_type, int_type, basestring, str, str, str, int_type, str, str, bool) -> None
         pass
     
     def setLabel(self, label="", font=None, textColor=None, disabledColor=None,
                  shadowColor=None, focusedColor=None, label2=""):
-        # type: (str_type, str, str, str, str, str, str_type) -> None
+        # type: (basestring, str, str, str, str, str, basestring) -> None
         """
         Set's text heading for this edit control. 
 
@@ -963,7 +962,7 @@ class ControlEdit(Control):
         return ""
     
     def setText(self, text):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Set's text value for this edit control. 
 
@@ -1065,7 +1064,7 @@ class ControlList(Control):
         pass
     
     def addItem(self, item, sendMessage=True):
-        # type: (Union[str_type, ListItem], bool) -> None
+        # type: (Union[basestring, ListItem], bool) -> None
         """
         Add a new item to this list control. 
 
@@ -1082,7 +1081,7 @@ class ControlList(Control):
         pass
     
     def addItems(self, items):
-        # type: (List[Union[str_type, ListItem]]) -> None
+        # type: (List[Union[basestring, ListItem]]) -> None
         """
         Adds a list of listitems or strings to this list control. 
 
@@ -1408,7 +1407,7 @@ class ControlFadeLabel(Control):
         pass
     
     def addLabel(self, label):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Add a label to this control for scrolling. 
 
@@ -1481,7 +1480,7 @@ class ControlTextBox(Control):
         pass
     
     def setText(self, text):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Set's the text for this textbox. 
 
@@ -1805,12 +1804,12 @@ class ControlButton(Control):
                  alignment=(0 | 4), font=None, textColor=None,
                  disabledColor=None, angle=0, shadowColor=None,
                  focusedColor=None):
-        # type: (int_type, int_type, int_type, int_type, str_type, str, str, int_type, int_type, int_type, str, str, str, int_type, str, str) -> None
+        # type: (int_type, int_type, int_type, int_type, basestring, str, str, int_type, int_type, int_type, str, str, str, int_type, str, str) -> None
         pass
     
     def setLabel(self, label="", font=None, textColor=None, disabledColor=None,
                  shadowColor=None, focusedColor=None, label2=""):
-        # type: (str_type, str, str, str, str, str, str_type) -> None
+        # type: (basestring, str, str, str, str, str, basestring) -> None
         """
         Set's this buttons text attributes. 
 
@@ -2004,7 +2003,7 @@ class ControlRadioButton(Control):
                  textColor=None, disabledColor=None, angle=0, shadowColor=None,
                  focusedColor=None, disabledOnTexture=None,
                  disabledOffTexture=None):
-        # type: (int_type, int_type, int_type, int_type, str_type, str, str, str, str, str, str, int_type, int_type, int_type, str, str, str, int_type, str, str, str, str) -> None
+        # type: (int_type, int_type, int_type, int_type, basestring, str, str, str, str, str, str, int_type, int_type, int_type, str, str, str, int_type, str, str, str, str) -> None
         pass
     
     def setSelected(self, selected):
@@ -2047,7 +2046,7 @@ class ControlRadioButton(Control):
     
     def setLabel(self, label="", font=None, textColor=None, disabledColor=None,
                  shadowColor=None, focusedColor=None, label2=""):
-        # type: (str_type, str, str, str, str, str, str_type) -> None
+        # type: (basestring, str, str, str, str, str, basestring) -> None
         """
         Set's the radio buttons text attributes. 
 
@@ -2193,7 +2192,7 @@ class Dialog(object):
     
     def yesno(self, heading, line1, line2="", line3="", nolabel="", yeslabel="",
               autoclose=0):
-        # type: (str_type, str_type, str_type, str_type, str_type, str_type, int) -> bool
+        # type: (basestring, basestring, basestring, basestring, basestring, basestring, int) -> bool
         """
         Yes / no dialog
 
@@ -2250,7 +2249,7 @@ class Dialog(object):
         return True
     
     def select(self, heading, list, autoclose=0, preselect=-1, useDetails=False):
-        # type: (str_type, List[Union[str_type, ListItem]], int, int, bool) -> int
+        # type: (basestring, List[Union[basestring, ListItem]], int, int, bool) -> int
         """
         Select dialog
 
@@ -2282,7 +2281,7 @@ class Dialog(object):
         return 0
     
     def contextmenu(self, list):
-        # type: (List[str_type]) -> int
+        # type: (List[basestring]) -> int
         """
         Show a context menu.
 
@@ -2305,7 +2304,7 @@ class Dialog(object):
     
     def multiselect(self, heading, options, autoclose=0, preselect=None,
                     useDetails=False):
-        # type: (str_type, List[Union[str_type, ListItem]], int, List[int], bool) -> List[int]
+        # type: (basestring, List[Union[basestring, ListItem]], int, List[int], bool) -> List[int]
         """
         Show a multi-select dialog.
 
@@ -2334,7 +2333,7 @@ class Dialog(object):
         return [0]
     
     def ok(self, heading, line1, line2="", line3=""):
-        # type: (str_type, str_type, str_type, str_type) -> bool
+        # type: (basestring, basestring, basestring, basestring) -> bool
         """
         OK dialog
 
@@ -2362,7 +2361,7 @@ class Dialog(object):
         return True
     
     def textviewer(self, heading, text):
-        # type: (str_type, str_type) -> None
+        # type: (basestring, basestring) -> None
         """
         **TextViewe dialog**
 
@@ -2387,7 +2386,7 @@ class Dialog(object):
     
     def browse(self, type, heading, shares, mask="", useThumbs=False,
                treatAsFolder=False, defaultt="", enableMultiple=False):
-        # type: (int, str_type, str_type, str_type, bool, bool, str_type, bool) -> Union[str, List[str]]
+        # type: (int, basestring, basestring, basestring, bool, bool, basestring, bool) -> Union[str, List[str]]
         """
         Browser dialog
 
@@ -2436,7 +2435,7 @@ class Dialog(object):
     
     def browseSingle(self, type, heading, shares, mask="", useThumbs=False,
                      treatAsFolder=False, defaultt=""):
-        # type: (int, str_type, str_type, str_type, bool, bool, str_type) -> str
+        # type: (int, basestring, basestring, basestring, bool, bool, basestring) -> str
         """
         Browse single dialog
 
@@ -2482,7 +2481,7 @@ class Dialog(object):
     
     def browseMultiple(self, type, heading, shares, mask="", useThumbs=False,
                        treatAsFolder=False, defaultt=""):
-        # type: (int, str_type, str_type, str_type, bool, bool, str_type) -> List[str]
+        # type: (int, basestring, basestring, basestring, bool, bool, basestring) -> List[str]
         """
         Browser dialog
 
@@ -2526,7 +2525,7 @@ class Dialog(object):
         return [""]
     
     def numeric(self, type, heading, defaultt=""):
-        # type: (int, str_type, str_type) -> str
+        # type: (int, basestring, basestring) -> str
         """
         **Numeric dialog**
 
@@ -2561,7 +2560,7 @@ class Dialog(object):
         return ""
     
     def notification(self, heading, message, icon="", time=0, sound=True):
-        # type: (str_type, str_type, str_type, int, bool) -> None
+        # type: (basestring, basestring, basestring, int, bool) -> None
         """
         Show a Notification alert.
 
@@ -2592,7 +2591,7 @@ class Dialog(object):
         pass
     
     def input(self, heading, defaultt="", type=0, option=0, autoclose=0):
-        # type: (str_type, str_type, int, int, int) -> str
+        # type: (basestring, basestring, int, int, int) -> str
         """
         Show an Input dialog.
 
@@ -2646,7 +2645,7 @@ class DialogProgress(object):
         pass
     
     def create(self, heading, line1="", line2="", line3=""):
-        # type: (str_type, str_type, str_type, str_type) -> None
+        # type: (basestring, basestring, basestring, basestring) -> None
         """
         Create and show a progress dialog.
 
@@ -2672,7 +2671,7 @@ class DialogProgress(object):
         pass
     
     def update(self, percent, line1="", line2="", line3=""):
-        # type: (int, str_type, str_type, str_type) -> None
+        # type: (int, basestring, basestring, basestring) -> None
         """
         Updates the progress dialog.
 
@@ -2802,7 +2801,7 @@ class DialogProgressBG(object):
         pass
     
     def create(self, heading, message=""):
-        # type: (str_type, str_type) -> None
+        # type: (basestring, basestring) -> None
         """
         Create and show a background progress dialog.
 
@@ -2824,7 +2823,7 @@ class DialogProgressBG(object):
         pass
     
     def update(self, percent=0, heading="", message=""):
-        # type: (int, str_type, str_type) -> None
+        # type: (int, basestring, basestring) -> None
         """
         Updates the background progress dialog.
 
@@ -2902,7 +2901,7 @@ class ListItem(object):
     """
     
     def __init__(self, label="", label2="", iconImage="", thumbnailImage="", path=""):
-        # type: (str_type, str_type, str_type, str_type, str_type) -> None
+        # type: (basestring, basestring, basestring, basestring, basestring) -> None
         pass
     
     def getLabel(self):
@@ -2942,7 +2941,7 @@ class ListItem(object):
         return ""
     
     def setLabel(self, label):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Sets the listitem's label. 
 
@@ -2960,7 +2959,7 @@ class ListItem(object):
         pass
     
     def setLabel2(self, label):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Sets the listitem's label2. 
 
@@ -2978,7 +2977,7 @@ class ListItem(object):
         pass
     
     def setIconImage(self, iconImage):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Deprecated. Use **setArt()**. 
 
@@ -2987,14 +2986,14 @@ class ListItem(object):
         pass
     
     def setThumbnailImage(self, thumbFilename):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         .. warning:: Deprecated. Use **setArt()**.
         """
         pass
     
     def setArt(self, dictionary):
-        # type: (Dict[str, str_type]) -> None
+        # type: (Dict[str, basestring]) -> None
         """
         Sets the listitem's art 
 
@@ -3028,7 +3027,7 @@ class ListItem(object):
         pass
     
     def setUniqueIDs(self, dictionary):
-        # type: (Dict[str, str_type]) -> None
+        # type: (Dict[str, basestring]) -> None
         """
         Sets the listitem's uniqueID 
 
@@ -3056,7 +3055,7 @@ class ListItem(object):
         pass
     
     def setRating(self, type, rating, votes=0, defaultt=False):
-        # type: (str_type, float, int, bool) -> None
+        # type: (basestring, float, int, bool) -> None
         """
         Sets a listitem's rating. It needs at least type and rating param 
 
@@ -3237,7 +3236,7 @@ class ListItem(object):
         return True
     
     def setInfo(self, type, infoLabels):
-        # type: (str, Dict[str, str_type]) -> None
+        # type: (str, Dict[str, basestring]) -> None
         """
         Sets the listitem's infoLabels. 
 
@@ -3382,7 +3381,7 @@ class ListItem(object):
         pass
     
     def setCast(self, actors):
-        # type: (List[Dict[str, str_type]]) -> None
+        # type: (List[Dict[str, basestring]]) -> None
         """
         Set cast including thumbnails
 
@@ -3414,7 +3413,7 @@ class ListItem(object):
         pass
     
     def addStreamInfo(self, cType, dictionary):
-        # type: (str, Dict[str, str_type]) -> None
+        # type: (str, Dict[str, basestring]) -> None
         """
         Add a stream with details.
 
@@ -3462,7 +3461,7 @@ class ListItem(object):
         pass
     
     def addContextMenuItems(self, items, replaceItems=False):
-        # type: (List[Tuple[str_type, str_type]], bool) -> None
+        # type: (List[Tuple[basestring, basestring]], bool) -> None
         """
         Adds item(s) to the context menu for media lists. 
 
@@ -3494,7 +3493,7 @@ class ListItem(object):
         pass
     
     def setProperty(self, key, value):
-        # type: (str, str_type) -> None
+        # type: (str, basestring) -> None
         """
         Sets a listitem property, similar to an infolabel. 
 
@@ -3542,7 +3541,7 @@ class ListItem(object):
         return ""
     
     def setPath(self, path):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Sets the listitem's path. 
 
@@ -3561,7 +3560,7 @@ class ListItem(object):
         pass
     
     def setMimeType(self, mimetype):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Sets the listitem's mimetype if known. 
 
@@ -3586,7 +3585,7 @@ class ListItem(object):
         pass
     
     def setSubtitles(self, subtitleFiles):
-        # type: (List[str_type]) -> None
+        # type: (List[basestring]) -> None
         """
         Sets subtitles for this listitem. 
 
@@ -3927,7 +3926,7 @@ class Window(object):
         pass
     
     def setProperty(self, key, value):
-        # type: (str, str_type) -> None
+        # type: (str, basestring) -> None
         """
         Sets a window property, similar to an infolabel. 
 
@@ -4179,11 +4178,11 @@ class WindowXML(Window):
     
     def __init__(self, xmlFilename, scriptPath, defaultSkin="Default",
                  defaultRes="720p"):
-        # type: (str_type, str_type, str_type, str_type) -> None
+        # type: (basestring, basestring, basestring, basestring) -> None
         pass
     
     def addItem(self, item, position=INT_MAX):
-        # type: (Union[str_type, ListItem], int) -> None
+        # type: (Union[basestring, ListItem], int) -> None
         """
         Add a new item to this WindowList. 
 
@@ -4205,7 +4204,7 @@ class WindowXML(Window):
         pass
     
     def addItems(self, items):
-        # type: (List[Union[str_type, ListItem]]) -> None
+        # type: (List[Union[basestring, ListItem]]) -> None
         """
         Add a list of items to to the window list. 
 
@@ -4318,7 +4317,7 @@ class WindowXML(Window):
         pass
     
     def setContainerProperty(self, strProperty, strValue):
-        # type: (str_type, str_type) -> None
+        # type: (basestring, basestring) -> None
         """
         Sets a container property, similar to an infolabel. 
 
@@ -4407,7 +4406,7 @@ class WindowXMLDialog(WindowXML):
     """
     
     def __init__(self, xmlFilename, scriptPath, defaultSkin="Default", defaultRes="720p"):
-        # type: (str_type, str_type, str_type, str_type) -> None
+        # type: (basestring, basestring, basestring, basestring) -> None
         pass
     
 

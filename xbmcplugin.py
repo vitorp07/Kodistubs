@@ -10,12 +10,10 @@ developer to present information through Kodi's standard menu structure. While
 plugins don't have the same flexibility as scripts, they boast significantly
 quicker development time and a more consistent user experience.
 """
-from typing import Union, List, Tuple
+from typing import List, Tuple
 from xbmcgui import ListItem
 
 __kodistubs__ = True
-
-str_type = Union[str, unicode]
 
 SORT_METHOD_ALBUM = 14
 SORT_METHOD_ALBUM_IGNORE_THE = 15
@@ -63,7 +61,7 @@ SORT_METHOD_VIDEO_YEAR = 18
 
 
 def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
-    # type: (int, str_type, ListItem, bool, int) -> bool
+    # type: (int, basestring, ListItem, bool, int) -> bool
     """
     Callback function to pass directory contents back to Kodi. 
 
@@ -92,7 +90,7 @@ def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
 
 
 def addDirectoryItems(handle, items, totalItems=0):
-    # type: (int, List[Tuple[str_type, ListItem, bool]], int) -> bool
+    # type: (int, List[Tuple[basestring, ListItem, bool]], int) -> bool
     """
     Callback function to pass directory contents back to Kodi as a list. 
 
@@ -164,7 +162,7 @@ def setResolvedUrl(handle, succeeded, listitem):
 
 
 def addSortMethod(handle, sortMethod, label2Mask=""):
-    # type: (int, int, str_type) -> None
+    # type: (int, int, basestring) -> None
     """
     Adds a sorting method for the media list. 
 
@@ -286,7 +284,7 @@ def getSetting(handle, id):
 
 
 def setSetting(handle, id, value):
-    # type: (int, str_type, str_type) -> None
+    # type: (int, basestring, basestring) -> None
     """
     Sets a plugin setting for the current running plugin. 
 
@@ -332,7 +330,7 @@ def setContent(handle, content):
 
 
 def setPluginCategory(handle, category):
-    # type: (int, str_type) -> None
+    # type: (int, basestring) -> None
     """
     Sets the plugins name for skins to display. 
 
@@ -375,7 +373,7 @@ def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
 
 
 def setProperty(handle, key, value):
-    # type: (int, str, str_type) -> None
+    # type: (int, str, basestring) -> None
     """
     Sets a container property for this plugin. 
 

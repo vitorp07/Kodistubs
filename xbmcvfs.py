@@ -14,7 +14,6 @@ from typing import Union, List, Tuple
 __kodistubs__ = True
 
 int_type = Union[int, long]
-str_type = Union[str, unicode]
 
 
 class File(object):
@@ -41,7 +40,7 @@ class File(object):
     """
     
     def __init__(self, filepath, mode=None):
-        # type: (str_type, str) -> None
+        # type: (basestring, str) -> None
         pass
     
     def read(self, numBytes=0):
@@ -187,7 +186,7 @@ class Stat(object):
     """
     
     def __init__(self, path):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         pass
     
     def st_mode(self):
@@ -289,7 +288,7 @@ class Stat(object):
 
 
 def copy(strSource, strDestnation):
-    # type: (str_type, str_type) -> bool
+    # type: (basestring, basestring) -> bool
     """
     Copy file to destination, returns true/false. 
 
@@ -309,7 +308,7 @@ def copy(strSource, strDestnation):
 
 
 def delete(file):
-    # type: (str_type) -> bool
+    # type: (basestring) -> bool
     """
     Delete a file
 
@@ -328,7 +327,7 @@ def delete(file):
 
 
 def rename(file, newFile):
-    # type: (str_type, str_type) -> bool
+    # type: (basestring, basestring) -> bool
     """
     Rename a file
 
@@ -352,7 +351,7 @@ def rename(file, newFile):
 
 
 def exists(path):
-    # type: (str_type) -> bool
+    # type: (basestring) -> bool
     """
     Check for a file or folder existance
 
@@ -371,7 +370,7 @@ def exists(path):
 
 
 def mkdir(path):
-    # type: (str_type) -> bool
+    # type: (basestring) -> bool
     """
     Create a folder. 
 
@@ -390,7 +389,7 @@ def mkdir(path):
 
 
 def mkdirs(path):
-    # type: (str_type) -> bool
+    # type: (basestring) -> bool
     """
     Make all directories along the path 
 
@@ -411,7 +410,7 @@ def mkdirs(path):
 
 
 def rmdir(path, force=False):
-    # type: (str_type, bool) -> bool
+    # type: (basestring, bool) -> bool
     """
     Remove a folder. 
 
@@ -430,7 +429,7 @@ def rmdir(path, force=False):
 
 
 def listdir(path):
-    # type: (str_type) -> Tuple[List[str], List[str]]
+    # type: (basestring) -> Tuple[List[str], List[str]]
     """
     Lists content of a folder. 
 

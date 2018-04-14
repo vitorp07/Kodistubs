@@ -5,11 +5,9 @@
 """
 Kodi's addon class
 """
-from typing import Union, Text
+from typing import Text
 
 __kodistubs__ = True
-
-str_type = Union[str, unicode]
 
 
 class Addon(object):
@@ -85,7 +83,7 @@ class Addon(object):
         return ""
     
     def setSetting(self, id, value):
-        # type: (str, str_type) -> None
+        # type: (str, basestring) -> None
         """
         Sets a script setting. 
 

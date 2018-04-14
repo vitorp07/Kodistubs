@@ -15,7 +15,6 @@ from typing import Union, List, Tuple, Text, Any
 __kodistubs__ = True
 
 int_type = Union[int, long]
-str_type = Union[str, unicode]
 
 DRIVE_NOT_READY = 1
 ENGLISH_NAME = 2
@@ -830,7 +829,7 @@ class Keyboard(object):
     """
     
     def __init__(self, line="", heading="", hidden=False):
-        # type: (str_type, str_type, bool) -> None
+        # type: (basestring, basestring, bool) -> None
         pass
     
     def doModal(self, autoclose=0):
@@ -852,7 +851,7 @@ class Keyboard(object):
         pass
     
     def setDefault(self, line=""):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Set the default text entry. 
 
@@ -886,7 +885,7 @@ class Keyboard(object):
         pass
     
     def setHeading(self, heading):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         Set the keyboard heading. 
 
@@ -997,7 +996,7 @@ class Monitor(object):
         pass
     
     def onScanStarted(self, library):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         onScanStarted method. 
 
@@ -1011,7 +1010,7 @@ class Monitor(object):
         pass
     
     def onScanFinished(self, library):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         onScanFinished method. 
 
@@ -1025,21 +1024,21 @@ class Monitor(object):
         pass
     
     def onDatabaseScanStarted(self, database):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         .. warning:: Deprecated. Use **onScanStarted()**.
         """
         pass
     
     def onDatabaseUpdated(self, database):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         .. warning:: Deprecated. Use **onScanFinished()**.
         """
         pass
     
     def onCleanStarted(self, library):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         onCleanStarted method.
 
@@ -1053,7 +1052,7 @@ class Monitor(object):
         pass
     
     def onCleanFinished(self, library):
-        # type: (str_type) -> None
+        # type: (basestring) -> None
         """
         onCleanFinished method. 
 
@@ -1075,7 +1074,7 @@ class Monitor(object):
         pass
     
     def onNotification(self, sender, method, data):
-        # type: (str_type, str_type, str_type) -> None
+        # type: (basestring, basestring, basestring) -> None
         """
         ``onNotification(sender, method, data`` 
 
@@ -1139,7 +1138,7 @@ class Player(object):
         pass
     
     def play(self, item="", listitem=None, windowed=False, startpos=-1):
-        # type: (Union[str_type, PlayList], Any, bool, int) -> None
+        # type: (Union[basestring, PlayList], Any, bool, int) -> None
         """
         Play a item.
 
@@ -1487,7 +1486,7 @@ class PlayList(object):
         return 0
     
     def add(self, url, listitem=None, index=-1):
-        # type: (str_type, Any, int) -> None
+        # type: (basestring, Any, int) -> None
         """
         Adds a new file to the playlist. 
 
@@ -2109,7 +2108,7 @@ def getGlobalIdleTime():
 
 
 def getCacheThumbName(path):
-    # type: (str_type) -> str
+    # type: (basestring) -> str
     """
     Get thumb cache filename. 
 
@@ -2128,7 +2127,7 @@ def getCacheThumbName(path):
 
 
 def makeLegalFilename(filename, fatX=True):
-    # type: (str_type, bool) -> str
+    # type: (basestring, bool) -> str
     """
     Returns a legal filename or path as a string. 
 
@@ -2153,7 +2152,7 @@ def makeLegalFilename(filename, fatX=True):
 
 
 def translatePath(path):
-    # type: (str_type) -> str
+    # type: (basestring) -> str
     """
     Returns the translated path. 
 
@@ -2176,7 +2175,7 @@ def translatePath(path):
 
 
 def getCleanMovieTitle(path, usefoldername=False):
-    # type: (str_type, bool) -> Tuple[str, str]
+    # type: (basestring, bool) -> Tuple[str, str]
     """
     Get clean movie title and year string if available. 
 
@@ -2196,7 +2195,7 @@ def getCleanMovieTitle(path, usefoldername=False):
 
 
 def validatePath(path):
-    # type: (str_type) -> str
+    # type: (basestring) -> str
     """
     Returns the validated path. 
 
