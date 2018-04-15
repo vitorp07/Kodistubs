@@ -17,9 +17,9 @@ either from sources using :file:`setup.py` script::
 
   python setup.py install
 
-or directly from the GitHub repository using ``pip``::
+or directly from PyPI using ``pip``::
 
-  pip install git+https://github.com/romanvm/Kodistubs.git#egg=Kodistubs
+  pip install Kodistubs
 
 If you don't want to install Kodistubs into your Python environment,
 below are the instructions for using Kodistubs in popular Python IDEs.

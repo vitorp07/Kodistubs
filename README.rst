@@ -3,6 +3,9 @@ Kodistubs
 (former xbmcstubs)
 ------------------
 
+.. image:: https://badge.fury.io/py/Kodistubs.svg
+    :target: https://badge.fury.io/py/Kodistubs
+
 Kodi stubs are Python files that can help you develop addons for `Kodi (XBMC)`_ Media Center.
 Use them in your favorite IDE to enable autocompletion and view docstrings
 for Kodi Python API functions, classes and methods.
@@ -11,7 +14,7 @@ and methods.
 
 You can install Kodistubs into your working virtual environment using ``pip``::
 
-    $ pip install git+https://github.com/romanvm/Kodistubs.git#egg=Kodistubs
+    $ pip install Kodistubs
 
 Read `Kodi stubs documentation`_ for more info on how to use Kodi stubs.
 
