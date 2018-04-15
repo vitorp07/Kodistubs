@@ -26,9 +26,7 @@ class Addon(object):
 
     **id** is optional as it will be auto detected for this add-on instance.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         self.Addon = xbmcaddon.Addon()
@@ -50,9 +48,7 @@ class Addon(object):
 
         **id** is optional as it will be auto detected for this add-on instance.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             locstr = self.Addon.getLocalizedString(32000)
@@ -70,9 +66,7 @@ class Addon(object):
 
         **id** is optional as it will be auto detected for this add-on instance.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             apikey = self.Addon.getSetting('apikey')
@@ -90,9 +84,7 @@ class Addon(object):
 
         You can use the above as keywords for arguments.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.Addon.setSetting(id='username', value='teamkodi')
@@ -105,9 +97,7 @@ class Addon(object):
         """
         Opens this scripts settings dialog. 
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.Addon.openSettings()
@@ -133,9 +123,7 @@ class Addon(object):
 
         :return: AddOn property as a string
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             version = self.Addon.getAddonInfo('version')

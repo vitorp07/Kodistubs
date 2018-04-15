@@ -50,9 +50,7 @@ class InfoTagMusic(object):
 
     Info tag load is only be possible from present player class.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         tag = xbmc.Player().getMusicInfoTag()
@@ -230,9 +228,7 @@ class InfoTagRadioRDS(object):
     the data variable from radio channels and not known on begining of radio
     receiving.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         tag = xbmc.Player().getRadioRDSInfoTag()
@@ -516,9 +512,7 @@ class InfoTagVideo(object):
 
     Info tag load is only be possible from present player class.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         tag = xbmc.Player().getVideoInfoTag()
@@ -813,9 +807,7 @@ class Keyboard(object):
     :param heading: : [opt] string - keyboard heading. 
     :param hidden: : [opt] boolean - True for hidden text entry.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         kb = xbmc.Keyboard('default', 'heading', True)
@@ -840,9 +832,7 @@ class Keyboard(object):
         :param autoclose: [opt] integer - milliseconds to autoclose dialog.
             (default=do not autoclose)
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             kb.doModal(30000)
@@ -857,9 +847,7 @@ class Keyboard(object):
 
         :param line: string - default text entry.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             kb.setDefault('password')
@@ -874,9 +862,7 @@ class Keyboard(object):
 
         :param hidden: boolean - True for hidden text entry.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             kb.setHiddenInput(True)
@@ -891,9 +877,7 @@ class Keyboard(object):
 
         :param heading: string - keyboard heading.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             kb.setHeading('Enter password')
@@ -911,9 +895,7 @@ class Keyboard(object):
 
         :return: get the in keyboard entered text
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             text = kb.getText()
@@ -928,9 +910,7 @@ class Keyboard(object):
 
         :return: true if confirmed, if cancelled false 
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             if (kb.isConfirmed()):
@@ -1124,9 +1104,7 @@ class Player(object):
 
     To become and create the class to play something.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         xbmc.Player().play(url, listitem, windowed)
@@ -1155,9 +1133,7 @@ class Player(object):
         and skip certain optional arguments. Once you use a keyword, all
         following arguments require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem = xbmcgui.ListItem('Ironman')
@@ -1297,9 +1273,7 @@ class Player(object):
 
         :param visible: [boolean] True for visible subtitles.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             xbmc.Player().showSubtitles(True)
@@ -1332,9 +1306,7 @@ class Player(object):
 
         :param iStream: [int] Subtitle stream to select for play
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             xbmc.Player().setSubtitleStream(1)
@@ -1411,9 +1383,7 @@ class Player(object):
 
         :param iStream: [int] Audio stream to select for play
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             xbmc.Player().setAudioStream(1)
@@ -1437,9 +1407,7 @@ class Player(object):
 
         :param iStream: [int] Video stream to select for play
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             xbmc.Player().setVideoStream(1)
@@ -1463,9 +1431,7 @@ class PlayList(object):
     1       xbmc.PLAYLIST_VIDEO   Playlist for video files or streams 
     ======  ====================  ====================================
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         play=xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
@@ -1500,9 +1466,7 @@ class PlayList(object):
         optional arguments. Once you use a keyword, all following arguments
         require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
@@ -1702,9 +1666,7 @@ def log(msg, level=LOGDEBUG):
 
     Default level changed from LOGNOTICE to LOGDEBUG
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.log(msg='This is a test string.', level=xbmc.LOGDEBUG);
@@ -1718,9 +1680,7 @@ def shutdown():
     """
     Shutdown the htpc. 
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.shutdown()
@@ -1734,9 +1694,7 @@ def restart():
     """
     Restart the htpc. 
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.restart()
@@ -1752,9 +1710,7 @@ def executescript(script):
 
     :param script: string - script filename to execute.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.executescript('special://home/scripts/update.py')
@@ -1772,9 +1728,7 @@ def executebuiltin(function, wait=False):
 
     List of functions - <http://kodi.wiki/view/List_of_Built_In_Functions>
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.executebuiltin('RunXBE(c:\\avalaunch.xbe)')
@@ -1791,9 +1745,7 @@ def executeJSONRPC(jsonrpccommand):
     :param jsonrpccommand: string - jsonrpc command to execute. 
     :return: jsonrpc return string
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         response = xbmc.executeJSONRPC('{ "jsonrpc": "2.0", "method": "JSONRPC.Introspect", "id": 1 }')
@@ -1813,9 +1765,7 @@ def sleep(timemillis):
     This is useful if you have for example a Player class that is waiting
     for onPlayBackEnded() calls.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.sleep(2000) # sleeps for 2 seconds
@@ -1835,9 +1785,7 @@ def getLocalizedString(id):
     See strings.po in  ``\language\{yourlanguage}\`` for which id you need
     for a string.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         locstr = xbmc.getLocalizedString(6)
@@ -1856,9 +1804,7 @@ def getSkinDir():
     This is not the full path like ``'special://home/addons/MediaCenter'``,
     but only ``'MediaCenter'``.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         skindir = xbmc.getSkinDir()
@@ -1889,9 +1835,7 @@ def getLanguage(format=ENGLISH_NAME, region=False):
 
     Added new options **format** and **region**.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         language = xbmc.getLanguage(xbmc.ENGLISH_NAME)
@@ -1907,9 +1851,7 @@ def getIPAddress():
 
     :return: The current ip address as a string
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         ip = xbmc.getIPAddress()
@@ -1934,9 +1876,7 @@ def getDVDState():
     96      xbmc.TRAY_CLOSED_MEDIA_PRESENT 
     ======  ===============================
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         dvdstate = xbmc.getDVDState()
@@ -1952,9 +1892,7 @@ def getFreeMem():
 
     :return: The amount of free memory in MB as an integer
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         freemem = xbmc.getFreeMem()
@@ -1973,9 +1911,7 @@ def getInfoLabel(cLine):
 
     List of InfoTags -- <http://kodi.wiki/view/InfoLabels>
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         label = xbmc.getInfoLabel('Weather.Conditions')
@@ -1994,9 +1930,7 @@ def getInfoImage(infotag):
 
     List of InfoTags -- <http://kodi.wiki/view/InfoLabels>
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         filename = xbmc.getInfoImage('Weather.Conditions')
@@ -2016,9 +1950,7 @@ def playSFX(filename, useCached=True):
 
     Added new option **useCached**.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.playSFX('special://xbmc/scripts/dingdong.wav')
@@ -2035,9 +1967,7 @@ def stopSFX():
 
       New function added.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.stopSFX()
@@ -2053,9 +1983,7 @@ def enableNavSounds(yesNo):
 
     :param yesNo: integer - enable (True) or disable (False) nav sounds
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.enableNavSounds(True)
@@ -2078,9 +2006,7 @@ def getCondVisibility(condition):
     as an AND operator, **"|"** as an OR operator, **"!"** as a NOT operator,
     and **"["** and **"]"** to bracket expressions.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         visible = xbmc.getCondVisibility('[Control.IsVisible(41) + !Control.IsVisible(12)]')
@@ -2096,9 +2022,7 @@ def getGlobalIdleTime():
 
     :return: Elapsed idle time in seconds as an integer
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         t = xbmc.getGlobalIdleTime()
@@ -2115,9 +2039,7 @@ def getCacheThumbName(path):
     :param path: string or unicode - path to file 
     :return: Thumb cache filename
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         thumb = xbmc.getCacheThumbName('f:\\videos\\movie.avi')
@@ -2140,9 +2062,7 @@ def makeLegalFilename(filename, fatX=True):
     and skip certain optional arguments. Once you use a keyword, all following
     arguments require the keyword.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         filename = xbmc.makeLegalFilename('F:\\Trailers\\Ice Age: The Meltdown.avi')
@@ -2163,9 +2083,7 @@ def translatePath(path):
     e.g. Converts ``'special://masterprofile/script_data'`` ->
     ``'/home/user/XBMC/UserData/script_data'`` on Linux.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         fpath = xbmc.translatePath('special://masterprofile/script_data')
@@ -2183,9 +2101,7 @@ def getCleanMovieTitle(path, usefoldername=False):
     :param usefoldername: [opt] bool - use folder names (defaults to false) 
     :return: Clean movie title and year string if available.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         title, year = xbmc.getCleanMovieTitle('/path/to/moviefolder/test.avi', True)
@@ -2205,9 +2121,7 @@ def validatePath(path):
     Only useful if you are coding for both Linux and Windows for fixing slash
     problems. e.g. Corrects ``'Z://something'`` -> ``'Z:'``
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         fpath = xbmc.validatePath(somepath)
@@ -2227,9 +2141,7 @@ def getRegion(id):
     choices are (dateshort, datelong, time, meridiem, tempunit, speedunit)
     You can use the above as keywords for arguments.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         date_long_format = xbmc.getRegion('datelong')
@@ -2250,9 +2162,7 @@ def getSupportedMedia(mediaType):
     separated string of filetypes (eg. '.mov|.avi'). You can use the above
     as keywords for arguments.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         mTypes = xbmc.getSupportedMedia('video')
@@ -2273,9 +2183,7 @@ def skinHasImage(image):
     (eg. ``home-myfiles\home-myfiles2.png``).
     You can use the above as keywords for arguments.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         exists = xbmc.skinHasImage('ButtonFocusedTexture.png')
@@ -2312,9 +2220,7 @@ def startServer(iTyp, bStart, bWait=False):
         (not supported by all servers)
     :return: bool - True or False
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.startServer(xbmc.SERVER_AIRPLAYSERVER, False)
@@ -2328,9 +2234,7 @@ def audioSuspend():
     """
     Suspend Audio engine. 
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.audioSuspend()
@@ -2344,9 +2248,7 @@ def audioResume():
     """
     Resume Audio engine. 
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.audioResume()
@@ -2362,9 +2264,7 @@ def getUserAgent():
 
     :return: HTTP user agent
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmc.getUserAgent()
@@ -2398,9 +2298,7 @@ def convertLanguage(language, format):
 
     New function added.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         language = xbmc.convertLanguage(English, xbmc.ISO_639_2)

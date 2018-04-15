@@ -364,9 +364,7 @@ class Control(object):
 
         :return: int - Current id
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             id = self.button.getId()
@@ -381,9 +379,7 @@ class Control(object):
 
         :return: int - Current X position
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             posX = self.button.getX()
@@ -398,9 +394,7 @@ class Control(object):
 
         :return: int - Current Y position
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             posY = self.button.getY()
@@ -415,9 +409,7 @@ class Control(object):
 
         :return: int - Current height
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             height = self.button.getHeight()
@@ -432,9 +424,7 @@ class Control(object):
 
         :return: int - Current width
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             width = self.button.getWidth()
@@ -449,9 +439,7 @@ class Control(object):
 
         :param enabled: bool - True=enabled / False=disabled.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.setEnabled(False)
@@ -466,9 +454,7 @@ class Control(object):
 
         :param visible: bool - True=visible / False=hidden.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.setVisible(False)
@@ -488,9 +474,7 @@ class Control(object):
         :param visible: string - Visible condition 
         :param allowHiddenFocus: [opt] bool - True=gains focus even if hidden
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setVisibleCondition(visible[,allowHiddenFocus])
@@ -510,9 +494,7 @@ class Control(object):
 
         :param enable: string - Enable condition.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setEnableCondition(enable)
@@ -534,9 +516,7 @@ class Control(object):
         :param event: string - The event to animate. 
         :param attr: string - The whole attribute string separated by spaces.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setAnimations([(event, attr,)*])
@@ -555,9 +535,7 @@ class Control(object):
 
         You may use negative integers. (e.g sliding a control into view)
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.setPosition(100, 250)
@@ -572,9 +550,7 @@ class Control(object):
 
         :param width: integer - width of control.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.image.setWidth(100)
@@ -589,9 +565,7 @@ class Control(object):
 
         :param height: integer - height of control.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.image.setHeight(100)
@@ -614,9 +588,7 @@ class Control(object):
         Same as controlUp(), controlDown(), controlLeft(), controlRight().
         Set to self to disable navigation for that direction.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.setNavigation(self.button1, self.button2, self.button3, self.button4)
@@ -635,9 +607,7 @@ class Control(object):
 
         You can also use setNavigation(). Set to self to disable navigation.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.controlUp(self.button1)
@@ -656,9 +626,7 @@ class Control(object):
 
         You can also use setNavigation(). Set to self to disable navigation.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.controlDown(self.button1)
@@ -677,9 +645,7 @@ class Control(object):
 
         You can also use setNavigation(). Set to self to disable navigation.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.controlLeft(self.button1)
@@ -698,9 +664,7 @@ class Control(object):
 
         You can also use setNavigation(). Set to self to disable navigation.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.button.controlRight(self.button1)
@@ -748,9 +712,7 @@ class ControlSpin(Control):
         :param upDisabled: label - for the up arrow when the button is disabled. 
         :param downDisabled: label - for the up arrow when the button is disabled.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setTextures(up, down, upFocus, downFocus, upDisabled, downDisabled)
@@ -797,9 +759,7 @@ class ControlLabel(Control):
     :param angle: [opt] integer - angle of control.
         (**+** rotates CCW, **-** rotates CW)
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         # ControlLabel(x, y, width, height, label[, font, textColor,
@@ -820,9 +780,7 @@ class ControlLabel(Control):
 
         :return: This label
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             label = self.label.getLabel()
@@ -848,9 +806,7 @@ class ControlLabel(Control):
             (e.g. '0xFF00FFFF')
         :param label2: [opt] string or unicode - text string.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.label.setLabel('Status')
@@ -901,9 +857,7 @@ class ControlEdit(Control):
     the keyword. After you create the control, you need to add it to the window
     with addControl().
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         self.edit = xbmcgui.ControlEdit(100, 250, 125, 75, 'Status')
@@ -934,9 +888,7 @@ class ControlEdit(Control):
             (e.g. '0xFF00FFFF')
         :param label2: [opt] string or unicode - text string.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.edit.setLabel('Status')
@@ -951,9 +903,7 @@ class ControlEdit(Control):
 
         :return: Heading text
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             label = self.edit.getLabel()
@@ -968,9 +918,7 @@ class ControlEdit(Control):
 
         :param value: string or unicode - text string.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.edit.setText('online')
@@ -987,9 +935,7 @@ class ControlEdit(Control):
 
         New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             value = self.edit.getText()
@@ -1046,9 +992,7 @@ class ControlList(Control):
     the keyword. After you create the control, you need to add it to the window
     with addControl().
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         self.cList = xbmcgui.ControlList(100, 250, 200, 250, 'font14', space=5)
@@ -1070,9 +1014,7 @@ class ControlList(Control):
 
         :param item: string, unicode or ListItem - item to add.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.addItem('Reboot Kodi')
@@ -1091,9 +1033,7 @@ class ControlList(Control):
 
         Large lists benefit considerably, than using the standard addItem()
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.addItems(items=listitems)
@@ -1108,9 +1048,7 @@ class ControlList(Control):
 
         :param item: integer - index number of the item to select.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.selectItem(12)
@@ -1127,9 +1065,7 @@ class ControlList(Control):
 
         New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.removeItem(12)
@@ -1142,9 +1078,7 @@ class ControlList(Control):
         """
         Clear all ListItems in this control list. 
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.reset()
@@ -1162,9 +1096,7 @@ class ControlList(Control):
             a window it is not possible to change the settings
             of this spin control.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             ctl = cList.getSpinControl()
@@ -1179,9 +1111,7 @@ class ControlList(Control):
 
         Returns -1 for empty lists.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             pos = cList.getSelectedPosition()
@@ -1200,9 +1130,7 @@ class ControlList(Control):
         object is returned. Returns None for empty lists.
         See windowexample.py on how to use this.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             item = cList.getSelectedItem()
@@ -1218,9 +1146,7 @@ class ControlList(Control):
         :param imageWidth: [opt] integer - width of items icon or thumbnail. 
         :param imageHeight: [opt] integer - height of items icon or thumbnail.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.setImageDimensions(18, 18)
@@ -1235,9 +1161,7 @@ class ControlList(Control):
 
         :param space: [opt] integer - space between items.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.setSpace(5)
@@ -1252,9 +1176,7 @@ class ControlList(Control):
 
         :param visible: boolean - True=visible / False=hidden.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.setPageControlVisible(True)
@@ -1269,9 +1191,7 @@ class ControlList(Control):
 
         :return: Total number of items
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cnt = cList.size()
@@ -1286,9 +1206,7 @@ class ControlList(Control):
 
         :return: Current item heigh
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             item_height = self.cList.getItemHeight()
@@ -1303,9 +1221,7 @@ class ControlList(Control):
 
         :return: Space between items
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             gap = self.cList.getSpace()
@@ -1322,9 +1238,7 @@ class ControlList(Control):
         :return: List item
         :raises ValueError: if index is out of range.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem = cList.getListItem(6)
@@ -1341,9 +1255,7 @@ class ControlList(Control):
 
         You can use the above as keywords for arguments.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             cList.setStaticContent(items=listitems)
@@ -1393,9 +1305,7 @@ class ControlFadeLabel(Control):
     the keyword. After you create the control, you need to add it to the window
     with addControl().
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         self.fadelabel = xbmcgui.ControlFadeLabel(100, 250, 200, 50, textColor='0xFFFFFFFF')
@@ -1415,9 +1325,7 @@ class ControlFadeLabel(Control):
 
         To remove added text use  ``reset()`` for them.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.fadelabel.addLabel('This is a line of text that can scroll.')
@@ -1432,9 +1340,7 @@ class ControlFadeLabel(Control):
 
         :param scroll: boolean - True = enabled / False = disabled
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.fadelabel.setScrolling(False)
@@ -1465,9 +1371,7 @@ class ControlTextBox(Control):
     the keyword. After you create the control, you need to add it to the window
     with addControl().
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         # ControlTextBox(x, y, width, height[, font, textColor])
@@ -1486,9 +1390,7 @@ class ControlTextBox(Control):
 
         :param text: string or unicode - text string.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setText(text)
@@ -1504,9 +1406,7 @@ class ControlTextBox(Control):
 
         :return: To get text from box
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # getText()
@@ -1520,9 +1420,7 @@ class ControlTextBox(Control):
         """
         Clear's this textbox.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # reset()
@@ -1538,9 +1436,7 @@ class ControlTextBox(Control):
 
         :param id: integer - position to scroll to.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # scroll(position)
@@ -1560,9 +1456,7 @@ class ControlTextBox(Control):
 
         New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.textbox.autoScroll(1, 2, 1)
@@ -1594,9 +1488,7 @@ class ControlImage(Control):
     the keyword. After you create the control, you need to add it to the window
     with addControl().
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         # ControlImage(x, y, width, height, filename[, aspectRatio, colorDiffuse])
@@ -1619,9 +1511,7 @@ class ControlImage(Control):
 
         Added new option **useCache**.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setImage(filename[, useCache])
@@ -1638,9 +1528,7 @@ class ControlImage(Control):
 
         :param colorDiffuse: hexString - (example, '0xC0FF0000' (red tint))
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setColorDiffuse(colorDiffuse)
@@ -1683,9 +1571,7 @@ class ControlProgress(Control):
     arguments. Once you use a keyword, all following arguments require the keyword.
     After you create the control, you need to add it to the window with addControl().
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         # ControlProgress(x, y, width, height, filename[, texturebg, textureleft,
@@ -1709,9 +1595,7 @@ class ControlProgress(Control):
 
         valid range for percent is 0-100
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setPercent(percent)
@@ -1727,9 +1611,7 @@ class ControlProgress(Control):
 
         :return: Percent position
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # getPercent()
@@ -1788,9 +1670,7 @@ class ControlButton(Control):
     the keyword. After you create the control, you need to add it to the window
     with addControl().
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         # ControlButton(x, y, width, height, label[, focusTexture, noFocusTexture, textOffsetX, textOffsetY,
@@ -1829,9 +1709,7 @@ class ControlButton(Control):
         optional arguments. Once you use a keyword, all following arguments
         require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setLabel([label, font, textColor, disabledColor, shadowColor, focusedColor])
@@ -1848,9 +1726,7 @@ class ControlButton(Control):
         :param disabledColor: hexstring - color of disabled button's label.
             (e.g. '0xFFFF3300')
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setDisabledColor(disabledColor)
@@ -1866,9 +1742,7 @@ class ControlButton(Control):
 
         :return: Unicode string
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # getLabel()
@@ -1884,9 +1758,7 @@ class ControlButton(Control):
 
         :return: Unicode string of label 2
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # getLabel2()
@@ -1918,9 +1790,7 @@ class ControlGroup(Control):
     :param width: integer - width of control. 
     :param height: integer - height of control.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         self.group = xbmcgui.ControlGroup(100, 250, 125, 75)
@@ -1987,9 +1857,7 @@ class ControlRadioButton(Control):
     New function added.  Deprecated **focusTexture** and **noFocusTexture**.
     Use **focusOnTexture** and **noFocusOnTexture**.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         self.radiobutton = xbmcgui.ControlRadioButton(100, 250, 200, 50, 'Enable', font='font14')
@@ -2017,9 +1885,7 @@ class ControlRadioButton(Control):
         optional arguments. Once you use a keyword, all following arguments
         require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.radiobutton.setSelected(True)
@@ -2034,9 +1900,7 @@ class ControlRadioButton(Control):
 
         :return: True if selected on
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             is = self.radiobutton.isSelected()
@@ -2065,9 +1929,7 @@ class ControlRadioButton(Control):
         optional arguments. Once you use a keyword, all following arguments
         require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setLabel(label[, font, textColor, disabledColor, shadowColor, focusedColor])
@@ -2090,9 +1952,7 @@ class ControlRadioButton(Control):
         optional arguments. Once you use a keyword, all following arguments
         require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.radiobutton.setRadioDimension(x=100, y=5, width=20, height=20)
@@ -2128,9 +1988,7 @@ class ControlSlider(Control):
 
     **orientation** option added.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         self.slider = xbmcgui.ControlSlider(100, 250, 350, 40)
@@ -2149,9 +2007,7 @@ class ControlSlider(Control):
 
         :return: float - Percent of slider
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             print self.slider.getPercent()
@@ -2166,9 +2022,7 @@ class ControlSlider(Control):
 
         :param pct: float - Percent value of slider
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             self.slider.setPercent(50)
@@ -2214,9 +2068,7 @@ class Dialog(object):
 
         Added new option **autoclose**.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2237,9 +2089,7 @@ class Dialog(object):
 
         New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2269,9 +2119,7 @@ class Dialog(object):
         **preselect** option added.  Added new option **useDetails**.
         Allow listitems for parameter **list**
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2291,9 +2139,7 @@ class Dialog(object):
 
         New function added
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2321,9 +2167,7 @@ class Dialog(object):
         New function added.  Added new option **preselect**.
         Added new option **useDetails**.  Allow listitems for parameter **options**
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2349,9 +2193,7 @@ class Dialog(object):
         It is preferred to only use line1 as it is actually a multi-line text.
         In this case line2 and line3 must be omitted.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2373,9 +2215,7 @@ class Dialog(object):
 
         New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2421,9 +2261,7 @@ class Dialog(object):
             Returns empty tuple if dialog was canceled.
             If type is 0 or 3 the enableMultiple parameter is ignore
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2467,9 +2305,7 @@ class Dialog(object):
             of the highlighted item, if user pressed 'Ok' or a masked item
             was selected. Returns the default value if dialog was canceled.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2512,9 +2348,7 @@ class Dialog(object):
             pressed 'Ok' or a masked item was selected.
             Returns empty tuple if dialog was canceled.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2548,9 +2382,7 @@ class Dialog(object):
         :return: Returns the entered data as a string.
             Returns the default value if dialog was canceled.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2578,9 +2410,7 @@ class Dialog(object):
 
           New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2622,9 +2452,7 @@ class Dialog(object):
 
         New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.Dialog()
@@ -2659,9 +2487,7 @@ class DialogProgress(object):
 
         Use update() to update lines and progressbar.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             pDialog = xbmcgui.DialogProgress()
@@ -2683,9 +2509,7 @@ class DialogProgress(object):
         It is preferred to only use line1 as it is actually a multi-line text.
         In this case line2 and line3 must be omitted.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             pDialog.update(25, 'Importing modules...')
@@ -2698,9 +2522,7 @@ class DialogProgress(object):
         """
         Close the progress dialog.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             pDialog.close()
@@ -2715,9 +2537,7 @@ class DialogProgress(object):
 
         :return: True if the user pressed cancel.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             if (pDialog.iscanceled()): return
@@ -2746,9 +2566,7 @@ class DialogBusy(object):
 
         New method added
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             dialog = xbmcgui.DialogBusy()
@@ -2811,9 +2629,7 @@ class DialogProgressBG(object):
         'heading' is used for the dialog's id. Use a unique heading.
         Use update() to update heading, message and progressbar.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             pDialog = xbmcgui.DialogProgressBG()
@@ -2833,9 +2649,7 @@ class DialogProgressBG(object):
 
         To clear heading or message, you must pass a blank character.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             pDialog.update(25, message='Downloading Finding Nemo ...')
@@ -2848,9 +2662,7 @@ class DialogProgressBG(object):
         """
         Close the background progress dialog
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             pDialog.close()
@@ -2865,9 +2677,7 @@ class DialogProgressBG(object):
 
         :return: True if the background dialog is active.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             if (pDialog.isFinished()): return
@@ -2891,9 +2701,7 @@ class ListItem(object):
     .. note::
         **iconImage** and **thumbnailImage** are deprecated. Use **setArt()**.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ...
         listitem = xbmcgui.ListItem('Casino Royale')
@@ -2911,9 +2719,7 @@ class ListItem(object):
 
         :return: Label of item
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # getLabel()
@@ -2929,9 +2735,7 @@ class ListItem(object):
 
         :return: Second label of item
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # getLabel2()
@@ -2947,9 +2751,7 @@ class ListItem(object):
 
         :param label: string or unicode - text string.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setLabel(label)
@@ -2965,9 +2767,7 @@ class ListItem(object):
 
         :param label: string or unicode - text string.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setLabel2(label)
@@ -3015,9 +2815,7 @@ class ListItem(object):
 
         New function added.  Added new label **icon**.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setArt(values)
@@ -3043,9 +2841,7 @@ class ListItem(object):
         anidb   string - uniqueid name 
         ======  =======================
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setUniqueIDs(values)
@@ -3074,9 +2870,7 @@ class ListItem(object):
         anidb   string - rating type 
         ======  =====================
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # setRating(type, rating, votes, defaultt))
@@ -3108,9 +2902,7 @@ class ListItem(object):
         New function added.
 
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             poster = listitem.getArt('poster')
@@ -3135,9 +2927,7 @@ class ListItem(object):
         anidb   string - uniqueid name 
         ======  =======================
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             uniqueID = listitem.getUniqueID('imdb')
@@ -3162,9 +2952,7 @@ class ListItem(object):
         anidb   string - type name 
         ======  ===================
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             rating = listitem.getRating('imdb')
@@ -3189,9 +2977,7 @@ class ListItem(object):
         anidb   string - type name 
         ======  ===================
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             votes = listitem.getVotes('imdb')
@@ -3206,9 +2992,7 @@ class ListItem(object):
 
         :param selected: bool - True=selected/False=not selected
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # select(selected)
@@ -3224,9 +3008,7 @@ class ListItem(object):
 
         :return: bool - true if selected, otherwise false
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             # isSelected()
@@ -3370,9 +3152,7 @@ class ListItem(object):
         **path** and **userrating**.
         Expanded the possible infoLabels for the option **mediatype**.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem.setInfo('video', ``'genre': 'Comedy'``)
@@ -3400,9 +3180,7 @@ class ListItem(object):
 
         New function added.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             actors = [{"name": "Actor 1", "role": "role 1"},
@@ -3450,9 +3228,7 @@ class ListItem(object):
         language   string (en)  
         =========  =============
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem.addStreamInfo('video', ``'codec': 'h264', 'width' : 1280``)
@@ -3479,9 +3255,7 @@ class ListItem(object):
 
         Completely removed option **replaceItems**.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem.addContextMenuItems(
@@ -3508,9 +3282,7 @@ class ListItem(object):
         an item. Others may be used in the skin to add extra information,
         such as 'WatchedCount' for tvshow items
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem.setProperty('AspectRatio', '1.85 : 1')
@@ -3530,9 +3302,7 @@ class ListItem(object):
         for arguments and skip certain optional arguments. Once you use
         a keyword, all following arguments require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             AspectRatio = listitem.getProperty('AspectRatio')
@@ -3549,9 +3319,7 @@ class ListItem(object):
 
         You can use the above as keywords for arguments.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem.setPath(path='/path/to/some/file.ext')
@@ -3591,9 +3359,7 @@ class ListItem(object):
 
         :param subtitleFiles: list with path to subtitle files
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ...
             listitem.setSubtitles(['special://temp/example.srt', 'http://example.com/example.srt'])
@@ -3684,9 +3450,7 @@ class Action(object):
 
         :return: The action's current id as a long or 0 if no action is mapped in the xml's.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             def onAction(self, action):
@@ -3748,9 +3512,7 @@ class Window(object):
     Deleting this window will activate the old window that was active and resets
     (not delete) all controls that are associated with this window.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         win = xbmcgui.Window()
@@ -3914,9 +3676,7 @@ class Window(object):
         9       PAL60 16:9 (720x480) 
         ======  =====================
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
@@ -3938,9 +3698,7 @@ class Window(object):
         and skip certain optional arguments. Once you use a keyword,
         all following arguments require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
@@ -3960,9 +3718,7 @@ class Window(object):
         arguments and skip certain optional arguments. Once you use a keyword,
         all following arguments require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
@@ -3982,9 +3738,7 @@ class Window(object):
         the above as keywords for arguments and skip certain optional arguments.
         Once you use a keyword, all following arguments require the keyword.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
@@ -3998,9 +3752,7 @@ class Window(object):
         """
         Clears all window properties. 
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             win = xbmcgui.Window(xbmcgui.getCurrentWindowId())
@@ -4110,9 +3862,7 @@ class WindowDialog(Window):
     Deleting this window will activate the old window that was active and resets
     (not delete) all controls that are associated with this window.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         dialog = xbmcgui.WindowDialog()
@@ -4147,9 +3897,7 @@ class WindowXML(Window):
     Deleting this window will activate the old window that was active and resets
     (not delete) all controls that are associated with this window.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         win = xbmcgui.WindowXML('script-Lyrics-main.xml',
@@ -4193,9 +3941,7 @@ class WindowXML(Window):
             greater than list size, negative positions will add to top of list,
             positive positions will add to bottom of list
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.addItem('Reboot Kodi', 0)
@@ -4210,9 +3956,7 @@ class WindowXML(Window):
 
         :param items: List - list of strings, unicode objects or ListItems to add.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.addItems(['Reboot Kodi', 'Restart Kodi'])
@@ -4227,9 +3971,7 @@ class WindowXML(Window):
 
         :param position: integer - position of item to remove.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.removeItem(5)
@@ -4242,9 +3984,7 @@ class WindowXML(Window):
         """
         Gets the current position in the WindowList.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             pos = self.getCurrentListPosition()
@@ -4259,9 +3999,7 @@ class WindowXML(Window):
 
         :param position: integer - position of item to set.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.setCurrentListPosition(5)
@@ -4276,9 +4014,7 @@ class WindowXML(Window):
 
         :param position: integer - position of item to return.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             listitem = self.getListItem(6)
@@ -4291,9 +4027,7 @@ class WindowXML(Window):
         """
         Returns the number of items in this WindowList.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             listSize = self.getListSize()
@@ -4306,9 +4040,7 @@ class WindowXML(Window):
         """
         Clear the WindowList. 
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.clearList()
@@ -4330,9 +4062,7 @@ class WindowXML(Window):
 
         Changed function from **setProperty** to **setContainerProperty**.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             self.setContainerProperty('Category', 'Newest')
@@ -4347,9 +4077,7 @@ class WindowXML(Window):
 
         Added new function.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             container_id = self.getCurrentContainerId()
@@ -4376,9 +4104,7 @@ class WindowXMLDialog(WindowXML):
 
     Skin folder structure is e.g. **resources/skins/Default/720p**
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         dialog = xbmcgui.WindowXMLDialog('script-Lyrics-main.xml',
@@ -4417,9 +4143,7 @@ def getCurrentWindowId():
 
     :return: The currently active window Id
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         wid = xbmcgui.getCurrentWindowId()
@@ -4435,9 +4159,7 @@ def getCurrentWindowDialogId():
 
     :return: The currently active dialog Id
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         wid = xbmcgui.getCurrentWindowDialogId()

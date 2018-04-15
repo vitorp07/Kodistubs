@@ -78,9 +78,7 @@ def addDirectoryItem(handle, url, listitem, isFolder=False, totalItems=0):
     arguments. Once you use a keyword, all following arguments require
     the keyword.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         if not xbmcplugin.addDirectoryItem(int(sys.argv[1]), 'F:\\Trailers\\300.mov', listitem, totalItems=50): break
@@ -103,9 +101,7 @@ def addDirectoryItems(handle, items, totalItems=0):
     Large lists benefit over using the standard addDirectoryItem().
     You may call this more than once to add items in chunks.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         if not xbmcplugin.addDirectoryItems(int(sys.argv[1]), [(url, listitem, False,)]: raise
@@ -128,9 +124,7 @@ def endOfDirectory(handle, succeeded=True, updateListing=False, cacheToDisc=True
     :param cacheToDisc: [opt] bool - True=Folder will cache if extended time
         (default)/False=this folder will never cache to disc.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcplugin.endOfDirectory(int(sys.argv[1]), cacheToDisc=False)
@@ -150,9 +144,7 @@ def setResolvedUrl(handle, succeeded, listitem):
         False=Script did not.
     :param listitem: ListItem - item the file plugin resolved to for playback.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem)
@@ -250,9 +242,7 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
     **SORT_METHOD_PLAYCOUNT**, **SORT_METHOD_CHANNEL**.
     Added new sort **SORT_METHOD_VIDEO_USER_RATING**.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORTMETHOD_DATEADDED)
@@ -272,9 +262,7 @@ def getSetting(handle, id):
 
     You can use the above as a keyword.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         apikey = xbmcplugin.getSetting(int(sys.argv[1]), 'apikey')
@@ -292,9 +280,7 @@ def setSetting(handle, id, value):
     :param id: string - id of the setting that the module needs to access. 
     :param value: string or unicode - value of the setting.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcplugin.setSetting(int(sys.argv[1]), id='username', value='teamxbmc')
@@ -318,9 +304,7 @@ def setContent(handle, content):
     movies   tvshows   episodes   musicvideos 
     =======  ========  =========  ============
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcplugin.setContent(int(sys.argv[1]), 'movies')
@@ -337,9 +321,7 @@ def setPluginCategory(handle, category):
     :param handle: integer - handle the plugin was started with. 
     :param category: string or unicode - plugins sub category.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcplugin.setPluginCategory(int(sys.argv[1]), 'Comedy')
@@ -359,9 +341,7 @@ def setPluginFanart(handle, image=None, color1=None, color2=None, color3=None):
     :param color2: [opt] hexstring - color2. (e.g. '0xFFFF3300') 
     :param color3: [opt] hexstring - color3. (e.g. '0xFF000000')
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         xbmcplugin.setPluginFanart(
             int(sys.argv[1]),
@@ -383,9 +363,7 @@ def setProperty(handle, key, value):
 
     Key is NOT case sensitive.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcplugin.setProperty(int(sys.argv[1]), 'Emulator', 'M.A.M.E.')

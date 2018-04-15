@@ -30,9 +30,7 @@ class File(object):
     w      Open for write 
     =====  ===============
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         f = xbmcvfs.File(file, 'w')
@@ -52,9 +50,7 @@ class File(object):
             the whole file
         :return: string
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             f = xbmcvfs.File(file)
@@ -73,9 +69,7 @@ class File(object):
             read the whole file
         :return: bytearray
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             f = xbmcvfs.File(file)
@@ -93,9 +87,7 @@ class File(object):
         :param buffer: Buffer to write to file 
         :return: True on success.
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             f = xbmcvfs.File(file, 'w')
@@ -112,9 +104,7 @@ class File(object):
 
         :return: The file size
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             f = xbmcvfs.File(file)
@@ -133,9 +123,7 @@ class File(object):
         :param iWhence: where in a file to seek from [0 begining, 1 current ,
             2 end possition]
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             f = xbmcvfs.File(file)
@@ -152,9 +140,7 @@ class File(object):
 
 
 
-        **Example:**
-
-        .. code-block:: python
+        Example::
 
             ..
             f = xbmcvfs.File(file)
@@ -175,9 +161,7 @@ class Stat(object):
 
     New function added
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
           st = xbmcvfs.Stat(path)
@@ -296,9 +280,7 @@ def copy(strSource, strDestnation):
     :param destination: destination file 
     :return: True if successed
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         success = xbmcvfs.copy(source, destination)
@@ -315,9 +297,7 @@ def delete(file):
     :param file: File to delete 
     :return: True if successed
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         xbmcvfs.delete(file)
@@ -339,9 +319,7 @@ def rename(file, newFile):
     is not possible on all platforms. You may have to do it manually by using
     the copy and deleteFile functions.
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         success = xbmcvfs.rename(file,newFileName)
@@ -358,9 +336,7 @@ def exists(path):
     :param path: File or folder (folder must end with slash or backslash) 
     :return: True if successed
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         success = xbmcvfs.exists(path)
@@ -377,9 +353,7 @@ def mkdir(path):
     :param path: Folder to create 
     :return: True if successed
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         success = xbmcvfs.mkdir(path)
@@ -398,9 +372,7 @@ def mkdirs(path):
     :param path: Folders to create 
     :return: True if successed
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         success = xbmcvfs.mkdirs(path)
@@ -417,9 +389,7 @@ def rmdir(path, force=False):
     :param path: Folder to remove 
     :return: True if successed
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         success = xbmcvfs.rmdir(path)
@@ -436,9 +406,7 @@ def listdir(path):
     :param path: Folder to get list from 
     :return: Directory content list
 
-    **Example:**
-
-    .. code-block:: python
+    Example::
 
         ..
         dirs, files = xbmcvfs.listdir(path)
