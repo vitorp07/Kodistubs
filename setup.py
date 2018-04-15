@@ -21,7 +21,7 @@ setup(
     url='https://github.com/romanvm/Kodistubs',
     license='GPLv3',
     keywords="kodi documentation inspection",
-    classifieres=[
+    classifiers=[
         'Environment :: Plugins',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: OS Independent',
