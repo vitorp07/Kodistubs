@@ -3,7 +3,7 @@ branches:
 language: python
 python: "2.7"
 install: pip install Sphinx
-script: echo "Scipping build..."
+script: echo "Skipping build..."
 before_deploy: wget https://raw.githubusercontent.com/romanvm/travis_scripts/master/publish_docs.py
 deploy:
   provider: script
