@@ -39,4 +39,4 @@ License: `GPL v.3`_
 .. _Discussion topic on Kodi forum: http://forum.kodi.tv/showthread.php?tid=173780
 .. _GPL v.3: http://www.gnu.org/licenses/gpl.html
 .. _Kodi stubs documentation: http://romanvm.github.io/Kodistubs/
-.. _PEP-484:: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
+.. _PEP-484: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
