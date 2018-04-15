@@ -19,9 +19,14 @@ Read `Kodi stubs documentation`_ for more info on how to use Kodi stubs.
 so don't try to run your program outside Kodi unless you add some testing code into Kodistubs
 or use some mocking library to mock Kodi Pyhton API.
 
-**Note**: I try to keep Kodi stubs in sync with Kodi Python API development, but it may happen
+Current Kodistubs have been generated from scratch using Doxygen XML files and
+SWIG XML Python binding definitions that, in their turn, have been generated
+from Kodi sources. Old Kodistubs can be found in ``legacy`` branch.
+
+I try to keep Kodi stubs in sync with Kodi Python API development, but it may happen
 that I miss something. Don't hesitate to open issues or submit pull requests if you notice
 discrepancies with the actual state of Kodi Python API.
+
 
 `Discussion topic on Kodi forum`_
 
