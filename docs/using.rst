@@ -111,7 +111,7 @@ Type Annotations
 ================
 
 Kodistubs include `PEP-484`_ type annotations for all functions and methods
-so you can yse `mypy`_ or other compatible tool to check types of function/method
+so you can use `mypy`_ or other compatible tool to check types of function/method
 arguments and return values in your code.
 
 The following table explains some of the type annotations:
