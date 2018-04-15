@@ -114,6 +114,27 @@ Kodistubs include `PEP-484`_ type annotations for all functions and methods
 so you can use `mypy`_ or other compatible tool to check types of function/method
 arguments and return values in your code.
 
+.. code-block:: python
+  :emphasize-lines: 2
+
+  def getInfoLabel(cLine):
+      # type: (str) -> str
+      """
+      Get a info label
+
+      :param infotag: string - infoTag for value you want returned.
+      :return: InfoLabel as a string
+
+      List of InfoTags -- <http://kodi.wiki/view/InfoLabels>
+
+      Example::
+
+          ..
+          label = xbmc.getInfoLabel('Weather.Conditions')
+          ..
+      """
+      return ""
+
 The following table explains some of the type annotations:
 
 ======================= ===========================================================
