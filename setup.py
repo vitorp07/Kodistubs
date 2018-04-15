@@ -3,23 +3,21 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
-
-VERSION = '17.6.1'
+import kodistubs_meta
 
 with open('README.rst', encoding='utf-8') as fo:
     long_descr = fo.read()
 
 setup(
     name='Kodistubs',
-    version=VERSION,
+    version=kodistubs_meta.VERSION,
     py_modules=['xbmc', 'xbmcaddon', 'xbmcgui', 'xbmcplugin', 'xbmcvfs'],
     install_requires=['typing'],
     zip_safe=False,
     description='Stub modules that re-create Kodi Python API',
     long_description=long_descr,
-    author='Tenzer, twinther, Roman V.M.',
-    maintainer='Roman V.M.',
-    maintainer_email='roman1972@gmail.com',
+    author=kodistubs_meta.AUTHOR,  # The new Kodistubs have been generated from scratch
+    author_email=kodistubs_meta.EMAIL,
     url='https://github.com/romanvm/Kodistubs',
     license='GPLv3',
     keywords="kodi documentation inspection",
