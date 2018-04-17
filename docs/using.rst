@@ -44,7 +44,11 @@ are trying to pass incompatible arguments to functions or methods.
 
     **Code completion and a docstring pop-up in PyCharm**
 
-.. note:: PyCharm docstrings pop-ups partially support reStructuredText formatting.
+PyCharm docstrings pop-ups partially support reStructuredText formatting.
+
+.. figure:: _static/pycharm_docstring.png
+
+    **Function docstring pop-up in PyCharm**
 
 Eclipse + PyDev
 ---------------
