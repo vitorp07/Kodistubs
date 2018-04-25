@@ -34,7 +34,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     #'sphinx.ext.ifconfig',
-    #'sphinx.ext.viewcode',
+    'sphinx.ext.viewcode',
 ]
 
 autodoc_member_order = 'bysource'
