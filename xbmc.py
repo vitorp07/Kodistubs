@@ -1453,7 +1453,7 @@ class PlayList(object):
         return 0
     
     def add(self, url, listitem=None, index=-1):
-        # type: (str_type, Any, int) -> None
+        # type: (str_type, 'xbmcgui.ListItem', int) -> None
         """
         Adds a new file to the playlist. 
 
