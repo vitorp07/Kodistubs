@@ -53,17 +53,26 @@ class InfoTagMusic(object):
 
     Example::
 
-        ...
         tag = xbmc.Player().getMusicInfoTag()
         
         title = tag.getTitle()
         url   = tag.getURL()
-        ...
     """
     
     def __init__(self):
         # type: () -> None
         pass
+    
+    def getDbId(self):
+        # type: () -> int
+        """
+        Get identification number of tag in database
+
+        :return: [integer] database id.
+
+        New function added. 
+        """
+        return 0
     
     def getURL(self):
         # type: () -> str
@@ -80,6 +89,27 @@ class InfoTagMusic(object):
         Returns the title from music as string on info tag. 
 
         :return: [string] Music title
+        """
+        return ""
+    
+    def getMediaType(self):
+        # type: () -> str
+        """
+        Get the media type of the music item. 
+
+        :return: [string] media type
+
+        Available strings about media type for music:
+
+        ======= ==============================
+        String  Description                   
+        ======= ==============================
+        artist  If it is defined as an artist 
+        album   If it is defined as an album  
+        song    If it is defined as a song    
+        ======= ==============================
+
+        New function added. 
         """
         return ""
     
@@ -225,18 +255,16 @@ class InfoTagRadioRDS(object):
 
     To get radio RDS info tag data of currently played PVR radio channel source.
 
-    Info tag load is only be possible from present player class. Also is all
-    the data variable from radio channels and not known on begining of radio
-    receiving.
+    Info tag load is only be possible from present player class.
+    Also is all the data variable from radio channels and not known on beginning
+    of radio receiving.
 
     Example::
 
-        ...
         tag = xbmc.Player().getRadioRDSInfoTag()
         
         title  = tag.getTitle()
         artist = tag.getArtist()
-        ...
     """
     
     def __init__(self):
@@ -515,12 +543,10 @@ class InfoTagVideo(object):
 
     Example::
 
-        ...
         tag = xbmc.Player().getVideoInfoTag()
         
         title = tag.getTitle()
         file  = tag.getFile()
-        ...
     """
     
     def __init__(self):
@@ -534,7 +560,7 @@ class InfoTagVideo(object):
 
         :return: [integer] database id
 
-        New function added.
+        New function added. 
         """
         return 0
     
@@ -617,7 +643,7 @@ class InfoTagVideo(object):
 
         :return: [string] TV show title
 
-        New function added.
+        New function added. 
         """
         return ""
     
@@ -630,19 +656,19 @@ class InfoTagVideo(object):
 
         Available strings about media type for video:
 
-        ===========  =====================================
-        String       Description                          
-        ===========  =====================================
-        video        For normal video                     
-        set          For a selection of video             
-        musicvideo   To define it as music video          
-        movie        To define it as normal movie         
-        tvshow       If this is it defined as tvshow      
-        season       The type is used as a series season  
-        episode      The type is used as a series episode 
-        ===========  =====================================
+        =========== =====================================
+        String      Description                          
+        =========== =====================================
+        video       For normal video                     
+        set         For a selection of video             
+        musicvideo  To define it as music video          
+        movie       To define it as normal movie         
+        tvshow      If this is it defined as tvshow      
+        season      The type is used as a series season  
+        episode     The type is used as a series episode 
+        =========== =====================================
 
-        New function added.
+        New function added. 
         """
         return ""
     
@@ -698,7 +724,7 @@ class InfoTagVideo(object):
 
         :return: [integer] season number
 
-        New function added.
+        New function added. 
         """
         return 0
     
@@ -709,7 +735,7 @@ class InfoTagVideo(object):
 
         :return: [integer] episode number
 
-        New function added.
+        New function added. 
         """
         return 0
     
@@ -725,7 +751,7 @@ class InfoTagVideo(object):
     def getRating(self):
         # type: () -> float
         """
-        Get the video rating if present as float (double where supported).
+        Get the video rating if present as float (double where supported). 
 
         :return: [float] The rating of the video
         """
@@ -792,9 +818,53 @@ class InfoTagVideo(object):
 
         :return: [string] Trailer path
 
-        New function added.
+        New function added. 
         """
         return ""
+    
+    def getArtist(self):
+        # type: () -> List[str]
+        """
+        To get the artist name (for musicvideos) 
+
+        :return: List[str] Artist name
+
+        New function added. 
+        """
+        return [""]
+    
+    def getAlbum(self):
+        # type: () -> str
+        """
+        To get the album name (for musicvideos) 
+
+        :return: [string] Album name
+
+        New function added. 
+        """
+        return ""
+    
+    def getTrack(self):
+        # type: () -> int
+        """
+        To get the track number (for musicvideos) 
+
+        :return: [int] Track number
+
+        New function added. 
+        """
+        return 0
+    
+    def getDuration(self):
+        # type: () -> int
+        """
+        To get the duration 
+
+        :return: [unsigned int] Duration
+
+        New function added. 
+        """
+        return 0
     
 
 class Keyboard(object):
@@ -810,15 +880,13 @@ class Keyboard(object):
 
     Example::
 
-        ..
         kb = xbmc.Keyboard('default', 'heading', True)
         kb.setDefault('password') # optional
         kb.setHeading('Enter password') # optional
         kb.setHiddenInput(True) # optional
         kb.doModal()
-        if (kb.isConfirmed()):
+        if kb.isConfirmed():
             text = kb.getText()
-        ..
     """
     
     def __init__(self, line="", heading="", hidden=False):
@@ -831,13 +899,11 @@ class Keyboard(object):
         Show keyboard and wait for user action. 
 
         :param autoclose: [opt] integer - milliseconds to autoclose dialog.
-            (default=do not autoclose)
+            default=do not autoclose)
 
         Example::
 
-            ..
             kb.doModal(30000)
-            ..
         """
         pass
     
@@ -850,9 +916,7 @@ class Keyboard(object):
 
         Example::
 
-            ..
             kb.setDefault('password')
-            ..
         """
         pass
     
@@ -865,9 +929,7 @@ class Keyboard(object):
 
         Example::
 
-            ..
             kb.setHiddenInput(True)
-            ..
         """
         pass
     
@@ -880,9 +942,7 @@ class Keyboard(object):
 
         Example::
 
-            ..
             kb.setHeading('Enter password')
-            ..
         """
         pass
     
@@ -898,9 +958,7 @@ class Keyboard(object):
 
         Example::
 
-            ..
             text = kb.getText()
-            ..
         """
         return ""
     
@@ -913,9 +971,8 @@ class Keyboard(object):
 
         Example::
 
-            ..
-            if (kb.isConfirmed()):
-              ..
+            if kb.isConfirmed():
+                ...
         """
         return True
     
@@ -986,7 +1043,7 @@ class Monitor(object):
         Will be called when library clean has ended and return video or music
         to indicate which library is being scanned
 
-        New function added. 
+        New function added.
         """
         pass
     
@@ -1000,7 +1057,7 @@ class Monitor(object):
         Will be called when library clean has ended and return video or music
         to indicate which library has been scanned
 
-        New function added. 
+        New function added.
         """
         pass
     
@@ -1028,7 +1085,7 @@ class Monitor(object):
         Will be called when library clean has ended and return video or music
         to indicate which library has been cleaned
 
-        New function added. 
+        New function added.
         """
         pass
     
@@ -1042,7 +1099,7 @@ class Monitor(object):
         Will be called when library clean has ended and return video or music
         to indicate which library has been finished
 
-        New function added. 
+        New function added.
         """
         pass
     
@@ -1057,17 +1114,15 @@ class Monitor(object):
     def onNotification(self, sender, method, data):
         # type: (str_type, str_type, str_type) -> None
         """
-        ``onNotification(sender, method, data`` 
-
         onNotification method. 
 
         :param sender: Sender of the notification 
         :param method: Name of the notification 
         :param data: JSON-encoded data of the notification
 
-        Will be called when Kodi receives or sends a notification 
+        Will be called when Kodi receives or sends a notification
 
-        New function added. 
+        New function added.
         """
         pass
     
@@ -1079,9 +1134,9 @@ class Monitor(object):
         Block until abort is requested, or until timeout occurs. If an abort
         requested have already been made, return immediately.
 
-        :param timeout: [opt] float - timeout in seconds. Default: no timeout. 
-        :return: True when abort have been requested, False if a timeout
-            is given and the operation times out.
+        :param timeout: [opt] float - timeout in seconds. Default: no timeout.
+        :return: True when abort have been requested,
+            False if a timeout is given and the operation times out.
 
         New function added. 
         """
@@ -1092,7 +1147,7 @@ class Monitor(object):
         """
         Returns True if abort has been requested. 
 
-        True if requested 
+        :return: True if requested
 
         New function added. 
         """
@@ -1107,9 +1162,7 @@ class Player(object):
 
     Example::
 
-        ...
         xbmc.Player().play(url, listitem, windowed)
-        ...
     """
     
     def __init__(self, playerCore=0):
@@ -1131,45 +1184,43 @@ class Player(object):
 
         If item is not given then the Player will try to play the current item
         in the current playlist. You can use the above as keywords for arguments
-        and skip certain optional arguments. Once you use a keyword, all
-        following arguments require the keyword.
+        and skip certain optional arguments. Once you use a keyword,
+        all following arguments require the keyword.
 
         Example::
 
-            ...
             listitem = xbmcgui.ListItem('Ironman')
             listitem.setInfo('video', {'Title': 'Ironman', 'Genre': 'Science Fiction'})
             xbmc.Player().play(url, listitem, windowed)
             xbmc.Player().play(playlist, listitem, windowed, startpos)
-            ...
         """
         pass
     
     def stop(self):
         # type: () -> None
         """
-        Stop playing.
+        Stop playing. 
         """
         pass
     
     def pause(self):
         # type: () -> None
         """
-        Pause or resume playing if already paused.
+        Pause or resume playing if already paused. 
         """
         pass
     
     def playnext(self):
         # type: () -> None
         """
-        Play next item in playlist.
+        Play next item in playlist. 
         """
         pass
     
     def playprevious(self):
         # type: () -> None
         """
-        Play previous item in playlist.
+        Play previous item in playlist. 
         """
         pass
     
@@ -1218,13 +1269,24 @@ class Player(object):
         """
         return True
     
+    def isExternalPlayer(self):
+        # type: () -> bool
+        """
+        Check for external player. 
+
+        :return: True if kodi is playing using an external player.
+
+        New function added. 
+        """
+        return True
+    
     def getPlayingFile(self):
         # type: () -> str
         """
         Returns the current playing file as a string. 
 
-        For LiveTV, returns a ``pvr://`` url which is not translatable
-        to an OS specific file or external url.
+        For LiveTV, returns a ``pvr://`` url which is not translatable to
+        an OS specific file or external url.
 
         :return: Playing filename
         :raises Exception: If player is not playing a file. 
@@ -1236,8 +1298,7 @@ class Player(object):
         """
         Get playing time. 
 
-        Returns the current time of the current playing media as fractional
-        seconds.
+        Returns the current time of the current playing media as fractional seconds.
 
         :return: Current time as fractional seconds
         :raises Exception: If player is not playing a file. 
@@ -1249,8 +1310,8 @@ class Player(object):
         """
         Seek time. 
 
-        Seeks the specified amount of time as fractional seconds.
-        The time specified is relative to the beginning of the currently
+        Seeks the specified amount of time as fractional seconds. The time
+        specified is relative to the beginning of the currently
         playing media file.
 
         :param seekTime: Time to seek as fractional seconds 
@@ -1263,7 +1324,7 @@ class Player(object):
         """
         Set subtitle file and enable subtitles. 
 
-        :param subtitleFile: File to use as source ofsubtitles 
+        :param subtitleFile: File to use as source of subtitles
         """
         pass
     
@@ -1276,16 +1337,14 @@ class Player(object):
 
         Example::
 
-            ...
             xbmc.Player().showSubtitles(True)
-            ...
         """
         pass
     
     def getSubtitles(self):
         # type: () -> str
         """
-        Get subtitle stream name.
+        Get subtitle stream name. 
 
         :return: Stream name 
         """
@@ -1309,9 +1368,26 @@ class Player(object):
 
         Example::
 
-            ...
             xbmc.Player().setSubtitleStream(1)
-            ...
+        """
+        pass
+    
+    def updateInfoTag(self, item):
+        # type: ('xbmcgui.ListItem') -> None
+        """
+        Update info labels for currently playing item. 
+
+        :param item: ListItem with new info
+        :raises Exception: If player is not playing a file
+
+        New function added.
+
+        Example::
+
+            item = xbmcgui.ListItem()
+            item.setPath(xbmc.Player().getPlayingFile())
+            item.setInfo('music', {'title' : 'foo', 'artist' : 'bar'})
+            xbmc.Player().updateInfoTag(item)
         """
         pass
     
@@ -1346,8 +1422,7 @@ class Player(object):
         """
         To get Radio RDS info tag 
 
-        Returns the RadioRDSInfoTag of the current playing Radio Song
-        if present.
+        Returns the RadioRDSInfoTag of the current playing 'Radio Song if. present'.
 
         :return: Radio RDS info tag
         :raises Exception: If player is not playing a file or current file
@@ -1386,9 +1461,7 @@ class Player(object):
 
         Example::
 
-            ...
             xbmc.Player().setAudioStream(1)
-            ...
         """
         pass
     
@@ -1410,33 +1483,30 @@ class Player(object):
 
         Example::
 
-            ...
             xbmc.Player().setVideoStream(1)
-            ...
         """
         pass
-    
+
 
 class PlayList(object):
     """
-    Kodi's Play List class
+    Kodi's Play List class.
+
 
     To create and edit a playlist which can be handled by the player.
 
     :param playList: [integer] To define the stream type
 
-    ======  ====================  ====================================
-    Value   Integer String        Description                         
-    ======  ====================  ====================================
-    0       xbmc.PLAYLIST_MUSIC   Playlist for music files or streams 
-    1       xbmc.PLAYLIST_VIDEO   Playlist for video files or streams 
-    ======  ====================  ====================================
+    ====== ==================== ====================================
+    Value  Integer String       Description                         
+    ====== ==================== ====================================
+    0      xbmc.PLAYLIST_MUSIC  Playlist for music files or streams 
+    1      xbmc.PLAYLIST_VIDEO  Playlist for video files or streams 
+    ====== ==================== ====================================
 
     Example::
 
-        ...
         play=xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
-        ...
     """
     
     def __init__(self, playList):
@@ -1460,22 +1530,19 @@ class PlayList(object):
         :param url: string or unicode - filename or url to add. 
         :param listitem: [opt] listitem - used with setInfo() to set different
             infolabels.
-        :param index: [opt] integer - position to add playlist item.
-            (default=end)
+        :param index: [opt] integer - position to add playlist item. (default=end)
 
-        You can use the above as keywords for arguments and skip certain
-        optional arguments. Once you use a keyword, all following arguments
-        require the keyword.
+        You can use the above as keywords for arguments and skip certain optional
+        arguments. Once you use a keyword, all following arguments require
+        the keyword.
 
         Example::
 
-            ..
             playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
             video = 'F:\\movies\\Ironman.mov'
             listitem = xbmcgui.ListItem('Ironman', thumbnailImage='F:\\movies\\Ironman.tbn')
             listitem.setInfo('video', {'Title': 'Ironman', 'Genre': 'Science Fiction'})
             playlist.add(url=video, listitem=listitem, index=7)n
-            ..
         """
         pass
     
@@ -1504,7 +1571,7 @@ class PlayList(object):
     def clear(self):
         # type: () -> None
         """
-        Clear all items in the playlist.
+        Clear all items in the playlist. 
         """
         pass
     
@@ -1520,14 +1587,14 @@ class PlayList(object):
     def shuffle(self):
         # type: () -> None
         """
-        Shuffle the playlist.
+        Shuffle the playlist. 
         """
         pass
     
     def unshuffle(self):
         # type: () -> None
         """
-        Unshuffle the playlist
+        Unshuffle the playlist. 
         """
         pass
     
@@ -1544,8 +1611,6 @@ class PlayList(object):
 class RenderCapture(object):
     """
     Kodi's render capture.
-
-    ``RenderCapture()``
     """
     
     def __init__(self):
@@ -1592,7 +1657,7 @@ class RenderCapture(object):
         """
         Get image format 
 
-        Format of captured image: 'BGRA' 
+        :return: Format of captured image: 'BGRA'
 
         Image will now always be returned in BGRA 
         """
@@ -1606,7 +1671,7 @@ class RenderCapture(object):
         :param msecs: [opt] Milliseconds to wait. Waits 1000ms if not specified 
         :return: Captured image as a bytearray
 
-        The size of the image is m_width * m_height * 4 
+        The size of the image is m_width * m_height * 4
 
         Added the option to specify wait time in msec. 
         """
@@ -1617,7 +1682,7 @@ class RenderCapture(object):
         """
         Issue capture request. 
 
-        :param width: Width capture image should be rendered to height.
+        :param width: Width capture image should be rendered to 
         :param height: Height capture image should should be rendered to
 
         Removed the option to pass **flags**
@@ -1631,35 +1696,35 @@ def log(msg, level=LOGDEBUG):
     Write a string to Kodi's log file and the debug window. 
 
     :param msg: string - text to output. 
-    :param level: [opt] integer - log level to ouput at. (default=LOGDEBUG)
+    :param level: [opt] integer - log level to output at. (default=LOGDEBUG)
 
-    ================  ==========================================================
-    Value:            Description:                                                                                                                                      
-    ================  ==========================================================
-    xbmc.LOGDEBUG     In depth information about the status of Kodi. This
-                      information can pretty much only be deciphered by
-                      a developer or long time Kodi power user.
-    xbmc.LOGINFO      Something has happened. It's not a problem, we just
-                      thought you might want to know. Fairly excessive output
-                      that most people won't care about.
-    xbmc.LOGNOTICE    Similar to INFO but the average Joe might want to know
-                      about these events. This level and above are logged by default.
-    xbmc.LOGWARNING   Something potentially bad has happened. If Kodi did
-                      something you didn't expect, this is probably why.
-                      Watch for errors to follow.
-    xbmc.LOGERROR     This event is bad. Something has failed. You likely
-                      noticed problems with the application be it skin artifacts,
-                      failure of playback a crash, etc.
-    xbmc.LOGFATAL     We're screwed. Kodi is about to crash.                                                                                                            
-    ================  ==========================================================
+    ================ ===========================================================
+    Value:           Description:
+    ================ ===========================================================
+    xbmc.LOGDEBUG    In depth information about the status of Kodi.
+                     This information can pretty much only be deciphered by
+                     a developer or long time Kodi power user.
+    xbmc.LOGINFO     Something has happened. It's not a problem, we just thought
+                     you might want to know. Fairly excessive output that most
+                     people won't care about.
+    xbmc.LOGNOTICE   Similar to INFO but the average Joe might want to know
+                     about these events. This level and above are logged by
+                     default.
+    xbmc.LOGWARNING  Something potentially bad has happened. If Kodi did
+                     something you didn't expect, this is probably why.
+                     Watch for errors to follow.
+    xbmc.LOGERROR    This event is bad. Something has failed. You likely noticed
+                     problems with the application be it skin artifacts, failure
+                     of playback a crash, etc.
+    xbmc.LOGFATAL    We're screwed. Kodi is about to crash.
+    ================ ===========================================================
 
     You can use the above as keywords for arguments and skip certain optional
-    arguments. Once you use a keyword, all following arguments
-    require the keyword.
+    arguments. Once you use a keyword, all following arguments require
+    the keyword.
 
-    Text is written to the log for the following conditions:
-
-    loglevel == -1 (NONE, nothing at all is logged)
+    Text is written to the log for the following conditions.loglevel == -1
+    (NONE, nothing at all is logged)
 
     loglevel == 0 (NORMAL, shows LOGNOTICE, LOGERROR, LOGSEVERE and LOGFATAL)
 
@@ -1669,9 +1734,7 @@ def log(msg, level=LOGDEBUG):
 
     Example::
 
-        ..
         xbmc.log(msg='This is a test string.', level=xbmc.LOGDEBUG);
-        ..
     """
     pass
 
@@ -1683,9 +1746,7 @@ def shutdown():
 
     Example::
 
-        ..
         xbmc.shutdown()
-        ..
     """
     pass
 
@@ -1697,9 +1758,7 @@ def restart():
 
     Example::
 
-        ..
         xbmc.restart()
-        ..
     """
     pass
 
@@ -1713,9 +1772,7 @@ def executescript(script):
 
     Example::
 
-        ..
         xbmc.executescript('special://home/scripts/update.py')
-        ..
     """
     pass
 
@@ -1731,9 +1788,7 @@ def executebuiltin(function, wait=False):
 
     Example::
 
-        ..
-        xbmc.executebuiltin('RunXBE(c:\\avalaunch.xbe)')
-        ..
+        xbmc.executebuiltin('Skin.SetString(abc,def)')
     """
     pass
 
@@ -1746,11 +1801,11 @@ def executeJSONRPC(jsonrpccommand):
     :param jsonrpccommand: string - jsonrpc command to execute. 
     :return: jsonrpc return string
 
+    List of commands - <https://kodi.wiki/view/JSON-RPC_API/v9>
+
     Example::
 
-        ..
         response = xbmc.executeJSONRPC('{ "jsonrpc": "2.0", "method": "JSONRPC.Introspect", "id": 1 }')
-        ..
     """
     return ""
 
@@ -1763,14 +1818,12 @@ def sleep(timemillis):
     :param time: integer - number of msec to sleep.
     :raises TypeError: If time is not an integer.
 
-    This is useful if you have for example a Player class that is waiting
-    for onPlayBackEnded() calls.
+    This is useful if you have for example a Player class that is waiting for
+    onPlayBackEnded() calls.
 
     Example::
 
-        ..
         xbmc.sleep(2000) # sleeps for 2 seconds
-        ..
     """
     pass
 
@@ -1783,14 +1836,12 @@ def getLocalizedString(id):
     :param id: integer - id# for string you want to localize. 
     :return: Localized 'unicode string'
 
-    See strings.po in  ``\language\{yourlanguage}\`` for which id you need
-    for a string.
+    See strings.xml in  ``\language\{yourlanguage}\``
+    for which id you need for a string.
 
     Example::
 
-        ..
         locstr = xbmc.getLocalizedString(6)
-        ..
     """
     return u""
 
@@ -1802,14 +1853,12 @@ def getSkinDir():
 
     :return: The active skin directory as a string
 
-    This is not the full path like ``'special://home/addons/MediaCenter'``,
-    but only ``'MediaCenter'``.
+    This is not the full path like 'special://home/addons/MediaCenter', but
+    only 'MediaCenter'.
 
     Example::
 
-        ..
         skindir = xbmc.getSkinDir()
-        ..
     """
     return ""
 
@@ -1821,14 +1870,13 @@ def getLanguage(format=ENGLISH_NAME, region=False):
 
     :param format: [opt] format of the returned language string
 
-    ==================  ========================================================
-    Value               Description                                                
-    ==================  ========================================================
-    xbmc.ISO_639_1      Two letter code as defined in ISO 639-1                    
-    xbmc.ISO_639_2      Three letter code as defined in ISO 639-2/T
-                        or ISO 639-2/B
-    xbmc.ENGLISH_NAME   Full language name in English (default)                    
-    ==================  ========================================================
+    ================== ===========================================================
+    Value              Description                                                
+    ================== ===========================================================
+    xbmc.ISO_639_1     Two letter code as defined in ISO 639-1                    
+    xbmc.ISO_639_2     Three letter code as defined in ISO 639-2/T or ISO 639-2/B 
+    xbmc.ENGLISH_NAME  Full language name in English (default)                    
+    ================== ===========================================================
 
     :param region: [opt] append the region delimited by "-" of the language
         (setting) to the returned language string
@@ -1838,9 +1886,7 @@ def getLanguage(format=ENGLISH_NAME, region=False):
 
     Example::
 
-        ..
         language = xbmc.getLanguage(xbmc.ENGLISH_NAME)
-        ..
     """
     return ""
 
@@ -1854,9 +1900,7 @@ def getIPAddress():
 
     Example::
 
-        ..
         ip = xbmc.getIPAddress()
-        ..
     """
     return ""
 
@@ -1868,20 +1912,18 @@ def getDVDState():
 
     :return: Values for state are:
 
-    ======  ===============================
-    Value   Name                           
-    ======  ===============================
-    1       xbmc.DRIVE_NOT_READY           
-    16      xbmc.TRAY_OPEN                 
-    64      xbmc.TRAY_CLOSED_NO_MEDIA      
-    96      xbmc.TRAY_CLOSED_MEDIA_PRESENT 
-    ======  ===============================
+    ====== ===============================
+    Value  Name                           
+    ====== ===============================
+    1      xbmc.DRIVE_NOT_READY           
+    16     xbmc.TRAY_OPEN                 
+    64     xbmc.TRAY_CLOSED_NO_MEDIA      
+    96     xbmc.TRAY_CLOSED_MEDIA_PRESENT 
+    ====== ===============================
 
     Example::
 
-        ..
         dvdstate = xbmc.getDVDState()
-        ..
     """
     return 0L
 
@@ -1895,9 +1937,7 @@ def getFreeMem():
 
     Example::
 
-        ..
         freemem = xbmc.getFreeMem()
-        ..
     """
     return 0L
 
@@ -1914,9 +1954,7 @@ def getInfoLabel(cLine):
 
     Example::
 
-        ..
         label = xbmc.getInfoLabel('Weather.Conditions')
-        ..
     """
     return ""
 
@@ -1933,9 +1971,7 @@ def getInfoImage(infotag):
 
     Example::
 
-        ..
         filename = xbmc.getInfoImage('Weather.Conditions')
-        ..
     """
     return ""
 
@@ -1946,17 +1982,15 @@ def playSFX(filename, useCached=True):
     Plays a wav file by filename 
 
     :param filename: string - filename of the wav file to play 
-    :param useCached: [opt] bool - False = Dump any previously cached wav
-        associated with filename
+    :param useCached: [opt] bool - False = Dump any previously cached
+        wav associated with filename
 
     Added new option **useCached**.
 
     Example::
 
-        ..
         xbmc.playSFX('special://xbmc/scripts/dingdong.wav')
         xbmc.playSFX('special://xbmc/scripts/dingdong.wav',False)
-        ..
     """
     pass
 
@@ -1966,13 +2000,11 @@ def stopSFX():
     """
     Stops wav file 
 
-      New function added.
+    New function added.
 
     Example::
 
-        ..
         xbmc.stopSFX()
-        ..
     """
     pass
 
@@ -1986,9 +2018,7 @@ def enableNavSounds(yesNo):
 
     Example::
 
-        ..
         xbmc.enableNavSounds(True)
-        ..
     """
     pass
 
@@ -2009,9 +2039,7 @@ def getCondVisibility(condition):
 
     Example::
 
-        ..
         visible = xbmc.getCondVisibility('[Control.IsVisible(41) + !Control.IsVisible(12)]')
-        ..
     """
     return True
 
@@ -2025,9 +2053,7 @@ def getGlobalIdleTime():
 
     Example::
 
-        ..
         t = xbmc.getGlobalIdleTime()
-        ..
     """
     return 0
 
@@ -2042,9 +2068,7 @@ def getCacheThumbName(path):
 
     Example::
 
-        ..
         thumb = xbmc.getCacheThumbName('f:\\videos\\movie.avi')
-        ..
     """
     return ""
 
@@ -2052,10 +2076,10 @@ def getCacheThumbName(path):
 def makeLegalFilename(filename, fatX=True):
     # type: (str_type, bool) -> str
     """
-    Returns a legal filename or path as a string. 
+    Returns a legal filename or path as a string.
 
-    :param filename: string or unicode - filename/path to make legal
-    :param fatX: [opt] bool - True=Xbox file system(Default)
+    :param filename: string or unicode - filename/path to make legal 
+    :param fatX: [opt] bool - True=Xbox file system(Default) 
     :return: Legal filename or path as a string
 
     If fatX is true you should pass a full path. If fatX is false only pass
@@ -2065,9 +2089,7 @@ def makeLegalFilename(filename, fatX=True):
 
     Example::
 
-        ..
         filename = xbmc.makeLegalFilename('F:\\Trailers\\Ice Age: The Meltdown.avi')
-        ..
     """
     return ""
 
@@ -2080,15 +2102,13 @@ def translatePath(path):
     :param path: string or unicode - Path to format 
     :return: Translated path
 
-    Only useful if you are coding for both Linux and Windows.
-    e.g. Converts ``'special://masterprofile/script_data'`` ->
+    Only useful if you are coding for both Linux and Windows. e.g.
+    converts ``'special://masterprofile/script_data'`` ->
     ``'/home/user/XBMC/UserData/script_data'`` on Linux.
 
     Example::
 
-        ..
         fpath = xbmc.translatePath('special://masterprofile/script_data')
-        ..
     """
     return ""
 
@@ -2104,9 +2124,7 @@ def getCleanMovieTitle(path, usefoldername=False):
 
     Example::
 
-        ..
         title, year = xbmc.getCleanMovieTitle('/path/to/moviefolder/test.avi', True)
-        ..
     """
     return "", ""
 
@@ -2124,9 +2142,7 @@ def validatePath(path):
 
     Example::
 
-        ..
         fpath = xbmc.validatePath(somepath)
-        ..
     """
     return ""
 
@@ -2144,9 +2160,7 @@ def getRegion(id):
 
     Example::
 
-        ..
         date_long_format = xbmc.getRegion('datelong')
-        ..
     """
     return ""
 
@@ -2165,9 +2179,7 @@ def getSupportedMedia(mediaType):
 
     Example::
 
-        ..
         mTypes = xbmc.getSupportedMedia('video')
-        ..
     """
     return ""
 
@@ -2181,14 +2193,12 @@ def skinHasImage(image):
     :return: True if the image file exists in the skin
 
     If the media resides in a subfolder include it.
-    (eg. ``home-myfiles\home-myfiles2.png``).
-    You can use the above as keywords for arguments.
+    (eg. home-myfiles\home-myfiles2.png). You can use the above as keywords
+    for arguments.
 
     Example::
 
-        ..
         exists = xbmc.skinHasImage('ButtonFocusedTexture.png')
-        ..
     """
     return True
 
@@ -2201,20 +2211,20 @@ def startServer(iTyp, bStart, bWait=False):
     :param typ: integer - use SERVER_* constantsUsed format of the returned
         language string
 
-    ==========================  ================================================
-    Value                       Description                                                           
-    ==========================  ================================================
-    xbmc.SERVER_WEBSERVER       To control Kodi's builtin webserver                                     
-    xbmc.SERVER_AIRPLAYSERVER   AirPlay is a proprietary protocol stack/suite
-                                developed by Apple Inc.
-    xbmc.SERVER_JSONRPCSERVER   Control JSON-RPC HTTP/TCP socket-based interface                        
-    xbmc.SERVER_UPNPRENDERER    UPnP client (aka UPnP renderer)                                         
-    xbmc.SERVER_UPNPSERVER      Control built-in UPnP A/V media server
-                                (UPnP-server)
-    xbmc.SERVER_EVENTSERVER     Set eventServer part that accepts remote device
-                                input on all platforms
-    xbmc.SERVER_ZEROCONF        Control Kodi's Avahi Zeroconf                                           
-    ==========================  ================================================
+    ========================== =================================================
+    Value                      Description                                                           
+    ========================== =================================================
+    xbmc.SERVER_WEBSERVER      To control Kodi's builtin webserver                                    
+    xbmc.SERVER_AIRPLAYSERVER  AirPlay is a proprietary protocol stack/suite
+                               developed by Apple Inc.
+    xbmc.SERVER_JSONRPCSERVER  Control JSON-RPC HTTP/TCP socket-based interface                       
+    xbmc.SERVER_UPNPRENDERER   UPnP client (aka UPnP renderer)                                        
+    xbmc.SERVER_UPNPSERVER     Control built-in UPnP A/V media server
+                               (UPnP-server)
+    xbmc.SERVER_EVENTSERVER    Set eventServer part that accepts remote device
+                               input on all platforms
+    xbmc.SERVER_ZEROCONF       Control Kodi's Avahi Zeroconf                                          
+    ========================== =================================================
 
     :param bStart: bool - start (True) or stop (False) a server 
     :param bWait: [opt] bool - wait on stop before returning
@@ -2223,9 +2233,7 @@ def startServer(iTyp, bStart, bWait=False):
 
     Example::
 
-        ..
         xbmc.startServer(xbmc.SERVER_AIRPLAYSERVER, False)
-        ..
     """
     return True
 
@@ -2237,9 +2245,7 @@ def audioSuspend():
 
     Example::
 
-        ..
         xbmc.audioSuspend()
-        ..
     """
     pass
 
@@ -2251,9 +2257,7 @@ def audioResume():
 
     Example::
 
-        ..
         xbmc.audioResume()
-        ..
     """
     pass
 
@@ -2267,12 +2271,10 @@ def getUserAgent():
 
     Example::
 
-        ..
         xbmc.getUserAgent()
-        ..
 
     example output:
-    ``Kodi/17.0-ALPHA1 (X11; Linux x86_64) Ubuntu/15.10 App_Bitness/64 Version/17.0-ALPHA1-Git:2015-12-23-5770d28``
+    ``'Kodi/17.0-ALPHA1 (X11; Linux x86_64) Ubuntu/15.10 App_Bitness/64 Version/17.0-ALPHA1-Git:2015-12-23-5770d28'``
     """
     return ""
 
@@ -2286,14 +2288,13 @@ def convertLanguage(language, format):
         (ISO 639-1), or three letter code (ISO 639-2/T(B)
     :param format: format of the returned language string
 
-    ==================  ========================================================
-    Value               Description                                                
-    ==================  ========================================================
-    xbmc.ISO_639_1      Two letter code as defined in ISO 639-1                    
-    xbmc.ISO_639_2      Three letter code as defined in ISO 639-2/T
-                        or ISO 639-2/B
-    xbmc.ENGLISH_NAME   Full language name in English (default)                    
-    ==================  ========================================================
+    ================== ==========================================================
+    Value              Description
+    ================== ==========================================================
+    xbmc.ISO_639_1     Two letter code as defined in ISO 639-1                    
+    xbmc.ISO_639_2     Three letter code as defined in ISO 639-2/T or ISO 639-2/B
+    xbmc.ENGLISH_NAME  Full language name in English (default)
+    ================== ==========================================================
 
     :return: Converted Language string
 
@@ -2301,8 +2302,6 @@ def convertLanguage(language, format):
 
     Example::
 
-        ..
         language = xbmc.convertLanguage(English, xbmc.ISO_639_2)
-        ..
     """
     return ""
