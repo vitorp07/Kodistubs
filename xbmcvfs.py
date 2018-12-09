@@ -244,7 +244,7 @@ class Stat(object):
         """
         return 0L
     
-    def atime(self):
+    def st_atime(self):
         # type: () -> long
         """
         To get time of last access. 
@@ -253,7 +253,7 @@ class Stat(object):
         """
         return 0L
     
-    def mtime(self):
+    def st_mtime(self):
         # type: () -> long
         """
         To get time of last modification. 
@@ -262,7 +262,7 @@ class Stat(object):
         """
         return 0L
     
-    def ctime(self):
+    def st_ctime(self):
         # type: () -> long
         """
         To get time of last status change. 
