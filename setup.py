@@ -5,10 +5,7 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
-
-VERSION = '18.0.0'
-AUTHOR = 'Roman Miroshnychenko'
-EMAIL = 'roman1972@gmail.com'
+from kodistubs_meta import AUTHOR, EMAIL, VERSION
 
 with open('README.rst', encoding='utf-8') as fo:
     long_descr = fo.read()
