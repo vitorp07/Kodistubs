@@ -8,6 +8,7 @@ This is Kodi Python API documentation auto-generated from Kodisutubs docstrings.
 
     xbmc
     xbmcaddon
+    xbmcdrm
     xbmcgui
     xbmcplugin
     xbmcvfs

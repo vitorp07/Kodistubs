@@ -9,3 +9,10 @@ xbmcaddon
 
     
     Addon
+
+
+  .. rubric:: Functions
+
+  .. autosummary::
+
+    

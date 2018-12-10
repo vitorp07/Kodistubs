@@ -3,6 +3,13 @@ xbmcplugin
 
 .. automodule:: xbmcplugin
 
+  .. rubric:: Classes
+
+  .. autosummary::
+
+    
+
+
   .. rubric:: Functions
 
   .. autosummary::

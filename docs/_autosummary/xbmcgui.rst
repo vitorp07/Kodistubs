@@ -40,3 +40,5 @@ xbmcgui
     
     getCurrentWindowId
     getCurrentWindowDialogId
+    getScreenHeight
+    getScreenWidth
