@@ -802,14 +802,14 @@ class ControlEdit(Control):
         as bits to have several together:
 
     ================= =========== ===============
-    Defination name   Bitflag     Description    
+    Defination name   Bitflag     Description
     ================= =========== ===============
-    XBFONT_LEFT       0x00000000  Align X left   
-    XBFONT_RIGHT      0x00000001  Align X right  
-    XBFONT_CENTER_X   0x00000002  Align X center 
-    XBFONT_CENTER_Y   0x00000004  Align Y center 
-    XBFONT_TRUNCATED  0x00000008  Truncated text 
-    XBFONT_JUSTIFIED  0x00000010  Justify text   
+    XBFONT_LEFT       0x00000000  Align X left
+    XBFONT_RIGHT      0x00000001  Align X right
+    XBFONT_CENTER_X   0x00000002  Align X center
+    XBFONT_CENTER_Y   0x00000004  Align Y center
+    XBFONT_TRUNCATED  0x00000008  Truncated text
+    XBFONT_JUSTIFIED  0x00000010  Justify text
     ================= =========== ===============
 
     :param focusTexture: [opt] string - filename for focus texture. 
@@ -919,7 +919,7 @@ class ControlEdit(Control):
         ================================ ============================================
 
         :param heading: string or unicode - heading that will be used for
-        to numeric or keyboard dialog when the edit control is clicked.
+            to numeric or keyboard dialog when the edit control is clicked.
 
         New function added.
 
@@ -958,7 +958,7 @@ class ControlList(Control):
     :param itemHeight: [opt] integer - height of items. 
     :param space: [opt] integer - space between items. 
     :param alignmentY: [opt] integer - Y-axis alignment of items labelFlags for
-    alignment used as bits to have several together:
+        alignment used as bits to have several together:
 
     ================= =========== ===============
     Defination name   Bitflag     Description    
@@ -2324,6 +2324,7 @@ class Dialog(object):
 
         :param heading: string or unicode - dialog heading. 
         :param shares: string or unicode - from sources.xml
+
         =========== ==============================================
         Param       Name                                          
         =========== ==============================================
@@ -3205,7 +3206,7 @@ class ListItem(object):
         role       string (Dexter)          
         thumbnail  string (http://www.someurl.com/someimage.png)
         order      integer (1)              
-        ========== ==============================================
+        ========== =============================================
 
         New function added.
 
@@ -3232,7 +3233,7 @@ class ListItem(object):
         preview  [opt] string (http://www.someurl.com/somepreviewimage.png)
         colors   [opt] string (either comma separated Kodi hex values
                  ("FFFFFFFF,DDDDDDDD") or TVDB RGB Int Triplets
-                 ("|68,69,59|69,70,58|78,78,68|"))
+                 (``"|68,69,59|69,70,58|78,78,68|"``))
         ======== ===============================================================
 
         New function added.

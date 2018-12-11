@@ -219,7 +219,7 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
     ================================================== =========================
 
     :param label2Mask: [opt] string - the label mask to use for the second label.
-        Defaults to  ``%D``applies to:
+        Defaults to  ``%D`` applies to:
 
     ================================= ===================== ========================================
     SORT_METHOD_NONE                  SORT_METHOD_UNSORTED  SORT_METHOD_VIDEO_TITLE                 
@@ -229,7 +229,7 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
     SORT_METHOD_LABEL_IGNORE_FOLDERS  SORT_METHOD_CHANNEL                                           
     ================================= ===================== ========================================
 
-    to add multiple sort methods just call the method multiple times.
+    To add multiple sort methods just call the method multiple times.
 
     Added new sort **SORT_METHOD_DATE_TAKEN**, **SORT_METHOD_COUNTRY**,
     **SORT_METHOD_DATEADDED**, **SORT_METHOD_FULLPATH**,

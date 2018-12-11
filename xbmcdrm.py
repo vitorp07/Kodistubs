@@ -65,7 +65,7 @@ class CryptoSession(object):
 
         :param [byte]: response Key data returned from key server
         :return: String If offline keays are requested, a keySetId which can
-        be used later with restoreKeys, empty for online / streaming) keys.
+            be used later with restoreKeys, empty for online / streaming) keys.
 
         New function added.
         """
