@@ -156,13 +156,12 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
     :param sortMethod: integer - see available sort methods at the bottom
         (or see SortFileItem.h).
 
-    ================================================== =========================
+    ================================================== =========================================
     Value                                              Description
-    ================================================== =========================
+    ================================================== =========================================
     xbmcplugin.SORT_METHOD_NONE                        Do not sort
     xbmcplugin.SORT_METHOD_LABEL                       Sort by label
-    xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE            Sort by the label and
-                                                       ignore "The" before
+    xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE            Sort by the label and ignore "The" before
     xbmcplugin.SORT_METHOD_DATE                        Sort by the date
     xbmcplugin.SORT_METHOD_SIZE                        Sort by the size
     xbmcplugin.SORT_METHOD_FILE                        Sort by the file
@@ -170,8 +169,7 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
     xbmcplugin.SORT_METHOD_TRACKNUM                    Sort by the track number
     xbmcplugin.SORT_METHOD_DURATION                    Sort by the duration
     xbmcplugin.SORT_METHOD_TITLE                       Sort by the title
-    xbmcplugin.SORT_METHOD_TITLE_IGNORE_THE            Sort by the title and
-                                                       ignore "The" before
+    xbmcplugin.SORT_METHOD_TITLE_IGNORE_THE            Sort by the title and ignore "The" before
     xbmcplugin.SORT_METHOD_ARTIST                      Sort by the artist
     xbmcplugin.SORT_METHOD_ARTIST_IGNORE_THE           Sort by the artist and
                                                        ignore "The" before
@@ -186,13 +184,10 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
     xbmcplugin.SORT_METHOD_PLAYLIST_ORDER              Sort by the playlist order
     xbmcplugin.SORT_METHOD_EPISODE                     Sort by the episode
     xbmcplugin.SORT_METHOD_VIDEO_TITLE                 Sort by the video title
-    xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE            Sort by the video sort
-                                                       title
-    xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE Sort by the video sort
-                                                       title and ignore "The"
-                                                       before
-    xbmcplugin.SORT_METHOD_PRODUCTIONCODE              Sort by the production
-                                                       code
+    xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE            Sort by the video sort title
+    xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE Sort by the video sort title and ignore
+                                                       "The" before
+    xbmcplugin.SORT_METHOD_PRODUCTIONCODE              Sort by the production code
     xbmcplugin.SORT_METHOD_SONG_RATING                 Sort by the song rating
     xbmcplugin.SORT_METHOD_MPAA_RATING                 Sort by the mpaa rating
     xbmcplugin.SORT_METHOD_VIDEO_RUNTIME               Sort by video runtime
@@ -205,18 +200,16 @@ def addSortMethod(handle, sortMethod, label2Mask=""):
     xbmcplugin.SORT_METHOD_COUNTRY                     Sort by the country
     xbmcplugin.SORT_METHOD_DATEADDED                   Sort by the added date
     xbmcplugin.SORT_METHOD_FULLPATH                    Sort by the full path name
-    xbmcplugin.SORT_METHOD_LABEL_IGNORE_FOLDERS        Sort by the label names
-                                                       and ignore related folder
-                                                       names
+    xbmcplugin.SORT_METHOD_LABEL_IGNORE_FOLDERS        Sort by the label names and ignore
+                                                       related folder names
     xbmcplugin.SORT_METHOD_LASTPLAYED                  Sort by last played date
     xbmcplugin.SORT_METHOD_PLAYCOUNT                   Sort by the play count
     xbmcplugin.SORT_METHOD_CHANNEL                     Sort by the channel
     xbmcplugin.SORT_METHOD_DATE_TAKEN                  Sort by the taken date
     xbmcplugin.SORT_METHOD_VIDEO_USER_RATING           Sort by the rating of
                                                        the user of video
-    xbmcplugin.SORT_METHOD_SONG_USER_RATING            Sort by the rating of
-                                                       the user of song
-    ================================================== =========================
+    xbmcplugin.SORT_METHOD_SONG_USER_RATING            Sort by the rating of the user of song
+    ================================================== =========================================
 
     :param label2Mask: [opt] string - the label mask to use for the second label.
         Defaults to  ``%D`` applies to:
