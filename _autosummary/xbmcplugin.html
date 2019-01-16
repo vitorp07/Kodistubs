@@ -1,0 +1,683 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xbmcplugin &#8212; Kodistubs 18.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="xbmcvfs" href="xbmcvfs.html" />
+    <link rel="prev" title="xbmcgui" href="xbmcgui.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xbmcplugin">
+<span id="xbmcplugin"></span><h1>xbmcplugin<a class="headerlink" href="#module-xbmcplugin" title="Permalink to this headline">¶</a></h1>
+<p>Plugin functions on Kodi.</p>
+<p>Offers classes and functions that allow a developer
+to present information through Kodi’s standard menu structure. While plugins
+don’t have the same flexibility as scripts, they boast significantly quicker
+development time and a more consistent user experience.</p>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcplugin.addDirectoryItem" title="xbmcplugin.addDirectoryItem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addDirectoryItem</span></code></a>(handle,&nbsp;url,&nbsp;listitem[,&nbsp;…])</td>
+<td>Callback function to pass directory contents back to Kodi.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcplugin.addDirectoryItems" title="xbmcplugin.addDirectoryItems"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addDirectoryItems</span></code></a>(handle,&nbsp;items[,&nbsp;totalItems])</td>
+<td>Callback function to pass directory contents back to Kodi as a list.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcplugin.endOfDirectory" title="xbmcplugin.endOfDirectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endOfDirectory</span></code></a>(handle[,&nbsp;succeeded,&nbsp;…])</td>
+<td>Callback function to tell Kodi that the end of the directory listing in a virtualPythonFolder module is reached.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcplugin.setResolvedUrl" title="xbmcplugin.setResolvedUrl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setResolvedUrl</span></code></a>(handle,&nbsp;succeeded,&nbsp;listitem)</td>
+<td>Callback function to tell Kodi that the file plugin has been resolved to a url</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcplugin.addSortMethod" title="xbmcplugin.addSortMethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addSortMethod</span></code></a>(handle,&nbsp;sortMethod[,&nbsp;label2Mask])</td>
+<td>Adds a sorting method for the media list.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcplugin.getSetting" title="xbmcplugin.getSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSetting</span></code></a>(handle,&nbsp;id)</td>
+<td>Returns the value of a setting as a string.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcplugin.setSetting" title="xbmcplugin.setSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSetting</span></code></a>(handle,&nbsp;id,&nbsp;value)</td>
+<td>Sets a plugin setting for the current running plugin.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcplugin.setContent" title="xbmcplugin.setContent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setContent</span></code></a>(handle,&nbsp;content)</td>
+<td>Sets the plugins content.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcplugin.setPluginCategory" title="xbmcplugin.setPluginCategory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPluginCategory</span></code></a>(handle,&nbsp;category)</td>
+<td>Sets the plugins name for skins to display.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcplugin.setPluginFanart" title="xbmcplugin.setPluginFanart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPluginFanart</span></code></a>(handle[,&nbsp;image,&nbsp;color1,&nbsp;…])</td>
+<td>Sets the plugins fanart and color for skins to display.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcplugin.setProperty" title="xbmcplugin.setProperty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setProperty</span></code></a>(handle,&nbsp;key,&nbsp;value)</td>
+<td>Sets a container property for this plugin.</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="xbmcplugin.addDirectoryItem">
+<code class="descclassname">xbmcplugin.</code><code class="descname">addDirectoryItem</code><span class="sig-paren">(</span><em>handle</em>, <em>url</em>, <em>listitem</em>, <em>isFolder=False</em>, <em>totalItems=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#addDirectoryItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.addDirectoryItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback function to pass directory contents back to Kodi.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>url</strong> – string - url of the entry. would be  <code class="docutils literal notranslate"><span class="pre">plugin://</span></code> for another
+virtual directory</li>
+<li><strong>listitem</strong> – ListItem - item to add.</li>
+<li><strong>isFolder</strong> – [opt] bool - True=folder / False=not a folder(default).</li>
+<li><strong>totalItems</strong> – [opt] integer - total number of items that will be passed.
+(used for progressbar)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Returns a bool for successful completion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments and skip certain optional
+arguments. Once you use a keyword, all following arguments require
+the keyword.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">xbmcplugin</span><span class="o">.</span><span class="n">addDirectoryItem</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;F:\Trailers</span><span class="se">\300</span><span class="s1">.mov&#39;</span><span class="p">,</span> <span class="n">listitem</span><span class="p">,</span> <span class="n">totalItems</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span> <span class="k">break</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.addDirectoryItems">
+<code class="descclassname">xbmcplugin.</code><code class="descname">addDirectoryItems</code><span class="sig-paren">(</span><em>handle</em>, <em>items</em>, <em>totalItems=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#addDirectoryItems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.addDirectoryItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback function to pass directory contents back to Kodi as a list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>items</strong> – List - list of (url, listitem[, isFolder]) as a tuple to add.</li>
+<li><strong>totalItems</strong> – [opt] integer - total number of items that will be passed.
+(used for progressbar)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Returns a bool for successful completion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Large lists benefit over using the standard addDirectoryItem(). You may call
+this more than once to add items in chunks.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">xbmcplugin</span><span class="o">.</span><span class="n">addDirectoryItems</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">[(</span><span class="n">url</span><span class="p">,</span> <span class="n">listitem</span><span class="p">,</span> <span class="kc">False</span><span class="p">,)]:</span> <span class="k">raise</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.endOfDirectory">
+<code class="descclassname">xbmcplugin.</code><code class="descname">endOfDirectory</code><span class="sig-paren">(</span><em>handle</em>, <em>succeeded=True</em>, <em>updateListing=False</em>, <em>cacheToDisc=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#endOfDirectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.endOfDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback function to tell Kodi that the end of the directory listing in
+a virtualPythonFolder module is reached.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>succeeded</strong> – [opt] bool - True=script completed successfully(Default)/
+False=Script did not.</li>
+<li><strong>updateListing</strong> – [opt] bool - True=this folder should update
+the current listing/False=Folder is a subfolder(Default).</li>
+<li><strong>cacheToDisc</strong> – [opt] bool - True=Folder will cache if extended
+time(default)/False=this folder will never cache to disc.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">endOfDirectory</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">cacheToDisc</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.setResolvedUrl">
+<code class="descclassname">xbmcplugin.</code><code class="descname">setResolvedUrl</code><span class="sig-paren">(</span><em>handle</em>, <em>succeeded</em>, <em>listitem</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#setResolvedUrl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.setResolvedUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback function to tell Kodi that the file plugin has been resolved
+to a url</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>succeeded</strong> – bool -
+True=script completed successfully/False=Script did not.</li>
+<li><strong>listitem</strong> – ListItem - item the file plugin resolved to for playback.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">setResolvedUrl</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="kc">True</span><span class="p">,</span> <span class="n">listitem</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.addSortMethod">
+<code class="descclassname">xbmcplugin.</code><code class="descname">addSortMethod</code><span class="sig-paren">(</span><em>handle</em>, <em>sortMethod</em>, <em>label2Mask=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#addSortMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.addSortMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a sorting method for the media list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>sortMethod</strong> – integer - see available sort methods at the bottom
+(or see SortFileItem.h).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="55%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_NONE</td>
+<td>Do not sort</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_LABEL</td>
+<td>Sort by label</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE</td>
+<td>Sort by the label and ignore “The” before</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_DATE</td>
+<td>Sort by the date</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_SIZE</td>
+<td>Sort by the size</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_FILE</td>
+<td>Sort by the file</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_DRIVE_TYPE</td>
+<td>Sort by the drive type</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_TRACKNUM</td>
+<td>Sort by the track number</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_DURATION</td>
+<td>Sort by the duration</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_TITLE</td>
+<td>Sort by the title</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_TITLE_IGNORE_THE</td>
+<td>Sort by the title and ignore “The” before</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_ARTIST</td>
+<td>Sort by the artist</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_ARTIST_IGNORE_THE</td>
+<td>Sort by the artist and
+ignore “The” before</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_ALBUM</td>
+<td>Sort by the album</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_ALBUM_IGNORE_THE</td>
+<td>Sort by the album and
+ignore “The” before</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_GENRE</td>
+<td>Sort by the genre</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_SORT_METHOD_VIDEO_YEAR,</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_YEAR</td>
+<td>Sort by the year</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_VIDEO_RATING</td>
+<td>Sort by the video rating</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_PROGRAM_COUNT</td>
+<td>Sort by the program count</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_PLAYLIST_ORDER</td>
+<td>Sort by the playlist order</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_EPISODE</td>
+<td>Sort by the episode</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_VIDEO_TITLE</td>
+<td>Sort by the video title</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE</td>
+<td>Sort by the video sort title</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE</td>
+<td>Sort by the video sort title and ignore
+“The” before</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_PRODUCTIONCODE</td>
+<td>Sort by the production code</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_SONG_RATING</td>
+<td>Sort by the song rating</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_MPAA_RATING</td>
+<td>Sort by the mpaa rating</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_VIDEO_RUNTIME</td>
+<td>Sort by video runtime</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_STUDIO</td>
+<td>Sort by the studio</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE</td>
+<td>Sort by the studio and
+ignore “The” before</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_UNSORTED</td>
+<td>Use list not sorted</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_BITRATE</td>
+<td>Sort by the bitrate</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_LISTENERS</td>
+<td>Sort by the listeners</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_COUNTRY</td>
+<td>Sort by the country</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_DATEADDED</td>
+<td>Sort by the added date</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_FULLPATH</td>
+<td>Sort by the full path name</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_LABEL_IGNORE_FOLDERS</td>
+<td>Sort by the label names and ignore
+related folder names</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_LASTPLAYED</td>
+<td>Sort by last played date</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_PLAYCOUNT</td>
+<td>Sort by the play count</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_CHANNEL</td>
+<td>Sort by the channel</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_DATE_TAKEN</td>
+<td>Sort by the taken date</td>
+</tr>
+<tr class="row-even"><td>xbmcplugin.SORT_METHOD_VIDEO_USER_RATING</td>
+<td>Sort by the rating of
+the user of video</td>
+</tr>
+<tr class="row-odd"><td>xbmcplugin.SORT_METHOD_SONG_USER_RATING</td>
+<td>Sort by the rating of the user of song</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>label2Mask</strong> – [opt] string - the label mask to use for the second label.
+Defaults to  <code class="docutils literal notranslate"><span class="pre">%D</span></code> applies to:</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="22%" />
+<col width="43%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>SORT_METHOD_NONE</td>
+<td>SORT_METHOD_UNSORTED</td>
+<td>SORT_METHOD_VIDEO_TITLE</td>
+</tr>
+<tr class="row-even"><td>SORT_METHOD_TRACKNUM</td>
+<td>SORT_METHOD_FILE</td>
+<td>SORT_METHOD_TITLE</td>
+</tr>
+<tr class="row-odd"><td>SORT_METHOD_TITLE_IGNORE_THE</td>
+<td>SORT_METHOD_LABEL</td>
+<td>SORT_METHOD_LABEL_IGNORE_THE</td>
+</tr>
+<tr class="row-even"><td>SORT_METHOD_VIDEO_SORT_TITLE</td>
+<td>SORT_METHOD_FULLPATH</td>
+<td>SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE</td>
+</tr>
+<tr class="row-odd"><td>SORT_METHOD_LABEL_IGNORE_FOLDERS</td>
+<td>SORT_METHOD_CHANNEL</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>To add multiple sort methods just call the method multiple times.</p>
+<p>Added new sort <strong>SORT_METHOD_DATE_TAKEN</strong>, <strong>SORT_METHOD_COUNTRY</strong>,
+<strong>SORT_METHOD_DATEADDED</strong>, <strong>SORT_METHOD_FULLPATH</strong>,
+<strong>SORT_METHOD_LABEL_IGNORE_FOLDERS</strong>, <strong>SORT_METHOD_LASTPLAYED</strong>,
+<strong>SORT_METHOD_PLAYCOUNT</strong>, <strong>SORT_METHOD_CHANNEL</strong>.</p>
+<p>Added new sort <strong>SORT_METHOD_VIDEO_USER_RATING</strong>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">addSortMethod</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">xbmcplugin</span><span class="o">.</span><span class="n">SORTMETHOD_DATEADDED</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.getSetting">
+<code class="descclassname">xbmcplugin.</code><code class="descname">getSetting</code><span class="sig-paren">(</span><em>handle</em>, <em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#getSetting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.getSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of a setting as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>id</strong> – string - id of the setting that the module needs to access.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Setting value as string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as a keyword.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apikey</span> <span class="o">=</span> <span class="n">xbmcplugin</span><span class="o">.</span><span class="n">getSetting</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;apikey&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.setSetting">
+<code class="descclassname">xbmcplugin.</code><code class="descname">setSetting</code><span class="sig-paren">(</span><em>handle</em>, <em>id</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#setSetting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.setSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a plugin setting for the current running plugin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>id</strong> – string - id of the setting that the module needs to access.</li>
+<li><strong>value</strong> – string or unicode - value of the setting.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">setSetting</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;teamxbmc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.setContent">
+<code class="descclassname">xbmcplugin.</code><code class="descname">setContent</code><span class="sig-paren">(</span><em>handle</em>, <em>content</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#setContent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.setContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the plugins content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>content</strong> – string - content type (eg. movies)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Available content strings</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="22%" />
+<col width="25%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>files</td>
+<td>songs</td>
+<td>artists</td>
+<td>albums</td>
+</tr>
+<tr class="row-even"><td>movies</td>
+<td>tvshows</td>
+<td>episodes</td>
+<td>musicvideos</td>
+</tr>
+<tr class="row-odd"><td>videos</td>
+<td>images</td>
+<td>games</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Use <strong>videos</strong> for all videos which do not apply to the more specific
+mentioned ones like “movies”, “episodes” etc. A good example is youtube.</p>
+<p>Added new <strong>games</strong> content</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;movies&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.setPluginCategory">
+<code class="descclassname">xbmcplugin.</code><code class="descname">setPluginCategory</code><span class="sig-paren">(</span><em>handle</em>, <em>category</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#setPluginCategory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.setPluginCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the plugins name for skins to display.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>category</strong> – string or unicode - plugins sub category.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">setPluginCategory</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.setPluginFanart">
+<code class="descclassname">xbmcplugin.</code><code class="descname">setPluginFanart</code><span class="sig-paren">(</span><em>handle</em>, <em>image=None</em>, <em>color1=None</em>, <em>color2=None</em>, <em>color3=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#setPluginFanart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.setPluginFanart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the plugins fanart and color for skins to display.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>image</strong> – [opt] string - path to fanart image.</li>
+<li><strong>color1</strong> – [opt] hexstring - color1. (e.g. ‘0xFFFFFFFF’)</li>
+<li><strong>color2</strong> – [opt] hexstring - color2. (e.g. ‘0xFFFF3300’)</li>
+<li><strong>color3</strong> – [opt] hexstring - color3. (e.g. ‘0xFF000000’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">setPluginFanart</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;special://home/addons/plugins/video/Apple movie trailers II/fanart.png&#39;</span><span class="p">,</span> <span class="n">color2</span><span class="o">=</span><span class="s1">&#39;0xFFFF3300&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcplugin.setProperty">
+<code class="descclassname">xbmcplugin.</code><code class="descname">setProperty</code><span class="sig-paren">(</span><em>handle</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcplugin.html#setProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcplugin.setProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a container property for this plugin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>handle</strong> – integer - handle the plugin was started with.</li>
+<li><strong>key</strong> – string - property name.</li>
+<li><strong>value</strong> – string or unicode - value of property.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Key is NOT case sensitive.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcplugin</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;Emulator&#39;</span><span class="p">,</span> <span class="s1">&#39;M.A.M.E.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Kodistubs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=romanvm&repo=Kodistubs&type=star&v=2&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using.html">Using Kodistubs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">Kodi Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="xbmc.html">xbmc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcaddon.html">xbmcaddon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcdrm.html">xbmcdrm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcgui.html">xbmcgui</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">xbmcplugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcvfs.html">xbmcvfs</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../modules.html">Kodi Python API</a><ul>
+      <li>Previous: <a href="xbmcgui.html" title="previous chapter">xbmcgui</a></li>
+      <li>Next: <a href="xbmcvfs.html" title="next chapter">xbmcvfs</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Roman Miroshnychenko.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+    <a href="https://github.com/romanvm/Kodistubs" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

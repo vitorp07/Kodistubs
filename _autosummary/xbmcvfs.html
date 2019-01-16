@@ -1,0 +1,679 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xbmcvfs &#8212; Kodistubs 18.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="xbmcplugin" href="xbmcplugin.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xbmcvfs">
+<span id="xbmcvfs"></span><h1>xbmcvfs<a class="headerlink" href="#module-xbmcvfs" title="Permalink to this headline">¶</a></h1>
+<p>Virtual file system functions on Kodi.</p>
+<p>Offers classes and functions offers
+access to the Virtual File Server (VFS) which you can use to manipulate files
+and folders.</p>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcvfs.File" title="xbmcvfs.File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">File</span></code></a>(filepath[,&nbsp;mode])</td>
+<td>Kodi’s file class.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcvfs.Stat" title="xbmcvfs.Stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stat</span></code></a>(path)</td>
+<td>Get file or file system status.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcvfs.copy" title="xbmcvfs.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(strSource,&nbsp;strDestination)</td>
+<td>Copy file to destination, returns true/false.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcvfs.delete" title="xbmcvfs.delete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete</span></code></a>(file)</td>
+<td>Delete a file</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcvfs.rename" title="xbmcvfs.rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename</span></code></a>(file,&nbsp;newFile)</td>
+<td>Rename a file</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcvfs.exists" title="xbmcvfs.exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exists</span></code></a>(path)</td>
+<td>Check for a file or folder existence</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcvfs.mkdir" title="xbmcvfs.mkdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdir</span></code></a>(path)</td>
+<td>Create a folder.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcvfs.mkdirs" title="xbmcvfs.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(path)</td>
+<td>Make all directories along the path</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcvfs.rmdir" title="xbmcvfs.rmdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rmdir</span></code></a>(path[,&nbsp;force])</td>
+<td>Remove a folder.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmcvfs.listdir" title="xbmcvfs.listdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listdir</span></code></a>(path)</td>
+<td>Lists content of a folder.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="xbmcvfs.File">
+<em class="property">class </em><code class="descclassname">xbmcvfs.</code><code class="descname">File</code><span class="sig-paren">(</span><em>filepath</em>, <em>mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#File"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.File" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s file class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> – string Selected file path</li>
+<li><strong>mode</strong> – [opt] string Additional mode options (if no mode is supplied,</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>the default is Open for Read).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Mode</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>w</td>
+<td>Open for write</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmcvfs.File.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>numBytes=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#File.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.File.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read file parts as string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bytes</strong> – [opt] How many bytes to read - if not set it will read
+the whole file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.File.readBytes">
+<code class="descname">readBytes</code><span class="sig-paren">(</span><em>numBytes=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#File.readBytes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.File.readBytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read bytes from file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>numbytes</strong> – How many bytes to read [opt]- if not set it will read
+the whole file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bytearray</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.File.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#File.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.File.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>To write given data in file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>buffer</strong> – Buffer to write to file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True on success.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.File.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#File.size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.File.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the file size.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The file size</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.File.seek">
+<code class="descname">seek</code><span class="sig-paren">(</span><em>seekBytes</em>, <em>iWhence</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#File.seek"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.File.seek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seek to position in file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>seekBytes</strong> – position in the file</li>
+<li><strong>iWhence</strong> – where in a file to seek from[0 beginning, 1 current ,
+2 end position]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">8129</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.File.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#File.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.File.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close opened file.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmcvfs.Stat">
+<em class="property">class </em><code class="descclassname">xbmcvfs.</code><code class="descname">Stat</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Get file or file system status.</p>
+<p>These class return information about a file. Execute (search) permission is
+required on all of the directories in path that lead to the file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – [string] file or folder</td>
+</tr>
+</tbody>
+</table>
+<p>New function added</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">Stat</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">modified</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_mode">
+<code class="descname">st_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get file protection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_mode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_ino">
+<code class="descname">st_ino</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_ino"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_ino" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get inode number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_ino</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_dev">
+<code class="descname">st_dev</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_dev"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_dev" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get ID of device containing file.</p>
+<p>The st_dev field describes the device on which this file resides.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_dev</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_nlink">
+<code class="descname">st_nlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_nlink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_nlink" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get number of hard links.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_nlink</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_uid">
+<code class="descname">st_uid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_uid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_uid" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get user ID of owner.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_uid</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_gid">
+<code class="descname">st_gid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_gid" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get group ID of owner.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_gid</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_size">
+<code class="descname">st_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get total size, in bytes.</p>
+<p>The st_size field gives the size of the file (if it is a regular file
+or a symbolic link) in bytes. The size of a symbolic link
+(only on Linux and Mac OS X) is the length of the pathname it contains,
+without a terminating null byte.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_size</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_atime">
+<code class="descname">st_atime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_atime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_atime" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get time of last access.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_atime</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_mtime">
+<code class="descname">st_mtime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_mtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_mtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get time of last modification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_mtime</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcvfs.Stat.st_ctime">
+<code class="descname">st_ctime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#Stat.st_ctime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.Stat.st_ctime" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get time of last status change.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">st_ctime</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.copy">
+<code class="descclassname">xbmcvfs.</code><code class="descname">copy</code><span class="sig-paren">(</span><em>strSource</em>, <em>strDestination</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy file to destination, returns true/false.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>source</strong> – file to copy.</li>
+<li><strong>destination</strong> – destination file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.delete">
+<code class="descclassname">xbmcvfs.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> – File to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if successed</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmcvfs</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.rename">
+<code class="descclassname">xbmcvfs.</code><code class="descname">rename</code><span class="sig-paren">(</span><em>file</em>, <em>newFile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename a file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>file</strong> – File to rename</li>
+<li><strong>newFileName</strong> – New filename, including the full path</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Moving files between different filesystem (eg. local to <a class="reference external" href="nfs://">nfs://</a>) is not
+possible on all platforms. You may have to do it manually by using the copy
+and deleteFile functions.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">newFileName</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.exists">
+<code class="descclassname">xbmcvfs.</code><code class="descname">exists</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for a file or folder existence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – File or folder (folder must end with slash or backslash)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if successed</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.mkdir">
+<code class="descclassname">xbmcvfs.</code><code class="descname">mkdir</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#mkdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.mkdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – Folder to create</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if successed</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.mkdirs">
+<code class="descclassname">xbmcvfs.</code><code class="descname">mkdirs</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#mkdirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.mkdirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make all directories along the path</p>
+<p>Create folder(s) - it will create all folders in the path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – Folders to create</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if successed</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">mkdirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.rmdir">
+<code class="descclassname">xbmcvfs.</code><code class="descname">rmdir</code><span class="sig-paren">(</span><em>path</em>, <em>force=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#rmdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.rmdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – Folder to remove</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if successed</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmcvfs.listdir">
+<code class="descclassname">xbmcvfs.</code><code class="descname">listdir</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcvfs.html#listdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcvfs.listdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists content of a folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – Folder to get list from</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Directory content list</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">xbmcvfs</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Kodistubs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=romanvm&repo=Kodistubs&type=star&v=2&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using.html">Using Kodistubs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">Kodi Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="xbmc.html">xbmc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcaddon.html">xbmcaddon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcdrm.html">xbmcdrm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcgui.html">xbmcgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcplugin.html">xbmcplugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">xbmcvfs</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../modules.html">Kodi Python API</a><ul>
+      <li>Previous: <a href="xbmcplugin.html" title="previous chapter">xbmcplugin</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Roman Miroshnychenko.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+    <a href="https://github.com/romanvm/Kodistubs" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

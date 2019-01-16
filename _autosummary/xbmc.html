@@ -1,0 +1,3387 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xbmc &#8212; Kodistubs 18.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="xbmcaddon" href="xbmcaddon.html" />
+    <link rel="prev" title="Kodi Python API" href="../modules.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xbmc">
+<span id="xbmc"></span><h1>xbmc<a class="headerlink" href="#module-xbmc" title="Permalink to this headline">¶</a></h1>
+<p>General functions on Kodi</p>
+<p>Offers classes and functions that provide
+information about the media currently playing and that allow manipulation of
+the media player (such as starting a new song). You can also find system
+information using the functions available in this library.</p>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.InfoTagMusic" title="xbmc.InfoTagMusic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InfoTagMusic</span></code></a>()</td>
+<td>Kodi’s music info tag class</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.InfoTagRadioRDS" title="xbmc.InfoTagRadioRDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InfoTagRadioRDS</span></code></a>()</td>
+<td>Kodi’s radio RDS info tag class</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.InfoTagVideo" title="xbmc.InfoTagVideo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InfoTagVideo</span></code></a>()</td>
+<td>Kodi’s video info tag class</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.Keyboard" title="xbmc.Keyboard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Keyboard</span></code></a>([line,&nbsp;heading,&nbsp;hidden])</td>
+<td>Kodi’s keyboard class</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.Monitor" title="xbmc.Monitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Monitor</span></code></a>()</td>
+<td>Kodi’s monitor class</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.Player" title="xbmc.Player"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Player</span></code></a>([playerCore])</td>
+<td>Kodi’s player</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.PlayList" title="xbmc.PlayList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlayList</span></code></a>(playList)</td>
+<td>Kodi’s Play List class.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.RenderCapture" title="xbmc.RenderCapture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderCapture</span></code></a>()</td>
+<td>Kodi’s render capture.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.log" title="xbmc.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>(msg[,&nbsp;level])</td>
+<td>Write a string to Kodi’s log file and the debug window.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.shutdown" title="xbmc.shutdown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shutdown</span></code></a>()</td>
+<td>Shutdown the htpc.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.restart" title="xbmc.restart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restart</span></code></a>()</td>
+<td>Restart the htpc.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.executescript" title="xbmc.executescript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executescript</span></code></a>(script)</td>
+<td>Execute a python script.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.executebuiltin" title="xbmc.executebuiltin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executebuiltin</span></code></a>(function[,&nbsp;wait])</td>
+<td>Execute a built in Kodi function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.executeJSONRPC" title="xbmc.executeJSONRPC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executeJSONRPC</span></code></a>(jsonrpccommand)</td>
+<td>Execute an JSONRPC command.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.sleep" title="xbmc.sleep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep</span></code></a>(timemillis)</td>
+<td>Sleeps for ‘time’ msec.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getLocalizedString" title="xbmc.getLocalizedString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLocalizedString</span></code></a>(id)</td>
+<td>Get a localized ‘unicode string’.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getSkinDir" title="xbmc.getSkinDir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSkinDir</span></code></a>()</td>
+<td>Get the active skin directory.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getLanguage" title="xbmc.getLanguage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLanguage</span></code></a>([format,&nbsp;region])</td>
+<td>Get the active language.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getIPAddress" title="xbmc.getIPAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getIPAddress</span></code></a>()</td>
+<td>Get the current ip address.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getDVDState" title="xbmc.getDVDState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDVDState</span></code></a>()</td>
+<td>Returns the dvd state as an integer.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getFreeMem" title="xbmc.getFreeMem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFreeMem</span></code></a>()</td>
+<td>Get amount of free memory in MB.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getInfoLabel" title="xbmc.getInfoLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInfoLabel</span></code></a>(cLine)</td>
+<td>Get a info label</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getInfoImage" title="xbmc.getInfoImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInfoImage</span></code></a>(infotag)</td>
+<td>Get filename including path to the InfoImage’s thumbnail.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.playSFX" title="xbmc.playSFX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">playSFX</span></code></a>(filename[,&nbsp;useCached])</td>
+<td>Plays a wav file by filename</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.stopSFX" title="xbmc.stopSFX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stopSFX</span></code></a>()</td>
+<td>Stops wav file</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.enableNavSounds" title="xbmc.enableNavSounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enableNavSounds</span></code></a>(yesNo)</td>
+<td>Enables/Disables nav sounds</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getCondVisibility" title="xbmc.getCondVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCondVisibility</span></code></a>(condition)</td>
+<td>Get visibility conditions</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getGlobalIdleTime" title="xbmc.getGlobalIdleTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getGlobalIdleTime</span></code></a>()</td>
+<td>Get the elapsed idle time in seconds.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getCacheThumbName" title="xbmc.getCacheThumbName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCacheThumbName</span></code></a>(path)</td>
+<td>Get thumb cache filename.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.makeLegalFilename" title="xbmc.makeLegalFilename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeLegalFilename</span></code></a>(filename[,&nbsp;fatX])</td>
+<td>Returns a legal filename or path as a string.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.translatePath" title="xbmc.translatePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translatePath</span></code></a>(path)</td>
+<td>Returns the translated path.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getCleanMovieTitle" title="xbmc.getCleanMovieTitle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCleanMovieTitle</span></code></a>(path[,&nbsp;usefoldername])</td>
+<td>Get clean movie title and year string if available.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.validatePath" title="xbmc.validatePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validatePath</span></code></a>(path)</td>
+<td>Returns the validated path.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getRegion" title="xbmc.getRegion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRegion</span></code></a>(id)</td>
+<td>Returns your regions setting as a string for the specified id.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getSupportedMedia" title="xbmc.getSupportedMedia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSupportedMedia</span></code></a>(mediaType)</td>
+<td>Get the supported file types for the specific media.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.skinHasImage" title="xbmc.skinHasImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">skinHasImage</span></code></a>(image)</td>
+<td>Check skin for presence of Image.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.startServer" title="xbmc.startServer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startServer</span></code></a>(iTyp,&nbsp;bStart[,&nbsp;bWait])</td>
+<td>Start or stop a server.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.audioSuspend" title="xbmc.audioSuspend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">audioSuspend</span></code></a>()</td>
+<td>Suspend Audio engine.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.audioResume" title="xbmc.audioResume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">audioResume</span></code></a>()</td>
+<td>Resume Audio engine.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getUserAgent" title="xbmc.getUserAgent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getUserAgent</span></code></a>()</td>
+<td>Returns Kodi’s HTTP UserAgent string</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.convertLanguage" title="xbmc.convertLanguage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convertLanguage</span></code></a>(language,&nbsp;format)</td>
+<td>Returns the given language converted to the given format as a string.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="xbmc.InfoTagMusic">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">InfoTagMusic</code><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s music info tag class</p>
+<p>To get music info tag data of currently played source.</p>
+<p>Info tag load is only be possible from present player class.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tag</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">getMusicInfoTag</span><span class="p">()</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">getTitle</span><span class="p">()</span>
+<span class="n">url</span>   <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">getURL</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getDbId">
+<code class="descname">getDbId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getDbId"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getDbId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get identification number of tag in database</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] database id.</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getURL">
+<code class="descname">getURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getURL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns url of source as string from music info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Url of source</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getTitle">
+<code class="descname">getTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the title from music as string on info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Music title</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getMediaType">
+<code class="descname">getMediaType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getMediaType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getMediaType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the media type of the music item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] media type</td>
+</tr>
+</tbody>
+</table>
+<p>Available strings about media type for music:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">String</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>artist</td>
+<td>If it is defined as an artist</td>
+</tr>
+<tr class="row-odd"><td>album</td>
+<td>If it is defined as an album</td>
+</tr>
+<tr class="row-even"><td>song</td>
+<td>If it is defined as a song</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getArtist">
+<code class="descname">getArtist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getArtist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getArtist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the artist from music as string if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Music artist</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getAlbum">
+<code class="descname">getAlbum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getAlbum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getAlbum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the album from music tag as string if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Music album name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getAlbumArtist">
+<code class="descname">getAlbumArtist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getAlbumArtist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getAlbumArtist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the album artist from music tag as string if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Music album artist name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getGenre">
+<code class="descname">getGenre</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getGenre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getGenre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the genre name from music tag as string if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Genre name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getDuration">
+<code class="descname">getDuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getDuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the duration of music as integer from info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Duration</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getRating">
+<code class="descname">getRating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getRating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the scraped rating as integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Rating</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getUserRating">
+<code class="descname">getUserRating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getUserRating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getUserRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user rating as integer (-1 if not existing)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] User rating</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getTrack">
+<code class="descname">getTrack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getTrack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getTrack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the track number (if present) from music info tag as integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Track number</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getDisc">
+<code class="descname">getDisc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getDisc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getDisc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the disk number (if present) from music info tag as integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Disc number</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getReleaseDate">
+<code class="descname">getReleaseDate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getReleaseDate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getReleaseDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the release date as string from music info tag (if present).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Release date</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getListeners">
+<code class="descname">getListeners</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getListeners"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getListeners" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the listeners as integer from music info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Listeners</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getPlayCount">
+<code class="descname">getPlayCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getPlayCount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getPlayCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of carried out playbacks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Playback count</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getLastPlayed">
+<code class="descname">getLastPlayed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getLastPlayed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getLastPlayed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns last played time as string from music info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Last played date / time on tag</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getComment">
+<code class="descname">getComment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getComment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getComment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns comment as string from music info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Comment on tag</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getLyrics">
+<code class="descname">getLyrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagMusic.getLyrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagMusic.getLyrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string from lyrics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Lyrics on tag</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.InfoTagRadioRDS">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">InfoTagRadioRDS</code><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s radio RDS info tag class</p>
+<p>To get radio RDS info tag data of currently played PVR radio channel source.</p>
+<p>Info tag load is only be possible from present player class.
+Also is all the data variable from radio channels and not known on beginning
+of radio receiving.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tag</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">getRadioRDSInfoTag</span><span class="p">()</span>
+
+<span class="n">title</span>  <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">getTitle</span><span class="p">()</span>
+<span class="n">artist</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">getArtist</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getTitle">
+<code class="descname">getTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title of the item on the air; i.e. song title.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Title</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getBand">
+<code class="descname">getBand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getBand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getBand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Band of the item on air.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Band</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getArtist">
+<code class="descname">getArtist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getArtist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getArtist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Artist of the item on air.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Artist</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getComposer">
+<code class="descname">getComposer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getComposer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getComposer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Composer of the music.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Composer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getConductor">
+<code class="descname">getConductor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getConductor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getConductor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Conductor of the Band.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Conductor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getAlbum">
+<code class="descname">getAlbum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getAlbum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getAlbum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Album of item on air.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Album name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getComment">
+<code class="descname">getComment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getComment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getComment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Comment text from channel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Comment</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getAlbumTrackNumber">
+<code class="descname">getAlbumTrackNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getAlbumTrackNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getAlbumTrackNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the album track number of currently sended music.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Track Number</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoNews">
+<code class="descname">getInfoNews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoNews"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoNews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get News informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">News Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoNewsLocal">
+<code class="descname">getInfoNewsLocal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoNewsLocal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoNewsLocal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Local news informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Local News Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoSport">
+<code class="descname">getInfoSport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoSport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoSport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Sport informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Sport Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoStock">
+<code class="descname">getInfoStock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoStock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoStock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Stock informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Stock Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoWeather">
+<code class="descname">getInfoWeather</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoWeather"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoWeather" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Weather informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Weather Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoHoroscope">
+<code class="descname">getInfoHoroscope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoHoroscope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoHoroscope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Horoscope informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Horoscope Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoCinema">
+<code class="descname">getInfoCinema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoCinema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoCinema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Cinema informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Cinema Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoLottery">
+<code class="descname">getInfoLottery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoLottery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoLottery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Lottery informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Lottery Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getInfoOther">
+<code class="descname">getInfoOther</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getInfoOther"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getInfoOther" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get other informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Other Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getEditorialStaff">
+<code class="descname">getEditorialStaff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getEditorialStaff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getEditorialStaff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Editorial Staff names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Editorial Staff</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getProgStation">
+<code class="descname">getProgStation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getProgStation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getProgStation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name describing station.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Program Station</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getProgStyle">
+<code class="descname">getProgStyle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getProgStyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getProgStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>The the radio channel style currently used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Program Style</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getProgHost">
+<code class="descname">getProgHost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getProgHost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getProgHost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host of current radio show.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Program Host</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getProgWebsite">
+<code class="descname">getProgWebsite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getProgWebsite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getProgWebsite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Link to URL (web page) for radio station homepage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Program Website</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getProgNow">
+<code class="descname">getProgNow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getProgNow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getProgNow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current radio program show.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Program Now</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getProgNext">
+<code class="descname">getProgNext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getProgNext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getProgNext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Next program show.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Program Next</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getPhoneHotline">
+<code class="descname">getPhoneHotline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getPhoneHotline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getPhoneHotline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Telephone number of the radio station’s hotline.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Phone Hotline</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getEMailHotline">
+<code class="descname">getEMailHotline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getEMailHotline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getEMailHotline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email address of the radio station’s studio.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">EMail Hotline</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getPhoneStudio">
+<code class="descname">getPhoneStudio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getPhoneStudio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getPhoneStudio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Telephone number of the radio station’s studio.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Phone Studio</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getEMailStudio">
+<code class="descname">getEMailStudio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getEMailStudio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getEMailStudio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email address of radio station studio.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">EMail Studio</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagRadioRDS.getSMSStudio">
+<code class="descname">getSMSStudio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagRadioRDS.getSMSStudio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagRadioRDS.getSMSStudio" title="Permalink to this definition">¶</a></dt>
+<dd><p>SMS (Text Messaging) number for studio.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">SMS Studio</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.InfoTagVideo">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">InfoTagVideo</code><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s video info tag class</p>
+<p>To get video info tag data of currently played source.</p>
+<p>Info tag load is only be possible from present player class.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tag</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">getVideoInfoTag</span><span class="p">()</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">getTitle</span><span class="p">()</span>
+<span class="n">file</span>  <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">getFile</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getDbId">
+<code class="descname">getDbId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getDbId"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getDbId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get identification number of tag in database</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] database id</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getDirector">
+<code class="descname">getDirector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getDirector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getDirector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get film director who has made the film (if present).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Film director name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getWritingCredits">
+<code class="descname">getWritingCredits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getWritingCredits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getWritingCredits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the writing credits if present from video info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Writing credits</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getGenre">
+<code class="descname">getGenre</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getGenre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getGenre" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the Video Genre if available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Genre name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTagLine">
+<code class="descname">getTagLine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getTagLine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getTagLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get video tag line if available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Video tag line</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPlotOutline">
+<code class="descname">getPlotOutline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getPlotOutline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getPlotOutline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the outline plot of the video if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Outline plot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPlot">
+<code class="descname">getPlot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getPlot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the plot of the video if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Plot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPictureURL">
+<code class="descname">getPictureURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getPictureURL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getPictureURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a picture URL of the video to show as screenshot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Picture URL</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTitle">
+<code class="descname">getTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the video title.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Video title</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTVShowTitle">
+<code class="descname">getTVShowTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getTVShowTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getTVShowTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the video TV show title.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] TV show title</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getMediaType">
+<code class="descname">getMediaType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getMediaType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getMediaType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the media type of the video.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] media type</td>
+</tr>
+</tbody>
+</table>
+<p>Available strings about media type for video:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">String</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>video</td>
+<td>For normal video</td>
+</tr>
+<tr class="row-odd"><td>set</td>
+<td>For a selection of video</td>
+</tr>
+<tr class="row-even"><td>musicvideo</td>
+<td>To define it as music video</td>
+</tr>
+<tr class="row-odd"><td>movie</td>
+<td>To define it as normal movie</td>
+</tr>
+<tr class="row-even"><td>tvshow</td>
+<td>If this is it defined as tvshow</td>
+</tr>
+<tr class="row-odd"><td>season</td>
+<td>The type is used as a series season</td>
+</tr>
+<tr class="row-even"><td>episode</td>
+<td>The type is used as a series episode</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getVotes">
+<code class="descname">getVotes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getVotes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getVotes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the video votes if available from video info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Votes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getCast">
+<code class="descname">getCast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getCast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getCast" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the cast of the video when available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Video casts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getFile">
+<code class="descname">getFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the video file name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] File name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPath">
+<code class="descname">getPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the path where the video is stored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Path</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getIMDBNumber">
+<code class="descname">getIMDBNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getIMDBNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getIMDBNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the IMDb number of the video (if present).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] IMDb number</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getSeason">
+<code class="descname">getSeason</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getSeason"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getSeason" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get season number of a series</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] season number</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getEpisode">
+<code class="descname">getEpisode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getEpisode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getEpisode" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get episode number of a series</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] episode number</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getYear">
+<code class="descname">getYear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getYear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getYear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get production year of video if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Production Year</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getRating">
+<code class="descname">getRating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getRating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the video rating if present as float (double where supported).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[float] The rating of the video</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getUserRating">
+<code class="descname">getUserRating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getUserRating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getUserRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the user rating if present as integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] The user rating of the video</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPlayCount">
+<code class="descname">getPlayCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getPlayCount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getPlayCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the number of plays of the video.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[integer] Play Count</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getLastPlayed">
+<code class="descname">getLastPlayed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getLastPlayed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getLastPlayed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the last played date / time as string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Last played date / time</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getOriginalTitle">
+<code class="descname">getOriginalTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getOriginalTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getOriginalTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the original title of the video.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Original title</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPremiered">
+<code class="descname">getPremiered</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getPremiered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getPremiered" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get premiered date of the video, if available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getFirstAired">
+<code class="descname">getFirstAired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getFirstAired"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getFirstAired" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns first aired date as string from info tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] First aired date</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTrailer">
+<code class="descname">getTrailer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getTrailer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getTrailer" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the path where the trailer is stored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Trailer path</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getArtist">
+<code class="descname">getArtist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getArtist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getArtist" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the artist name (for musicvideos)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List[str] Artist name</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getAlbum">
+<code class="descname">getAlbum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getAlbum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getAlbum" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the album name (for musicvideos)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[string] Album name</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTrack">
+<code class="descname">getTrack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getTrack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getTrack" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the track number (for musicvideos)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[int] Track number</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getDuration">
+<code class="descname">getDuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#InfoTagVideo.getDuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.InfoTagVideo.getDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the duration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[unsigned int] Duration</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.Keyboard">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">Keyboard</code><span class="sig-paren">(</span><em>line=''</em>, <em>heading=''</em>, <em>hidden=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Keyboard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Keyboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s keyboard class</p>
+<p>Creates a new Keyboard object with default text heading and hidden input
+flag if supplied.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>default</strong> – : [opt] string - default text entry.</li>
+<li><strong>heading</strong> – : [opt] string - keyboard heading.</li>
+<li><strong>hidden</strong> – : [opt] boolean - True for hidden text entry.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">Keyboard</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;heading&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">setDefault</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span> <span class="c1"># optional</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">setHeading</span><span class="p">(</span><span class="s1">&#39;Enter password&#39;</span><span class="p">)</span> <span class="c1"># optional</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">setHiddenInput</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># optional</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">doModal</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">kb</span><span class="o">.</span><span class="n">isConfirmed</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmc.Keyboard.doModal">
+<code class="descname">doModal</code><span class="sig-paren">(</span><em>autoclose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Keyboard.doModal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Keyboard.doModal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show keyboard and wait for user action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>autoclose</strong> – [opt] integer - milliseconds to autoclose dialog.
+default=do not autoclose)</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">doModal</span><span class="p">(</span><span class="mi">30000</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.setDefault">
+<code class="descname">setDefault</code><span class="sig-paren">(</span><em>line=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Keyboard.setDefault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Keyboard.setDefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default text entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line</strong> – string - default text entry.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">setDefault</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.setHiddenInput">
+<code class="descname">setHiddenInput</code><span class="sig-paren">(</span><em>hidden=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Keyboard.setHiddenInput"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Keyboard.setHiddenInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows hidden text entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hidden</strong> – boolean - True for hidden text entry.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">setHiddenInput</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.setHeading">
+<code class="descname">setHeading</code><span class="sig-paren">(</span><em>heading</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Keyboard.setHeading"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Keyboard.setHeading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the keyboard heading.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>heading</strong> – string - keyboard heading.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">setHeading</span><span class="p">(</span><span class="s1">&#39;Enter password&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.getText">
+<code class="descname">getText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Keyboard.getText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Keyboard.getText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user input as a string.</p>
+<p>This will always return the text entry even if you cancel the keyboard.
+Use the isConfirmed() method to check if user cancelled the keyboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">get the in keyboard entered text</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.isConfirmed">
+<code class="descname">isConfirmed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Keyboard.isConfirmed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Keyboard.isConfirmed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns False if the user cancelled the input.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true if confirmed, if cancelled false</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">kb</span><span class="o">.</span><span class="n">isConfirmed</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.Monitor">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">Monitor</code><a class="reference internal" href="../_modules/xbmc.html#Monitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s monitor class</p>
+<p>Creates a new monitor to notify addon about changes.</p>
+<dl class="method">
+<dt id="xbmc.Monitor.onSettingsChanged">
+<code class="descname">onSettingsChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onSettingsChanged"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onSettingsChanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>onSettingsChanged method.</p>
+<p>Will be called when addon settings are changed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onScreensaverActivated">
+<code class="descname">onScreensaverActivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onScreensaverActivated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onScreensaverActivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScreensaverActivated method.</p>
+<p>Will be called when screensaver kicks in</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onScreensaverDeactivated">
+<code class="descname">onScreensaverDeactivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onScreensaverDeactivated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onScreensaverDeactivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScreensaverDeactivated method.</p>
+<p>Will be called when screensaver goes off</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onDPMSActivated">
+<code class="descname">onDPMSActivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onDPMSActivated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onDPMSActivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onDPMSActivated method.</p>
+<p>Will be called when energysaving/DPMS gets active</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onDPMSDeactivated">
+<code class="descname">onDPMSDeactivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onDPMSDeactivated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onDPMSDeactivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onDPMSDeactivated method.</p>
+<p>Will be called when energysaving/DPMS is turned off</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onScanStarted">
+<code class="descname">onScanStarted</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onScanStarted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onScanStarted" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScanStarted method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – Video / music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library clean has ended and return video or music
+to indicate which library is being scanned</p>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onScanFinished">
+<code class="descname">onScanFinished</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onScanFinished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onScanFinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScanFinished method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – Video / music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library clean has ended and return video or music
+to indicate which library has been scanned</p>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onDatabaseScanStarted">
+<code class="descname">onDatabaseScanStarted</code><span class="sig-paren">(</span><em>database</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onDatabaseScanStarted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onDatabaseScanStarted" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Deprecated. Use <strong>onScanStarted()</strong>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onDatabaseUpdated">
+<code class="descname">onDatabaseUpdated</code><span class="sig-paren">(</span><em>database</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onDatabaseUpdated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onDatabaseUpdated" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Deprecated. Use <strong>onScanFinished()</strong>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onCleanStarted">
+<code class="descname">onCleanStarted</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onCleanStarted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onCleanStarted" title="Permalink to this definition">¶</a></dt>
+<dd><p>onCleanStarted method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – Video / music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library clean has ended and return video or music
+to indicate which library has been cleaned</p>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onCleanFinished">
+<code class="descname">onCleanFinished</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onCleanFinished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onCleanFinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>onCleanFinished method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – Video / music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library clean has ended and return video or music
+to indicate which library has been finished</p>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onAbortRequested">
+<code class="descname">onAbortRequested</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onAbortRequested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onAbortRequested" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Deprecated. Use <strong>waitForAbort()</strong> to be notified about this event.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onNotification">
+<code class="descname">onNotification</code><span class="sig-paren">(</span><em>sender</em>, <em>method</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.onNotification"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.onNotification" title="Permalink to this definition">¶</a></dt>
+<dd><p>onNotification method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sender</strong> – Sender of the notification</li>
+<li><strong>method</strong> – Name of the notification</li>
+<li><strong>data</strong> – JSON-encoded data of the notification</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when Kodi receives or sends a notification</p>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.waitForAbort">
+<code class="descname">waitForAbort</code><span class="sig-paren">(</span><em>timeout=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.waitForAbort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.waitForAbort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for Abort</p>
+<p>Block until abort is requested, or until timeout occurs. If an abort
+requested have already been made, return immediately.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>timeout</strong> – [opt] float - timeout in seconds. Default: no timeout.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True when abort have been requested,
+False if a timeout is given and the operation times out.</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.abortRequested">
+<code class="descname">abortRequested</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Monitor.abortRequested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Monitor.abortRequested" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if abort has been requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if requested</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.Player">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">Player</code><span class="sig-paren">(</span><em>playerCore=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s player</p>
+<p>To become and create the class to play something.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">listitem</span><span class="p">,</span> <span class="n">windowed</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmc.Player.play">
+<code class="descname">play</code><span class="sig-paren">(</span><em>item=''</em>, <em>listitem=None</em>, <em>windowed=False</em>, <em>startpos=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.play"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>item</strong> – [opt] string - filename, url or playlist</li>
+<li><strong>listitem</strong> – [opt] listitem - used with setInfo() to set different
+infolabels.</li>
+<li><strong>windowed</strong> – [opt] bool - true=play video windowed,
+false=play users preference.(default)</li>
+<li><strong>startpos</strong> – [opt] int - starting position when playing a playlist.
+Default = -1</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If item is not given then the Player will try to play the current item
+in the current playlist. You can use the above as keywords for arguments
+and skip certain optional arguments. Once you use a keyword,
+all following arguments require the keyword.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listitem</span> <span class="o">=</span> <span class="n">xbmcgui</span><span class="o">.</span><span class="n">ListItem</span><span class="p">(</span><span class="s1">&#39;Ironman&#39;</span><span class="p">)</span>
+<span class="n">listitem</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;Ironman&#39;</span><span class="p">,</span> <span class="s1">&#39;Genre&#39;</span><span class="p">:</span> <span class="s1">&#39;Science Fiction&#39;</span><span class="p">})</span>
+<span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">listitem</span><span class="p">,</span> <span class="n">windowed</span><span class="p">)</span>
+<span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">playlist</span><span class="p">,</span> <span class="n">listitem</span><span class="p">,</span> <span class="n">windowed</span><span class="p">,</span> <span class="n">startpos</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop playing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.pause">
+<code class="descname">pause</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.pause"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause or resume playing if already paused.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.playnext">
+<code class="descname">playnext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.playnext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.playnext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play next item in playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.playprevious">
+<code class="descname">playprevious</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.playprevious"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.playprevious" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play previous item in playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.playselected">
+<code class="descname">playselected</code><span class="sig-paren">(</span><em>selected</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.playselected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.playselected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a certain item from the current playlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selected</strong> – Integer - Item to select</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isPlaying">
+<code class="descname">isPlaying</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.isPlaying"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.isPlaying" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check Kodi is playing something.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if Kodi is playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isPlayingAudio">
+<code class="descname">isPlayingAudio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.isPlayingAudio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.isPlayingAudio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for playing audio.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if Kodi is playing an audio file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isPlayingVideo">
+<code class="descname">isPlayingVideo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.isPlayingVideo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.isPlayingVideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for playing video.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if Kodi is playing a video.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isPlayingRDS">
+<code class="descname">isPlayingRDS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.isPlayingRDS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.isPlayingRDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for playing radio data system (RDS).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if kodi is playing a radio data system (RDS).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isExternalPlayer">
+<code class="descname">isExternalPlayer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.isExternalPlayer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.isExternalPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for external player.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if kodi is playing using an external player.</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getPlayingFile">
+<code class="descname">getPlayingFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getPlayingFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getPlayingFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current playing file as a string.</p>
+<p>For LiveTV, returns a <code class="docutils literal notranslate"><span class="pre">pvr://</span></code> url which is not translatable to
+an OS specific file or external url.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Playing filename</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getTime">
+<code class="descname">getTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get playing time.</p>
+<p>Returns the current time of the current playing media as fractional seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Current time as fractional seconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.seekTime">
+<code class="descname">seekTime</code><span class="sig-paren">(</span><em>seekTime</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.seekTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.seekTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seek time.</p>
+<p>Seeks the specified amount of time as fractional seconds. The time
+specified is relative to the beginning of the currently
+playing media file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>seekTime</strong> – Time to seek as fractional seconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.setSubtitles">
+<code class="descname">setSubtitles</code><span class="sig-paren">(</span><em>subtitleFile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.setSubtitles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.setSubtitles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set subtitle file and enable subtitles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subtitleFile</strong> – File to use as source of subtitles</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.showSubtitles">
+<code class="descname">showSubtitles</code><span class="sig-paren">(</span><em>bVisible</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.showSubtitles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.showSubtitles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable / disable subtitles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>visible</strong> – [boolean] True for visible subtitles.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">showSubtitles</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getSubtitles">
+<code class="descname">getSubtitles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getSubtitles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getSubtitles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get subtitle stream name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Stream name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getAvailableSubtitleStreams">
+<code class="descname">getAvailableSubtitleStreams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getAvailableSubtitleStreams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getAvailableSubtitleStreams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Subtitle stream names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of subtitle streams as name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.setSubtitleStream">
+<code class="descname">setSubtitleStream</code><span class="sig-paren">(</span><em>iStream</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.setSubtitleStream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.setSubtitleStream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Subtitle Stream.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iStream</strong> – [int] Subtitle stream to select for play</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">setSubtitleStream</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.updateInfoTag">
+<code class="descname">updateInfoTag</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.updateInfoTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.updateInfoTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update info labels for currently playing item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> – ListItem with new info</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">xbmcgui</span><span class="o">.</span><span class="n">ListItem</span><span class="p">()</span>
+<span class="n">item</span><span class="o">.</span><span class="n">setPath</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">getPlayingFile</span><span class="p">())</span>
+<span class="n">item</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span><span class="s1">&#39;music&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span> <span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;artist&#39;</span> <span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
+<span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">updateInfoTag</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getVideoInfoTag">
+<code class="descname">getVideoInfoTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getVideoInfoTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getVideoInfoTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get video info tag.</p>
+<p>Returns the VideoInfoTag of the current playing Movie.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Video info tag</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file or current file
+is not a movie file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getMusicInfoTag">
+<code class="descname">getMusicInfoTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getMusicInfoTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getMusicInfoTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get music info tag.</p>
+<p>Returns the MusicInfoTag of the current playing ‘Song’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Music info tag</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file or current file
+is not a music file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getRadioRDSInfoTag">
+<code class="descname">getRadioRDSInfoTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getRadioRDSInfoTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getRadioRDSInfoTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get Radio RDS info tag</p>
+<p>Returns the RadioRDSInfoTag of the current playing ‘Radio Song if. present’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Radio RDS info tag</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file or current file
+is not a rds file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getTotalTime">
+<code class="descname">getTotalTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getTotalTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getTotalTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get total playing time.</p>
+<p>Returns the total time of the current playing media in seconds.
+This is only accurate to the full second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Total time of the current playing media</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – If player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getAvailableAudioStreams">
+<code class="descname">getAvailableAudioStreams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getAvailableAudioStreams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getAvailableAudioStreams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Audio stream names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of audio streams as name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.setAudioStream">
+<code class="descname">setAudioStream</code><span class="sig-paren">(</span><em>iStream</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.setAudioStream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.setAudioStream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Audio Stream.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iStream</strong> – [int] Audio stream to select for play</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">setAudioStream</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getAvailableVideoStreams">
+<code class="descname">getAvailableVideoStreams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.getAvailableVideoStreams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.getAvailableVideoStreams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Video stream names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of video streams as name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.setVideoStream">
+<code class="descname">setVideoStream</code><span class="sig-paren">(</span><em>iStream</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#Player.setVideoStream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.Player.setVideoStream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Video Stream.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iStream</strong> – [int] Video stream to select for play</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">setVideoStream</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.PlayList">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">PlayList</code><span class="sig-paren">(</span><em>playList</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s Play List class.</p>
+<p>To create and edit a playlist which can be handled by the player.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>playList</strong> – [integer] To define the stream type</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="32%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Integer String</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>xbmc.PLAYLIST_MUSIC</td>
+<td>Playlist for music files or streams</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>xbmc.PLAYLIST_VIDEO</td>
+<td>Playlist for video files or streams</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">play</span><span class="o">=</span><span class="n">xbmc</span><span class="o">.</span><span class="n">PlayList</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">PLAYLIST_VIDEO</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmc.PlayList.getPlayListId">
+<code class="descname">getPlayListId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.getPlayListId"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.getPlayListId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the PlayList Identifier</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Id as an integer.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>url</em>, <em>listitem=None</em>, <em>index=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new file to the playlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>url</strong> – string or unicode - filename or url to add.</li>
+<li><strong>listitem</strong> – [opt] listitem - used with setInfo() to set different
+infolabels.</li>
+<li><strong>index</strong> – [opt] integer - position to add playlist item. (default=end)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments and skip certain optional
+arguments. Once you use a keyword, all following arguments require
+the keyword.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">playlist</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">PlayList</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">PLAYLIST_VIDEO</span><span class="p">)</span>
+<span class="n">video</span> <span class="o">=</span> <span class="s1">&#39;F:\movies\Ironman.mov&#39;</span>
+<span class="n">listitem</span> <span class="o">=</span> <span class="n">xbmcgui</span><span class="o">.</span><span class="n">ListItem</span><span class="p">(</span><span class="s1">&#39;Ironman&#39;</span><span class="p">,</span> <span class="n">thumbnailImage</span><span class="o">=</span><span class="s1">&#39;F:\movies\Ironman.tbn&#39;</span><span class="p">)</span>
+<span class="n">listitem</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;Ironman&#39;</span><span class="p">,</span> <span class="s1">&#39;Genre&#39;</span><span class="p">:</span> <span class="s1">&#39;Science Fiction&#39;</span><span class="p">})</span>
+<span class="n">playlist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">video</span><span class="p">,</span> <span class="n">listitem</span><span class="o">=</span><span class="n">listitem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="n">n</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a playlist.</p>
+<p>Clear current playlist and copy items from the file to this Playlist
+filename can be like .pls or .m3u</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – File with list to play inside</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">False if unable to load playlist</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an item with this filename from the playlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – The file to remove from list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all items in the playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the total number of PlayListItems in this playlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Amount of playlist entries.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.shuffle">
+<code class="descname">shuffle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.shuffle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffle the playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.unshuffle">
+<code class="descname">unshuffle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.unshuffle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.unshuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unshuffle the playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.getposition">
+<code class="descname">getposition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#PlayList.getposition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.PlayList.getposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the current song in this playlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Position of the current song</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.RenderCapture">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">RenderCapture</code><a class="reference internal" href="../_modules/xbmc.html#RenderCapture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.RenderCapture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s render capture.</p>
+<dl class="method">
+<dt id="xbmc.RenderCapture.getWidth">
+<code class="descname">getWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#RenderCapture.getWidth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.RenderCapture.getWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get width</p>
+<p>To get width of captured image as set during RenderCapture.capture().
+Returns 0 prior to calling capture.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Width or 0 prior to calling capture</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getHeight">
+<code class="descname">getHeight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#RenderCapture.getHeight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.RenderCapture.getHeight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get height</p>
+<p>To get height of captured image as set during RenderCapture.capture().
+Returns 0 prior to calling capture.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">height or 0 prior to calling capture</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getAspectRatio">
+<code class="descname">getAspectRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#RenderCapture.getAspectRatio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.RenderCapture.getAspectRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get aspect ratio of currently displayed video.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Aspect ratio</td>
+</tr>
+</tbody>
+</table>
+<p>This may be called prior to calling RenderCapture.capture().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getImageFormat">
+<code class="descname">getImageFormat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#RenderCapture.getImageFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.RenderCapture.getImageFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get image format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Format of captured image: ‘BGRA’</td>
+</tr>
+</tbody>
+</table>
+<p>Image will now always be returned in BGRA</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getImage">
+<code class="descname">getImage</code><span class="sig-paren">(</span><em>msecs=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#RenderCapture.getImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.RenderCapture.getImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns captured image as a bytearray.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msecs</strong> – [opt] Milliseconds to wait. Waits 1000ms if not specified</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Captured image as a bytearray</td>
+</tr>
+</tbody>
+</table>
+<p>The size of the image is m_width * m_height * 4</p>
+<p>Added the option to specify wait time in msec.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.capture">
+<code class="descname">capture</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#RenderCapture.capture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.RenderCapture.capture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Issue capture request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> – Width capture image should be rendered to</li>
+<li><strong>height</strong> – Height capture image should should be rendered to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Removed the option to pass <strong>flags</strong></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.log">
+<code class="descclassname">xbmc.</code><code class="descname">log</code><span class="sig-paren">(</span><em>msg</em>, <em>level=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a string to Kodi’s log file and the debug window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>msg</strong> – string - text to output.</li>
+<li><strong>level</strong> – [opt] integer - log level to output at. (default=LOGDEBUG)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value:</th>
+<th class="head">Description:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xbmc.LOGDEBUG</td>
+<td>In depth information about the status of Kodi.
+This information can pretty much only be deciphered by
+a developer or long time Kodi power user.</td>
+</tr>
+<tr class="row-odd"><td>xbmc.LOGINFO</td>
+<td>Something has happened. It’s not a problem, we just thought
+you might want to know. Fairly excessive output that most
+people won’t care about.</td>
+</tr>
+<tr class="row-even"><td>xbmc.LOGNOTICE</td>
+<td>Similar to INFO but the average Joe might want to know
+about these events. This level and above are logged by
+default.</td>
+</tr>
+<tr class="row-odd"><td>xbmc.LOGWARNING</td>
+<td>Something potentially bad has happened. If Kodi did
+something you didn’t expect, this is probably why.
+Watch for errors to follow.</td>
+</tr>
+<tr class="row-even"><td>xbmc.LOGERROR</td>
+<td>This event is bad. Something has failed. You likely noticed
+problems with the application be it skin artifacts, failure
+of playback a crash, etc.</td>
+</tr>
+<tr class="row-odd"><td>xbmc.LOGFATAL</td>
+<td>We’re screwed. Kodi is about to crash.</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments and skip certain optional
+arguments. Once you use a keyword, all following arguments require
+the keyword.</p>
+<p>Text is written to the log for the following conditions.loglevel == -1
+(NONE, nothing at all is logged)</p>
+<p>loglevel == 0 (NORMAL, shows LOGNOTICE, LOGERROR, LOGSEVERE and LOGFATAL)</p>
+<p>loglevel == 1 (DEBUG, shows all) See pydocs for valid values for level.</p>
+<p>Default level changed from LOGNOTICE to LOGDEBUG</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;This is a test string.&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">xbmc</span><span class="o">.</span><span class="n">LOGDEBUG</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.shutdown">
+<code class="descclassname">xbmc.</code><code class="descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#shutdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the htpc.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.restart">
+<code class="descclassname">xbmc.</code><code class="descname">restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#restart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restart the htpc.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">restart</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.executescript">
+<code class="descclassname">xbmc.</code><code class="descname">executescript</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#executescript"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.executescript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a python script.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> – string - script filename to execute.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="s1">&#39;special://home/scripts/update.py&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.executebuiltin">
+<code class="descclassname">xbmc.</code><code class="descname">executebuiltin</code><span class="sig-paren">(</span><em>function</em>, <em>wait=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#executebuiltin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.executebuiltin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a built in Kodi function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> – string - builtin function to execute.</td>
+</tr>
+</tbody>
+</table>
+<p>List of functions - &lt;<a class="reference external" href="http://kodi.wiki/view/List_of_Built_In_Functions">http://kodi.wiki/view/List_of_Built_In_Functions</a>&gt;</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">executebuiltin</span><span class="p">(</span><span class="s1">&#39;Skin.SetString(abc,def)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.executeJSONRPC">
+<code class="descclassname">xbmc.</code><code class="descname">executeJSONRPC</code><span class="sig-paren">(</span><em>jsonrpccommand</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#executeJSONRPC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.executeJSONRPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an JSONRPC command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>jsonrpccommand</strong> – string - jsonrpc command to execute.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">jsonrpc return string</td>
+</tr>
+</tbody>
+</table>
+<p>List of commands - &lt;<a class="reference external" href="https://kodi.wiki/view/JSON-RPC_API/v9">https://kodi.wiki/view/JSON-RPC_API/v9</a>&gt;</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">executeJSONRPC</span><span class="p">(</span><span class="s1">&#39;{ &quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;JSONRPC.Introspect&quot;, &quot;id&quot;: 1 }&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.sleep">
+<code class="descclassname">xbmc.</code><code class="descname">sleep</code><span class="sig-paren">(</span><em>timemillis</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#sleep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleeps for ‘time’ msec.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time</strong> – integer - number of msec to sleep.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – If time is not an integer.</td>
+</tr>
+</tbody>
+</table>
+<p>This is useful if you have for example a Player class that is waiting for
+onPlayBackEnded() calls.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="c1"># sleeps for 2 seconds</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getLocalizedString">
+<code class="descclassname">xbmc.</code><code class="descname">getLocalizedString</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getLocalizedString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getLocalizedString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a localized ‘unicode string’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – integer - id# for string you want to localize.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Localized ‘unicode string’</td>
+</tr>
+</tbody>
+</table>
+<p>See strings.xml in  <code class="docutils literal notranslate"><span class="pre">\language\{yourlanguage}\</span></code>
+for which id you need for a string.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locstr</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getLocalizedString</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getSkinDir">
+<code class="descclassname">xbmc.</code><code class="descname">getSkinDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getSkinDir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getSkinDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active skin directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The active skin directory as a string</td>
+</tr>
+</tbody>
+</table>
+<p>This is not the full path like ‘special://home/addons/MediaCenter’, but
+only ‘MediaCenter’.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skindir</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getSkinDir</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getLanguage">
+<code class="descclassname">xbmc.</code><code class="descname">getLanguage</code><span class="sig-paren">(</span><em>format=2</em>, <em>region=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getLanguage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getLanguage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active language.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>format</strong> – [opt] format of the returned language string</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xbmc.ISO_639_1</td>
+<td>Two letter code as defined in ISO 639-1</td>
+</tr>
+<tr class="row-odd"><td>xbmc.ISO_639_2</td>
+<td>Three letter code as defined in ISO 639-2/T or ISO 639-2/B</td>
+</tr>
+<tr class="row-even"><td>xbmc.ENGLISH_NAME</td>
+<td>Full language name in English (default)</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>region</strong> – [opt] append the region delimited by “-” of the language
+(setting) to the returned language string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The active language as a string</td>
+</tr>
+</tbody>
+</table>
+<p>Added new options <strong>format</strong> and <strong>region</strong>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">language</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getLanguage</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">ENGLISH_NAME</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getIPAddress">
+<code class="descclassname">xbmc.</code><code class="descname">getIPAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getIPAddress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getIPAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current ip address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The current ip address as a string</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ip</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getIPAddress</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getDVDState">
+<code class="descclassname">xbmc.</code><code class="descname">getDVDState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getDVDState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getDVDState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dvd state as an integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Values for state are:</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>xbmc.DRIVE_NOT_READY</td>
+</tr>
+<tr class="row-odd"><td>16</td>
+<td>xbmc.TRAY_OPEN</td>
+</tr>
+<tr class="row-even"><td>64</td>
+<td>xbmc.TRAY_CLOSED_NO_MEDIA</td>
+</tr>
+<tr class="row-odd"><td>96</td>
+<td>xbmc.TRAY_CLOSED_MEDIA_PRESENT</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dvdstate</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getDVDState</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getFreeMem">
+<code class="descclassname">xbmc.</code><code class="descname">getFreeMem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getFreeMem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getFreeMem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get amount of free memory in MB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The amount of free memory in MB as an integer</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freemem</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getFreeMem</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getInfoLabel">
+<code class="descclassname">xbmc.</code><code class="descname">getInfoLabel</code><span class="sig-paren">(</span><em>cLine</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getInfoLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getInfoLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a info label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>infotag</strong> – string - infoTag for value you want returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">InfoLabel as a string</td>
+</tr>
+</tbody>
+</table>
+<p>List of InfoTags – &lt;<a class="reference external" href="http://kodi.wiki/view/InfoLabels">http://kodi.wiki/view/InfoLabels</a>&gt;</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">label</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getInfoLabel</span><span class="p">(</span><span class="s1">&#39;Weather.Conditions&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getInfoImage">
+<code class="descclassname">xbmc.</code><code class="descname">getInfoImage</code><span class="sig-paren">(</span><em>infotag</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getInfoImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getInfoImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get filename including path to the InfoImage’s thumbnail.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>infotag</strong> – string - infotag for value you want returned</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Filename including path to the InfoImage’s thumbnail as a string</td>
+</tr>
+</tbody>
+</table>
+<p>List of InfoTags – &lt;<a class="reference external" href="http://kodi.wiki/view/InfoLabels">http://kodi.wiki/view/InfoLabels</a>&gt;</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getInfoImage</span><span class="p">(</span><span class="s1">&#39;Weather.Conditions&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.playSFX">
+<code class="descclassname">xbmc.</code><code class="descname">playSFX</code><span class="sig-paren">(</span><em>filename</em>, <em>useCached=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#playSFX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.playSFX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays a wav file by filename</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> – string - filename of the wav file to play</li>
+<li><strong>useCached</strong> – [opt] bool - False = Dump any previously cached
+wav associated with filename</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Added new option <strong>useCached</strong>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">playSFX</span><span class="p">(</span><span class="s1">&#39;special://xbmc/scripts/dingdong.wav&#39;</span><span class="p">)</span>
+<span class="n">xbmc</span><span class="o">.</span><span class="n">playSFX</span><span class="p">(</span><span class="s1">&#39;special://xbmc/scripts/dingdong.wav&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.stopSFX">
+<code class="descclassname">xbmc.</code><code class="descname">stopSFX</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#stopSFX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.stopSFX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops wav file</p>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">stopSFX</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.enableNavSounds">
+<code class="descclassname">xbmc.</code><code class="descname">enableNavSounds</code><span class="sig-paren">(</span><em>yesNo</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#enableNavSounds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.enableNavSounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables/Disables nav sounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yesNo</strong> – integer - enable (True) or disable (False) nav sounds</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">enableNavSounds</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getCondVisibility">
+<code class="descclassname">xbmc.</code><code class="descname">getCondVisibility</code><span class="sig-paren">(</span><em>condition</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getCondVisibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getCondVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get visibility conditions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>condition</strong> – string - condition to check</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True (1) or False (0) as a bool</td>
+</tr>
+</tbody>
+</table>
+<p>List of Conditions – &lt;<a class="reference external" href="http://kodi.wiki/view/List_of_Boolean_Conditions">http://kodi.wiki/view/List_of_Boolean_Conditions</a>&gt;</p>
+<p>You can combine two (or more) of the above settings by using <strong>“+”</strong>
+as an AND operator, <strong>“|”</strong> as an OR operator, <strong>“!”</strong> as a NOT operator,
+and <strong>“[“</strong> and <strong>“]”</strong> to bracket expressions.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">visible</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getCondVisibility</span><span class="p">(</span><span class="s1">&#39;[Control.IsVisible(41) + !Control.IsVisible(12)]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getGlobalIdleTime">
+<code class="descclassname">xbmc.</code><code class="descname">getGlobalIdleTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getGlobalIdleTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getGlobalIdleTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the elapsed idle time in seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Elapsed idle time in seconds as an integer</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getGlobalIdleTime</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getCacheThumbName">
+<code class="descclassname">xbmc.</code><code class="descname">getCacheThumbName</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getCacheThumbName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getCacheThumbName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get thumb cache filename.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – string or unicode - path to file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Thumb cache filename</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thumb</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getCacheThumbName</span><span class="p">(</span><span class="s1">&#39;f:</span><span class="se">\v</span><span class="s1">ideos\movie.avi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.makeLegalFilename">
+<code class="descclassname">xbmc.</code><code class="descname">makeLegalFilename</code><span class="sig-paren">(</span><em>filename</em>, <em>fatX=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#makeLegalFilename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.makeLegalFilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a legal filename or path as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> – string or unicode - filename/path to make legal</li>
+<li><strong>fatX</strong> – [opt] bool - True=Xbox file system(Default)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Legal filename or path as a string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If fatX is true you should pass a full path. If fatX is false only pass
+the basename of the path. You can use the above as keywords for arguments
+and skip certain optional arguments. Once you use a keyword, all following
+arguments require the keyword.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">makeLegalFilename</span><span class="p">(</span><span class="s1">&#39;F:\Trailers\Ice Age: The Meltdown.avi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.translatePath">
+<code class="descclassname">xbmc.</code><code class="descname">translatePath</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#translatePath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.translatePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the translated path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – string or unicode - Path to format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Translated path</td>
+</tr>
+</tbody>
+</table>
+<p>Only useful if you are coding for both Linux and Windows. e.g.
+converts <code class="docutils literal notranslate"><span class="pre">'special://masterprofile/script_data'</span></code> -&gt;
+<code class="docutils literal notranslate"><span class="pre">'/home/user/XBMC/UserData/script_data'</span></code> on Linux.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fpath</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">translatePath</span><span class="p">(</span><span class="s1">&#39;special://masterprofile/script_data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getCleanMovieTitle">
+<code class="descclassname">xbmc.</code><code class="descname">getCleanMovieTitle</code><span class="sig-paren">(</span><em>path</em>, <em>usefoldername=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getCleanMovieTitle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getCleanMovieTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get clean movie title and year string if available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – string or unicode - String to clean</li>
+<li><strong>usefoldername</strong> – [opt] bool - use folder names (defaults to false)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Clean movie title and year string if available.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getCleanMovieTitle</span><span class="p">(</span><span class="s1">&#39;/path/to/moviefolder/test.avi&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.validatePath">
+<code class="descclassname">xbmc.</code><code class="descname">validatePath</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#validatePath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.validatePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the validated path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – string or unicode - Path to format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Validated path</td>
+</tr>
+</tbody>
+</table>
+<p>Only useful if you are coding for both Linux and Windows for fixing slash
+problems. e.g. Corrects <code class="docutils literal notranslate"><span class="pre">'Z://something'</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">'Z:'</span></code></p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fpath</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">validatePath</span><span class="p">(</span><span class="n">somepath</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getRegion">
+<code class="descclassname">xbmc.</code><code class="descname">getRegion</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns your regions setting as a string for the specified id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of setting to return</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Region setting</td>
+</tr>
+</tbody>
+</table>
+<p>choices are (dateshort, datelong, time, meridiem, tempunit, speedunit)
+You can use the above as keywords for arguments.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_long_format</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getRegion</span><span class="p">(</span><span class="s1">&#39;datelong&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getSupportedMedia">
+<code class="descclassname">xbmc.</code><code class="descname">getSupportedMedia</code><span class="sig-paren">(</span><em>mediaType</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getSupportedMedia"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getSupportedMedia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the supported file types for the specific media.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>media</strong> – string - media type</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Supported file types for the specific media as a string</td>
+</tr>
+</tbody>
+</table>
+<p>Media type can be (video, music, picture). The return value is a pipe
+separated string of filetypes (eg. ‘.mov|.avi’). You can use the above
+as keywords for arguments.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mTypes</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getSupportedMedia</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.skinHasImage">
+<code class="descclassname">xbmc.</code><code class="descname">skinHasImage</code><span class="sig-paren">(</span><em>image</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#skinHasImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.skinHasImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check skin for presence of Image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> – string - image filename</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the image file exists in the skin</td>
+</tr>
+</tbody>
+</table>
+<p>If the media resides in a subfolder include it.
+(eg. home-myfileshome-myfiles2.png). You can use the above as keywords
+for arguments.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exists</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">skinHasImage</span><span class="p">(</span><span class="s1">&#39;ButtonFocusedTexture.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.startServer">
+<code class="descclassname">xbmc.</code><code class="descname">startServer</code><span class="sig-paren">(</span><em>iTyp</em>, <em>bStart</em>, <em>bWait=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#startServer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.startServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start or stop a server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>typ</strong> – integer - use SERVER_* constantsUsed format of the returned
+language string</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xbmc.SERVER_WEBSERVER</td>
+<td>To control Kodi’s builtin webserver</td>
+</tr>
+<tr class="row-odd"><td>xbmc.SERVER_AIRPLAYSERVER</td>
+<td>AirPlay is a proprietary protocol stack/suite
+developed by Apple Inc.</td>
+</tr>
+<tr class="row-even"><td>xbmc.SERVER_JSONRPCSERVER</td>
+<td>Control JSON-RPC HTTP/TCP socket-based interface</td>
+</tr>
+<tr class="row-odd"><td>xbmc.SERVER_UPNPRENDERER</td>
+<td>UPnP client (aka UPnP renderer)</td>
+</tr>
+<tr class="row-even"><td>xbmc.SERVER_UPNPSERVER</td>
+<td>Control built-in UPnP A/V media server
+(UPnP-server)</td>
+</tr>
+<tr class="row-odd"><td>xbmc.SERVER_EVENTSERVER</td>
+<td>Set eventServer part that accepts remote device
+input on all platforms</td>
+</tr>
+<tr class="row-even"><td>xbmc.SERVER_ZEROCONF</td>
+<td>Control Kodi’s Avahi Zeroconf</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bStart</strong> – bool - start (True) or stop (False) a server</li>
+<li><strong>bWait</strong> – [opt] bool - wait on stop before returning
+(not supported by all servers)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bool - True or False</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">startServer</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">SERVER_AIRPLAYSERVER</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.audioSuspend">
+<code class="descclassname">xbmc.</code><code class="descname">audioSuspend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#audioSuspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.audioSuspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend Audio engine.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">audioSuspend</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.audioResume">
+<code class="descclassname">xbmc.</code><code class="descname">audioResume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#audioResume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.audioResume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume Audio engine.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">audioResume</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getUserAgent">
+<code class="descclassname">xbmc.</code><code class="descname">getUserAgent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#getUserAgent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.getUserAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Kodi’s HTTP UserAgent string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">HTTP user agent</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">getUserAgent</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>example output:
+<code class="docutils literal notranslate"><span class="pre">'Kodi/17.0-ALPHA1</span> <span class="pre">(X11;</span> <span class="pre">Linux</span> <span class="pre">x86_64)</span> <span class="pre">Ubuntu/15.10</span> <span class="pre">App_Bitness/64</span> <span class="pre">Version/17.0-ALPHA1-Git:2015-12-23-5770d28'</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.convertLanguage">
+<code class="descclassname">xbmc.</code><code class="descname">convertLanguage</code><span class="sig-paren">(</span><em>language</em>, <em>format</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmc.html#convertLanguage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmc.convertLanguage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the given language converted to the given format as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>language</strong> – string either as name in English, two letter code
+(ISO 639-1), or three letter code (ISO 639-2/T(B)</li>
+<li><strong>format</strong> – format of the returned language string</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xbmc.ISO_639_1</td>
+<td>Two letter code as defined in ISO 639-1</td>
+</tr>
+<tr class="row-odd"><td>xbmc.ISO_639_2</td>
+<td>Three letter code as defined in ISO 639-2/T or ISO 639-2/B</td>
+</tr>
+<tr class="row-even"><td>xbmc.ENGLISH_NAME</td>
+<td>Full language name in English (default)</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Converted Language string</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">language</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">convertLanguage</span><span class="p">(</span><span class="n">English</span><span class="p">,</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">ISO_639_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Kodistubs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=romanvm&repo=Kodistubs&type=star&v=2&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using.html">Using Kodistubs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">Kodi Python API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">xbmc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcaddon.html">xbmcaddon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcdrm.html">xbmcdrm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcgui.html">xbmcgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcplugin.html">xbmcplugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcvfs.html">xbmcvfs</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../modules.html">Kodi Python API</a><ul>
+      <li>Previous: <a href="../modules.html" title="previous chapter">Kodi Python API</a></li>
+      <li>Next: <a href="xbmcaddon.html" title="next chapter">xbmcaddon</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Roman Miroshnychenko.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+    <a href="https://github.com/romanvm/Kodistubs" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

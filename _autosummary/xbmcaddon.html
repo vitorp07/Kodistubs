@@ -1,0 +1,498 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xbmcaddon &#8212; Kodistubs 18.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="xbmcdrm" href="xbmcdrm.html" />
+    <link rel="prev" title="xbmc" href="xbmc.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xbmcaddon">
+<span id="xbmcaddon"></span><h1>xbmcaddon<a class="headerlink" href="#module-xbmcaddon" title="Permalink to this headline">¶</a></h1>
+<p>Kodi’s addon class</p>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmcaddon.Addon" title="xbmcaddon.Addon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Addon</span></code></a>([id])</td>
+<td>Kodi’s addon class</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<dl class="class">
+<dt id="xbmcaddon.Addon">
+<em class="property">class </em><code class="descclassname">xbmcaddon.</code><code class="descname">Addon</code><span class="sig-paren">(</span><em>id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Kodi’s addon class</p>
+<p>Offers classes and functions that manipulate the add-on settings, information
+and localization.</p>
+<p>Creates a new AddOn class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – [opt] string - id of the addon as specified in addon.xml</td>
+</tr>
+</tbody>
+</table>
+<p>Specifying the addon id is not needed. Important however is that the addon
+folder has the same name as the AddOn id provided in addon.xml.
+You can optionally specify the addon id from another installed addon
+to retrieve settings from it.**id** is optional as it will be auto detected
+for this add-on instance.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">Addon</span> <span class="o">=</span> <span class="n">xbmcaddon</span><span class="o">.</span><span class="n">Addon</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">Addon</span> <span class="o">=</span> <span class="n">xbmcaddon</span><span class="o">.</span><span class="n">Addon</span><span class="p">(</span><span class="s1">&#39;script.foo.bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmcaddon.Addon.getLocalizedString">
+<code class="descname">getLocalizedString</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.getLocalizedString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.getLocalizedString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an addon’s localized ‘unicode string’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – integer - id# for string you want to localize.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Localized ‘unicode string’</td>
+</tr>
+</tbody>
+</table>
+<p><strong>id</strong> is optional as it will be auto detected for this add-on instance.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locstr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">getLocalizedString</span><span class="p">(</span><span class="mi">32000</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.getSetting">
+<code class="descname">getSetting</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.getSetting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.getSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of a setting as a unicode string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of the setting that the module needs to access.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Setting as a unicode string</td>
+</tr>
+</tbody>
+</table>
+<p><strong>id</strong> is optional as it will be auto detected for this add-on instance.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apikey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">getSetting</span><span class="p">(</span><span class="s1">&#39;apikey&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.getSettingBool">
+<code class="descname">getSettingBool</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.getSettingBool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.getSettingBool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of a setting as a boolean.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of the setting that the module needs to access.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Setting as a boolean</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enabled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">getSettingBool</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.getSettingInt">
+<code class="descname">getSettingInt</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.getSettingInt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.getSettingInt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of a setting as an integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of the setting that the module needs to access.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Setting as an integer</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">getSettingInt</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.getSettingNumber">
+<code class="descname">getSettingNumber</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.getSettingNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.getSettingNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of a setting as a floating point number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of the setting that the module needs to access.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Setting as a floating point number</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">getSettingNumber</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.getSettingString">
+<code class="descname">getSettingString</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.getSettingString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.getSettingString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of a setting as a unicode string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of the setting that the module needs to access.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Setting as a unicode string</td>
+</tr>
+</tbody>
+</table>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apikey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">getSettingString</span><span class="p">(</span><span class="s1">&#39;apikey&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.setSetting">
+<code class="descname">setSetting</code><span class="sig-paren">(</span><em>id</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.setSetting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.setSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a script setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> – string - id of the setting that the module needs to access.</li>
+<li><strong>value</strong> – string or unicode - value of the setting.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments.**id** is optional
+as it will be auto detected for this add-on instance.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">setSetting</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;teamkodi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.setSettingBool">
+<code class="descname">setSettingBool</code><span class="sig-paren">(</span><em>id</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.setSettingBool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.setSettingBool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a script setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> – string - id of the setting that the module needs to access.</li>
+<li><strong>value</strong> – boolean - value of the setting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the value of the setting was set, false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments.</p>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">setSettingBool</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;enabled&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.setSettingInt">
+<code class="descname">setSettingInt</code><span class="sig-paren">(</span><em>id</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.setSettingInt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.setSettingInt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a script setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> – string - id of the setting that the module needs to access.</li>
+<li><strong>value</strong> – integer - value of the setting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the value of the setting was set, false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments.</p>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">setSettingInt</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.setSettingNumber">
+<code class="descname">setSettingNumber</code><span class="sig-paren">(</span><em>id</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.setSettingNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.setSettingNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a script setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> – string - id of the setting that the module needs to access.</li>
+<li><strong>value</strong> – float - value of the setting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the value of the setting was set, false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments.</p>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">setSettingNumber</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">5.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.setSettingString">
+<code class="descname">setSettingString</code><span class="sig-paren">(</span><em>id</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.setSettingString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.setSettingString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a script setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> – string - id of the setting that the module needs to access.</li>
+<li><strong>value</strong> – string or unicode - value of the setting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the value of the setting was set, false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments.</p>
+<p>New function added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">setSettingString</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;teamkodi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.openSettings">
+<code class="descname">openSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.openSettings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.openSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens this scripts settings dialog.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">openSettings</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmcaddon.Addon.getAddonInfo">
+<code class="descname">getAddonInfo</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/xbmcaddon.html#Addon.getAddonInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xbmcaddon.Addon.getAddonInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of an addon property as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of the property that the module needs to access.
+Choices for the property are:</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="25%" />
+<col width="30%" />
+<col width="28%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>author</td>
+<td>changelog</td>
+<td>description</td>
+<td>disclaimer</td>
+</tr>
+<tr class="row-even"><td>fanart</td>
+<td>icon</td>
+<td>id</td>
+<td>name</td>
+</tr>
+<tr class="row-odd"><td>path</td>
+<td>profile</td>
+<td>stars</td>
+<td>summary</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td>version</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">AddOn property as a string</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Addon</span><span class="o">.</span><span class="n">getAddonInfo</span><span class="p">(</span><span class="s1">&#39;version&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Kodistubs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=romanvm&repo=Kodistubs&type=star&v=2&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using.html">Using Kodistubs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">Kodi Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="xbmc.html">xbmc</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">xbmcaddon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcdrm.html">xbmcdrm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcgui.html">xbmcgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcplugin.html">xbmcplugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcvfs.html">xbmcvfs</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../modules.html">Kodi Python API</a><ul>
+      <li>Previous: <a href="xbmc.html" title="previous chapter">xbmc</a></li>
+      <li>Next: <a href="xbmcdrm.html" title="next chapter">xbmcdrm</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Roman Miroshnychenko.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+    <a href="https://github.com/romanvm/Kodistubs" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
